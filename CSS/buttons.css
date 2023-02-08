@@ -1,0 +1,29 @@
+.buttonslide {
+  z-index: 1;
+  position: relative;
+  outline: none;
+  background-color: var(--themeblue);
+}
+.buttonslide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 300ms ease-in-out;
+  background-color: rgb(55, 107, 240);
+}
+.buttonslide:hover::before {
+  transform: scale(1);
+}
+
+#LetsExplore {
+  font-size: 20px;
+  color: white;
+  border: none;
+  padding: 10px 34px;
+}

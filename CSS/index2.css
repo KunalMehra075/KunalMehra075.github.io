@@ -1,0 +1,130 @@
+/* div,
+section {
+  border: 1px solid black;
+} */
+
+.AllProjects {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  padding: 70px;
+}
+.OneProject {
+  position: relative;
+  height: 47vh;
+
+  border-radius: 5px;
+}
+.OPRBGB {
+  background-color: rgba(0, 0, 0, 0.498);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px;
+}
+
+.orangefrybg {
+  background: url(../Images/Icons/123.jpg);
+  background-size: cover;
+  background-position: left;
+}
+.astrybg {
+  background: url(../Images/Icons/159.jpg);
+  background-size: cover;
+  background-position: left;
+}
+.placemebg {
+  background: url(../Images/Icons/456.jpg);
+  background-size: cover;
+  background-position: left;
+}
+
+.stylezillabg {
+  background: url(../Images/Icons/789.jpg);
+  background-size: cover;
+  background-position: left;
+}
+
+.OnePRhead {
+  font-size: 3rem;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.OnePRdetails {
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#connect {
+  margin: auto;
+  background: url(../Images/connectbg.jpg);
+  background-size: cover;
+  min-height: 200px;
+  border-radius: 20px;
+  width: 100%;
+  padding: 30px 50px;
+}
+#letusconnect {
+  font-size: 7rem;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+}
+.connectsection {
+  display: flex;
+  justify-content: center;
+}
+.connectsection > div {
+  margin: 10px 20px;
+}
+
+.connectsection > div:nth-child(2) {
+  position: relative;
+}
+.connectsection input {
+  width: 205px;
+  padding: 7px 10px;
+  margin: 5px auto;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+}
+.connectsection textarea {
+  padding: 7px 10px;
+  margin: 5px auto;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  margin: 1px auto;
+}
+.connectsection label {
+  color: rgb(255, 255, 255);
+  font-size: 19px;
+  margin: 10px;
+}
+#email {
+  width: 435px;
+}
+#submit-button {
+  bottom: 0px;
+  width: 25%;
+  color: white;
+  font-size: 18px;
+  background-color: rgb(27, 200, 41);
+  margin: 1px 5px;
+  padding: 10px 30px;
+}
+#connectsubmitdiv {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

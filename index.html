@@ -5,19 +5,360 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kunal Mehra</title>
-    <!-- <link rel="stylesheet" href="index.css"> -->
+    <!--??--------------------------------------------- <Favicon> ----------------------------------------------->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--??--------------------------------------------- <CSS FILES> ----------------------------------------------->
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="CSS/index2.css" />
+    <link rel="stylesheet" href="CSS/modal.css" />
+    <link rel="stylesheet" href="CSS/buttons.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
   </head>
+
   <body>
-    <!--?--------------------------------------------- Header ----------------------------------------------->
-    <header></header>
-    <!--?--------------------------------------------- Main Body ----------------------------------------------->
+    <!--!--------------------------------------------- <Essentials> ----------------------------------------------->
+    <div id="preloader"><h2>Loading..</h2></div>
+      <div class="progress-bar">
+      <div class="filled"></div>
+    </div>
+
+    <!--todo--------------------------------------------- Header ----------------------------------------------->
+    <header>
+      <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary mx-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img width="30px" height="30px" src="Images/Icons/K.png" alt="" />
+            Kunal Mehra</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="login">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup">Projects</a>
+              </li>
+              <li>
+                <button id="ResumeButton" class="nav-link">
+                  <img
+                    id="downloadresume"
+                    src="Images/Icons/download.svg"
+                    alt=""
+                  />
+                  Resume
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--todo--------------------------------------------- Main Body ----------------------------------------------->
     <main>
-      <section>
-        <h1>This is my Portfrolio</h1>
+      <div class="FirstView">
+        <div class="Introbox">
+          <h1>Hello!</h1>
+          <h1 id="kunal">Kunal Mehra</h1>
+          <br />
+          <h2 id="intro">A Full Stack Web Developer📌</h2>
+          <br />
+          <p>
+            So hey, I am currently learning at Masai Coding School.<br />
+            I created this website purely through HTML, CSS and JavaScript
+          </p>
+          <div id="Letsexploreparent"><button id="LetsExplore" class="buttonslide">Lets Explore</button></div>
+        </div>
+
+        <div>
+          <img id="firstviewimg" src="Images/codergif.gif" alt="" />
+        </div>
+        <!-- <h1>There will be 2 divs, 1 image , 1 for intro</h1> -->
+      </div>
+
+      <!--??--------------------------------------------- <Portfolio Section> ----------------------------------------------->
+
+      <section id="portfolio">
+        <h1 id="about" class="SectionHeads">About Me</h1>
+        <br />
+
+        <div>
+          <div><img id="silky" src="Images/Profile.jpg" alt="" /></div>
+          <div class="portfolio-content">
+            <h1 id="helloiam" class="profileheading">Hi! I am Kunal Mehra</h1>
+            <p>
+              <label style="color: rgb(0, 98, 255)">I</label>
+              am a graphic designer who knows how to present concepts that are
+              aligned with your business image and goals. With one foot in the
+              artistic world and another in marketing, the right graphic
+              designer can be a significant value add to your company, brand,
+              and bottom line.
+            </p>
+            <label id="checkoutbio"><a href="#">Checkout My Bio</a></label>
+            <br />
+
+            <div id="logos">
+              <div>
+                <a href="https://www.linkedin.com/in/khanak-mehra-588661252/"
+                  ><img src="#" alt=""
+                /></a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/astral_exe/"
+                  ><img src="#" alt=""
+                /></a>
+              </div>
+              <div>
+                <a href=""><img src="#" alt="" /></a>
+              </div>
+              <div>
+                <a href=""><img src="#" alt="" /></a>
+              </div>
+            </div>
+            <div>
+              <p style="color: orange">Contact Me Here!</p>
+              <p>
+                I assure you the quickest response you might recieve from me
+                would be on an email - not a social media DM.
+              </p>
+
+              <p style="color: orange">Email:</p>
+              <a>khanakmehra240304@gmail.com</a>
+            </div>
+          </div>
+        </div>
       </section>
+      <!--??--------------------------------------------- <Projects> ----------------------------------------------->
+      <section id="project_section">
+        <h1 id="projectHead" class="SectionHeads">PROJECTS</h1>
+        <br />
+        <div class="AllProjects">
+          <div class="OneProject orangefrybg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="OPRBGB">
+            <div class="OnePRhead">OrangeFry.com</div>
+            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Click here to know more
+               </button>
+            </div>
+            
+          </div>
+          </div>
+
+          <div class="OneProject stylezillabg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OPRBGB" >
+              <div class="OnePRhead stylezilla_head">StyleZilla.com</div>
+            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Click here to know more
+              </button>
+            </div>
+            </div>
+            
+          </div>
+          <div class="OneProject placemebg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OPRBGB">
+              <div class="OnePRhead stylezilla_head">PlaceMe.com</div>
+            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Click here to know more
+              </button>
+            </div>
+            </div>
+            
+          </div>
+          <div class="OneProject astrybg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OPRBGB">
+              <div class="OnePRhead stylezilla_head">Astry.com</div>
+            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Click here to know more
+              </button>
+            </div>
+            </div>
+            
+          </div>
+       
+      </section>
+<div id="MODAL">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"><h1>Project OrangeFry</h1></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- here is project details -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--todo--------------------------------------------- <Github Section> ----------------------------------------------->
+      <section id="project_section">
+        <h1 class="SectionHeads">Github </h1>
+     <div>
+      <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+<!-- First -->
+<p>
+ <a href="https://github.com/KunalMehra075">
+ <img
+      src="https://github-readme-streak-stats.herokuapp.com?user=KunalMehra075&theme=github-dark&hide_border=true&date_format=j%20M%5B%20Y%5D"
+      alt="streak" width="70%"/>
+</a>
+
+   <img width="28%" src="https://user-images.githubusercontent.com/112753481/216208514-cfc0f69b-978f-4e78-b04e-5db9f1316eb2.gif" alt="codergif"/>
+</p>
+<img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+<br>
+
+<!--Second  -->
+
+ <p>
+    <a href="https://github.com/KunalMehra075"><span>
+      <img align="left"
+          src="https://github-readme-stats.vercel.app/api?username=KunalMehra075&show_icons=true&locale=en&theme=github_dark&hide_border=true"
+          alt="ovi" width="45%"  />
+      <img align="right" 
+          src="https://github-readme-stats.vercel.app/api/top-langs?username=KunalMehra075&show_icons=true&locale=en&layout=compact&theme=transparent&hide_border=true"
+          alt="ovi" width="45%" />
+      </span></a>
+  </p>
+<br>
+
+<br>
+
+  
+  <p align="center">
+    <a href="https://github.com/KunalMehra075"><span>
+        <img align="center"
+          src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=KunalMehra075&theme=github_dark" width="100%" />
+      </span></a>
+  </p>
+  
+  <!-- Divider -->
+<img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+<br>
+     </div>
+      </section>
+<!--todo--------------------------------------------- <Tech Stack Section> ----------------------------------------------->
+  <section id="project_section">
+    <h1  class="SectionHeads">My TechStack </h1>
+    # 📌 Techstack/Skills  :- 
+    <p align="center">
+      <img src="https://user-images.githubusercontent.com/112753481/215295303-b3a01994-aae3-403f-aedf-062a007f69cc.png" alt="Tools Custom Image"/>
+    </p>
+    <br>
+    
+    
+    # 📌 Tools I play with-
+    <p align="center" style="pointer-events:none">
+        <img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg" width="50" alt="VSCODE"/>
+         <img src="https://user-images.githubusercontent.com/112753481/215633046-9b686f6d-6633-4972-9817-cdaf3622e2d9.png" width="50" alt="Netlify"/>
+        <img src="https://user-images.githubusercontent.com/112753481/215638332-e3df85a5-fc2f-43ca-b26b-0e6890b90089.png" width="70" height="50" alt="BOOTSTRAP"/>
+           <img src="https://user-images.githubusercontent.com/112753481/215635834-8b98cc06-de8f-489c-9ed6-39c82efd84c5.png" width="50" alt="Github"/>
+          <img src="https://user-images.githubusercontent.com/112753481/215633053-7c8a6a09-1699-4b57-8278-69c323707b30.jpg" width="50" alt="AWS"/>
+        <img src="https://github.com/get-icon/geticon/raw/master/icons/git-icon.svg" width="50" alt="git"/>
+        <img src="https://user-images.githubusercontent.com/112753481/215632928-83564962-99c4-4cfa-95d0-925b7fdc5b08.png" width="50" alt="jwt"/>
+          <img src="https://user-images.githubusercontent.com/112753481/215634762-a5a4f148-c638-4d86-9507-9f73876c2756.jpeg" width="50" alt="tailwind"/>
+           <img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" width="50" alt="sass"/>
+            <img src="https://user-images.githubusercontent.com/112753481/215633001-5be8ef9e-9c1c-404d-a750-3e42f68267eb.png" width="55" alt="Figma"/>
+         <img src="https://user-images.githubusercontent.com/112753481/215633028-c7cbccdb-42ef-4568-bf45-b332f490863f.png" width="50" alt="Vercel"/>
+          <img src="https://github.com/get-icon/geticon/raw/master/icons/adobe-photoshop.svg" width="50" alt="photoshop"/>
+        <img src="https://user-images.githubusercontent.com/112753481/215633131-00986510-3fef-43c0-9ca5-7cafb661513e.png" width="50" alt="Postman"/>
+          <img src="https://github.com/get-icon/geticon/raw/master/icons/npm.svg" width="50" alt="npm"/>
+    </p>
+    <br>
+  </section>
+
+<!--todo--------------------------------------------- <Contact Me Section> ----------------------------------------------->
+  <section id="project_section">
+    <h1  class="SectionHeads">Contact Me </h1>
+    <!--??--------------------------------------------- <Connect Section> ----------------------------------------------->
+      <section id="connect" >
+        <div class="connectsection">
+          <div><label id="letusconnect" >Let's <br> Connect</label></div>
+          <div>
+            <form>
+              <label for="">First Name <br><input type="text" required></label>
+              <label for="">last Name <br><input type="text" required></label>
+              <br><label for="">Email* <br><input id="email" type="text" name="" id="" required></label>
+              <br><label for="">Write a message <br><textarea name="EnterText" id="" cols="50" rows="3" required> </textarea></label>
+              <div id="connectsubmitdiv">
+                <input id="submit-button" type="submit">
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div></div>
+      </section>
+  </section>
+
+
+
+
+
+
     </main>
-    <!--?--------------------------------------------- Footer ----------------------------------------------->
-    <footer></footer>
+    <!--todo--------------------------------------------- Footer ----------------------------------------------->
+    <footer><i>Footer will be here soon</i></footer>
+
+    <!--!--------------------------------------------- <SCRPITS> ----------------------------------------------->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="JS/index.js" defer></script>
   </body>
 </html>
-<!-- <script src="index.js"></script> -->
