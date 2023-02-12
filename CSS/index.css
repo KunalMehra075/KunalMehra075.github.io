@@ -80,6 +80,9 @@ a {
 #brandbg {
   background-color: transparent !important;
 }
+a {
+  text-decoration: none !important;
+}
 /*todo <!----------------------------------------------- < Navbar > -----------------------------------------------> */
 header {
   z-index: 10000;
@@ -154,9 +157,10 @@ header li {
   background: rgb(24, 109, 212);
   border-radius: 5px;
   color: white;
+  text-decoration: none !important;
   font-size: 20px !important;
   border: none;
-  padding: 1px 15px !important;
+  padding: 10px 15px !important;
 }
 #ResumeButton::before {
   border-radius: 5px;

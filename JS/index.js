@@ -31,15 +31,11 @@ window.addEventListener("scroll", () => {
 //? <!----------------------------------------------- < Section Name> ----------------------------------------------->
 
 let introgif = document.getElementById("introgif");
-// window.addEventListener("load", () => {
-//   setTimeout(() => {
-//     introgif.style.display = "flex";
-//   }, 100);
-//   setTimeout(() => {
-//     introgif.style.display = "none";
-//   }, 2000);
-// });
-
+let resumedownload = document
+  .getElementById("resumedownload")
+  .addEventListener("click", () => {
+    window.open("Kunal_Mehra_Resume.pdf", "_blank");
+  });
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 

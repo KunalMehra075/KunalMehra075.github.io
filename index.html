@@ -84,27 +84,27 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#project_section">Contact</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#project_section">Projects</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#connect">Contact</a>
+              </li>
+           
            
       
             </ul>
             <div style="display: flex;">
-              <button id="ResumeButton" class="nav-link buttonslide">
-                <img
-                  id="downloadresume"
-                  
-                  src="Images/Icons/download.svg"
-                  alt=""
-                />
-                Resume
-              </button>
-              <img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="">
+            <a id="resumedownload" href="Kunal_Mehra_Resume.pdf"  download target="_blank">
+            <button id="ResumeButton" class="nav-link buttonslide">
+              <img
+                id="downloadresume"
+                src="Images/Icons/download.svg"
+                alt=""
+              />
+              Resume
+            </button></a>
+              <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"><img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
          
             </div>
           </div>
@@ -127,7 +127,9 @@
           </p>
 
 
-          <div id="Letsexploreparent"><button id="LetsExplore" class="buttonslide">Lets Explore</button></div>
+          <div id="Letsexploreparent">
+            <a href="#portfolio"><button id="LetsExplore" class="buttonslide">Lets Explore</button>
+          </a></div>
        
         
         
@@ -405,12 +407,22 @@
     </main>
     <!--todo--------------------------------------------- Footer ----------------------------------------------->
     <footer>
-   <div>
+      <h1>Get in touch</h1>
+   <div class="footerbox">
     <div>Email no.</div>
     <div>Social</div>
     <div>Phone</div>
     <div>Address</div>
    </div>
+   <style>
+
+    .footerbox{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 200px;
+    }
+   </style>
 
     </footer>
 
