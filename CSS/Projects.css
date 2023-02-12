@@ -1,0 +1,120 @@
+/* div,
+section {
+  border: 1px solid black;
+} */
+
+.AllProjects {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 60px;
+  padding: 70px;
+}
+.OneProject {
+  position: relative;
+  height: 47vh;
+  border-radius: 5px;
+  transition: all 1200ms ease-in;
+}
+
+.OPRBGB {
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px;
+  transition: all 300ms ease-in;
+  background-position: top;
+}
+.OPRBGB:hover {
+  background-color: rgba(53, 67, 109, 0.363);
+}
+.orangefrybg {
+  background: url(../Images/Icons/123.jpg);
+
+  background-size: cover;
+}
+
+.astrybg {
+  background: url(../Images/Icons/159.jpg);
+  background-size: cover;
+}
+.placemebg {
+  background: url(../Images/Icons/456.jpg);
+  background-size: cover;
+}
+
+.stylezillabg {
+  background: url(../Images/Icons/789.jpg);
+  background-size: cover;
+}
+.orangefrybg:hover,
+.stylezillabg:hover,
+.placemebg:hover,
+.astrybg:hover {
+  background-position: bottom;
+}
+
+.OnePRhead {
+  font-size: 4rem;
+  -webkit-text-stroke: 1px #fcf7f7;
+  text-shadow: 3px 4px #010101;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+.OnePRdetails {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+.ClickModalBtn {
+  text-align: center;
+  background-color: transparent;
+  padding: 10px 16px;
+  font-size: 17px;
+  border: 2px solid white;
+  color: white;
+}
+.downsee {
+  width: 70px;
+  padding: 0;
+  margin: 0;
+
+  filter: invert();
+}
+
+.OneProject:hover .ClickModalBtn {
+  background-color: rgba(0, 0, 0, 0.237);
+}
+.ClickModalBtn:hover {
+  background-color: rgba(0, 0, 0, 0.664) !important;
+}
+.projlinks {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.OneProject:hover .projlinks {
+  display: flex;
+}
+.downseeG {
+  background-color: transparent;
+  border: none;
+  padding: 2px 5px;
+  font-size: 17px;
+  border-radius: 2px;
+  margin: 10px;
+  color: #fcf7f7;
+}
+.gitplay {
+  width: 20px;
+  filter: saturate(0);
+}

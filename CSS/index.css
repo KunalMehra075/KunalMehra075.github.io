@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
@@ -33,6 +34,9 @@ html {
 a {
   text-decoration: none;
   color: white;
+}
+#brandlogog {
+  mix-blend-mode: difference !important;
 }
 /*! <!----------------------------------------------- < Essentials > -----------------------------------------------> */
 ::-webkit-scrollbar {
@@ -73,7 +77,9 @@ a {
     rgba(0, 255, 136, 1) 100%
   );
 }
-
+#brandbg {
+  background-color: transparent !important;
+}
 /*todo <!----------------------------------------------- < Navbar > -----------------------------------------------> */
 header {
   z-index: 10000;
@@ -85,6 +91,7 @@ header {
 }
 header li {
   background-color: transparent !important;
+  padding: 0px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,11 +110,17 @@ header li {
   display: flex;
   justify-content: space-evenly !important;
 }
+.nav-link,
+.nav-item {
+  font-size: 15px !important;
+  padding: 0px !important;
+}
 
 .nav-item {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9) !important;
   margin-right: 5px;
+
   border: 1px solid transparent;
 }
 .nav-item:hover {
@@ -124,28 +137,29 @@ header li {
   border: 1px solid rgb(233, 233, 242) !important;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 0px 40px !important;
+  padding: 5px 30px !important;
   color: rgb(0, 0, 0);
   font-size: 20px !important;
   transition: all 250ms ease;
 }
 
 .navbar-brand {
-  color: white;
   border-radius: 5px;
-  font-size: 40px;
-  background-color: rgba(255, 255, 255, 0.906) !important;
-  padding: 7px 20px !important;
+
+  padding: 4px 20px !important;
   margin-left: 25px !important;
-  margin: 0px;
 }
 #ResumeButton {
   cursor: pointer;
   background: rgb(24, 109, 212);
   border-radius: 5px;
   color: white;
+  font-size: 20px !important;
   border: none;
-  padding: 7px 15px !important;
+  padding: 1px 15px !important;
+}
+#ResumeButton::before {
+  border-radius: 5px;
 }
 
 #downloadresume {
@@ -194,7 +208,7 @@ section {
 .FirstView {
   width: 100%;
   height: 100vh;
-  padding: 90px 100px;
+  padding: 70px 100px;
   display: flex;
   justify-content: space-around;
 }
@@ -202,19 +216,32 @@ section {
   width: 48%;
 }
 .Introbox {
-  padding: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
 }
 #firstviewimg {
   width: 100%;
 }
 .FirstView h1 {
   color: rgb(255, 255, 255);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 600;
   -webkit-text-stroke: 1px #000000;
   text-shadow: 2px 2px #010101;
 }
 
+#firstlinks {
+  margin: 5px;
+  margin-left: 15px;
+  width: 40px;
+  padding: 2px;
+  border-radius: 10;
+}
+#firstlinks:hover {
+  cursor: pointer;
+}
 /*? <!----------------------------------------------- < Portfolio Section > -----------------------------------------------> */
 
 .profileheading {
@@ -251,7 +278,7 @@ section {
 .portfolio-content label {
   font-size: 25px;
   font-weight: bold;
-  color: rgb(255, 176, 30);
+  color: rgb(49, 30, 255);
 }
 .portfolio-content p {
   font-size: 18px;
@@ -260,7 +287,7 @@ section {
   font-size: 18px;
   font-weight: normal;
   text-decoration: none;
-  color: orange;
+  color: rgb(34, 0, 255);
 }
 #logos {
   width: 100%;

@@ -33,9 +33,11 @@
     <meta name="theme-color" content="#ffffff" />
     <!--??--------------------------------------------- <CSS FILES> ----------------------------------------------->
     <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="CSS/index2.css" />
-    <link rel="stylesheet" href="CSS/modal.css" />
     <link rel="stylesheet" href="CSS/buttons.css" />
+    <link rel="stylesheet" href="CSS/Github.css" />
+    <link rel="stylesheet" href="CSS/Projects.css" />
+    <link rel="stylesheet" href="CSS/Techstack.css" />
+    <link rel="stylesheet" href="CSS/conncet.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -50,14 +52,21 @@
       <div class="progress-bar">
       <div class="filled"></div>
     </div>
+    <!-- <div id="introgif">
+  <div>
+    <h1>Kunal Mehra</h1>
+    <p>A Full Stack Web Developer</p>
+  </div>
+
+    </div> -->
 
     <!--todo--------------------------------------------- Header ----------------------------------------------->
     <header>
       <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary mx-5">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            <img width="30px" height="30px" src="Images/Icons/K.png" alt="" />
-            Kunal Mehra</a
+          <a id="brandbg" class="navbar-brand" href="/">
+            <img id="brandlogog" width="150px" src="Images\brandlogo.png" alt="" />
+           </a
           >
           <button
             class="navbar-toggler"
@@ -77,22 +86,27 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="login">Contact</a>
+                <a class="nav-link" href="#project_section">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="signup">Projects</a>
+                <a class="nav-link" href="#project_section">Projects</a>
               </li>
-              <li>
-                <button id="ResumeButton" class="nav-link">
-                  <img
-                    id="downloadresume"
-                    src="Images/Icons/download.svg"
-                    alt=""
-                  />
-                  Resume
-                </button>
-              </li>
+           
+      
             </ul>
+            <div style="display: flex;">
+              <button id="ResumeButton" class="nav-link buttonslide">
+                <img
+                  id="downloadresume"
+                  
+                  src="Images/Icons/download.svg"
+                  alt=""
+                />
+                Resume
+              </button>
+              <img id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="">
+         
+            </div>
           </div>
         </div>
       </nav>
@@ -103,7 +117,7 @@
       <div class="FirstView">
         <div class="Introbox">
           <h1>Hello!</h1>
-          <h1 id="kunal">Kunal Mehra</h1>
+          <h1 id="kunal">I am Kunal Mehra</h1>
           <br />
           <h2 id="intro">A Full Stack Web Developer📌</h2>
           <br />
@@ -111,7 +125,13 @@
             So hey, I am currently learning at Masai Coding School.<br />
             I created this website purely through HTML, CSS and JavaScript
           </p>
+
+
           <div id="Letsexploreparent"><button id="LetsExplore" class="buttonslide">Lets Explore</button></div>
+       
+        
+        
+        
         </div>
 
         <div>
@@ -160,13 +180,13 @@
               </div>
             </div>
             <div>
-              <p style="color: orange">Contact Me Here!</p>
+              <p style="color: rgb(38, 0, 255)">Contact Me Here!</p>
               <p>
                 I assure you the quickest response you might recieve from me
                 would be on an email - not a social media DM.
               </p>
 
-              <p style="color: orange">Email:</p>
+              <p style="color: rgb(38, 0, 255)">Email:</p>
               <a>khanakmehra240304@gmail.com</a>
             </div>
           </div>
@@ -177,36 +197,60 @@
         <h1 id="projectHead" class="SectionHeads">PROJECTS</h1>
         <br />
         <div class="AllProjects">
-          <div class="OneProject orangefrybg" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <div class="OPRBGB">
-            <div class="OnePRhead">OrangeFry.com</div>
-            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Click here to know more
-               </button>
-            </div>
-            
-          </div>
-          </div>
-
+    
           <div class="OneProject stylezillabg" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="OPRBGB" >
               <div class="OnePRhead stylezilla_head">StyleZilla.com</div>
-            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OnePRdetails"><p>An Online Fashion Store for shopping clothes and latest brands.</p>
+           
+              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Click here to know more
+               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
               </button>
+              <br>
+              <div class="projlinks">
+              <a href=""><button  class="downseeG"><img class="gitplay" style="filter: invert() ;background-color: white ;" src="Images/icons/opensite.svg" alt=""> Site</button></a>
+              <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/GitHub.png" alt=""> Github</button></a>
+              <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/play.png" alt=""> Live Video</button></a>
+              </div>
             </div>
             </div>
             
           </div>
+          <div class="OneProject orangefrybg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OPRBGB">
+              <div class="OnePRhead">OrangeFry.com</div>
+              <div class="OnePRdetails"><p>Orangefry is an Indian online marketplace for furniture and home décor.</p>
+                <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Click here to know more
+                  <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                 </button>
+                 <br>
+                 <div class="projlinks">
+                 <a href=""><button  class="downseeG"><img class="gitplay" style="filter: invert() ;background-color: white ;" src="Images/icons/opensite.svg" alt=""> Site</button></a>
+                 <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/GitHub.png" alt=""> Github</button></a>
+                 <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/play.png" alt=""> Live Video</button></a>
+                 </div>
+                </div>
+              
+            </div>
+            <div class="OneProject"></div>
+            </div>
+  
           <div class="OneProject placemebg" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="OPRBGB">
               <div class="OnePRhead stylezilla_head">PlaceMe.com</div>
-            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OnePRdetails"><p>A Job hunting websites, for seekers as well as hirers.</p>
+              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Click here to know more
+               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
               </button>
+              <br>
+              <div class="projlinks">
+              <a href=""><button  class="downseeG"><img class="gitplay" style="filter: invert();background-color: white ;" src="Images/icons/opensite.svg" alt=""> Site</button></a>
+              <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/GitHub.png" alt=""> Github</button></a>
+              <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/play.png" alt=""> Live Video</button></a>
+              </div>
             </div>
             </div>
             
@@ -214,10 +258,19 @@
           <div class="OneProject astrybg" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="OPRBGB">
               <div class="OnePRhead stylezilla_head">Astry.com</div>
-            <div class="OnePRdetails"><p>An Online Store of Buying Furniture</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="OnePRdetails"><p>A Personal Portfolio, for grapic designers</p>
+              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Click here to know more
+               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
               </button>
+              <br>
+              <div class="projlinks">
+                <a href=""><button  class="downseeG"><img class="gitplay" style="filter: invert() ;background-color: white ;" src="Images/icons/opensite.svg" alt=""> Site</button></a>
+
+                <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/GitHub.png" alt=""> Github</button></a>
+                <a href=""><button  class="downseeG"><img class="gitplay" src="Images/icons/play.png" alt=""> Live Video</button></a>
+              </div>
+              
             </div>
             </div>
             
@@ -243,84 +296,87 @@
 
 
 <!--todo--------------------------------------------- <Github Section> ----------------------------------------------->
-      <section id="project_section">
-        <h1 class="SectionHeads">Github </h1>
-     <div>
-      <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
-<!-- First -->
-<p>
- <a href="https://github.com/KunalMehra075">
- <img
+ 
+  <section id="Github_SectionX">
+    <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+    <h1 id="Githead" class="SectionHeads">Github Stats</h1>     
+    <div class="Github_bg"></div>
+    <div id="Github_Section" >
+<!--??--------------------------------------------- <git 1> ----------------------------------------------->
+  <div class="Git1">
+    <img id="octopus" src="Images\githubocto.png" alt="">
+    <img id="toplang1" 
+    src="https://github-readme-stats.vercel.app/api?username=KunalMehra075&show_icons=true&locale=en&theme=github_dark&hide_border=true"
+    alt="ovi"    />
+  </div>     
+  <!--??--------------------------------------------- <git2> -----------------------------------------------> 
+    <div class="Git2">
+      <!-- <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" /> -->
+
+      <!-- First -->
+<div class="gitstreak">
+
+ 
+  <img
       src="https://github-readme-streak-stats.herokuapp.com?user=KunalMehra075&theme=github-dark&hide_border=true&date_format=j%20M%5B%20Y%5D"
-      alt="streak" width="70%"/>
-</a>
-
-   <img width="28%" src="https://user-images.githubusercontent.com/112753481/216208514-cfc0f69b-978f-4e78-b04e-5db9f1316eb2.gif" alt="codergif"/>
-</p>
-<img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+      alt="streak" width="51.7%"/>
+  <img id="toplang2" width="43.7%";
+      src="https://github-readme-stats.vercel.app/api/top-langs?username=KunalMehra075&show_icons=true&locale=en&layout=compact&theme=react&hide_border=true"
+      alt="ovi" />
+</div>
 <br>
+   <!-- <img width="28%" src="https://user-images.githubusercontent.com/112753481/216208514-cfc0f69b-978f-4e78-b04e-5db9f1316eb2.gif" alt="codergif"/> -->
+<!-- divider -->
 
-<!--Second  -->
-
- <p>
-    <a href="https://github.com/KunalMehra075"><span>
-      <img align="left"
-          src="https://github-readme-stats.vercel.app/api?username=KunalMehra075&show_icons=true&locale=en&theme=github_dark&hide_border=true"
-          alt="ovi" width="45%"  />
-      <img align="right" 
-          src="https://github-readme-stats.vercel.app/api/top-langs?username=KunalMehra075&show_icons=true&locale=en&layout=compact&theme=transparent&hide_border=true"
-          alt="ovi" width="45%" />
-      </span></a>
-  </p>
-<br>
-
-<br>
-
-  
-  <p align="center">
-    <a href="https://github.com/KunalMehra075"><span>
-        <img align="center"
-          src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=KunalMehra075&theme=github_dark" width="100%" />
-      </span></a>
-  </p>
+<!-- vercel card -->
+<img
+      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=KunalMehra075&theme=github_dark" width="100%" />
+   <!-- snake -->
+<img id="snake" width="100%"  src="https://raw.githubusercontent.com/KunalMehra075/KunalMehra075/a69bb7fe77380c08a9e0231eb57bd743184d86d0/github-contribution-grid-snake.svg" alt="snake" />
+<!-- . -->
+ 
   
   <!-- Divider -->
-<img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+
 <br>
      </div>
+        </div>
+       </div>
+       <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
       </section>
 <!--todo--------------------------------------------- <Tech Stack Section> ----------------------------------------------->
-  <section id="project_section">
+  <section id="TechStack_Section">
     <h1  class="SectionHeads">My TechStack </h1>
-    # 📌 Techstack/Skills  :- 
-    <p align="center">
+   <!-- <h1>📌 Techstack/Skills -</h1> -->
+    <div class="BigStack">
       <img src="https://user-images.githubusercontent.com/112753481/215295303-b3a01994-aae3-403f-aedf-062a007f69cc.png" alt="Tools Custom Image"/>
-    </p>
+    </div>
     <br>
     
     
-    # 📌 Tools I play with-
-    <p align="center" style="pointer-events:none">
-        <img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg" width="50" alt="VSCODE"/>
-         <img src="https://user-images.githubusercontent.com/112753481/215633046-9b686f6d-6633-4972-9817-cdaf3622e2d9.png" width="50" alt="Netlify"/>
-        <img src="https://user-images.githubusercontent.com/112753481/215638332-e3df85a5-fc2f-43ca-b26b-0e6890b90089.png" width="70" height="50" alt="BOOTSTRAP"/>
-           <img src="https://user-images.githubusercontent.com/112753481/215635834-8b98cc06-de8f-489c-9ed6-39c82efd84c5.png" width="50" alt="Github"/>
-          <img src="https://user-images.githubusercontent.com/112753481/215633053-7c8a6a09-1699-4b57-8278-69c323707b30.jpg" width="50" alt="AWS"/>
-        <img src="https://github.com/get-icon/geticon/raw/master/icons/git-icon.svg" width="50" alt="git"/>
-        <img src="https://user-images.githubusercontent.com/112753481/215632928-83564962-99c4-4cfa-95d0-925b7fdc5b08.png" width="50" alt="jwt"/>
-          <img src="https://user-images.githubusercontent.com/112753481/215634762-a5a4f148-c638-4d86-9507-9f73876c2756.jpeg" width="50" alt="tailwind"/>
-           <img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" width="50" alt="sass"/>
-            <img src="https://user-images.githubusercontent.com/112753481/215633001-5be8ef9e-9c1c-404d-a750-3e42f68267eb.png" width="55" alt="Figma"/>
-         <img src="https://user-images.githubusercontent.com/112753481/215633028-c7cbccdb-42ef-4568-bf45-b332f490863f.png" width="50" alt="Vercel"/>
-          <img src="https://github.com/get-icon/geticon/raw/master/icons/adobe-photoshop.svg" width="50" alt="photoshop"/>
-        <img src="https://user-images.githubusercontent.com/112753481/215633131-00986510-3fef-43c0-9ca5-7cafb661513e.png" width="50" alt="Postman"/>
-          <img src="https://github.com/get-icon/geticon/raw/master/icons/npm.svg" width="50" alt="npm"/>
+    <!-- <h1>📌 Tools I play with-</h1> -->
+
+    <div class="SmallStack">
+        <img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg"  alt="VSCODE"/>
+         <img src="https://user-images.githubusercontent.com/112753481/215633046-9b686f6d-6633-4972-9817-cdaf3622e2d9.png" alt="Netlify"/>
+        <img src="https://avatars.githubusercontent.com/u/2918581?s=280&v=4" alt="BOOTSTRAP"/>
+           <img src="https://user-images.githubusercontent.com/112753481/215635834-8b98cc06-de8f-489c-9ed6-39c82efd84c5.png"  alt="Github"/>
+          <img src="https://user-images.githubusercontent.com/112753481/215633053-7c8a6a09-1699-4b57-8278-69c323707b30.jpg" lt="AWS"/>
+        <img src="https://github.com/get-icon/geticon/raw/master/icons/git-icon.svg"  alt="git"/>
+        <img src="https://user-images.githubusercontent.com/112753481/215632928-83564962-99c4-4cfa-95d0-925b7fdc5b08.png" alt="jwt"/>
+          <img src="https://user-images.githubusercontent.com/112753481/215634762-a5a4f148-c638-4d86-9507-9f73876c2756.jpeg" alt="tailwind"/>
+           <img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" alt="sass"/>
+            <img src="https://user-images.githubusercontent.com/112753481/215633001-5be8ef9e-9c1c-404d-a750-3e42f68267eb.png"  alt="Figma"/>
+         <img src="https://user-images.githubusercontent.com/112753481/215633028-c7cbccdb-42ef-4568-bf45-b332f490863f.png"  alt="Vercel"/>
+          <img src="https://github.com/get-icon/geticon/raw/master/icons/adobe-photoshop.svg"  alt="photoshop"/>
+        <img src="https://user-images.githubusercontent.com/112753481/215633131-00986510-3fef-43c0-9ca5-7cafb661513e.png"  alt="Postman"/>
+          <img src="https://github.com/get-icon/geticon/raw/master/icons/npm.svg" alt="npm"/>
     </p>
     <br>
   </section>
 
 <!--todo--------------------------------------------- <Contact Me Section> ----------------------------------------------->
-  <section id="project_section">
+  <section id="ContactMe_Section">
     <h1  class="SectionHeads">Contact Me </h1>
     <!--??--------------------------------------------- <Connect Section> ----------------------------------------------->
       <section id="connect" >
@@ -346,11 +402,17 @@
 
 
 
-
-
     </main>
     <!--todo--------------------------------------------- Footer ----------------------------------------------->
-    <footer><i>Footer will be here soon</i></footer>
+    <footer>
+   <div>
+    <div>Email</div>
+    <div>Social</div>
+    <div>Phone</div>
+    <div>Address</div>
+   </div>
+
+    </footer>
 
     <!--!--------------------------------------------- <SCRPITS> ----------------------------------------------->
     <script

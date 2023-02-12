@@ -1,0 +1,63 @@
+#Githead {
+  color: white;
+}
+#Github_SectionX {
+  width: 90%;
+}
+#Github_Section {
+  margin: auto;
+  display: flex;
+  position: relative;
+}
+
+.Github_bg {
+  position: absolute;
+  height: 125%;
+  width: 140%;
+  left: -20%;
+  top: -15%;
+  z-index: -5;
+  filter: blur(4rem);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 86%,
+    rgba(166, 207, 215, 1) 100%
+  );
+}
+.Git1 {
+  width: 38%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Git2 {
+  padding: 0px 20px;
+}
+.toplang1 {
+  z-index: 1;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.gitstreak {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#octopus {
+  width: 93%;
+  transition: all 300ms ease-in-out;
+}
+#octopus:hover {
+  filter: saturate(1.5);
+  scale: 1.02;
+}
+#snake {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.553);
+}

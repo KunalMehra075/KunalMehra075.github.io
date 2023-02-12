@@ -1,0 +1,37 @@
+#MODAL {
+  background-color: transparent;
+}
+.modal-content {
+  margin: auto !important;
+  top: 60px;
+  width: 95% !important;
+  height: 90vh !important;
+}
+
+.BigStack {
+  margin: auto;
+}
+.BigStack > img {
+  filter: saturate(1.2);
+}
+.SmallStack {
+  width: 80%;
+
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.SmallStack > img {
+  width: 70px;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  filter: hue-rotate(-10deg);
+  transition: all 200ms ease-in-out;
+}
+.SmallStack > img:hover {
+  scale: 1.1;
+  filter: saturate(2);
+}

@@ -16,27 +16,28 @@ update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
 let about = document.getElementById("about");
 let project = document.getElementById("projectHead");
+let brand = document.getElementById("brandlogog");
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
   about.style.transform = `translateX(${value - 500}px)`;
   project.style.transform = `translateX(${-value + 800}px)`;
+  if (value > 2700 && value < 4000) {
+    brand.style.filter = `invert()`;
+  } else {
+    brand.style.filter = `none`;
+  }
 });
 
 //? <!----------------------------------------------- < Section Name> ----------------------------------------------->
 
+let introgif = document.getElementById("introgif");
 // window.addEventListener("load", () => {
 //   setTimeout(() => {
-//     hellofv.innerText = "Hey There!";
-//   }, 500);
+//     introgif.style.display = "flex";
+//   }, 100);
 //   setTimeout(() => {
-//     hellofv.innerText = "This is";
-//   }, 1500);
-//   setTimeout(() => {
-//     kunalfv.innerText = "Kunal Mehra";
-//   }, 3000);
-//   setTimeout(() => {
-//     fullstackfv.innerText = "A Full Stack Web Developer📌";
-//   }, 4000);
+//     introgif.style.display = "none";
+//   }, 2000);
 // });
 
 const myModal = document.getElementById("myModal");
@@ -45,3 +46,5 @@ const myInput = document.getElementById("myInput");
 myModal.addEventListener("shown.bs.modal", () => {
   myInput.focus();
 });
+
+//? <!----------------------------------------------- < Section Name> ----------------------------------------------->
