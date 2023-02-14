@@ -21,11 +21,11 @@ window.addEventListener("scroll", () => {
   let value = window.scrollY;
   about.style.transform = `translateX(${value - 500}px)`;
   project.style.transform = `translateX(${-value + 800}px)`;
-  if (value > 2700 && value < 4000) {
-    brand.style.filter = `invert()`;
-  } else {
-    brand.style.filter = `none`;
-  }
+  // if (value > 2700 && value < 4000) {
+  //   brand.style.filter = `invert()`;
+  // } else {
+  //   brand.style.filter = `none`;
+  // }
 });
 
 //? <!----------------------------------------------- < Section Name> ----------------------------------------------->
