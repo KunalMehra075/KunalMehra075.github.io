@@ -10,8 +10,8 @@
   --theme: rgb(255, 255, 255);
   --fontColor: rgb(0, 0, 0);
   --themeblue: rgb(52, 161, 220);
+  --themeblueDark: rgb(35, 146, 206);
   --themegreen: rgb(52, 161, 220);
-  --invert: none;
 }
 
 main {
@@ -246,74 +246,7 @@ section {
 #firstlinks:hover {
   cursor: pointer;
 }
-/*? <!----------------------------------------------- < Portfolio Section > -----------------------------------------------> */
 
-.profileheading {
-  font-size: 48px;
-}
-#portfolio {
-  background-size: contain;
-  position: relative;
-  margin-top: 350px;
-}
-
-#portfolio > div {
-  display: flex;
-  justify-content: center;
-}
-#portfolio > div > div:nth-child(1) {
-  display: grid;
-  place-items: center;
-  width: 38%;
-}
-.portfolio-content {
-  margin-left: 100px;
-  padding: 15px;
-  width: 50%;
-}
-#helloiam {
-  /* text-shadow: 3px 3px #010101; */
-  margin: 30px auto;
-}
-#silky {
-  width: 400px;
-  transition: all 350ms ease;
-}
-.portfolio-content label {
-  font-size: 25px;
-  font-weight: bold;
-  color: rgb(49, 30, 255);
-}
-.portfolio-content p {
-  font-size: 18px;
-}
-#checkoutbio > a {
-  font-size: 18px;
-  font-weight: normal;
-  text-decoration: none;
-  color: rgb(34, 0, 255);
-}
-#logos {
-  width: 100%;
-  display: flex;
-  justify-content: left;
-}
-#logos div {
-  cursor: pointer;
-  margin: 10px;
-  border: 1px solid rgb(198, 198, 198);
-  padding: 18px 20px;
-  transition: all 350ms ease;
-}
-#logos div:hover,
-.footerimgs div:hover {
-  transform: scale(1.05);
-  border: 1px solid rgb(82, 30, 204);
-  box-shadow: rgba(209, 206, 206, 0.24) 0px 3px 8px;
-}
-#logos img {
-  width: 20px;
-}
 /*? ----------------------------Small Screen Sizes -------------------------------- */
 @media all and (min-width: 320px) and (max-width: 809px) {
   /*-------------------------- Universals-------------------------- */

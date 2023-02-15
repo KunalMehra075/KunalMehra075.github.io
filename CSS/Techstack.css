@@ -5,6 +5,13 @@
   margin: auto 0px;
   width: 700px;
 }
+:root {
+  --hextop: 70px;
+  --hexrig: -388px;
+  --hexwidth: 187px;
+  --hexheight: 207px;
+}
+
 .hexagon {
   text-align: center;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 99%, 0 75%, 0 25%);
@@ -12,8 +19,8 @@
   place-items: center;
   cursor: pointer;
   position: absolute;
-  width: 187px;
-  height: 207px;
+  width: var(--hexwidth);
+  height: var(--hexheight);
   background: rgb(255, 255, 255);
   background-size: cover;
   transition: all 250ms ease-in-out;
@@ -31,16 +38,12 @@
   display: grid;
   place-items: center;
   background-color: rgb(255, 255, 255);
-  width: 190px;
   z-index: 1;
-  height: 210px;
+  width: calc(var(--hexwidth) - 3px);
+  height: calc(var(--hexheight) - 3px);
   object-position: center;
   overflow: hidden;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 99%, 0 75%, 0 25%);
-}
-:root {
-  --hextop: 70px;
-  --hexrig: -388px;
 }
 
 .techhex {
