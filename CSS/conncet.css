@@ -1,11 +1,14 @@
 #connect {
-  margin: auto;
+  margin: 10px auto !important;
   background: url(../Images/connectbg.jpg);
   background-size: cover;
   min-height: 200px;
   border-radius: 20px;
   width: 100%;
   padding: 30px 50px;
+}
+#ContactMe_Section {
+  padding: 10px !important;
 }
 #letusconnect {
   font-size: 7rem;

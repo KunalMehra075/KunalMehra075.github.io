@@ -100,7 +100,6 @@
 .p68 {
   position: absolute;
   width: 90px;
-  /* filter: grayscale(); */
   mix-blend-mode: darken;
   /* mix-blend-mode: difference; */
 }
@@ -137,7 +136,8 @@
 /*? <!----------------------------------------------- < TechStack > -----------------------------------------------> */
 
 #TechStack_Section {
-  margin-top: 200px !important;
+  margin: 20px auto !important;
+  width: 90%;
 }
 .TechStack2 {
   height: 100%;
@@ -173,7 +173,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin: 10px 30px;
+  margin: 10px 10px;
 }
 .Stack2first > div {
   padding: 7px;

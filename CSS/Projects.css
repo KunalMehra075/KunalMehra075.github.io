@@ -1,14 +1,9 @@
-/* div,
-section {
-  border: 1px solid black;
-} */
-
 .AllProjects {
   width: 100%;
+  padding: 70px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 60px;
-  padding: 70px;
+  gap: 20px;
 }
 .OneProject {
   position: relative;
@@ -123,7 +118,7 @@ section {
 }
 .modal-content {
   margin: auto !important;
-  top: 60px;
+  top: 65px;
   width: 95% !important;
-  height: 90vh !important;
+  height: 88vh !important;
 }
