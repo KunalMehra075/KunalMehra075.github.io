@@ -23,7 +23,7 @@ window.addEventListener("scroll", () => {
   project.style.transform = `translateX(${-value + 1200}px)`;
 });
 
-//? <!----------------------------------------------- < Section Name> ----------------------------------------------->
+//? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
 let introgif = document.getElementById("introgif");
 let resumedownload = document
@@ -31,11 +31,16 @@ let resumedownload = document
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
-const myModal = document.getElementById("myModal");
-const myInput = document.getElementById("myInput");
+//? <!----------------------------------------------- < Project and models > ----------------------------------------------->
 
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
+document.addEventListener("click", (e) => {
+  if (e.target.matches("[data-stylezilla]")) {
+    console.log("Stylezilla");
+  } else if (e.target.matches("[data-orangefry]")) {
+    console.log("Orangefry");
+  } else if (e.target.matches("[data-placeme]")) {
+    console.log("placeme");
+  } else if (e.target.matches("[data-astry]")) {
+    console.log("astry");
+  }
 });
-
-//? <!----------------------------------------------- < Section Name> ----------------------------------------------->
