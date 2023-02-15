@@ -1,40 +1,244 @@
-#MODAL {
-  background-color: transparent;
+/*? <!----------------------------------------------- < Hexagonals > -----------------------------------------------> */
+.HexagonBox {
+  position: relative;
+  height: 600px;
+  margin: auto 0px;
+  width: 700px;
 }
-.modal-content {
-  margin: auto !important;
-  top: 60px;
-  width: 95% !important;
-  height: 90vh !important;
-}
-
-.BigStack {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-.BigStack > img {
-  filter: saturate(1.2);
-}
-.SmallStack {
-  width: 80%;
-
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.SmallStack > img {
-  width: 70px;
+.hexagon {
+  text-align: center;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 99%, 0 75%, 0 25%);
+  display: grid;
+  place-items: center;
   cursor: pointer;
-  padding: 5px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
-    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
-  filter: hue-rotate(-10deg);
-  transition: all 200ms ease-in-out;
+  position: absolute;
+  width: 187px;
+  height: 207px;
+  background: rgb(255, 255, 255);
+  background-size: cover;
+  transition: all 250ms ease-in-out;
 }
-.SmallStack > img:hover {
-  scale: 1.1;
-  filter: saturate(2);
+
+.hexagon:hover {
+  transform: scale(1.05) rotate(3deg);
+  z-index: 2;
+}
+.hexagon:nth-child(2n):hover {
+  transform: scale(1.1) rotate(-3deg);
+  z-index: 2;
+}
+.hexagon > div {
+  display: grid;
+  place-items: center;
+  background-color: rgb(255, 255, 255);
+  width: 190px;
+  z-index: 1;
+  height: 210px;
+  object-position: center;
+  overflow: hidden;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 99%, 0 75%, 0 25%);
+}
+:root {
+  --hextop: 70px;
+  --hexrig: -388px;
+}
+
+.techhex {
+  width: 112%;
+  filter: saturate(1.5);
+}
+#techstckmiddle {
+  color: white;
+  /* -webkit-text-stroke: 1px #000000; */
+  text-shadow: 2px 2px 2px #34a7fa;
+}
+
+#hex1 {
+  top: calc(var(--hextop) - 30px);
+  right: calc(var(--hexrig) + 690px);
+  /* background-color: black; */
+}
+
+#hex3 {
+  top: calc(var(--hextop) + 130px);
+  right: calc(var(--hexrig) + 788px);
+  /* background-color: black; */
+}
+#hex2 {
+  top: calc(var(--hextop) - 30px);
+  right: calc(var(--hexrig) + 495px);
+  /* background-color: black; */
+}
+#hex4 {
+  top: calc(var(--hextop) + 130px);
+  right: calc(var(--hexrig) + 397px);
+  /* background-color: black; */
+}
+#hex5 {
+  top: calc(var(--hextop) + 130px);
+  right: calc(var(--hexrig) + 592px);
+  background-color: rgb(0, 0, 0);
+}
+.hexagon:nth-child(5) > div {
+  width: 185px;
+  z-index: 1;
+  height: 205px;
+  object-position: end;
+}
+
+#hex6 {
+  top: calc(var(--hextop) + 290px);
+  right: calc(var(--hexrig) + 497px);
+  /* background-color: black; */
+}
+
+#hex7 {
+  top: calc(var(--hextop) + 290px);
+  right: calc(var(--hexrig) + 690px);
+  /* background-color: black; */
+}
+.p68 {
+  position: absolute;
+  width: 90px;
+  /* filter: grayscale(); */
+  mix-blend-mode: darken;
+  /* mix-blend-mode: difference; */
+}
+#pg3 {
+  top: calc(var(--hextop) + 296px);
+  right: calc(var(--hexrig) + 883px);
+}
+#pg1 {
+  top: calc(var(--hextop) + 28px);
+  right: calc(var(--hexrig) + 884px);
+  rotate: 62deg;
+}
+#pg2 {
+  top: calc(var(--hextop) - 107px);
+  right: calc(var(--hexrig) + 643px);
+  rotate: 121deg;
+}
+#pg4 {
+  top: calc(var(--hextop) + 23px);
+  right: calc(var(--hexrig) + 400px);
+  rotate: 180deg;
+}
+#pg5 {
+  top: calc(var(--hextop) + 293px);
+  right: calc(var(--hexrig) + 400px);
+  rotate: 242deg;
+}
+#pg6 {
+  top: calc(var(--hextop) + 426px);
+  right: calc(var(--hexrig) + 639px);
+  rotate: -59deg;
+}
+
+/*? <!----------------------------------------------- < TechStack > -----------------------------------------------> */
+
+#TechStack_Section {
+  margin-top: 200px !important;
+}
+.TechStack2 {
+  height: 100%;
+}
+#TechStackBigParent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TechStack2 {
+  text-align: center;
+  width: 32%;
+}
+
+.Stack2firstParent {
+  margin: 20px 20px;
+  font-size: 20px;
+}
+.Stack2secondParent {
+  margin: 5px 20px;
+  text-align: center;
+  font-size: 20px;
+}
+.Stack2first {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 10px;
+}
+
+.Stack2second {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 10px 30px;
+}
+.Stack2first > div {
+  padding: 7px;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid rgba(100, 228, 255, 1);
+  background: rgba(84, 177, 255, 0.5);
+  border-radius: 10px;
+  transition: all 200ms ease;
+}
+.Stack2second > div {
+  padding: 7px;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid rgb(124, 226, 255);
+  background: rgba(100, 228, 255, 0.5);
+  border-radius: 10px;
+  transition: all 200ms ease;
+}
+.hobbies > div {
+  padding: 7px;
+  font-weight: 500;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  transition: all 200ms ease;
+}
+.Stack2second > div:nth-child(4),
+.Stack2second > div:nth-child(5),
+.Stack2second > div:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.Stack2first > div:nth-child(7) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.hobbies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 10px 30px;
+}
+
+.SkillsHeads {
+  background-color: rgb(24, 109, 212);
+  padding: 5px;
+  color: white;
+  margin-top: 20px;
+  font-size: 30px;
+  width: 310px !important;
+}
+.Techskillshead {
+  width: 340px !important;
+}
+
+#skillcenter {
+  z-index: 2;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.gear {
+  position: absolute;
+  filter: hue-rotate(10deg);
+  width: 94%;
 }

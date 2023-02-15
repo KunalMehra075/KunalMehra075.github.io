@@ -118,3 +118,12 @@ section {
   width: 20px;
   filter: saturate(0);
 }
+#MODAL {
+  background-color: transparent;
+}
+.modal-content {
+  margin: auto !important;
+  top: 60px;
+  width: 95% !important;
+  height: 90vh !important;
+}
