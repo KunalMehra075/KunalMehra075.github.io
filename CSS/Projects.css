@@ -29,7 +29,6 @@
 }
 .orangefrybg {
   background: url(../Images/Icons/123.jpg);
-
   background-size: cover;
 }
 
@@ -82,7 +81,6 @@
   width: 70px;
   padding: 0;
   margin: 0;
-
   filter: invert();
 }
 
@@ -99,7 +97,9 @@
 }
 .OneProject:hover .projlinks {
   display: flex;
+  justify-content: center;
 }
+
 .downseeG {
   background-color: transparent;
   border: none;
@@ -113,6 +113,10 @@
   width: 20px;
   filter: saturate(0);
 }
+.sitebutton {
+  background-color: white !important;
+  filter: invert() !important;
+}
 #MODAL {
   background-color: transparent;
 }
@@ -121,4 +125,92 @@
   top: 65px;
   width: 95% !important;
   height: 88vh !important;
+  border-radius: 7px !important;
+}
+.modal-body ::-webkit-scrollbar {
+  width: 4px;
+  background-color: rgb(255, 255, 255);
+}
+.modal-body ::-webkit-scrollbar-thumb {
+  background-color: rgb(128, 127, 133);
+  border-radius: 10px;
+}
+.modal-body {
+  padding: 10px !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal-body > div {
+  width: 49%;
+  height: 100%;
+}
+.ImageModalsBox {
+  overflow-y: scroll;
+}
+.ImageModalsBox > img {
+  width: 97%;
+  margin: 10px;
+  border: 1px solid grey;
+}
+.DetailsModalBox {
+  padding: 10px;
+}
+table {
+  width: 100%;
+  border: 1px solid rgb(236, 234, 234);
+}
+td {
+  padding: 6px 10px;
+  border: 1px solid rgb(212, 212, 212) !important;
+}
+td:nth-child(2n-1) {
+  width: 200px;
+  padding-top: 0px !important;
+  background-color: rgb(255, 255, 255);
+}
+td:nth-child(2) {
+  background-color: rgb(242, 249, 253);
+}
+table p {
+  margin: 0px;
+}
+#teckstakmodal {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+#teckstakmodal > img {
+  width: 70px;
+  filter: contrast(2);
+}
+#modalbootst {
+  width: 70px;
+}
+.gitplaymodal {
+  width: 20px;
+}
+.projlinksmodal {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.downseeGmodal {
+  color: black;
+  background-color: white;
+  width: 150px;
+  padding: 7px 15px;
+  border: 0;
+  border: 1px solid transparent;
+  transition: all 200ms ease;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(58, 57, 57, 0.9) 0px 0px 0px 1px;
+  margin: 5px;
+  border-radius: 2px;
+}
+.downseeGmodal:hover {
+  border: 1px solid var(--themeblue);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(58, 57, 57, 0.9) 0px 0px 0px 1px;
 }

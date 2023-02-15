@@ -27,3 +27,42 @@
   border: none;
   padding: 10px 34px;
 }
+
+/*? <!----------------------------------------------- < Balls > -----------------------------------------------> */
+.ballsect2 {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  z-index: -10;
+  top: 0;
+  position: absolute;
+  border-radius: 50%;
+}
+#ball6 {
+  top: 70px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  background-color: var(--themeblue);
+  opacity: 0.5;
+}
+#ball5 {
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(84, 181, 251);
+}
+#ball7 {
+  top: 0;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(84, 181, 251);
+}
+#ball8 {
+  top: 70px;
+  right: 100px;
+  height: 300px;
+  width: 300px;
+  background-color: var(--themeblue);
+  opacity: 0.5;
+}
