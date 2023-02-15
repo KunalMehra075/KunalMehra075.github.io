@@ -247,6 +247,82 @@ section {
   cursor: pointer;
 }
 
+/*? <!----------------------------------------------- < Footer > -----------------------------------------------> */
+
+/*? <!----------------------------------------------- < Footer > -----------------------------------------------> */
+
+footer {
+  width: 100%;
+  position: relative;
+  height: 200px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#footercenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerimgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 25px;
+}
+.footerimgs > div {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  border: 1px solid rgb(192, 191, 191);
+  background-color: white;
+  transition: all 350ms ease;
+}
+
+/*? <!----------------------------------------------- < Balls > -----------------------------------------------> */
+
+.ballsect2 {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  z-index: -10;
+  top: 0;
+  position: absolute;
+  border-radius: 50%;
+}
+#ball6 {
+  top: 70px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  background-color: var(--themeblue);
+  opacity: 0.5;
+}
+#ball5 {
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(84, 181, 251);
+}
+#ball7 {
+  top: 0;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(84, 181, 251);
+}
+#ball8 {
+  top: 70px;
+  right: 100px;
+  height: 300px;
+  width: 300px;
+  background-color: var(--themeblue);
+  opacity: 0.5;
+}
+
 /*? ----------------------------Small Screen Sizes -------------------------------- */
 @media all and (min-width: 320px) and (max-width: 809px) {
   /*-------------------------- Universals-------------------------- */
