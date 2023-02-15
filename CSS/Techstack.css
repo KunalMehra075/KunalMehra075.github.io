@@ -193,14 +193,20 @@
   border-radius: 10px;
   transition: all 200ms ease;
 }
-.hobbies > div {
+.Toolset > div {
   padding: 7px;
   font-weight: 500;
+  filter: saturate(2);
   font-size: 18px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgb(185, 185, 185);
   border-radius: 10px;
   transition: all 200ms ease;
+}
+.Toolset > div:hover {
+  cursor: pointer;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .Stack2second > div:nth-child(4),
 .Stack2second > div:nth-child(5),
@@ -213,7 +219,7 @@
   grid-column-end: 3;
 }
 
-.hobbies {
+.Toolset {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
