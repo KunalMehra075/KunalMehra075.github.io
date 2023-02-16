@@ -6,61 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kunal Mehra</title>
     <!--??--------------------------------------------- <Favicon> ----------------------------------------------->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <!--??--------------------------------------------- <CSS FILES> ----------------------------------------------->
-    <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="CSS/buttons.css" />
-    <link rel="stylesheet" href="CSS/Github.css" />
-    <link rel="stylesheet" href="CSS/Projects.css" />
-    <link rel="stylesheet" href="CSS/Techstack.css" />
-    <link rel="stylesheet" href="CSS/Portfolio.css">
-    <link rel="stylesheet" href="CSS/conncet.css" />
-    <link rel="stylesheet" href="CSS/MediaQSmall.css">
-    <link rel="stylesheet" href="CSS/MediaQMedium.css">
+    <link rel="stylesheet" href="CSS/index.css" defer  />
+    <link rel="stylesheet" href="CSS/buttons.css" defer  />
+    <link rel="stylesheet" href="CSS/Github.css" defer  />
+    <link rel="stylesheet" href="CSS/Projects.css" defer  />
+    <link rel="stylesheet" href="CSS/Techstack.css" defer  />
+    <link rel="stylesheet" href="CSS/Portfolio.css"defer  >
+    <link rel="stylesheet" href="CSS/conncet.css" defer  />
+    <link rel="stylesheet" href="CSS/MediaQSmall.css"defer  >
+    <link rel="stylesheet" href="CSS/MediaQMedium.css"defer  >
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+   
   </head>
 
   <body>
     <!--!--------------------------------------------- <Essentials> ----------------------------------------------->
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script src="JS/index.js" defer></script>
+
     <div id="preloader"><h2>Loading..</h2></div>
       <div class="progress-bar">
       <div class="filled"></div>
     </div>
     <!--todo--------------------------------------------- Header ----------------------------------------------->
-    <header>
+    <header id="nav-menu">
       <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary mx-5">
         <div class="container-fluid">
           <a id="brandbg" class="navbar-brand" href="/">
-            <img id="brandlogog" width="150px" src="Images/brandlogo.png" alt="" />
+            <img defer id="brandlogog" width="150px" src="Images/brandlogo.png" alt="" />
            </a
           >
           <button
@@ -73,11 +61,10 @@
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-          </button><span  id="nav-menu"
-          ></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul id="dropdownnav" class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link home buttonunderline" aria-current="page" href="#" >Home</a>
               </li>
@@ -105,7 +92,7 @@
               Resume
             </button></a>
               <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
-                <img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
+                <img defer width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
          
             </div>
           </div>
@@ -137,7 +124,7 @@
         </div>
 
         <div>
-          <img id="firstviewimg" src="Images/codergif.gif" alt="" />
+          <img defer id="firstviewimg" src="Images/codergif.gif" alt="" />
         </div>
         <!-- <h1>There will be 2 divs, 1 image , 1 for intro</h1> -->
       </div>
@@ -152,7 +139,7 @@
         <br />
 
         <div>
-          <div><img id="kunalimg" class="home-img" src="Images/mainimg.jpg" alt="" /></div>
+          <div><img defer id="kunalimg" class="home-img" src="Images/mainimg.jpg" alt="" /></div>
           
           <div class="portfolio-content">
             <h1 id="user-detail-name" class="profileheading">Hi! I am Kunal Mehra </h1>
@@ -190,20 +177,20 @@
 
                   <a  id="contact-linkedin"
                   href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"
-                     target="_blank"><img src="Images/social/linked.svg" alt=""
+                     target="_blank"><img defer src="Images/social/linked.svg" alt=""
                   /></a>
                 </div>
                 <div>
                   <a id="contact-github"
                   href="https://github.com/KunalMehra075" id="contact-github"
-                     target="_blank"><img src="Images/social/github.svg" alt=""
+                     target="_blank"><img defer src="Images/social/github.svg" alt=""
                   /></a>
                 </div>
                 <div>
-                  <a href="https://twitter.com/KunalMe96052494" target="_blank"><img src="Images/social/twitter.svg" alt="" /></a>
+                  <a href="https://twitter.com/KunalMe96052494" target="_blank"><img defer src="Images/social/twitter.svg" alt="" /></a>
                 </div>
                 <div>
-                  <a  id="contact-linkedin" href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/" target="_blank"><img src="Images/social/linked.svg"alt="" /></a>
+                  <a  id="contact-linkedin" href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/" target="_blank"><img defer src="Images/social/linked.svg"alt="" /></a>
                 </div>
               </div>
             
@@ -233,15 +220,15 @@
              
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#StyleZillaModal" data-stylezilla>
                  Click here to know more
-                 <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                 <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
                 </button>
                 <br>
                 <div class="projlinks">
                 <a  class="project-deployed-link" href="https://stylezillajs201.netlify.app/" target="_blank">
-                  <button  class="downseeG"><img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
-                <a class="project-github-link" href="https://github.com/SagarN21/urbane-look-6820"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                  <button  class="downseeG"><img defer class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                <a class="project-github-link" href="https://github.com/SagarN21/urbane-look-6820"  target="_blank"><button  class="downseeG"><img defer class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
                 <a href="https://youtu.be/SkV6oL-GZm8"  target="_blank">
-                  <button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                  <button  class="downseeG"><img defer class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                 </div>
               </div>
               </div>
@@ -258,14 +245,14 @@
                 <div class="OnePRdetails"><p class="project-description">Orangefry is an Indian online marketplace for furniture and home décor.</p>
                   <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#OrangeFryModal" data-orangefry>
                     Click here to know more
-                    <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                    <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
                    </button>
                    <br>
                    <div class="projlinks">
                    <a class="project-deployed-link"  href="https://orangefry.netlify.app/"  target="_blank">
-                    <button  class="downseeG"><img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
-                   <a class="project-github-link" href="https://github.com/KunalMehra075/tame-ink-7589"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
-                   <a href="https://youtu.be/qRuoJ1Hj-Xg"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                    <button  class="downseeG"><img defer class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                   <a class="project-github-link" href="https://github.com/KunalMehra075/tame-ink-7589"  target="_blank"><button  class="downseeG"><img defer class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                   <a href="https://youtu.be/qRuoJ1Hj-Xg"  target="_blank"><button  class="downseeG"><img defer class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                    </div>
                   </div>
                 
@@ -283,18 +270,18 @@
               <div class="OnePRdetails"><p class="project-description" >A Job hunting websites, for seekers as well as hirers.</p>
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#PlacemeModal" data-placeme>
                 Click here to know more
-                <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
                 </button>
                 <br>
                 <div class="projlinks">
                 <a class="project-deployed-link" href="https://placeme725.netlify.app/"  target="_blank"><button  class="downseeG">
-                  <img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button>
+                  <img defer class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button>
                 </a>
                 <a class="project-github-link" href="https://github.com/KunalMehra075/obscene-icicle-4134"  target="_blank"><button  class="downseeG">
-                  <img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button>
+                  <img defer class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button>
                 </a>
                 <a href="https://youtu.be/R_kWySXK4l4"  target="_blank"><button  class="downseeG">
-                  <img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button>
+                  <img defer class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button>
                 </a>
                 </div>
               </div>
@@ -312,19 +299,19 @@
               <div class="OnePRdetails"><p class="project-description"  >A Personal Portfolio, for grapic designers</p>
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#AstryModal" data-astry>
                  Click here to know more
-                 <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                 <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
                 </button>
                 <br>
                 <div class="projlinks">
                   <a  class="project-deployed-link" href="https://astryworld.netlify.app/"  target="_blank">
                     <button  class="downseeG">
-                      <img class="gitplay sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                      <img defer class="gitplay sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
   
                   <a  class="project-github-link" href="https://github.com/KunalMehra075/Project-Astry"   target="_blank">
                     <button  class="downseeG">
-                      <img class="gitplay" src="Images/Icons/GitHub.png" alt="">
+                      <img defer class="gitplay" src="Images/Icons/GitHub.png" alt="">
                        Github</button></a>
-                  <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                  <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank"><button  class="downseeG"><img defer class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                 </div>
                 
               </div>
@@ -389,13 +376,13 @@
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
                             <td id="teckstakmodal" class="project-tech-stack">
-                              <img src="Images/Icons/html.png" alt="">
-                              <img src="Images/Icons/css.png" alt="">
-                              <img src="Images/Icons/js.png" alt="">
-                              <!-- <img src="Images/Icons/Express.png" alt="">
-                              <img src="Images/Icons/mongo.png" alt="">
-                              <img src="Images/Icons/node.png" alt="">
-                              <img id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt=""> -->
+                              <img defer src="Images/Icons/html.png" alt="">
+                              <img defer src="Images/Icons/css.png" alt="">
+                              <img defer src="Images/Icons/js.png" alt="">
+                              <!-- <img defer src="Images/Icons/Express.png" alt="">
+                              <img defer src="Images/Icons/mongo.png" alt="">
+                              <img defer src="Images/Icons/node.png" alt="">
+                              <img defer id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt=""> -->
                           </td>
                         </tr>
                         
@@ -404,33 +391,33 @@
                       <div class="projlinksmodal">
                         <a href="https://stylezillajs201.netlify.app/"  target="_blank">
                           <button  class="downseeGmodal">
-                            <img class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                            <img defer class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
             
                         <a href="https://github.com/SagarN21/urbane-look-6820"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
                         <a href="https://youtu.be/SkV6oL-GZm8"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                       </div>
                     </div>
               
                     <!-- here is project details -->
                     <div class="ImageModalsBox">
                   <label class="modalimgheads">🔷 StyleZilla.com Landing page</label>
-                  <img src="Images/StyleZilla/stz1.jpg" alt="">
-                  <img src="Images/StyleZilla/stz2.jpg" alt="">
+                  <img defer src="Images/StyleZilla/stz1.jpg" alt="">
+                  <img defer src="Images/StyleZilla/stz2.jpg" alt="">
                   <label class="modalimgheads">🔷 Checkout pages</label>
-                      <img src="Images/StyleZilla/stz3.jpg" alt="">
-                      <img src="Images/StyleZilla/stz4.jpg" alt="">
-                      <img src="Images/StyleZilla/stz8.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz3.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz4.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz8.jpg" alt="">
                     <label class="modalimgheads">🔷 Login pages</label>
-                      <img src="Images/StyleZilla/stz5.jpg" alt="">
-                      <img src="Images/StyleZilla/stz6.jpg" alt="">
-                      <img src="Images/StyleZilla/stz7.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz5.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz6.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz7.jpg" alt="">
                     <label class="modalimgheads">🔷 Admin Pages</label>
-                      <img src="Images/StyleZilla/stz9.jpg" alt="">
-                      <img src="Images/StyleZilla/stz10.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz9.jpg" alt="">
+                      <img defer src="Images/StyleZilla/stz10.jpg" alt="">
             
             
                     </div>
@@ -489,13 +476,13 @@
                     <tr> 
                         <td><b>Tech Stack Used</b></td>
                         <td id="teckstakmodal" class="project-tech-stack">
-                          <img src="Images/Icons/html.png" alt="">
-                          <img src="Images/Icons/css.png" alt="">
-                          <img src="Images/Icons/js.png" alt="">
-                          <img src="Images/Icons/Express.png" alt="">
-                          <img src="Images/Icons/mongo.png" alt="">
-                          <img src="Images/Icons/node.png" alt="">
-                          <img id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt="">
+                          <img defer src="Images/Icons/html.png" alt="">
+                          <img defer src="Images/Icons/css.png" alt="">
+                          <img defer src="Images/Icons/js.png" alt="">
+                          <img defer src="Images/Icons/Express.png" alt="">
+                          <img defer src="Images/Icons/mongo.png" alt="">
+                          <img defer src="Images/Icons/node.png" alt="">
+                          <img defer id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt="">
                       </td>
                     </tr>
                     
@@ -504,37 +491,37 @@
                   <div class="projlinksmodal">
                     <a href="https://orangefry.netlify.app/"  target="_blank">
                       <button  class="downseeGmodal">
-                        <img class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                        <img defer class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
 
                     <a href="https://github.com/KunalMehra075/tame-ink-7589"   target="_blank">
                       <button  class="downseeGmodal">
-                      <img class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                      <img defer class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
                     <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank">
                       <button  class="downseeGmodal">
-                      <img class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                      <img defer class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                   </div>
                 </div>
                 <!-- here is project details -->
                 <div class="ImageModalsBox">
                   <label class="modalimgheads">🔷 OrangeFry.com Landing pages</label>
-                  <img src="Images/Orangefry/home1.jpg" alt="">
-                  <img src="Images/Orangefry/home2.jpg" alt="">
-                  <img src="Images/Orangefry/home3.jpg" alt="">
+                  <img defer src="Images/Orangefry/home1.jpg" alt="">
+                  <img defer src="Images/Orangefry/home2.jpg" alt="">
+                  <img defer src="Images/Orangefry/home3.jpg" alt="">
                   <label class="modalimgheads">🔷 Shop Products Page</label>
-                  <img src="Images/Orangefry/Allproducts2.jpg" alt="">
+                  <img defer src="Images/Orangefry/Allproducts2.jpg" alt="">
                   <label class="modalimgheads">🔷 View-One product Page</label>
-                  <img src="Images/Orangefry/Oneproduct2.jpg" alt="">
+                  <img defer src="Images/Orangefry/Oneproduct2.jpg" alt="">
                   <label class="modalimgheads">🔷Reviews And Comments</label>
-                  <img src="Images/Orangefry/Review and feedback.jpg" alt="">
+                  <img defer src="Images/Orangefry/Review and feedback.jpg" alt="">
                   <label class="modalimgheads">🔷 Order Summary Pages</label>
-                  <img src="Images/Orangefry/order summary.jpg" alt="">
-                  <img src="Images/Orangefry/adress.jpg" alt="">
-                  <img src="Images/Orangefry/checkout.jpg" alt="">
+                  <img defer src="Images/Orangefry/order summary.jpg" alt="">
+                  <img defer src="Images/Orangefry/adress.jpg" alt="">
+                  <img defer src="Images/Orangefry/checkout.jpg" alt="">
                   <label class="modalimgheads">🔷 Admin Pages</label>
-                  <img src="Images/Orangefry/Admin Page.jpg" alt="">
+                  <img defer src="Images/Orangefry/Admin Page.jpg" alt="">
                   <label class="modalimgheads">🔷Admin Edit Product Page</label>
-                  <img src="Images/Orangefry/Edit product.jpg" alt="">
-                  <img src="Images/Orangefry/About website and techstack.jpg" alt="">
+                  <img defer src="Images/Orangefry/Edit product.jpg" alt="">
+                  <img defer src="Images/Orangefry/About website and techstack.jpg" alt="">
           
 
 
@@ -593,13 +580,13 @@
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
                             <td id="teckstakmodal"class="project-tech-stack">
-                              <img src="Images/Icons/html.png" alt="">
-                              <img src="Images/Icons/css.png" alt="">
-                              <img src="Images/Icons/js.png" alt="">
-                              <!-- <img src="Images/Icons/Express.png" alt="">
-                              <img src="Images/Icons/mongo.png" alt="">
-                              <img src="Images/Icons/node.png" alt="">
-                              <img id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt=""> -->
+                              <img defer src="Images/Icons/html.png" alt="">
+                              <img defer src="Images/Icons/css.png" alt="">
+                              <img defer src="Images/Icons/js.png" alt="">
+                              <!-- <img defer src="Images/Icons/Express.png" alt="">
+                              <img defer src="Images/Icons/mongo.png" alt="">
+                              <img defer src="Images/Icons/node.png" alt="">
+                              <img defer id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt=""> -->
                           </td>
                         </tr>
                         
@@ -608,27 +595,27 @@
                       <div class="projlinksmodal">
                         <a href="https://placeme725.netlify.app/"  target="_blank">
                           <button  class="downseeGmodal">
-                            <img class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                            <img defer class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
             
                         <a href="https://github.com/KunalMehra075/obscene-icicle-4134"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
                         <a href="https://youtu.be/R_kWySXK4l4"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                       </div>
                     </div>
                     <!-- here is project details -->
                     <div class="ImageModalsBox">
                       <label class="modalimgheads">🔷 PlaceMe.com Landing page</label>
-                      <img src="Images/placeme/placeme1.jpg" alt="">
-                      <img src="Images/placeme/placeme2.jpg" alt="">
-                      <img src="Images/placeme/placeme3.jpg" alt="">
+                      <img defer src="Images/placeme/placeme1.jpg" alt="">
+                      <img defer src="Images/placeme/placeme2.jpg" alt="">
+                      <img defer src="Images/placeme/placeme3.jpg" alt="">
                       <label class="modalimgheads">🔷 Signin Page</label>
-                      <img src="Images/placeme/placeme5.jpg" alt="">
-                      <img src="Images/placeme/placeme6.jpg" alt="">
+                      <img defer src="Images/placeme/placeme5.jpg" alt="">
+                      <img defer src="Images/placeme/placeme6.jpg" alt="">
                       <label class="modalimgheads">🔷 Jobs Page</label>
-                      <img src="Images/placeme/placeme7.jpg" alt="">
+                      <img defer src="Images/placeme/placeme7.jpg" alt="">
 
             
             
@@ -688,13 +675,13 @@
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
                             <td id="teckstakmodal" class="project-tech-stack">
-                              <img src="Images/Icons/html.png" alt="">
-                              <img src="Images/Icons/css.png" alt="">
-                              <img src="Images/Icons/js.png" alt="">
-                              <img src="Images/Icons/Express.png" alt="">
-                              <img src="Images/Icons/mongo.png" alt="">
-                              <img src="Images/Icons/node.png" alt="">
-                              <img id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt="">
+                              <img defer src="Images/Icons/html.png" alt="">
+                              <img defer src="Images/Icons/css.png" alt="">
+                              <img defer src="Images/Icons/js.png" alt="">
+                              <img defer src="Images/Icons/Express.png" alt="">
+                              <img defer src="Images/Icons/mongo.png" alt="">
+                              <img defer src="Images/Icons/node.png" alt="">
+                              <img defer id="modalbootst" src="Images/Icons/Bootstrap_logo.svg.png" alt="">
                           </td>
                         </tr>
                         
@@ -703,24 +690,24 @@
                       <div class="projlinksmodal">
                         <a href="https://astryworld.netlify.app/"  target="_blank">
                           <button  class="downseeGmodal">
-                            <img class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                            <img defer class="gitplaymodal sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
             
                         <a href="https://github.com/KunalMehra075/Project-Astry"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
                         <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank">
                           <button  class="downseeGmodal">
-                          <img class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                          <img defer class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                       </div>
                     </div>
                     <!-- here is project details -->
                     <div class="ImageModalsBox">
                       <label class="modalimgheads">🔷 AstryWorld.com Landing page</label>
-                      <img src="Images/Astry/Ast1.jpg" alt="">
-                      <img src="Images/Astry/ast2.jpg" alt="">
-                      <img src="Images/Astry/ast3.jpg" alt="">
-                      <img src="Images/Astry/ast4.jpg" alt="">
-                      <img src="Images/Astry/ast5.jpg" alt="">
+                      <img defer src="Images/Astry/Ast1.jpg" alt="">
+                      <img defer src="Images/Astry/ast2.jpg" alt="">
+                      <img defer src="Images/Astry/ast3.jpg" alt="">
+                      <img defer src="Images/Astry/ast4.jpg" alt="">
+                      <img defer src="Images/Astry/ast5.jpg" alt="">
                 
             
             
@@ -740,20 +727,20 @@
     <div id="Github_Section" >
 <!--??--------------------------------------------- <git 1> ----------------------------------------------->
   <div class="Git1">
-    <img id="octopus" src="Images\githubocto.png" alt="">
+    <img defer id="octopus" src="Images\githubocto.png" alt="">
 
-    <img id="github-stats-card" 
+    <img defer id="github-stats-card" 
     src="https://github-readme-stats.vercel.app/api?username=KunalMehra075&show_icons=true&locale=en&theme=github"
     alt="ovi"    />
   </div>     
   <!--??--------------------------------------------- <git2> -----------------------------------------------> 
     <div class="Git2">
-      <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+      <img defer src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
 <div class="gitstreak">
-  <img id="github-streak-stats"
+  <img defer id="github-streak-stats"
       src="https://github-readme-streak-stats.herokuapp.com?user=KunalMehra075&date_format=j%20M%5B%20Y%5D&theme=github_light"
       alt="streak"/>
-  <img  id="github-top-langs" ;
+  <img defer  id="github-top-langs" ;
       src="https://github-readme-stats.vercel.app/api/top-langs/?username=KunalMehra075&show_icons=true&locale=en&layout=compact"
       alt="ovi" />
 </div>
@@ -761,16 +748,16 @@
 
 <br>
 <div   class="react-activity-calendar"  >
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details/?username=KunalMehra075&theme=github" width="100%" />
+  <img defer src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details/?username=KunalMehra075&theme=github" width="100%" />
 </div>
    <!-- snake -->
-<img id="snake" width="100%"  src="https://raw.githubusercontent.com/KunalMehra075/KunalMehra075/a69bb7fe77380c08a9e0231eb57bd743184d86d0/github-contribution-grid-snake.svg" alt="snake" />
+<img defer id="snake" width="100%"  src="https://raw.githubusercontent.com/KunalMehra075/KunalMehra075/a69bb7fe77380c08a9e0231eb57bd743184d86d0/github-contribution-grid-snake.svg" alt="snake" />
 
 <br>
      </div>
         </div>
        </div>
-       <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
+       <img defer src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
       </section>
     <!--todo--------------------------------------------- <Tech Stack Section> ----------------------------------------------->
       <section id="TechStack_Section">
@@ -805,32 +792,32 @@
               </div>
               <div class="HexagonBox">
                 <div id="hex1" class="hexagon skills-card">
-                  <div><img class="techhex "class="skills-card-img" src="Images/techstack/html.png" alt=""></div>
+                  <div><img defer class="techhex "class="skills-card-img" src="Images/techstack/html.png" alt=""></div>
                 </div>
                 <div id="hex2" class="hexagon skills-card">
-                  <div><img class="techhex "class="skills-card-img" src="Images/techstack/css.png" alt=""></div>
+                  <div><img defer class="techhex "class="skills-card-img" src="Images/techstack/css.png" alt=""></div>
                 </div>
                 <div id="hex3" class="hexagon skills-card">
-                  <div><img class="techhex"class="skills-card-img" src="Images/techstack/expr.png" alt=""></div>
+                  <div><img defer class="techhex"class="skills-card-img" src="Images/techstack/expr.png" alt=""></div>
                 </div>
                 <div id="hex4" class="hexagon skills-card">
-                  <div><img class="techhex "class="skills-card-img" src="Images/techstack/js.jpg" alt=""></div>
+                  <div><img defer class="techhex "class="skills-card-img" src="Images/techstack/js.jpg" alt=""></div>
                 </div>
                 <div id="hex5" class="hexagon">
                   <!-- Middle One -->
-                  <div>  <img class="gear" src="Images/Icons/gear.gif" alt=""> <label id="skillcenter">SKILLS</label> </div>
+                  <div>  <img defer class="gear" src="Images/Icons/gear.gif" alt=""> <label id="skillcenter">SKILLS</label> </div>
                 </div>
-                <img id="pg1" class="p68" src="Images/blobs/p68.png" alt="">
-                <img id="pg2" class="p68" src="Images/blobs/p68.png" alt="">
-                <img id="pg3" class="p68" src="Images/blobs/p68.png" alt="">
-                <img id="pg4" class="p68" src="Images/blobs/p68.png" alt="">
-                <img id="pg5" class="p68" src="Images/blobs/p68.png" alt="">
-                <img id="pg6" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg1" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg2" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg3" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg4" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg5" class="p68" src="Images/blobs/p68.png" alt="">
+                <img defer id="pg6" class="p68" src="Images/blobs/p68.png" alt="">
                 <div id="hex6" class="hexagon skills-card">
-                  <div><img class="techhex"class="skills-card-img" src="Images/techstack/mngo.png" alt=""></div>
+                  <div><img defer class="techhex"class="skills-card-img" src="Images/techstack/mngo.png" alt=""></div>
                 </div>
                 <div id="hex7" class="hexagon skills-card">
-                  <div><img class="techhex"class="skills-card-img" src="Images/techstack/node.jpg" alt=""></div>
+                  <div><img defer class="techhex"class="skills-card-img" src="Images/techstack/node.jpg" alt=""></div>
                 </div>
             
               </div>
@@ -853,28 +840,28 @@
                     
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q1.png" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q1.png" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q8.png" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q8.png" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="99%" src="Images\toolset/q2.png" alt=""></div>
+                        <img defer class="skills-card-img" width="99%" src="Images\toolset/q2.png" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/boots.png" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/boots.png" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q3.png" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q3.png" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q9.svg" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q9.svg" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q5.jpeg" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q5.jpeg" alt=""></div>
                       <div class="skills-card" >
                         <span class="skills-card-name" style="color: white;" ></span>
-                        <img class="skills-card-img" width="90%" src="Images\toolset/q4.png" alt=""></div>
+                        <img defer class="skills-card-img" width="90%" src="Images\toolset/q4.png" alt=""></div>
 
                   </div>
                 </div>
@@ -925,10 +912,10 @@
       <div id="footercenter">
         <div><h3>Connect With Me</h3></div>
         <div class="footerimgs">
-          <div><a  target="_blank" href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"><img width="50px" src="Images/social/linked.svg "></a></div>
-          <div><a  target="_blank" href="https://twitter.com/KunalMe96052494"><img width="50px" src="Images/social/twitter.svg" /></a></div>
-          <div><a  target="_blank" href="https://github.com/KunalMehra075"><img width="50px" src="Images/social/github.svg" /></a></div>
-          <div><a  target="_blank" href="https://www.facebook.com/profile.php?id=100046670616350"><img width="50px" src="Images/social/fb.svg" /></a></div>
+          <div><a  target="_blank" href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"><img defer width="50px" src="Images/social/linked.svg "></a></div>
+          <div><a  target="_blank" href="https://twitter.com/KunalMe96052494"><img defer width="50px" src="Images/social/twitter.svg" /></a></div>
+          <div><a  target="_blank" href="https://github.com/KunalMehra075"><img defer width="50px" src="Images/social/github.svg" /></a></div>
+          <div><a  target="_blank" href="https://www.facebook.com/profile.php?id=100046670616350"><img defer width="50px" src="Images/social/fb.svg" /></a></div>
         </div>
 
       </div>
@@ -940,18 +927,7 @@
       </div>
     </footer>
 
-      <!--??--------------------------------------------- <CP> ----------------------------------------------->
-        <span id="nav-menu"></span>
-      <!--??--------------------------------------------- <CPend> ----------------------------------------------->
-
     <!--!--------------------------------------------- <SCRPITS> ----------------------------------------------->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="JS/index.js" defer></script>
+ 
   </body>
 </html>
