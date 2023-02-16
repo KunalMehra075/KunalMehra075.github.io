@@ -24,13 +24,18 @@ window.addEventListener("scroll", () => {
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
+let resumedownloadnav = document
+  .getElementById("resume-button-nav")
+  .addEventListener("click", () => {
+    window.open("Kunal_Mehra_Resume.pdf", "_blank");
+  });
 let resumedownload1 = document
-  .getElementById("resume-link-1")
+  .getElementById("resume-button-1")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
 let resumedownload2 = document
-  .getElementById("resume-link-2")
+  .getElementById("resume-button-2")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });

@@ -86,9 +86,9 @@
       
             </ul>
       
-            <div style="display: flex;">
+            <div  style="display: flex;">
             <a id="resume-link-1" href="Kunal_Mehra_Resume.pdf"  download> 
-            <button id="resume-button-1"  class="nav-link resume buttonslide">
+            <button id="resume-button-nav"  class="nav-link resume buttonslide">
               Resume
             </button></a>
               <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
@@ -101,8 +101,8 @@
     </header>
 
     <!--todo--------------------------------------------- Main Body ----------------------------------------------->
-    <main id="home">
-      <div  class="FirstView">
+    <main>
+      <div  id="home" class="FirstView">
         <div class="Introbox">
           <h1>Hello!</h1>
           <h1 id="kunal">I am Kunal Mehra</h1>
@@ -117,7 +117,9 @@
 
 
           <div id="Letsexploreparent">
-            <a href="#portfolio"><button id="LetsExplore" class="buttonslide">Lets Explore</button>   </a><br>
+            <a href="#portfolio"><button id="LetsExplore" class="buttonslide">Lets Explore</button>   </a>
+            <a href="Kunal_Mehra_Resume.pdf" download><button id="resume-button-1" class="buttonslide">CV 
+              <img width="30%" style="filter: invert();" src="Images/Icons/download.svg" alt=""> </button>   </a><br>
        </div>
       
         
@@ -131,7 +133,7 @@
 
       <!--??--------------------------------------------- <Portfolio Section> ----------------------------------------------->
 
-        <span id="about">
+        <span  id="about" class="about section">
       <section id="portfolio">
         <h1 id="Aboutroll" class="SectionHeads">About Me
           </h1>
@@ -143,8 +145,8 @@
           
           <div class="portfolio-content">
             <h1 id="user-detail-name" class="profileheading">Hi! I am Kunal Mehra </h1>
-            <p>
-              <label id="user-detail-intro" style="color:var( --themeblueDark)">I</label>
+            <p id="user-detail-intro">
+              <label style="color:var( --themeblueDark)">I</label>
               am a Web Developer who knows how to design and build Web Apps that are
               aligned with your business image and goals.Having the capability of
               writing production-ready codes with unique logic &

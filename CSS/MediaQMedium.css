@@ -41,9 +41,10 @@
   #portfolio {
     padding-top: 0px;
   }
-  #LetsExplore {
-    font-size: 17px;
-    padding: 5px 22px;
+  #LetsExplore,
+  #resume-button-1 {
+    font-size: 17px !important;
+    padding: 5px 22px !important;
   }
   .OneProject {
     height: 50vh;
