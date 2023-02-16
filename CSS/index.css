@@ -152,7 +152,7 @@ header li {
 }
 #resume-button-nav,
 #resume-button-1,
-#resume-button-2 {
+#resume-link-2 {
   z-index: 999 !important;
   cursor: pointer;
   background: rgb(24, 109, 212);
@@ -163,13 +163,12 @@ header li {
   border: none;
   padding: 10px 15px !important;
 }
-#resume-button-nav,
-#resume-button-2 {
+#resume-button-nav {
   border-radius: 0px !important;
   background-color: var(--themeblue);
 }
 #resume-button-1::before,
-#resume-button-2::before {
+#resume-link-2::before {
   border-radius: 5px;
 }
 
@@ -179,7 +178,7 @@ header li {
 }
 #resume-button-nav:hover,
 #resume-button-1:hover,
-#resume-button-2:hover {
+#resume-link-2:hover {
   background-color: rgb(52, 161, 220);
 }
 

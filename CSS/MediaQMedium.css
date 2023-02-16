@@ -38,11 +38,11 @@
   #intro {
     font-size: 25px;
   }
-  #portfolio {
+  #about {
     padding-top: 0px;
   }
   #LetsExplore,
-  #resume-button-1 {
+  #resume-button-nav {
     font-size: 17px !important;
     padding: 5px 22px !important;
   }
@@ -91,10 +91,10 @@
     font-size: 35px;
     margin: 5px;
   }
-  #portfolio > div {
+  #about > div {
     display: flex;
   }
-  #portfolio > div > div:nth-child(1) {
+  #about > div > div:nth-child(1) {
     width: 90%;
     margin: auto;
   }
