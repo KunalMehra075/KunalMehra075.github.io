@@ -16,7 +16,6 @@ update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
 let about = document.getElementById("about");
 let project = document.getElementById("projectHead");
-let brand = document.getElementById("brandlogog");
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
   about.style.transform = `translateX(${value - 500}px)`;
@@ -47,5 +46,8 @@ letsconnectform.addEventListener("submit", (e) => {
   };
 
   swal("Message sent.", "Will reply soon!", "success");
-  // console.log(obj);
+  letsconnectform.firstname.value = "";
+  letsconnectform.lastname.value = "";
+  letsconnectform.email.value = "";
+  letsconnectform.textmessage.value = "";
 });
