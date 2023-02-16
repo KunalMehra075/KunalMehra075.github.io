@@ -90,6 +90,10 @@
   .AllProjects {
     padding: 5px;
   }
+  .OneProject {
+    height: 300px;
+  }
+
   #about {
     position: static !important;
     transform: none !important;
@@ -170,7 +174,7 @@
     flex-direction: column;
   }
   #letusconnect {
-    font-size: 8rem;
+    font-size: 7rem;
   }
   #connect {
     padding: 7px 10px;
@@ -179,7 +183,7 @@
     width: 90%;
   }
   #submit-button {
-    width: 50%;
+    width: 20%;
   }
   #footercenter {
     flex-direction: column;
@@ -235,18 +239,69 @@
   td:nth-child(2n-1) {
     width: 100px;
   }
-  .ImageModalsBox {
-    width: 100%;
-    height: 500px !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
   #teckstakmodal > img {
     width: 35px;
   }
   .ImageModalsBox > img {
     width: 90%;
     margin: auto;
+  }
+
+  #teckstakmodal > img {
+    width: 35px;
+  }
+
+  #checkoutbio > a {
+    font-size: 13px;
+  }
+  .profileheading {
+    font-size: 34px;
+  }
+  .portfolio-content p {
+    font-size: 15px;
+  }
+  .Git2 {
+    padding: 0px !important;
+  }
+  #gitstreakone {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .OneProject {
+    height: 350px;
+  }
+
+  .connecttwonamesdiv input {
+    width: 80% !important;
+  }
+  .connectsection label {
+    margin: 0px;
+  }
+  #connectsubmitdiv {
+    justify-content: center;
+  }
+  #submit-button {
+    position: static;
+    margin: 0px !important;
+  }
+  .modalimgheads {
+    font-size: 13px;
+  }
+
+  .ImageModalsBox {
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 800px !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .ImageModalsBox > img {
+    width: 99%;
+    margin: auto;
+  }
+  .DetailsModalBox {
+    height: 150px;
   }
 }
