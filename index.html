@@ -79,27 +79,27 @@
             
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link home buttonunderline" aria-current="page" href="#">Home</a>
+                <a class="nav-link home buttonunderline" aria-current="page" href="#" >Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link about buttonunderline" aria-current="page" href="#Aboutroll">About</a>
+                <a class="nav-link about buttonunderline" aria-current="page" href="#about">About</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link projects buttonunderline" href="#project_section">Projects</a>
+                <a class="nav-link projects buttonunderline" href="#projects">Projects</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link skills buttonunderline home" aria-current="page" href="#skills">Skills</a>
               </li>
       
               <li class="nav-item">
-                <a class="nav-link contact buttonunderline" href="#ContactMe_Section">Contact</a>
+                <a class="nav-link contact buttonunderline" href="#contact">Contact</a>
               </li>
            
            
       
             </ul>
       
-            <div id="home" style="display: flex;">
+            <div style="display: flex;">
             <a id="resume-button-1" href="Kunal_Mehra_Resume.pdf"  download> 
             <button id="ResumeButton"  class="nav-link resume buttonslide">
               Resume
@@ -114,11 +114,11 @@
     </header>
 
     <!--todo--------------------------------------------- Main Body ----------------------------------------------->
-    <main>
-      <div id="Landingpage" class="FirstView">
+    <main id="home">
+      <div  class="FirstView">
         <div class="Introbox">
           <h1>Hello!</h1>
-          <h1 id="kunal">I am Kunal Mehra</h1><span id="user-detail-name" ></span>
+          <h1 id="kunal">I am Kunal Mehra</h1>
           <br />
           <h2 id="intro">A Full Stack Web Developer📌</h2>
           <br />
@@ -155,7 +155,7 @@
           <div><img id="kunalimg" class="home-img" src="Images/mainimg.jpg" alt="" /></div>
           
           <div class="portfolio-content">
-            <h1 id="helloiam" class="profileheading">Hi! I am <span id="user-detail-name" >Kunal Mehra</span> </h1>
+            <h1 id="user-detail-name" class="profileheading">Hi! I am Kunal Mehra </h1>
             <p>
               <label id="user-detail-intro" style="color:var( --themeblueDark)">I</label>
               am a Web Developer who knows how to design and build Web Apps that are
@@ -218,10 +218,10 @@
       </section>
     </span>
       <!--??--------------------------------------------- <Projects> ----------------------------------------------->
-      <section id="project_section">
+      <section  id="projects">
         <h1 id="projectHead" class="SectionHeads">PROJECTS</h1>
         <br />
-        <div  id="projects" class="AllProjects">
+        <div  class="AllProjects">
 
            <!-- !Stylezilla -->
           <div class="project-card">
@@ -886,11 +886,12 @@
       </section>
 
     <!--todo--------------------------------------------- <Contact Me Section> ----------------------------------------------->
-      <section id="ContactMe_Section">
+
+      <section id="contact"> 
+      <div id="ContactMe_Section">
         <h1  class="SectionHeads">Contact Me </h1>
-        <!--??--------------------------------------------- <Connect Section> ----------------------------------------------->
           <section id="connect" >
-            <span id="contact"></span>
+           </span>
             <div class="connectsection">
               <div><label id="letusconnect" >Let's <br> Connect</label></div>
               <div>
@@ -908,8 +909,8 @@
             </div>
             
             <div></div>
-          </section>
-      </section>
+          </div>
+        </section>
 
     </main>
     <!--todo--------------------------------------------- Footer ----------------------------------------------->

@@ -18,6 +18,7 @@
   }
   .SectionHeads {
     font-size: 50px;
+    text-align: center;
   }
   .navbar-brand {
     margin: 0px !important;
@@ -43,6 +44,10 @@
   }
   .FirstView > div {
     width: 100%;
+  }
+  #user-detail-name {
+    /* text-shadow: 3px 3px #010101; */
+    margin: 10px auto;
   }
   .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.532) !important;

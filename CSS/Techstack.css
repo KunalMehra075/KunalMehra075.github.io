@@ -4,6 +4,7 @@
   height: 600px;
   margin: auto 0px;
   width: 700px;
+  scale: 0.9;
 }
 :root {
   --hextop: 70px;

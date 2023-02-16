@@ -14,7 +14,8 @@
     --balltop: 100px;
   }
   .SectionHeads {
-    font-size: 80px;
+    font-size: 70px;
+    text-align: center;
   }
   .navbar-brand {
     margin: 0px !important;
@@ -68,8 +69,9 @@
   #kunalimg {
     width: 90%;
   }
-  #helloiam {
+  #user-detail-name {
     font-size: 35px;
+    margin: 5px;
   }
   #portfolio > div {
     display: flex;
