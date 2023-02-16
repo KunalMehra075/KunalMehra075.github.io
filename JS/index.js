@@ -24,11 +24,6 @@ window.addEventListener("scroll", () => {
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
-let resumedownloadnav = document
-  .getElementById("resume-button-nav")
-  .addEventListener("click", () => {
-    window.open("Kunal_Mehra_Resume.pdf", "_blank");
-  });
 let resumedownload1 = document
   .getElementById("resume-button-1")
   .addEventListener("click", () => {
@@ -39,7 +34,11 @@ let resumedownload2 = document
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
-
+let cvdownload = document
+  .getElementById("cvdownloadlink")
+  .addEventListener("click", () => {
+    window.open("Kunal_Mehra_Resume.pdf", "_blank");
+  });
 //? <!----------------------------------------------- < Lets Connect form> ----------------------------------------------->
 let letsconnectform = document.getElementById("letsconnectform");
 letsconnectform.addEventListener("submit", (e) => {
