@@ -23,7 +23,6 @@
 .connectsection > div {
   margin: 10px 20px;
 }
-
 .connectsection > div:nth-child(2) {
   position: relative;
 }

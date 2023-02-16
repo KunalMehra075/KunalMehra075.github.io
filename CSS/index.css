@@ -153,6 +153,7 @@ header li {
 #resume-button-nav,
 #resume-button-1,
 #resume-button-2 {
+  z-index: 999 !important;
   cursor: pointer;
   background: rgb(24, 109, 212);
   border-radius: 5px;
@@ -162,12 +163,12 @@ header li {
   border: none;
   padding: 10px 15px !important;
 }
-#resume-button-1,
+#resume-button-nav,
 #resume-button-2 {
   border-radius: 0px !important;
   background-color: var(--themeblue);
 }
-#resume-button-nav::before,
+#resume-button-1::before,
 #resume-button-2::before {
   border-radius: 5px;
 }
