@@ -51,7 +51,7 @@
 
   <body>
     <!--!--------------------------------------------- <Essentials> ----------------------------------------------->
-    <div id="preloader"><h2>Loading..</h2></div>
+    <!-- <div id="preloader"><h2>Loading..</h2></div> -->
       <div class="progress-bar">
       <div class="filled"></div>
     </div>
@@ -104,7 +104,8 @@
             <button id="ResumeButton"  class="nav-link resume buttonslide">
               Resume
             </button></a>
-              <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"><img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
+              <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
+                <img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
          
             </div>
           </div>
@@ -122,17 +123,16 @@
           <h2 id="intro">A Full Stack Web Developer📌</h2>
           <br />
           <p>
-            So hey, I am currently learning at Masai Coding School.<br />
-            I created this website purely through HTML, CSS and JavaScript
+            So hey, I am currently learning at Masai School.<br />
+            Welcome to my portfolio. <br>
+             
           </p> <span  id="user-detail-intro"></span>
 
 
           <div id="Letsexploreparent">
             <a href="#portfolio"><button id="LetsExplore" class="buttonslide">Lets Explore</button>   </a><br>
        </div>
-       
-        
-        
+      
         
         </div>
 
@@ -145,29 +145,33 @@
       <!--??--------------------------------------------- <Portfolio Section> ----------------------------------------------->
 
       <section id="portfolio">
-        <h1 id="Aboutroll" class="SectionHeads">About Me</h1>
-        <span id="about" class="about section"></span>
+        <h1 id="Aboutroll" class="SectionHeads">About Me <span id="About" style="color:rgb(255, 255, 255)">About</span></h1>
+
         <br />
 
         <div>
           <div><img id="kunalimg" class="home-img" src="Images/mainimg.jpg" alt="" /></div>
+          
           <div class="portfolio-content">
-            <h1 id="helloiam" class="profileheading">Hi! I am Kunal Mehra</h1>
+            <h1 id="helloiam" class="profileheading">Hi! I am <span id="user-detail-name" >Kunal Mehra</span> </h1>
             <p>
-              <label style="color:var( --themeblueDark)">I</label>
+              <label id="user-detail-intro" style="color:var( --themeblueDark)">I</label>
               am a Web Developer who knows how to design and build Web Apps that are
-              aligned with your business image and goals.<br>
-              Capable of writing production-ready code with unique logic &
-              conciseness. Passionate about coding, Keeps
-              exploring new fields. <br>Always Excited to work and
-              gaining new experiences.
+              aligned with your business image and goals.Having the capability of
+              writing production-ready codes with unique logic &
+              conciseness. Looking for a job opportunity to secure a
+              good career while simultaneously contributing to the
+              organization's success.
             </p>
-            <div>
-              <a id="resume-button-2" href="Kunal_Mehra_Resume.pdf"  download>
-                <button id="ResumeButton" class="nav-link resume buttonslide">
-                  Download My Resume
-                </button>
-            </div>
+            <span id="about" class="about section">
+              <div>
+                <a id="resume-button-2" href="Kunal_Mehra_Resume.pdf"  download>
+                  <button id="ResumeButton" class="nav-link resume buttonslide">
+                    Download My Resume
+                  </button>
+              </div>
+            </span>
+           
           
         
             <div>
@@ -181,12 +185,15 @@
               <br>
               <div id="logos">
                 <div>
-                  <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"
+
+                  <a  id="contact-linkedin"
+                  href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"
                      target="_blank"><img src="Images/social/linked.svg" alt=""
                   /></a>
                 </div>
                 <div>
-                  <a href="https://github.com/KunalMehra075" id="contact-github"
+                  <a id="contact-github"
+                  href="https://github.com/KunalMehra075" id="contact-github"
                      target="_blank"><img src="Images/social/github.svg" alt=""
                   /></a>
                 </div>
@@ -211,117 +218,118 @@
       <section id="project_section">
         <h1 id="projectHead" class="SectionHeads">PROJECTS</h1>
         <br />
+        <div  id="projects" class="AllProjects">
 
-        <span id="projects"></span>
-        <span  class="project-title"></span>
-        <span class="project-description"></span>
-        <span class="project-tech-stack" ></span>
-        <span class="project-github-link"></span>
-        <span class="project-deployed-link"></span>
-
-
-        <div class="AllProjects">
-     <!-- !Stylezilla -->
-          
-          <div class="OneProject stylezillabg">
-            <h1 class="projectcount">01</h1>
-            <div class="OPRBGB" >
-              <div class="OnePRhead stylezilla_head">StyleZilla.com</div>
-            <div class="OnePRdetails"><p>An Online Fashion Store for shopping clothes and latest brands.</p>
-           
-              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#StyleZillaModal" data-stylezilla>
-               Click here to know more
-               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
-              </button>
-              <br>
-              <div class="projlinks">
-              <a href="https://stylezillajs201.netlify.app/" target="_blank">
-                <button  class="downseeG"><img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
-              <a href="https://github.com/SagarN21/urbane-look-6820"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
-              <a href="https://youtu.be/SkV6oL-GZm8"  target="_blank">
-                <button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
-              </div>
-            </div>
-            </div>
-            
-          </div>
-           <!-- !Orangefry -->
-          <div class="OneProject orangefrybg">
-            <h1 class="projectcount">02</h1>
-            <div class="OPRBGB">
-              <div class="OnePRhead">OrangeFry.com</div>
-              <div class="OnePRdetails"><p>Orangefry is an Indian online marketplace for furniture and home décor.</p>
-                <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#OrangeFryModal" data-orangefry>
-                  Click here to know more
-                  <img class="downsee" src="Images\Icons\downsee.gif" alt="">
-                 </button>
-                 <br>
-                 <div class="projlinks">
-                 <a href="https://orangefry.netlify.app/"  target="_blank">
+           <!-- !Stylezilla -->
+          <div class="project-card">
+            <div class="OneProject stylezillabg">
+              <h1 class="projectcount">01</h1>
+              <div class="OPRBGB" >
+                <div class="OnePRhead project-title">StyleZilla.com</div>
+              <div class="OnePRdetails"><p class="project-description" >An Online Fashion Store for shopping clothes and latest brands.</p>
+             
+                <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#StyleZillaModal" data-stylezilla>
+                 Click here to know more
+                 <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                </button>
+                <br>
+                <div class="projlinks">
+                <a  class="project-deployed-link" href="https://stylezillajs201.netlify.app/" target="_blank">
                   <button  class="downseeG"><img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
-                 <a href="https://github.com/KunalMehra075/tame-ink-7589"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
-                 <a href="https://youtu.be/qRuoJ1Hj-Xg"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
-                 </div>
+                <a class="project-github-link" href="https://github.com/SagarN21/urbane-look-6820"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                <a href="https://youtu.be/SkV6oL-GZm8"  target="_blank">
+                  <button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
                 </div>
+              </div>
+              </div>
               
             </div>
-            <div class="OneProject"></div>
-            </div>
+          </div>
+     
+           <!-- !Orangefry -->
+           <div class="project-card">
+            <div class="OneProject orangefrybg">
+              <h1 class="projectcount">02</h1>
+              <div class="OPRBGB">
+                <div class="OnePRhead"  class="project-title">OrangeFry.com</div>
+                <div class="OnePRdetails"><p class="project-description">Orangefry is an Indian online marketplace for furniture and home décor.</p>
+                  <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#OrangeFryModal" data-orangefry>
+                    Click here to know more
+                    <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                   </button>
+                   <br>
+                   <div class="projlinks">
+                   <a class="project-deployed-link"  href="https://orangefry.netlify.app/"  target="_blank">
+                    <button  class="downseeG"><img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+                   <a class="project-github-link" href="https://github.com/KunalMehra075/tame-ink-7589"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button></a>
+                   <a href="https://youtu.be/qRuoJ1Hj-Xg"  target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                   </div>
+                  </div>
+                
+              </div>
+              <div class="OneProject"></div>
+              </div>
+           </div>
+          
              <!-- !Placeme -->
-
-          <div class="OneProject placemebg">
-            <h1 class="projectcount">03</h1>
-            <div class="OPRBGB">
-              <div class="OnePRhead stylezilla_head">PlaceMe.com</div>
-            <div class="OnePRdetails"><p>A Job hunting websites, for seekers as well as hirers.</p>
-              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#PlacemeModal" data-placeme>
-               Click here to know more
-               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
-              </button>
-              <br>
-              <div class="projlinks">
-              <a href="https://placeme725.netlify.app/"  target="_blank"><button  class="downseeG">
-                <img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button>
-              </a>
-              <a href="https://github.com/KunalMehra075/obscene-icicle-4134"  target="_blank"><button  class="downseeG">
-                <img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button>
-              </a>
-              <a href="https://youtu.be/R_kWySXK4l4"  target="_blank"><button  class="downseeG">
-                <img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button>
-              </a>
+          <div class="project-card">
+            <div class="OneProject placemebg">
+              <h1 class="projectcount">03</h1>
+              <div class="OPRBGB">
+                <div class="OnePRhead project-title" >PlaceMe.com</div>
+              <div class="OnePRdetails"><p class="project-description" >A Job hunting websites, for seekers as well as hirers.</p>
+                <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#PlacemeModal" data-placeme>
+                Click here to know more
+                <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                </button>
+                <br>
+                <div class="projlinks">
+                <a class="project-deployed-link" href="https://placeme725.netlify.app/"  target="_blank"><button  class="downseeG">
+                  <img class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt=""> Site</button>
+                </a>
+                <a class="project-github-link" href="https://github.com/KunalMehra075/obscene-icicle-4134"  target="_blank"><button  class="downseeG">
+                  <img class="gitplay" src="Images/Icons/GitHub.png" alt=""> Github</button>
+                </a>
+                <a href="https://youtu.be/R_kWySXK4l4"  target="_blank"><button  class="downseeG">
+                  <img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button>
+                </a>
+                </div>
               </div>
-            </div>
-            </div>
-            
-          </div>
-                     <!-- !Astry -->
-
-          <div class="OneProject astrybg">
-            <h1 class="projectcount">04</h1>
-            <div class="OPRBGB">
-              <div class="OnePRhead stylezilla_head">Astry.com</div>
-            <div class="OnePRdetails"><p>A Personal Portfolio, for grapic designers</p>
-              <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#AstryModal" data-astry>
-               Click here to know more
-               <img class="downsee" src="Images\Icons\downsee.gif" alt="">
-              </button>
-              <br>
-              <div class="projlinks">
-                <a href="https://astryworld.netlify.app/"  target="_blank">
-                  <button  class="downseeG">
-                    <img class="gitplay sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
-
-                <a href="https://github.com/KunalMehra075/Project-Astry"   target="_blank">
-                  <button  class="downseeG">
-                    <img class="gitplay" src="Images/Icons/GitHub.png" alt="">
-                     Github</button></a>
-                <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
               </div>
               
             </div>
-            </div>
-            
           </div>
+
+             <!-- !Astry -->
+          <div class="project-card">
+            <div class="OneProject astrybg">
+              <h1 class="projectcount">04</h1>
+              <div class="OPRBGB">
+                <div class="OnePRhead project-title">Astry.com</div>
+              <div class="OnePRdetails"><p class="project-description"  >A Personal Portfolio, for grapic designers</p>
+                <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#AstryModal" data-astry>
+                 Click here to know more
+                 <img class="downsee" src="Images\Icons\downsee.gif" alt="">
+                </button>
+                <br>
+                <div class="projlinks">
+                  <a  class="project-deployed-link" href="https://astryworld.netlify.app/"  target="_blank">
+                    <button  class="downseeG">
+                      <img class="gitplay sitebutton"  src="Images/Icons/opensite.svg" alt=""> Site</button></a>
+  
+                  <a  class="project-github-link" href="https://github.com/KunalMehra075/Project-Astry"   target="_blank">
+                    <button  class="downseeG">
+                      <img class="gitplay" src="Images/Icons/GitHub.png" alt="">
+                       Github</button></a>
+                  <a href="https://youtu.be/qRuoJ1Hj-Xg"   target="_blank"><button  class="downseeG"><img class="gitplay" src="Images/Icons/play.png" alt=""> Live Video</button></a>
+                </div>
+                
+              </div>
+              </div>
+              
+            </div>
+          </div>
+         
         </div>
       </section>
 
@@ -377,7 +385,7 @@
                         </tr>
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
-                            <td id="teckstakmodal">
+                            <td id="teckstakmodal" class="project-tech-stack">
                               <img src="Images/Icons/html.png" alt="">
                               <img src="Images/Icons/css.png" alt="">
                               <img src="Images/Icons/js.png" alt="">
@@ -477,7 +485,7 @@
                     </tr>
                     <tr> 
                         <td><b>Tech Stack Used</b></td>
-                        <td id="teckstakmodal">
+                        <td id="teckstakmodal" class="project-tech-stack">
                           <img src="Images/Icons/html.png" alt="">
                           <img src="Images/Icons/css.png" alt="">
                           <img src="Images/Icons/js.png" alt="">
@@ -581,7 +589,7 @@
                         </tr>
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
-                            <td id="teckstakmodal">
+                            <td id="teckstakmodal"class="project-tech-stack">
                               <img src="Images/Icons/html.png" alt="">
                               <img src="Images/Icons/css.png" alt="">
                               <img src="Images/Icons/js.png" alt="">
@@ -676,7 +684,7 @@
                         </tr>
                         <tr> 
                             <td><b>Tech Stack Used</b></td>
-                            <td id="teckstakmodal">
+                            <td id="teckstakmodal" class="project-tech-stack">
                               <img src="Images/Icons/html.png" alt="">
                               <img src="Images/Icons/css.png" alt="">
                               <img src="Images/Icons/js.png" alt="">
@@ -740,17 +748,20 @@
       <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="100%" height="10px" alt="Git" />
 <div class="gitstreak">
   <img id="github-streak-stats"
-      src="https://github-readme-streak-stats.herokuapp.com?user=KunalMehra075&date_format=j%20M%5B%20Y%5D&theme=github_light"
+      src="https://github-readme-streak-stats.herokuapp.com/?user=KunalMehra075&date_format=j%20M%5B%20Y%5D&theme=github_light"
       alt="streak"/>
   <img  id="github-top-langs" ;
-      src="https://github-readme-stats.vercel.app/api/top-langs?username=KunalMehra075&show_icons=true&locale=en&layout=compact"
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=KunalMehra075&show_icons=true&locale=en&layout=compact"
       alt="ovi" />
 </div>
 
 
 <br>
-<img  class="react-activity-calendar" 
-      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=KunalMehra075&theme=github" width="100%" />
+<div   class="react-activity-calendar"  >
+  <img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details/?username=KunalMehra075&theme=github" width="100%" />
+
+</div>
    <!-- snake -->
 <img id="snake" width="100%"  src="https://raw.githubusercontent.com/KunalMehra075/KunalMehra075/a69bb7fe77380c08a9e0231eb57bd743184d86d0/github-contribution-grid-snake.svg" alt="snake" />
 
@@ -779,15 +790,15 @@
           <center>  <h1 class="SkillsHeads buttonslide Techskillshead"> Technical Skills</h1></center>
           <label  style="text-decoration: underline;font-weight: 300; font-size: 20px;">Top Skills </label>
             <div class="Stack2firstParent" >
-              <div class="Stack2first">
+              <div class="Stack2first" class="skills-card">
                 
-                  <div>HTML</div>
-                  <div>CSS</div>
-                  <div>JavaScript</div>
-                  <div>Node.js</div>
-                  <div>AWS</div>
-                  <div>Express.js</div>
-                  <div>Data Structures & Algorithms</div>
+                  <div class="skills-card-name" >HTML</div>
+                  <div class="skills-card-name" >CSS</div>
+                  <div class="skills-card-name" >JavaScript</div>
+                  <div class="skills-card-name" >Node.js</div>
+                  <div class="skills-card-name" >AWS</div>
+                  <div class="skills-card-name" >Express.js</div>
+                  <div class="skills-card-name" >Data Structures & Algorithms</div>
                 </div>
                 <label  style="text-decoration: underline;font-weight: 300;">Currently Learning </label>
               <div class="Stack2first">
@@ -801,16 +812,16 @@
       </div>
       <div class="HexagonBox">
         <div id="hex1" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/html.png" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/html.png" alt=""></div>
         </div>
         <div id="hex2" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/css.png" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/css.png" alt=""></div>
         </div>
         <div id="hex3" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/expr.png" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/expr.png" alt=""></div>
         </div>
         <div id="hex4" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/js.jpg" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/js.jpg" alt=""></div>
         </div>
         <div id="hex5" class="hexagon">
           <!-- Middle One -->
@@ -823,10 +834,10 @@
         <img id="pg5" class="p68" src="Images/blobs/p68.png" alt="">
         <img id="pg6" class="p68" src="Images/blobs/p68.png" alt="">
         <div id="hex6" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/mngo.png" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/mngo.png" alt=""></div>
         </div>
         <div id="hex7" class="hexagon">
-          <div><img class="techhex" src="Images/techstack/node.jpg" alt=""></div>
+          <div><img class="techhex"class="skills-card-img" src="Images/techstack/node.jpg" alt=""></div>
         </div>
     
       </div>
@@ -836,25 +847,41 @@
         <center>  <h1 class="SkillsHeads buttonslide"> Soft Skills</h1></center>
           <div class="Stack2second">
             
-            <div>Remote Work & Collaboration</div>
-              <div>Teamwork</div>
-              <div>Leadership</div>
-              <div>Problem-Solving</div>
-              <div>Time Management</div>
+            <div class="skills-card-name" >Remote Work & Collaboration</div>
+              <div class="skills-card-name" >Teamwork</div>
+              <div class="skills-card-name" >Leadership</div>
+              <div class="skills-card-name" >Problem-Solving</div>
+              <div class="skills-card-name" >Time Management</div>
           </div>
         </div>
         <div  class="Stack2secondParent" >
           <center>  <h1 class="SkillsHeads buttonslide"> Toolset</h1></center>
           <div class="Toolset">
             
-            <div><img width="90%" src="Images\toolset/q1.png" alt=""></div>
-            <div><img width="90%" src="Images\toolset/q8.png" alt=""></div>
-            <div><img width="99%" src="Images\toolset/q2.png" alt=""></div>
-            <div><img width="90%" src="Images\toolset/boots.png" alt=""></div>
-              <div><img width="90%" src="Images\toolset/q3.png" alt=""></div>
-              <div><img width="90%" src="Images\toolset/q9.svg" alt=""></div>
-              <div><img width="90%" src="Images\toolset/q5.jpeg" alt=""></div>
-              <div><img width="90%" src="Images\toolset/q4.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q1.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q8.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="99%" src="Images\toolset/q2.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/boots.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q3.png" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q9.svg" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q5.jpeg" alt=""></div>
+              <div class="skills-card" >
+                <span class="skills-card-name" style="color: white;" ></span>
+                <img class="skills-card-img" width="90%" src="Images\toolset/q4.png" alt=""></div>
 
           </div>
         </div>
