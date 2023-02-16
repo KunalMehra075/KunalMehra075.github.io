@@ -1,9 +1,9 @@
 //? <!----------------------------------------------- < Preloader & Progressbar> ----------------------------------------------->
 
-// var loader = document.querySelector("#preloader");
-// window.addEventListener("load", function () {
-//   loader.style.display = "none";
-// });
+var loader = document.querySelector("#preloader");
+window.addEventListener("load", function () {
+  loader.style.display = "none";
+});
 
 const filled = document.querySelector(".filled");
 function update() {

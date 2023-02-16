@@ -51,7 +51,7 @@
 
   <body>
     <!--!--------------------------------------------- <Essentials> ----------------------------------------------->
-    <!-- <div id="preloader"><h2>Loading..</h2></div> -->
+    <div id="preloader"><h2>Loading..</h2></div>
       <div class="progress-bar">
       <div class="filled"></div>
     </div>
@@ -99,7 +99,7 @@
       
             </ul>
       
-            <div style="display: flex;">
+            <div id="home" style="display: flex;">
             <a id="resume-button-1" href="Kunal_Mehra_Resume.pdf"  download> 
             <button id="ResumeButton"  class="nav-link resume buttonslide">
               Resume
@@ -126,7 +126,7 @@
             So hey, I am currently learning at Masai School.<br />
             Welcome to my portfolio. <br>
              
-          </p> <span  id="user-detail-intro"></span>
+          </p>
 
 
           <div id="Letsexploreparent">
@@ -144,9 +144,10 @@
 
       <!--??--------------------------------------------- <Portfolio Section> ----------------------------------------------->
 
+        <span id="about">
       <section id="portfolio">
         <h1 id="Aboutroll" class="SectionHeads">About Me 
-          <span id="about.about.section" style="color:rgb(255, 255, 255)">About</span></h1>
+          </h1>
 
         <br />
 
@@ -215,6 +216,7 @@
           </div>
         </div>
       </section>
+    </span>
       <!--??--------------------------------------------- <Projects> ----------------------------------------------->
       <section id="project_section">
         <h1 id="projectHead" class="SectionHeads">PROJECTS</h1>
@@ -759,9 +761,7 @@
 
 <br>
 <div   class="react-activity-calendar"  >
-  <img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details/?username=KunalMehra075&theme=github" width="100%" />
-
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details/?username=KunalMehra075&theme=github" width="100%" />
 </div>
    <!-- snake -->
 <img id="snake" width="100%"  src="https://raw.githubusercontent.com/KunalMehra075/KunalMehra075/a69bb7fe77380c08a9e0231eb57bd743184d86d0/github-contribution-grid-snake.svg" alt="snake" />
@@ -774,16 +774,6 @@
       </section>
     <!--todo--------------------------------------------- <Tech Stack Section> ----------------------------------------------->
       <section id="TechStack_Section">
-
-
-
-        <span id="skills"></span>
-        <span class="skills-card" ></span>
-        <span class="skills-card-img" ></span>
-        <span class="skills-card-name" ></span>
-
-
-        
         <h1  class="SectionHeads ">TechStack & Skills </h1>
     <div id="TechStackBigParent">
       <div class="TechStack2">
@@ -791,7 +781,7 @@
           <center>  <h1 class="SkillsHeads buttonslide Techskillshead"> Technical Skills</h1></center>
           <label  style="text-decoration: underline;font-weight: 300; font-size: 20px;">Top Skills </label>
             <div class="Stack2firstParent" >
-              <div class="Stack2first" class="skills-card">
+              <div class="Stack2first">
                 
                   <div class="skills-card-name" >HTML</div>
                   <div class="skills-card-name" >CSS</div>
@@ -812,17 +802,17 @@
       
       </div>
       <div class="HexagonBox">
-        <div id="hex1" class="hexagon">
-          <div><img class="techhex"class="skills-card-img" src="Images/techstack/html.png" alt=""></div>
+        <div id="hex1" class="hexagon skills-card">
+          <div><img class="techhex "class="skills-card-img" src="Images/techstack/html.png" alt=""></div>
         </div>
-        <div id="hex2" class="hexagon">
-          <div><img class="techhex"class="skills-card-img" src="Images/techstack/css.png" alt=""></div>
+        <div id="hex2" class="hexagon skills-card">
+          <div><img class="techhex "class="skills-card-img" src="Images/techstack/css.png" alt=""></div>
         </div>
-        <div id="hex3" class="hexagon">
+        <div id="hex3" class="hexagon skills-card">
           <div><img class="techhex"class="skills-card-img" src="Images/techstack/expr.png" alt=""></div>
         </div>
-        <div id="hex4" class="hexagon">
-          <div><img class="techhex"class="skills-card-img" src="Images/techstack/js.jpg" alt=""></div>
+        <div id="hex4" class="hexagon skills-card">
+          <div><img class="techhex "class="skills-card-img" src="Images/techstack/js.jpg" alt=""></div>
         </div>
         <div id="hex5" class="hexagon">
           <!-- Middle One -->
@@ -834,19 +824,19 @@
         <img id="pg4" class="p68" src="Images/blobs/p68.png" alt="">
         <img id="pg5" class="p68" src="Images/blobs/p68.png" alt="">
         <img id="pg6" class="p68" src="Images/blobs/p68.png" alt="">
-        <div id="hex6" class="hexagon">
+        <div id="hex6" class="hexagon skills-card">
           <div><img class="techhex"class="skills-card-img" src="Images/techstack/mngo.png" alt=""></div>
         </div>
-        <div id="hex7" class="hexagon">
+        <div id="hex7" class="hexagon skills-card">
           <div><img class="techhex"class="skills-card-img" src="Images/techstack/node.jpg" alt=""></div>
         </div>
     
       </div>
       <div class="TechStack2">
       
-          <div  class="Stack2secondParent" >
+          <div  class="Stack2secondParent skills-card" >
         <center>  <h1 class="SkillsHeads buttonslide"> Soft Skills</h1></center>
-          <div class="Stack2second">
+          <div class="Stack2second skills-card">
             
             <div class="skills-card-name" >Remote Work & Collaboration</div>
               <div class="skills-card-name" >Teamwork</div>
