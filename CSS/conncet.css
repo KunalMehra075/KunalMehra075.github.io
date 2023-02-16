@@ -28,7 +28,7 @@
   position: relative;
 }
 .connectsection input {
-  width: 205px;
+  width: 85%;
   padding: 7px 10px;
   margin: 5px auto;
   border-radius: 5px;
@@ -47,10 +47,12 @@
   color: rgb(255, 255, 255);
   font-size: 19px;
   margin: 10px;
+  width: 100%;
 }
 #email {
-  width: 435px;
+  width: 90%;
 }
+
 #submit-button {
   bottom: 0px;
   width: 25%;
@@ -66,4 +68,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.connecttwonamesdiv {
+  display: flex;
+  justify-content: left;
 }

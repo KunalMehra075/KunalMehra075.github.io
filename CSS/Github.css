@@ -21,15 +21,20 @@
 .Git2 {
   padding: 0px 20px;
 }
-.toplang1 {
-  z-index: 1;
-  margin: 0px !important;
-  padding: 0px !important;
-}
+
 .gitstreak {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+#gitstreakone {
+  width: 51.7%;
+}
+#gitstreaktwo {
+  width: 43.7%;
+  z-index: 1;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 #octopus {
   width: 93%;

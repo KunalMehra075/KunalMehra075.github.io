@@ -235,10 +235,9 @@
   color: white;
   margin-top: 20px;
   font-size: 30px;
-  width: 310px !important;
 }
 .Techskillshead {
-  width: 340px !important;
+  width: 340px;
 }
 
 #skillcenter {

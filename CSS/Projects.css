@@ -218,3 +218,12 @@ table p {
   font-size: 20px;
   font-weight: 500;
 }
+.projectcount {
+  font-size: 3rem;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  top: 10px;
+  text-shadow: 1px 1px #010101;
+  right: 10px;
+}

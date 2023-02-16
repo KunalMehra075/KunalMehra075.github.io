@@ -1,0 +1,225 @@
+/*? ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 320px) and (max-width: 809px) {
+  * {
+    font-size: 14px;
+  }
+  :root {
+    --hextop: 70px;
+    --hexrig: -388px;
+    --hexwidth: 187px;
+    --hexheight: 207px;
+    --ballheight1: 100px;
+    --ballheight2: 180px;
+    --balltop: 150px;
+    --ballleft: 100px;
+  }
+  .SectionHeads {
+    font-size: 60px;
+  }
+  .navbar-brand {
+    margin: 0px !important;
+    padding: 5px !important;
+  }
+  .FirstView {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 20px;
+  }
+  .navbar-collapse {
+    width: 100%;
+  }
+  #navbarSupportedContent > div {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .nav-item {
+    width: 100% !important;
+    border-radius: 0 !important;
+    background-color: rgba(255, 255, 255, 0.532) !important;
+  }
+  .FirstView > div {
+    width: 100%;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+  #kunalimg {
+    width: 90%;
+  }
+  #portfolio {
+    padding-top: 0px;
+  }
+  #portfolio > div {
+    display: flex;
+    flex-direction: column;
+  }
+  #portfolio > div > div:nth-child(1) {
+    width: 90%;
+    margin: auto;
+  }
+  .portfolio-content {
+    margin: 0px;
+    width: 100%;
+  }
+  .AllProjects {
+    padding: 5px;
+  }
+  #about {
+    position: static !important;
+    transform: none !important;
+  }
+  #projectHead {
+    position: static !important;
+    transform: none !important;
+  }
+  #project_section {
+    padding-top: 0px;
+  }
+  .OnePRhead {
+    font-size: 2.5rem;
+  }
+  .OneProject p {
+    font-size: 13px;
+  }
+  .ClickModalBtn {
+    font-size: 13px;
+    padding: 3px 5px;
+  }
+  .projlinks > * {
+    font-size: 13px;
+  }
+  .downseeG {
+    font-size: 13px;
+  }
+  #Github_Section {
+    display: flex;
+    flex-direction: column;
+  }
+  .Git1 {
+    width: 100%;
+  }
+  #octopus {
+    width: 70%;
+  }
+  .gitstreak {
+    flex-direction: column;
+  }
+  #Apluscard {
+    width: 100%;
+  }
+  #gitstreakone {
+    width: 100%;
+  }
+  #gitstreaktwo {
+    width: 100%;
+    z-index: 1;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  #TechStackBigParent {
+    flex-direction: column;
+  }
+  .HexagonBox {
+    scale: 0.7;
+    transform: translateX(-60px);
+  }
+  #logos img {
+    width: 40px;
+  }
+  .TechStack2 {
+    width: 80% !important;
+    margin: 0px !important;
+  }
+  .Techskillshead {
+    width: 100% !important;
+  }
+  .Stack2firstParent,
+  .Stack2secondParent {
+    width: 100%;
+    margin: auto;
+  }
+
+  .connectsection {
+    flex-direction: column;
+  }
+  #letusconnect {
+    font-size: 4rem;
+  }
+  #connect {
+    padding: 7px 10px;
+  }
+  .connectsection textarea {
+    width: 90%;
+  }
+  #submit-button {
+    width: 50%;
+  }
+  #footercenter {
+    flex-direction: column;
+  }
+
+  #ball5 {
+    top: calc(var(--balltop) - 100px);
+    height: calc(var(--ballheight2));
+    width: calc(var(--ballheight2));
+  }
+  #ball7 {
+    top: calc(var(--balltop) - 100px);
+    right: -100px;
+    height: calc(var(--ballheight2));
+    width: calc(var(--ballheight2));
+    background-color: rgb(84, 181, 251);
+  }
+  #ball6 {
+    top: calc(var(--balltop) - 30px);
+    left: 00px;
+    height: calc(var(--ballheight1));
+    width: calc(var(--ballheight1));
+  }
+  #ball8 {
+    top: calc(var(--balltop) - 30px);
+    right: 00px;
+    height: calc(var(--ballheight1));
+    width: calc(var(--ballheight1));
+  }
+
+  .modal-body {
+    flex-direction: column-reverse;
+    overflow-y: scroll !important;
+  }
+
+  .modal-body > div {
+    width: 100%;
+  }
+  .downseeGmodal {
+    width: 100px;
+    font-size: 10px;
+  }
+  .downseeGmodal > img {
+    width: 12px;
+  }
+  #teckstakmodal {
+    flex-wrap: wrap;
+  }
+  .DetailsModalBox {
+    overflow-y: scroll;
+  }
+  td:nth-child(2n-1) {
+    width: 100px;
+  }
+  .ImageModalsBox {
+    width: 100%;
+    height: 500px !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #teckstakmodal > img {
+    width: 35px;
+  }
+  .ImageModalsBox > img {
+    width: 90%;
+    margin: auto;
+  }
+}

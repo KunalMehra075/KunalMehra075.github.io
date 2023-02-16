@@ -25,22 +25,8 @@ window.addEventListener("scroll", () => {
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
-let introgif = document.getElementById("introgif");
 let resumedownload = document
   .getElementById("resumedownload")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
-//? <!----------------------------------------------- < Project and models > ----------------------------------------------->
-
-document.addEventListener("click", (e) => {
-  if (e.target.matches("[data-stylezilla]")) {
-    console.log("Stylezilla");
-  } else if (e.target.matches("[data-orangefry]")) {
-    console.log("Orangefry");
-  } else if (e.target.matches("[data-placeme]")) {
-    console.log("placeme");
-  } else if (e.target.matches("[data-astry]")) {
-    console.log("astry");
-  }
-});
