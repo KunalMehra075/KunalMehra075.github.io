@@ -182,7 +182,7 @@ table p {
 }
 #teckstakmodal > img {
   width: 70px;
-  filter: contrast(2);
+  filter: contrast(1.2);
 }
 #modalbootst {
   width: 70px;
@@ -213,4 +213,8 @@ table p {
   border: 1px solid var(--themeblue);
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
     rgba(58, 57, 57, 0.9) 0px 0px 0px 1px;
+}
+.modalimgheads {
+  font-size: 20px;
+  font-weight: 500;
 }

@@ -174,14 +174,7 @@ header li {
 #ResumeButton:hover {
   background-color: rgb(52, 161, 220);
 }
-#darktheme_butt {
-  padding: 2px 20px;
-  border: none;
-  background-color: transparent;
-}
-#darktheme_butt > img {
-  width: 35px;
-}
+
 /*? <!----------------------------------------------- < Section Styles > -----------------------------------------------> */
 section {
   position: relative;
