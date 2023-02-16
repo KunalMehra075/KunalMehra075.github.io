@@ -124,12 +124,9 @@ header li {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9) !important;
   margin-right: 5px;
-
   border: 1px solid transparent;
 }
-.nav-item:hover {
-  border: 1px solid rgb(0, 0, 0);
-}
+
 .navbar > .container-fluid {
   background-color: transparent !important;
 }
@@ -191,7 +188,7 @@ section {
   font-size: 8.7rem;
   /* filter: var(--invert); */
 }
-#about {
+#Aboutroll {
   position: absolute;
   top: -30px;
   left: 0px;

@@ -72,7 +72,7 @@
     padding: 5px;
   }
 
-  #about {
+  #Aboutroll {
     position: static !important;
     transform: none !important;
   }
@@ -113,11 +113,11 @@
   .gitstreak {
     flex-direction: column;
   }
-  #Apluscard {
+  #github-stats-card {
     width: 100%;
   }
 
-  #gitstreaktwo {
+  #github-top-langs {
     width: 100%;
     z-index: 1;
     margin: 0px !important;
@@ -234,7 +234,7 @@
   .Git2 {
     padding: 0px !important;
   }
-  #gitstreakone {
+  #github-streak-stats {
     width: 100%;
     margin-bottom: 15px;
   }

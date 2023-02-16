@@ -94,7 +94,7 @@
     height: 300px;
   }
 
-  #about {
+  #Aboutroll {
     position: static !important;
     transform: none !important;
   }
@@ -132,13 +132,13 @@
     width: 60%;
   }
 
-  #Apluscard {
+  #github-stats-card {
     width: 70%;
   }
-  #gitstreakone {
+  #github-streak-stats {
     width: 51.7%;
   }
-  #gitstreaktwo {
+  #github-top-langs {
     width: 43.8%;
     z-index: 1;
     margin: 0px !important;

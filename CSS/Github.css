@@ -27,10 +27,10 @@
   justify-content: space-around;
   align-items: center;
 }
-#gitstreakone {
+#github-streak-stats {
   width: 51.7%;
 }
-#gitstreaktwo {
+#github-top-langs {
   width: 43.7%;
   z-index: 1;
   margin: 0px !important;

@@ -14,7 +14,7 @@ function update() {
 }
 update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
-let about = document.getElementById("about");
+let about = document.getElementById("Aboutroll");
 let project = document.getElementById("projectHead");
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
@@ -24,8 +24,13 @@ window.addEventListener("scroll", () => {
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
-let resumedownload = document
-  .getElementById("resumedownload")
+let resumedownload1 = document
+  .getElementById("resume-button-1")
+  .addEventListener("click", () => {
+    window.open("Kunal_Mehra_Resume.pdf", "_blank");
+  });
+let resumedownload2 = document
+  .getElementById("resume-button-2")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
