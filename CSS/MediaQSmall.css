@@ -4,7 +4,7 @@
     font-size: 14px;
   }
   :root {
-    --hextop: 70px;
+    --hextop: -10px;
     --hexrig: -388px;
     --hexwidth: 187px;
     --hexheight: 207px;
@@ -122,8 +122,11 @@
   }
   .HexagonBox {
     scale: 0.7;
+    margin: 0px;
+    height: 450px;
     transform: translateX(-60px);
   }
+
   #logos img {
     width: 40px;
   }
