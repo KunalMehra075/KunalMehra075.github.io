@@ -150,7 +150,8 @@ header li {
   padding: 4px 20px !important;
   margin-left: 25px !important;
 }
-#ResumeButton {
+#resume-button-1,
+#resume-button-2 {
   cursor: pointer;
   background: rgb(24, 109, 212);
   border-radius: 5px;
@@ -160,7 +161,8 @@ header li {
   border: none;
   padding: 10px 15px !important;
 }
-#ResumeButton::before {
+#resume-button-1::before,
+#resume-button-2::before {
   border-radius: 5px;
 }
 
@@ -168,7 +170,8 @@ header li {
   width: 20%;
   filter: invert();
 }
-#ResumeButton:hover {
+#resume-button-1:hover,
+#resume-button-2:hover {
   background-color: rgb(52, 161, 220);
 }
 
