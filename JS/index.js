@@ -25,12 +25,12 @@ window.addEventListener("scroll", () => {
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
 let resumedownload1 = document
-  .getElementById("resume-button-1")
+  .getElementById("resume-link-1")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
 let resumedownload2 = document
-  .getElementById("resume-button-2")
+  .getElementById("resume-link-2")
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
