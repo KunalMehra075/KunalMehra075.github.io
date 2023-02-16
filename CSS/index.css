@@ -214,6 +214,7 @@ section {
   width: 100%;
   height: 100vh;
   padding: 70px 100px;
+  margin-top: 00px !important;
   display: flex;
   justify-content: space-around;
 }
