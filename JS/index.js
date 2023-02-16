@@ -30,3 +30,22 @@ let resumedownload = document
   .addEventListener("click", () => {
     window.open("Kunal_Mehra_Resume.pdf", "_blank");
   });
+
+//? <!----------------------------------------------- < Lets Connect form> ----------------------------------------------->
+let letsconnectform = document.getElementById("letsconnectform");
+letsconnectform.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (letsconnectform.textmessage.value == "") {
+    swal("Empty text cannot be sent.", "", "info");
+    return;
+  }
+  let obj = {
+    name:
+      letsconnectform.firstname.value + " " + letsconnectform.lastname.value,
+    email: letsconnectform.email.value,
+    message: letsconnectform.textmessage.value,
+  };
+
+  swal("Message sent.", "Will reply soon!", "success");
+  // console.log(obj);
+});

@@ -89,15 +89,13 @@
            
       
             </ul>
+      
             <div style="display: flex;">
             <a id="resumedownload" href="Kunal_Mehra_Resume.pdf"  download>
             <button id="ResumeButton" class="nav-link buttonslide">
-              <img
-                id="downloadresume"
-                src="Images/Icons/download.svg"
-                alt=""
-              />
+             
               Resume
+           
             </button></a>
               <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/"><img width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt=""></a>
          
@@ -836,12 +834,12 @@
         <div class="connectsection">
           <div><label id="letusconnect" >Let's <br> Connect</label></div>
           <div>
-            <form>
+            <form id="letsconnectform">
               <div class="connecttwonamesdiv">
-                <label for="">First Name <br><input type="text" required></label>
-              <label for="">last Name <br><input type="text" required></label>
-              </div><label for="">Email* <br><input id="email" type="text" name="" id="" required></label>
-              <br><label for="">Write a message <br><textarea name="EnterText" id="" cols="50" rows="3" required> </textarea></label>
+                <label for="">First Name <br><input id="firstname" type="text" required></label>
+              <label for="">last Name <br><input id="lastname" type="text" required></label>
+              </div><label for="">Email* <br><input id="email" type="email" name="" id="" required></label>
+              <br><label for="">Write a message <br><textarea name="EnterText" id="textmessage" cols="50" rows="3" required> </textarea></label>
               <div id="connectsubmitdiv">
                 <input id="submit-button" type="submit">
               </div>
@@ -891,6 +889,7 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="JS/index.js" defer></script>
   </body>
 </html>
