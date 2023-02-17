@@ -111,6 +111,9 @@ header {
   width: 100%;
   background-color: rgba(255, 255, 255, 0) !important;
 }
+#brandbg {
+  filter: saturate(1.5);
+}
 header li {
   background-color: transparent !important;
   padding: 0px !important;
