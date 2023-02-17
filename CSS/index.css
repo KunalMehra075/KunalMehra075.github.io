@@ -9,9 +9,9 @@
 :root {
   --theme: rgb(255, 255, 255);
   --fontColor: rgb(0, 0, 0);
-  --themeblue: rgb(52, 161, 220);
+  --themeblue: rgb(24, 109, 212);
   --themeblueDark: rgb(35, 146, 206);
-  --themegreen: rgb(52, 161, 220);
+  --borderRadius: 5px;
 }
 
 main {
@@ -43,7 +43,7 @@ a {
   background-color: rgb(226, 250, 255);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(94, 187, 254);
+  background-color: var(--themeblue);
 }
 #preloader {
   background: rgb(255, 255, 255) url("../Images/Icons/shotdribbblecircle.gif")
@@ -78,10 +78,28 @@ a {
   );
 }
 #brandbg {
-  background-color: transparent !important;
+  font-size: 2rem;
+  font-weight: 600;
 }
 a {
   text-decoration: none !important;
+}
+#topbutton {
+  position: fixed;
+  display: none;
+  z-index: 999;
+  bottom: 10px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--themeblue);
+  margin-bottom: 10px;
+  border: none;
+  border-radius: var(--borderRadius);
+  color: white;
+}
+#topbutton:hover {
+  background-color: var(--themeblueDark);
 }
 
 /*todo <!----------------------------------------------- < Navbar > -----------------------------------------------> */
@@ -121,7 +139,7 @@ header li {
 }
 
 .nav-item {
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   background-color: rgba(255, 255, 255, 0.9) !important;
   margin-right: 5px;
   border: 1px solid transparent;
@@ -145,8 +163,7 @@ header li {
 }
 
 .navbar-brand {
-  border-radius: 5px;
-
+  border-radius: var(--borderRadius);
   padding: 4px 20px !important;
   margin-left: 25px !important;
 }
@@ -156,20 +173,16 @@ header li {
   z-index: 999 !important;
   cursor: pointer;
   background: rgb(24, 109, 212);
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   color: white;
   text-decoration: none !important;
   font-size: 20px !important;
   border: none;
   padding: 10px 15px !important;
 }
-#cvdownload {
-  border-radius: 0px !important;
-  background-color: var(--themeblue);
-}
 #resume-button-1::before,
 #resume-button-2::before {
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
 }
 
 #downloadresume {
@@ -196,16 +209,17 @@ section {
   color: var(--fontColor);
   font-weight: 600;
   font-size: 8.2rem;
+  text-align: center;
   /* filter: var(--invert); */
 }
 #Aboutroll {
   position: absolute;
-  top: -30px;
+  top: 50px;
   left: 0px;
 }
 #projectHead {
   position: absolute;
-  top: -30px;
+  top: 80px;
   right: 0px;
 }
 
@@ -214,7 +228,8 @@ section {
   width: 100%;
   height: 100vh;
   padding: 70px 100px;
-  margin-top: 00px !important;
+  padding-bottom: 0px;
+  margin: 0px auto !important;
   display: flex;
   justify-content: space-around;
 }
@@ -246,6 +261,14 @@ section {
 }
 #firstlinks:hover {
   cursor: pointer;
+}
+#LetsExplore,
+#cvdownload {
+  border-radius: var(--borderRadius);
+}
+#LetsExplore::before,
+#cvdownload::before {
+  border-radius: var(--borderRadius);
 }
 /*todo -----------------------------------------------------------------FOOTER----------------------------------------------------------------- */
 

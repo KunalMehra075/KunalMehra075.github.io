@@ -68,6 +68,7 @@
   #about > div {
     display: flex;
     flex-direction: column;
+    margin: 0px !important;
   }
   #about > div > div:nth-child(1) {
     width: 90%;
@@ -79,6 +80,7 @@
   }
   .AllProjects {
     padding: 5px;
+    margin: 0px !important;
   }
 
   #Aboutroll {
@@ -113,6 +115,7 @@
     flex-direction: column;
   }
   .Git1 {
+    padding: auto 10px !important;
     width: 100%;
   }
 
@@ -125,12 +128,23 @@
   #github-stats-card {
     width: 100%;
   }
-
+  #github {
+    padding: 5px 10px !important;
+  }
+  .section__title {
+    font-size: 19px;
+  }
+  .contrib-column {
+    scale: 0.7;
+    padding: 0px;
+    margin: 0px;
+  }
   #github-top-langs {
-    width: 100%;
+    width: 78%;
     z-index: 1;
-    margin: 0px !important;
+    margin: 5px !important;
     padding: 0px !important;
+    transform: translateX(0px);
   }
   #TechStackBigParent {
     flex-direction: column;
@@ -243,6 +257,16 @@
   .Git2 {
     padding: 0px !important;
   }
+  #gitcontri {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #github-summary {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
   #github-streak-stats {
     width: 100%;
     margin-bottom: 15px;
@@ -261,7 +285,9 @@
     margin: 0px;
   }
   #connectsubmitdiv {
+    width: 100%;
     justify-content: center;
+    text-align: center;
   }
   #submit-button {
     position: static;

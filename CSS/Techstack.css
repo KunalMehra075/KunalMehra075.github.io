@@ -24,6 +24,7 @@
   height: var(--hexheight);
   background: rgb(255, 255, 255);
   background-size: cover;
+  filter: saturate(0.8);
   transition: all 250ms ease-in-out;
 }
 
@@ -53,37 +54,36 @@
 }
 #techstckmiddle {
   color: white;
-  /* -webkit-text-stroke: 1px #000000; */
   text-shadow: 2px 2px 2px #34a7fa;
 }
 
 #hex1 {
   top: calc(var(--hextop) - 30px);
   right: calc(var(--hexrig) + 690px);
-  /* background-color: black; */
+  background-color: black;
 }
 
 #hex3 {
   top: calc(var(--hextop) + 130px);
   right: calc(var(--hexrig) + 788px);
-  /* background-color: black; */
+  background-color: black;
 }
 #hex2 {
   top: calc(var(--hextop) - 30px);
   right: calc(var(--hexrig) + 495px);
-  /* background-color: black; */
+  background-color: black;
 }
 #hex4 {
   top: calc(var(--hextop) + 130px);
   right: calc(var(--hexrig) + 397px);
-  /* background-color: black; */
+  background-color: black;
 }
 #hex5 {
   top: calc(var(--hextop) + 130px);
   right: calc(var(--hexrig) + 592px);
   background-color: rgb(0, 0, 0);
 }
-.hexagon:nth-child(5) > div {
+.hexagon > div {
   width: 185px;
   z-index: 1;
   height: 205px;
@@ -93,19 +93,18 @@
 #hex6 {
   top: calc(var(--hextop) + 290px);
   right: calc(var(--hexrig) + 497px);
-  /* background-color: black; */
+  background-color: black;
 }
 
 #hex7 {
   top: calc(var(--hextop) + 290px);
   right: calc(var(--hexrig) + 690px);
-  /* background-color: black; */
+  background-color: black;
 }
 .p68 {
   position: absolute;
   width: 90px;
   mix-blend-mode: darken;
-  /* mix-blend-mode: difference; */
 }
 #pg3 {
   top: calc(var(--hextop) + 296px);
@@ -183,8 +182,7 @@
   padding: 7px;
   font-weight: 500;
   font-size: 18px;
-  border: 1px solid rgba(100, 228, 255, 1);
-  background: rgba(84, 177, 255, 0.5);
+  border: 3px solid rgb(25, 92, 186);
   border-radius: 10px;
   transition: all 200ms ease;
 }
@@ -192,8 +190,7 @@
   padding: 7px;
   font-weight: 500;
   font-size: 18px;
-  border: 1px solid rgb(124, 226, 255);
-  background: rgba(100, 228, 255, 0.5);
+  border: 3px solid rgb(25, 92, 186);
   border-radius: 10px;
   transition: all 200ms ease;
 }
@@ -202,8 +199,7 @@
   font-weight: 500;
   filter: saturate(2);
   font-size: 18px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgb(185, 185, 185);
+  border: 1px solid rgb(182, 186, 192);
   border-radius: 10px;
   transition: all 200ms ease;
 }
@@ -225,6 +221,7 @@
 
 .Toolset {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin: 10px 30px;

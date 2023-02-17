@@ -1,14 +1,17 @@
 #connect {
   margin: 10px auto !important;
-  background: url(../Images/connectbg.jpg);
+  background: url(../Images/Icons/greenblue.png);
   background-size: cover;
+  background-position: center;
+  filter: hue-rotate(12deg) saturate(1.2);
   min-height: 200px;
   border-radius: 20px;
   width: 100%;
   padding: 30px 50px;
 }
 #ContactMe_Section {
-  padding: 10px !important;
+  padding: 10px;
+  padding-top: 70px !important;
 }
 #letusconnect {
   font-size: 7rem;
@@ -57,7 +60,7 @@
   width: 25%;
   color: white;
   font-size: 18px;
-  background-color: rgb(27, 200, 41);
+  background-color: rgb(19, 93, 183);
   margin: 1px 5px;
   padding: 10px 30px;
 }

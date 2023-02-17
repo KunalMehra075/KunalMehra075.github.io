@@ -6,12 +6,14 @@
 #about {
   background-size: contain;
   position: relative;
+  margin-top: 0px !important;
   width: 90%;
 }
 
 #about > div {
   display: flex;
   justify-content: center;
+  margin-top: 100px !important;
 }
 #about > div > div:nth-child(1) {
   display: grid;

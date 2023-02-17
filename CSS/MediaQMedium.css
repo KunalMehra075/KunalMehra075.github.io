@@ -43,6 +43,7 @@
   }
   #LetsExplore,
   #cvdownload {
+    border-radius: 5px;
     font-size: 17px !important;
     padding: 5px 22px !important;
   }
@@ -153,7 +154,10 @@
   }
 
   #github-stats-card {
-    width: 70%;
+    width: 50%;
+  }
+  #github-summary {
+    width: 74%;
   }
   #github-streak-stats {
     width: 51.7%;
@@ -299,6 +303,7 @@
   }
   #connectsubmitdiv {
     justify-content: center;
+    width: 100%;
   }
   #submit-button {
     position: static;
