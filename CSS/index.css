@@ -247,19 +247,33 @@ section {
 .FirstView > div {
   width: 48%;
 }
+.FirstView > div:nth-child(1) {
+  padding-top: 4.5%;
+}
 .Introbox {
   padding: 30px;
   display: flex;
   align-items: left;
   flex-direction: column;
 }
+#intro {
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
 #firstviewimg {
   width: 100%;
 }
-.FirstView h1 {
+#firstviewhello {
+  color: rgb(35, 101, 222);
+  text-shadow: 2px 2px #cad0d8;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+#firstviewkunal {
   color: rgb(255, 255, 255);
   font-size: 3.5rem;
   font-weight: 600;
+
   -webkit-text-stroke: 1px #000000;
   text-shadow: 2px 2px #010101;
 }
