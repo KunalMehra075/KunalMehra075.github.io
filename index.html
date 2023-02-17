@@ -45,7 +45,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
 
     <script
-    src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+    src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer>
   </script>
   <script src="JS/index.js" defer></script>
 
@@ -53,7 +53,7 @@
 
 
     <div id="preloader"><h2>Loading..</h2></div>
-    <button onclick="topFunction()" id="topbutton" title="Go to top">
+ 
       <img width="70%" style="filter: invert(); rotate: 180deg;" src="Images/Icons/download.svg" alt="">
     </button>
       <div class="progress-bar">
@@ -118,6 +118,7 @@
 
     <!--todo--------------------------------------------- Main Body ----------------------------------------------->
     <main>
+      <button id="topbutton" title="Go to top">
       <section  id="home" class="FirstView">
         <div class="Introbox">
           <h1>Hello!</h1>
@@ -234,8 +235,8 @@
               <h1 class="projectcount">01</h1>
               <div class="OPRBGB" >
                 <div class="project-title OnePRhead">StyleZilla.com</div>
-              <div class="OnePRdetails"  ><p class="project-description" >An Online Fashion Store for shopping clothes and latest brands.</p>
-             <span class="project-tech-stack"></span>
+              <div class="project-tech-stack OnePRdetails"  ><p class="project-description" >An Online Fashion Store for shopping clothes and latest brands.</p>
+               
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#StyleZillaModal" data-stylezilla>
                  Click here to know more
                  <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
@@ -260,8 +261,8 @@
               <h1 class="projectcount">02</h1>
               <div class="OPRBGB">
                 <div  class="project-title OnePRhead" >OrangeFry.com</div>
-                <div class="OnePRdetails"><p class="project-description">Orangefry is an Indian online marketplace for furniture and home décor.</p>
-                  <span class="project-tech-stack"></span>
+                <div class="project-tech-stack OnePRdetails"><p class="project-description">Orangefry is an Indian online marketplace for furniture and home décor.</p>
+           
                   <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#OrangeFryModal" data-orangefry>
                     Click here to know more
                     <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
@@ -286,8 +287,8 @@
               <h1 class="projectcount">03</h1>
               <div class="OPRBGB">
                 <div class="project-title OnePRhead" >PlaceMe.com</div>
-              <div class="OnePRdetails"><p class="project-description" >A Job hunting websites, for seekers as well as hirers.</p>
-                <span class="project-tech-stack"></span>
+              <div class="project-tech-stack OnePRdetails"><p class="project-description" >A Job hunting websites, for seekers as well as hirers.</p>
+         
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#PlacemeModal" data-placeme>
                 Click here to know more
                 <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
@@ -316,8 +317,8 @@
               <h1 class="projectcount">04</h1>
               <div class="OPRBGB">
                 <div class="project-title OnePRhead ">Astry.com</div>
-              <div class="OnePRdetails"><p class="project-description"  >A Personal Portfolio, for grapic designers</p>
-                <span class="project-tech-stack"></span>
+              <div class="project-tech-stack OnePRdetails"><p class="project-description"  >A Personal Portfolio, for grapic designers</p>
+
                 <button type="button" class="ClickModalBtn" data-bs-toggle="modal" data-bs-target="#AstryModal" data-astry>
                  Click here to know more
                  <img defer class="downsee" src="Images\Icons\downsee.gif" alt="">
@@ -738,14 +739,6 @@
               </div>
             </div>
             </div>
-
-
-<!--??--------------------------------------------- <Github react calendar> ----------------------------------------------->
-  
-      
-
-      
-
 <!--todo--------------------------------------------- <Github Section> ----------------------------------------------->
  
   <section id="Github_SectionX">
@@ -965,8 +958,8 @@
     </footer>
 
     <!--!--------------------------------------------- <SCRPITS> ----------------------------------------------->
-      <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer></script>
-    <script>  GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
+      <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script defer>  GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
     </script>
   </body>
 </html>

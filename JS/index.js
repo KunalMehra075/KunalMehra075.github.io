@@ -5,7 +5,6 @@ window.addEventListener("load", function () {
   loader.style.display = "none";
 });
 let topbutton = document.getElementById("topbutton");
-
 function scrollFunction() {
   if (!topbutton) return;
   if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
@@ -14,12 +13,14 @@ function scrollFunction() {
     topbutton.style.display = "none";
   }
 }
+
 window.onscroll = function () {
   scrollFunction();
 };
 let topFunction = () => {
   document.documentElement.scrollTop = 0;
 };
+topbutton.addEventListener("click", topFunction);
 
 const filled = document.querySelector(".filled");
 function update() {
@@ -30,12 +31,12 @@ function update() {
 }
 update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
-let about = document.getElementById("Aboutroll");
-let project = document.getElementById("projectHead");
+let aboutroll = document.getElementById("Aboutroll");
+let projectroll = document.getElementById("projectHead");
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
-  about.style.transform = `translateX(${value - 440}px)`;
-  project.style.transform = `translateX(${-value + 1300}px)`;
+  aboutroll.style.transform = `translateX(${value - 440}px)`;
+  projectroll.style.transform = `translateX(${-value + 1300}px)`;
 });
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
