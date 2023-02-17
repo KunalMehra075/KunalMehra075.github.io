@@ -34,8 +34,8 @@ let projectroll = document.getElementById("projectHead");
 window.addEventListener("scroll", () => {
   TopButtonFunction();
   let value = window.scrollY;
-  aboutroll.style.transform = `translateX(${value - 440}px)`;
-  projectroll.style.transform = `translateX(${-value + 1300}px)`;
+  aboutroll.style.transform = `translateX(${(value - 2400) / 3}px)`;
+  projectroll.style.transform = `translateX(${(-value + 2700) / 3}px)`;
 });
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->

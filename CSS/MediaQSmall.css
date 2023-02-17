@@ -6,6 +6,22 @@
   #preloader {
     background-size: 90%;
   }
+
+  #Aboutrolldim {
+    display: none;
+  }
+  #Aboutroll {
+    width: 100% !important;
+    font-size: 5.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
+  #projectHead {
+    width: 100% !important;
+    font-size: 5.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
   :root {
     --hextop: -10px;
     --hexrig: -388px;
@@ -13,7 +29,7 @@
     --hexheight: 207px;
     --ballheight1: 100px;
     --ballheight2: 180px;
-    --balltop: 150px;
+    --balltop: 200px;
     --ballleft: 100px;
   }
   section {
@@ -83,14 +99,6 @@
     margin: 0px !important;
   }
 
-  #Aboutroll {
-    position: static !important;
-    transform: none !important;
-  }
-  #projectHead {
-    position: static !important;
-    transform: none !important;
-  }
   #project_section {
     padding-top: 0px;
   }

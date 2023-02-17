@@ -140,6 +140,8 @@
 
 #skills {
   margin: 20px auto !important;
+  padding-top: 50px !important;
+  margin-top: 0px !important;
   width: 90%;
 }
 .TechStack2 {
@@ -247,4 +249,7 @@
   position: absolute;
   filter: hue-rotate(10deg);
   width: 94%;
+}
+#techstakhead {
+  transform: translateY(20px);
 }

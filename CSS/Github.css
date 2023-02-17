@@ -68,3 +68,7 @@
 #octopus:hover {
   scale: 1.02;
 }
+.contrib-number {
+  font-weight: 500 !important;
+  color: rgb(21, 211, 21) !important;
+}

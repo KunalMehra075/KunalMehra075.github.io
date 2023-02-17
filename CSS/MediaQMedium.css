@@ -7,6 +7,21 @@
     margin: 15px !important;
     padding-top: 20px !important;
   }
+  #Aboutrolldim {
+    display: none;
+  }
+  #Aboutroll {
+    width: 100% !important;
+    font-size: 5.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
+  #projectHead {
+    width: 100% !important;
+    font-size: 5.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
 
   :root {
     --hextop: 70px;
@@ -15,7 +30,7 @@
     --hexheight: 207px;
     --ballheight1: 200px;
     --ballheight2: 300px;
-    --balltop: 100px;
+    --balltop: 150px;
   }
   .SectionHeads {
     font-size: 70px;
@@ -115,14 +130,6 @@
     height: 300px;
   }
 
-  #Aboutroll {
-    position: static !important;
-    transform: none !important;
-  }
-  #projectHead {
-    position: static !important;
-    transform: none !important;
-  }
   #project_section {
     padding-top: 0px;
   }
