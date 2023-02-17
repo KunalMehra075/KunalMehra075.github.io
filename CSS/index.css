@@ -256,6 +256,13 @@ section {
   align-items: left;
   flex-direction: column;
 }
+#waitingforgit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+  min-height: 230px;
+}
 #intro {
   margin-top: 7px;
   margin-bottom: 10px;

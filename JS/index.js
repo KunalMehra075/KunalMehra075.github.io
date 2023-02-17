@@ -1,17 +1,13 @@
 //? <!----------------------------------------------- < Preloader & Progressbar> ----------------------------------------------->
 
-var loader = document.querySelector("#preloader");
 let brandbg = document.getElementById("brandbg");
 brandbg.innerHTML = `<span class="spinner-grow text-primary" role="status"></span>
 Kunal `;
-document.addEventListener("DOMContentLoaded", () => {
-  loader.style.display = "none";
+let gitloadercal = document.getElementById("gitcalendar");
 
-  GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
-  brandbg.innerHTML = `🔷Kunal `;
-});
 window.addEventListener("load", function () {
-  console.log("Window loaded");
+  brandbg.innerHTML = `🔷Kunal `;
+  GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
 });
 
 function TopButtonFunction() {
