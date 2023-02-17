@@ -6,19 +6,19 @@ window.addEventListener("load", function () {
   GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
 });
 
-// function TopButtonFunction() {
-//   if (!topbutton) return;
-//   if (document.documentElement.scrollTop > 60) {
-//     topbutton.style.display = "block";
-//   } else {
-//     topbutton.style.display = "none";
-//   }
-// }
-// let topbutton = document.getElementById("topbutton");
-// topbutton.addEventListener(
-//   "click",
-//   () => (document.documentElement.scrollTop = 0)
-// );
+function TopButtonFunction() {
+  if (!topbutton) return;
+  if (document.documentElement.scrollTop > 60) {
+    topbutton.style.display = "block";
+  } else {
+    topbutton.style.display = "none";
+  }
+}
+let topbutton = document.getElementById("topbutton");
+topbutton.addEventListener(
+  "click",
+  () => (document.documentElement.scrollTop = 0)
+);
 
 const filled = document.querySelector(".filled");
 function update() {
@@ -32,7 +32,7 @@ update();
 let aboutroll = document.getElementById("Aboutroll");
 let projectroll = document.getElementById("projectHead");
 window.addEventListener("scroll", () => {
-  // TopButtonFunction();
+  TopButtonFunction();
   let value = window.scrollY;
   aboutroll.style.transform = `translateX(${value - 440}px)`;
   projectroll.style.transform = `translateX(${-value + 1300}px)`;
