@@ -1,9 +1,17 @@
 //? <!----------------------------------------------- < Preloader & Progressbar> ----------------------------------------------->
 
 var loader = document.querySelector("#preloader");
-window.addEventListener("load", function () {
+let brandbg = document.getElementById("brandbg");
+brandbg.innerHTML = `<span class="spinner-grow text-primary" role="status"></span>
+Kunal `;
+document.addEventListener("DOMContentLoaded", () => {
   loader.style.display = "none";
+
   GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
+  brandbg.innerHTML = `🔷Kunal `;
+});
+window.addEventListener("load", function () {
+  console.log("Window loaded");
 });
 
 function TopButtonFunction() {
