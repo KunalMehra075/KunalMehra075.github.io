@@ -6,7 +6,7 @@ Kunal `;
 let gitloadercal = document.getElementById("gitcalendar");
 
 window.addEventListener("load", function () {
-  brandbg.innerHTML = `🔷Kunal `;
+  brandbg.innerHTML = `🔵 Kunal `;
   GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
 });
 

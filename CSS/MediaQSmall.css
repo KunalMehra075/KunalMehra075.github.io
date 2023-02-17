@@ -3,22 +3,18 @@
   * {
     font-size: 14px;
   }
-  #preloader {
-    background-size: 90%;
-  }
-
   #Aboutrolldim {
     display: none;
   }
   #Aboutroll {
     width: 100% !important;
-    font-size: 5.2rem !important;
+    font-size: 4.2rem !important;
     position: static !important;
     transform: none !important;
   }
   #projectHead {
     width: 100% !important;
-    font-size: 5.2rem !important;
+    font-size: 4.2rem !important;
     position: static !important;
     transform: none !important;
   }
@@ -65,9 +61,21 @@
   .FirstView > div {
     width: 100%;
   }
+  .FirstView > div:nth-child(1) {
+    padding: 1px;
+  }
+  #LetsExplore,
+  #cvdownload {
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+  }
   #user-detail-name {
     /* text-shadow: 3px 3px #010101; */
     margin: 10px auto;
+  }
+  .container-fluid {
+    margin: 0px !important;
+    padding: 0px !important;
   }
   .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.532) !important;
@@ -104,6 +112,7 @@
   }
   .OnePRhead {
     font-size: 2.5rem;
+    font-weight: 500;
   }
   .OneProject p {
     font-size: 13px;
@@ -117,21 +126,32 @@
   }
   .downseeG {
     font-size: 13px;
+    margin: 0px;
   }
   #Github_Section {
     display: flex;
+    margin: 0px !important;
     flex-direction: column;
   }
   .Git1 {
-    padding: auto 10px !important;
-    width: 100%;
+    padding: 0px !important;
+    width: 98%;
   }
-
+  #Github_SectionX {
+    width: 100%;
+    padding: 0px !important;
+    margin: 0px auto !important;
+  }
   #octopus {
     width: 70%;
   }
+  #techstakhead {
+    transform: translateY(-5px);
+  }
   .gitstreak {
     flex-direction: column;
+    margin: 0px;
+    padding: 0px !important;
   }
   #github-stats-card {
     width: 100%;
@@ -148,7 +168,7 @@
     margin: 0px;
   }
   #github-top-langs {
-    width: 78%;
+    width: 90%;
     z-index: 1;
     margin: 5px !important;
     padding: 0px !important;
@@ -158,7 +178,7 @@
     flex-direction: column;
   }
   .HexagonBox {
-    scale: 0.7;
+    scale: 0.6;
     margin: 0px;
     height: 450px;
     transform: translateX(-60px);
@@ -168,7 +188,7 @@
     width: 40px;
   }
   .TechStack2 {
-    width: 80% !important;
+    width: 100% !important;
     margin: 0px !important;
   }
   .Techskillshead {
@@ -302,7 +322,9 @@
     margin: 0px !important;
   }
   .modalimgheads {
-    font-size: 13px;
+    font-size: 11px;
+    margin: 0px;
+    padding: 0px;
   }
   .ImageModalsBox {
     width: 100%;
