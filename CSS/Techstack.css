@@ -232,6 +232,7 @@
 .SkillsHeads {
   background-color: rgb(24, 109, 212);
   padding: 5px;
+  border-radius: 5px;
   color: white;
   margin-top: 20px;
   font-size: 30px;
@@ -244,6 +245,7 @@
   z-index: 2;
   font-weight: 600;
   font-size: 2rem;
+  color: black;
 }
 .gear {
   position: absolute;

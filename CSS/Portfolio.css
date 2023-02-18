@@ -32,6 +32,7 @@
 #kunalimg {
   width: 450px;
   transition: all 350ms ease;
+  border-radius: 5px;
   box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
 }
 .portfolio-content label {

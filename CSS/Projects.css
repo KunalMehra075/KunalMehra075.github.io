@@ -14,7 +14,7 @@
   position: relative;
   height: 47vh;
   border-radius: 5px;
-  transition: all 1200ms ease-in;
+  transition: all 1800ms ease-in;
 }
 
 .OPRBGB {
@@ -34,7 +34,7 @@
 .OPRBGB:hover {
   background-color: rgba(53, 67, 109, 0.363);
   box-shadow: rgba(45, 151, 57, 0.16) 0px 1px 4px,
-    rgb(19, 233, 51) 0px 0px 0px 3px;
+    rgb(96, 166, 247) 0px 0px 0px 3px;
 }
 .orangefrybg {
   background: url(../Images/Icons/123.jpg);
@@ -82,9 +82,13 @@
   text-align: center;
   background-color: transparent;
   padding: 10px 16px;
+  border-radius: 5px;
   font-size: 17px;
   border: 2px solid white;
   color: white;
+}
+.ClickModalBtn::before {
+  border-radius: 5px !important;
 }
 .downsee {
   width: 70px;
