@@ -140,8 +140,8 @@
 
 #skills {
   margin: 20px auto !important;
-  padding-top: 50px !important;
-  margin-top: 0px !important;
+  padding-top: 30px !important;
+  margin-top: 40px !important;
   width: 90%;
 }
 .TechStack2 {
@@ -238,7 +238,7 @@
   font-size: 30px;
 }
 .Techskillshead {
-  width: 340px;
+  width: 100%;
 }
 
 #skillcenter {
@@ -254,4 +254,9 @@
 }
 #techstakhead {
   transform: translateY(20px);
+}
+#catty {
+  width: 20%;
+  transition: all 300ms ease-in-out;
+  filter: brightness(1.01);
 }

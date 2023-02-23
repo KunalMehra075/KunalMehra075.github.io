@@ -201,27 +201,24 @@ table p {
 }
 .projlinksmodal {
   display: flex;
-  margin: 10px;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 .downseeGmodal {
-  color: black;
-  background-color: white;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
   width: 150px;
   padding: 7px 15px;
-  border: 0;
   border: 1px solid transparent;
   transition: all 200ms ease;
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
-    rgba(58, 57, 57, 0.9) 0px 0px 0px 1px;
   margin: 5px;
+
+  padding: 0px;
+  font-size: 18px;
   border-radius: 2px;
 }
 .downseeGmodal:hover {
-  border: 1px solid var(--themeblue);
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
-    rgba(58, 57, 57, 0.9) 0px 0px 0px 1px;
+  color: blue;
 }
 .modalimgheads {
   font-size: 20px;
