@@ -121,6 +121,9 @@
     font-size: 13px;
     padding: 3px 5px;
   }
+  .projlinks {
+    margin-top: 10px;
+  }
   .projlinks > * {
     font-size: 13px;
   }
@@ -141,6 +144,10 @@
     width: 100%;
     padding: 0px !important;
     margin: 0px auto !important;
+  }
+  .table-column {
+    margin: 0px !important;
+    padding: 0px !important;
   }
   #octopus,
   #catty {
@@ -182,7 +189,7 @@
     scale: 0.6;
     margin: 0px;
     height: 450px;
-    transform: translateX(-60px);
+    transform: translateX(-30px);
   }
 
   #logos img {
@@ -265,11 +272,14 @@
     width: 100%;
     height: fit-content;
   }
+  .projectcount {
+    font-size: 1.5rem;
+  }
   .downseeGmodal {
     width: 100px;
-    font-size: 10px;
+    font-size: 14px;
     padding: 0px;
-    margin: 0px;
+    margin: 0px 5px;
   }
   .downseeGmodal > img {
     width: 12px;
@@ -277,18 +287,29 @@
   div.modal-header b {
     font-size: 2rem;
   }
+  #logos {
+    justify-content: center;
+  }
   #teckstakmodal {
     flex-wrap: wrap;
   }
+
   .DetailsModalBox {
     height: fit-content;
     overflow: visible !important;
     margin-bottom: 20px;
   }
-  td:nth-child(2n-1) {
-    width: 100px;
+  tr {
+    display: flex;
+    flex-direction: column;
   }
-
+  td:nth-child(2n-1) {
+    width: 100%;
+    padding: 5px !important;
+  }
+  .projlinksmodal {
+    justify-content: center;
+  }
   #teckstakmodal > img {
     width: 35px;
   }

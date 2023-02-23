@@ -174,7 +174,7 @@ td {
   border: 1px solid rgb(236, 233, 233) !important;
 }
 td:nth-child(2n-1) {
-  width: 200px;
+  width: 25%;
   padding-top: 0px !important;
   background-color: rgb(255, 255, 255);
 }
