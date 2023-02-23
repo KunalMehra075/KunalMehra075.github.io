@@ -1,0 +1,157 @@
+/*? <!----------------------------------------------- < Header Start > -----------------------------------------------> */
+#NavBrand {
+  filter: saturate(2) hue-rotate(20deg);
+}
+nav {
+  position: fixed !important;
+  z-index: 10;
+  top: 10px;
+  width: 100%;
+  padding: 5px 90px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#NavlinkParent {
+  width: 80%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 10px;
+}
+#NavlinkParent > div {
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  margin-right: 5px;
+  padding: 5px;
+}
+.nav-item {
+  border-radius: 5px;
+
+  margin: 0px !important;
+  margin-right: 5px !important;
+  padding: 5px 30px !important;
+}
+.nav-link {
+  font-size: 20px !important;
+}
+#navclickbtn {
+  display: none;
+  border: 0px !important;
+  border-radius: 5px;
+  padding: 2px !important;
+  background-color: white;
+}
+#cvdownload,
+#resume-button-1,
+#resume-button-2 {
+  z-index: 999 !important;
+  cursor: pointer;
+  background: rgb(24, 109, 212);
+  border-radius: var(--borderRadius);
+  color: white;
+  text-decoration: none !important;
+  font-size: 20px !important;
+  border: none;
+  padding: 10px 15px !important;
+}
+#resume-button-1::before,
+#resume-button-2::before {
+  border-radius: var(--borderRadius);
+}
+
+#downloadresume {
+  width: 20%;
+  filter: invert();
+}
+#cvdownload:hover,
+#resume-button-1:hover,
+#resume-button-2:hover {
+  background-color: rgb(52, 161, 220);
+}
+
+/*? <!----------------------------------------------- < Header End > -----------------------------------------------> */
+
+/*! <!----------------------------------------------- < Media Queries > -----------------------------------------------> */
+@media all and (min-width: 810px) and (max-width: 1079px) {
+  body {
+    overflow-x: hidden;
+  }
+  section {
+    margin: 10px !important;
+    padding: 10px !important;
+  }
+  nav {
+    top: 10px;
+    padding: 10px 20px !important;
+  }
+  #NavlinkParent {
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 0px;
+  }
+  .nav-link {
+    font-size: 18px !important;
+  }
+  .nav-item {
+    border-radius: 5px;
+    margin-right: 2px !important;
+    text-align: center !important;
+    padding: 5px !important;
+  }
+  #firstlinks {
+    margin: 2px !important;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 809px) {
+  body {
+    overflow-x: hidden;
+  }
+  section {
+    padding: 10px !important;
+  }
+  #navclickbtn {
+    display: block;
+    z-index: 10000;
+  }
+  nav {
+    top: 10px;
+    padding: 0px !important;
+    z-index: 1000;
+  }
+  .nav-link {
+    transition: all 0ms ease !important;
+    font-size: 30px !important;
+  }
+  .LandingParent {
+    flex-direction: column;
+  }
+  #NavlinkParent {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100% !important;
+    transition: all 300ms ease;
+    height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+  }
+  .buttonunderline::before {
+    display: none !important;
+  }
+  #NavlinkParent > div {
+    width: 100%;
+    text-align: center;
+  }
+  #NavlinkParent > div:hover {
+    color: rgb(27, 104, 238);
+  }
+  .navtranslate {
+    z-index: 1000;
+    left: 0 !important;
+  }
+}

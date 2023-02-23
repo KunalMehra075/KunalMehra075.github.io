@@ -37,7 +37,7 @@
   transition: all 300ms ease-in-out;
 }
 .buttonunderline:hover::before {
-  transform: scaleX(0.63);
+  transform: scaleX(0.7);
 }
 #LetsExplore {
   font-size: 20px;

@@ -12,6 +12,7 @@
   <meta name="theme-color" content="#ffffff" />
   <!--??--------------------------------------------- <CSS FILES> ----------------------------------------------->
   <link rel="stylesheet" href="CSS/index.css" defer />
+  <link rel="stylesheet" href="CSS/Navbar.css"defer >
   <link rel="stylesheet" href="CSS/buttons.css" defer />
   <link rel="stylesheet" href="CSS/Github.css" defer />
   <link rel="stylesheet" href="CSS/Projects.css" defer />
@@ -39,6 +40,7 @@
   <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer>
   </script>
   <script src="JS/index.js" defer></script>
+  <script src="JS/Navbar.js" defer></script>
   <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer></script>
 
 
@@ -53,7 +55,33 @@
   </div>
   <!--todo--------------------------------------------- Header ----------------------------------------------->
   <header id="nav-menu">
-    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary mx-5">
+    <nav id="stickynav">
+      <div id="NavBrand"> <a id="brandbg" class="navbar-brand" href="/"> 🔵 Kunal </a></div>
+      <div id="NavlinkParent">
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link home " href="#home">Home</a></div>
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link about " href="#about">About</a></div>
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link projects " href="#projects">Projects</a></div>
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link github " href="#github">Github</a></div>
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link skills " href="#skills">Skills</a></div>
+        <div class="nav-item buttonunderline" data-navclose><a class="nav-link contact " href="#contact">Contact</a></div>
+      </div>
+      <div id="MyAccBtn" class="flex">
+        <a  href="Kunal_Mehra_Resume.pdf"  id="resume-link-1" class="nav-link resume" download>
+          <button id="resume-button-1" class="buttonslide">Resume</button>
+        </a>
+        <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
+          <img loading="lazy" width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="" /></a>
+        <button id="navclickbtn" data-navclose>
+          <svg data-navclose xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
+            <path data-navclose d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+
+
+    <!-- <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary mx-5">
       <div class="container-fluid">
         <a id="brandbg" class="navbar-brand" href="/"> 🔵 Kunal  
           </a>
@@ -90,7 +118,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
   </header>
 
 
@@ -131,14 +159,11 @@
     <section id="about" class="about section" >
       <h1 id="Aboutroll" class="SectionHeads">About Me <label id="Aboutrolldim" > > 
         About Me ></label></h1>
-
       <br />
-
       <div>
         <div data-aos="fade-up">
           <img loading="lazy" id="kunalimg" class="home-img" src="Images/mainimg.jpg" alt="" />
         </div>
-
         <div class="portfolio-content" data-aos="fade-up">
           <h1 id="user-detail-name" class="profileheading">Hi! I am Kunal Mehra</h1>
           <p id="user-detail-intro">
@@ -781,9 +806,11 @@
         </div>
       </div>
     </div>
+
+
     <!--todo--------------------------------------------- <Github Section> ----------------------------------------------->
 
-    <section id="Github_SectionX">
+    <section id="github">
       <h1 id="Githead" class="SectionHeads" data-aos="fade-up">Github Stats <img loading="lazy" id="octopus" src="Images\githubocto.png" alt="">
       </h1>
 

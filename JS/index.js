@@ -31,6 +31,7 @@ function update() {
   }%`;
   requestAnimationFrame(update);
 }
+
 update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
 let aboutroll = document.getElementById("Aboutroll");

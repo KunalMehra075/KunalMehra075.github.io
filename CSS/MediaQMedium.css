@@ -7,6 +7,18 @@
     margin: 15px !important;
     padding-top: 20px !important;
   }
+  #about,
+  #projects,
+  #skills,
+  #github {
+    padding-top: 80px !important;
+  }
+  #about > div {
+    margin: 0px !important;
+  }
+  .AllProjects {
+    margin-top: 0px !important;
+  }
   #Aboutrolldim {
     display: none;
   }
@@ -43,6 +55,7 @@
   .FirstView {
     height: auto;
     padding: 20px 20px;
+    padding-top: 100px !important;
   }
   .Introbox {
     padding: 25px;
@@ -154,9 +167,6 @@
   }
   .Git1 {
     width: 100%;
-  }
-  #octopus {
-    width: 60%;
   }
 
   #github-stats-card {

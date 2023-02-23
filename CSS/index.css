@@ -13,16 +13,12 @@
   --themeblueDark: rgb(35, 146, 206);
   --borderRadius: 5px;
 }
-
 main {
   overflow-x: hidden;
 }
-/* body { */
-/* background-color: var(--theme) !important; */
-/* background-color: black !important; */
-/* } */
-html {
-  position: relative;
+html,
+body {
+  position: relative !important;
 }
 .flex {
   display: flex;
@@ -36,8 +32,14 @@ a {
   text-decoration: none;
   color: white;
 }
-#brandlogog {
-  mix-blend-mode: difference !important;
+p {
+  margin: 0px !important;
+}
+img {
+  cursor: pointer;
+}
+.flex {
+  display: flex;
 }
 /*! <!----------------------------------------------- < Essentials > -----------------------------------------------> */
 ::-webkit-scrollbar {
@@ -77,14 +79,13 @@ a {
     rgba(41, 56, 161, 1) 0%,
     rgba(0, 255, 136, 1) 100%
   );
+  transition: all 300ms ease-in-out;
 }
 #brandbg {
   font-size: 2rem;
   font-weight: 600;
 }
-a {
-  text-decoration: none !important;
-}
+
 #topbutton {
   position: fixed;
   display: none;
@@ -101,102 +102,6 @@ a {
 }
 #topbutton:hover {
   background-color: var(--themeblueDark);
-}
-
-/*todo <!----------------------------------------------- < Navbar > -----------------------------------------------> */
-header {
-  z-index: 1000;
-  position: sticky;
-  top: 1vh;
-  padding-top: 4px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0) !important;
-}
-#brandbg {
-  filter: saturate(1.5);
-}
-header li {
-  background-color: transparent !important;
-  padding: 0px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#navbar {
-  background-color: transparent !important;
-  padding: 0px !important;
-}
-
-.navbar-expand-lg .navbar-collapse {
-  justify-content: space-between !important;
-  flex-basis: auto;
-}
-.navbar-nav {
-  display: flex;
-  justify-content: space-evenly !important;
-}
-.nav-link,
-.nav-item {
-  font-size: 15px !important;
-  padding: 0px !important;
-}
-
-.nav-item {
-  border-radius: var(--borderRadius);
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  margin-right: 5px;
-  border: 1px solid transparent;
-}
-
-.navbar > .container-fluid {
-  background-color: transparent !important;
-}
-.navbar-collapse {
-  flex-grow: 0 !important;
-}
-.navbar-toggler {
-  border-radius: 0% !important;
-  border: 1px solid rgb(233, 233, 242) !important;
-}
-.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 5px 30px !important;
-  color: rgb(0, 0, 0);
-  font-size: 20px !important;
-  transition: all 250ms ease;
-}
-
-.navbar-brand {
-  border-radius: var(--borderRadius);
-  padding: 4px 20px !important;
-  margin-left: 25px !important;
-}
-#cvdownload,
-#resume-button-1,
-#resume-button-2 {
-  z-index: 999 !important;
-  cursor: pointer;
-  background: rgb(24, 109, 212);
-  border-radius: var(--borderRadius);
-  color: white;
-  text-decoration: none !important;
-  font-size: 20px !important;
-  border: none;
-  padding: 10px 15px !important;
-}
-#resume-button-1::before,
-#resume-button-2::before {
-  border-radius: var(--borderRadius);
-}
-
-#downloadresume {
-  width: 20%;
-  filter: invert();
-}
-#cvdownload:hover,
-#resume-button-1:hover,
-#resume-button-2:hover {
-  background-color: rgb(52, 161, 220);
 }
 
 /*? <!----------------------------------------------- < Section Styles > -----------------------------------------------> */
@@ -240,6 +145,7 @@ section {
   width: 100%;
   height: 100vh;
   padding: 70px 100px;
+  padding-top: 130px;
   padding-bottom: 0px;
   margin: 0px auto !important;
   display: flex;
