@@ -55,8 +55,7 @@
   .FirstView {
     flex-direction: column;
     height: auto;
-    padding: 20px 20px;
-    padding-top: 100px !important;
+    padding: 100px 20px 0px 20px !important;
   }
   .navbar-collapse {
     width: 100%;
@@ -98,6 +97,9 @@
   }
   #kunalimg {
     width: 100%;
+  }
+  .OPRBGB {
+    border-radius: 0px;
   }
   #about {
     padding-top: 0px;
@@ -186,7 +188,7 @@
     margin: 0px;
   }
   #github-top-langs {
-    width: 90%;
+    width: 100%;
     z-index: 1;
     margin: 5px !important;
     padding: 0px !important;
@@ -232,6 +234,7 @@
   #connect {
     margin: 0px !important;
     padding: 7px 10px;
+    border-radius: 5px;
   }
   .connectsection textarea {
     width: 90%;
@@ -332,6 +335,7 @@
   }
   .portfolio-content p {
     font-size: 13px;
+    padding-bottom: 10px;
   }
   .Git2 {
     padding: 0px !important;

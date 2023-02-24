@@ -4,7 +4,6 @@ let brandbg = document.getElementById("brandbg");
 brandbg.innerHTML = `<span class="spinner-grow text-primary" role="status"></span>
 Kunal `;
 let gitloadercal = document.getElementById("gitcalendar");
-
 window.addEventListener("load", function () {
   brandbg.innerHTML = `🔵 Kunal `;
   GitHubCalendar(".calendar", "KunalMehra075", { responsive: true });
