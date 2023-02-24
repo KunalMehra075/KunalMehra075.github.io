@@ -35,6 +35,9 @@
   border-radius: 5px;
   box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
 }
+#kunalimg:hover {
+  box-shadow: rgba(46, 111, 240, 0.4) 8px 8px, rgba(46, 137, 240, 0.3) 15px 15px;
+}
 .portfolio-content label {
   font-size: 25px;
   font-weight: bold;

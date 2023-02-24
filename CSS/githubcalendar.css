@@ -35,7 +35,7 @@ rect.ContributionCalendar-day[data-level="4"] {
 
 .calendar {
   border-radius: 5px;
-  /* border: 0 !important; */
+  /* border: 3px solid #39dd34 !important; */
   min-height: 243px;
   text-align: center;
   border: 0px;

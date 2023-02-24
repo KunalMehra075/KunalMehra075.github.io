@@ -33,8 +33,9 @@
 }
 .OPRBGB:hover {
   background-color: rgba(53, 67, 109, 0.363);
-  box-shadow: rgba(45, 151, 57, 0.16) 0px 1px 4px,
-    rgb(96, 166, 247) 0px 0px 0px 3px;
+  box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
+  /* box-shadow: rgba(45, 151, 57, 0.16) 0px 1px 4px,
+    rgb(96, 166, 247) 0px 0px 0px 3px; */
 }
 .orangefrybg {
   background: url(../Images/Icons/123.jpg);
@@ -138,10 +139,10 @@
 }
 .modal-body ::-webkit-scrollbar {
   width: 4px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(221, 237, 250);
 }
 .modal-body ::-webkit-scrollbar-thumb {
-  background-color: rgb(128, 127, 133);
+  background-color: rgb(24, 109, 212);
   border-radius: 10px;
 }
 .modal-body {

@@ -6,6 +6,7 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+
 :root {
   --theme: rgb(255, 255, 255);
   --fontColor: rgb(0, 0, 0);
