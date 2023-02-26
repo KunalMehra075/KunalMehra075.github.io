@@ -45,6 +45,13 @@
   gap: 5px;
   padding: 10px;
 }
+#BestRepos > img {
+  transition: all 300ms ease-in-out;
+}
+#BestRepos > img:hover {
+  border-radius: 5px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
+}
 #github-streak-stats {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,

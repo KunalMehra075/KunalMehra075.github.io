@@ -80,3 +80,17 @@ letsconnectform.addEventListener("submit", (e) => {
   letsconnectform.email.value = "";
   letsconnectform.textmessage.value = "";
 });
+
+//? <!----------------------------------------------- < Repo Redirect> ----------------------------------------------->
+Repo1.addEventListener("click", () => {
+  window.open("https://github.com/KunalMehra075/OrangeFryFrontend");
+});
+Repo2.addEventListener("click", () => {
+  window.open("https://github.com/KunalMehra075/Project-Astry");
+});
+Repo3.addEventListener("click", () => {
+  window.open("https://github.com/Tanishka-22/KK-Kushwah");
+});
+Repo4.addEventListener("click", () => {
+  window.open("https://github.com/KunalMehra075/obscene-icicle-4134 ");
+});
