@@ -382,4 +382,10 @@
   div.modal-header b {
     font-size: 2rem;
   }
+  #BestRepos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gitstreak {
+    flex-direction: column;
+  }
 }

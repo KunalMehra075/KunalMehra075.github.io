@@ -188,7 +188,7 @@
     margin: 0px;
   }
   #github-top-langs {
-    width: 100%;
+    width: 70%;
     z-index: 1;
     margin: 5px !important;
     padding: 0px !important;
@@ -208,7 +208,7 @@
     width: 40px;
   }
   .TechStack2 {
-    width: 100% !important;
+    width: 92% !important;
     margin: 0px !important;
   }
   .Techskillshead {
@@ -404,5 +404,17 @@
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 10px !important;
+  }
+  #BestRepoParent {
+    width: 100%;
+  }
+
+  #BestRepos {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    padding: 10px;
+  }
+  #BestRepos > img {
+    width: 100%;
   }
 }
