@@ -34,12 +34,16 @@ rect.ContributionCalendar-day[data-level="4"] {
 }
 
 .calendar {
-  border-radius: 5px;
-  /* border: 3px solid #39dd34 !important; */
+  border-radius: 7px !important;
+
   min-height: 243px;
   text-align: center;
-  border: 0px;
+  border: 1.2px solid #e3e9e3 !important;
+  box-shadow: rgba(0, 255, 4, 0.225) 0px 0px 0px 2px;
   margin: 0 auto;
+}
+#gitloadercal > div.position-relative > div {
+  border: 0px !important;
 }
 
 .calendar-graph text.wday,
@@ -189,6 +193,6 @@ h2.f4.text-normal.mb-3 {
 }
 
 text.ContributionCalendar-label {
-  fill: #ccc;
+  fill: #b4b4b4 !important;
   font-size: 11px;
 }

@@ -86,7 +86,7 @@ Repo1.addEventListener("click", () => {
   window.open("https://github.com/KunalMehra075/OrangeFryFrontend");
 });
 Repo2.addEventListener("click", () => {
-  window.open("https://github.com/KunalMehra075/Project-Astry");
+  window.open("https://github.com/KunalMehra075/MyCal.com-Frontend");
 });
 Repo3.addEventListener("click", () => {
   window.open("https://github.com/Tanishka-22/KK-Kushwah");
