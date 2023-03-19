@@ -42,8 +42,8 @@
   background-size: cover;
 }
 
-.astrybg {
-  background: url(../Images/Icons/159.jpg);
+.mycalbg {
+  background: url(../Images/MyCal/Home\ Page.jpg);
   background-size: cover;
 }
 .placemebg {
@@ -58,7 +58,7 @@
 .orangefrybg:hover,
 .stylezillabg:hover,
 .placemebg:hover,
-.astrybg:hover {
+.mycalbg:hover {
   background-position: bottom;
 }
 

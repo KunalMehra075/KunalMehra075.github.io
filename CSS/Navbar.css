@@ -29,6 +29,7 @@ nav {
   /* background-color: rgba(255, 255, 255, 0.9) !important; */
   margin-right: 5px;
   font-weight: 600;
+  cursor: pointer;
   padding: 5px;
 }
 .nav-item {
@@ -46,9 +47,8 @@ nav {
   border: 0px !important;
   border-radius: 5px;
   padding: 2px !important;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
-#cvdownload,
 #resume-button-1,
 #resume-button-2 {
   z-index: 999 !important;
@@ -124,8 +124,8 @@ nav {
     z-index: 10000;
   }
   nav {
-    top: 10px;
-    padding: 0px !important;
+    top: 7.3px;
+    padding: 2px !important;
     z-index: 1000;
   }
   .nav-link {
@@ -159,5 +159,16 @@ nav {
   .navtranslate {
     z-index: 1000;
     left: 0 !important;
+  }
+  #resume-link-1 {
+    font-size: 20px !important;
+  }
+  #resume-button-2 {
+    font-size: 16px !important;
+    padding: 8px 10px !important;
+  }
+  #resume-button-2 img {
+    margin: 0;
+    height: 100%;
   }
 }
