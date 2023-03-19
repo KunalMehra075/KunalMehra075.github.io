@@ -30,7 +30,7 @@ body {
   align-items: center;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: white;
 }
 p {
@@ -81,10 +81,6 @@ img {
     rgba(0, 255, 136, 1) 100%
   );
   transition: all 300ms ease-in-out;
-}
-#brandbg {
-  font-size: 2rem;
-  font-weight: 600;
 }
 
 #topbutton {

@@ -94,3 +94,7 @@ Repo3.addEventListener("click", () => {
 Repo4.addEventListener("click", () => {
   window.open("https://github.com/KunalMehra075/obscene-icicle-4134 ");
 });
+
+brandbg.addEventListener("click", (e) => {
+  console.log(e);
+});

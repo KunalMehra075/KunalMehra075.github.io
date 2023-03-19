@@ -52,6 +52,15 @@
   text-decoration: none;
   color: var(--themeblueDark);
 }
+#downloadresumeport {
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 0px;
+}
+#downloadresumeport::before {
+  border-radius: 5px;
+}
 #logos {
   width: 100%;
   display: flex;

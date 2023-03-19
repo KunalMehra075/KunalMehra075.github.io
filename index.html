@@ -50,7 +50,7 @@
   <!--!--------------------------------------------- Header ----------------------------------------------->
   <header id="nav-menu">
     <nav id="stickynav">
-      <div id="NavBrand"> <a id="brandbg" class="navbar-brand" href="/"> 🔵 Kunal </a></div>
+      <div id="NavBrand"> <a id="brandbg" class="navbar-brand" href="#"> 🔵 Kunal </a></div>
       <div id="NavlinkParent">
         <div class="nav-item buttonunderline" data-navclose><a class="nav-link home " href="#home">Home</a></div>
         <div class="nav-item buttonunderline" data-navclose><a class="nav-link about " href="#about">About</a></div>
@@ -61,9 +61,13 @@
         </div>
       </div>
       <div id="MyAccBtn" class="flex">
-        <a href="Kunal_Mehra_Resume.pdf" id="resume-link-1" class="nav-link resume" download>
-          <button id="resume-button-1" class="buttonslide">Resume</button>
-        </a>
+        <button id="resume-button-1" class="nav-link resume buttonslide" onclick="resume()">
+          <a href="Kunal_Mehra_Resume.pdf" id="resume-link-1"style="color:white"  download="Kunal_Mehra_Resume.pdf">
+            Resume
+          </a>
+          
+         </button>
+       
         <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
           <img loading="lazy" width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="" /></a>
         <button id="navclickbtn" data-navclose>
@@ -91,9 +95,11 @@
 
         <div id="Letsexploreparent">
           <a href="#about"><button id="LetsExplore" class="buttonslide">Lets Explore</button></a>
-          <a id="cvdownloadlink" href="Kunal_Mehra_Resume.pdf" download>
-            <button id="cvdownload" class="buttonslide">CV
-              <img width="30%" style="filter: invert();" src="Images/Icons/download.svg" alt=""> </button> </a><br>
+
+            <button onclick="resume()"  id="resume-button-2" class="buttonslide">
+              <a id="resume-link-2" style="color:white" href="Kunal_Mehra_Resume.pdf" target="_blank" download="Kunal_Mehra_Resume.pdf">
+              CV </a>
+              <img width="30%" style="filter: invert();" src="Images/Icons/download.svg" alt=""> </button><br>
         </div>
 
 
@@ -126,8 +132,8 @@
           </p>
           <br>
           <div>
-            <a id="resume-link-2" href="Kunal_Mehra_Resume.pdf" download>
-              <button id="resume-button-2" class="buttonslide">
+            <a href="Kunal_Mehra_Resume.pdf" download>
+              <button onclick="resume()" id="downloadresumeport" class="buttonslide">
                 Download My Resume
                 <img width="10%" style="filter: invert()" src="Images/Icons/download.svg" alt="" />
               </button>
@@ -980,7 +986,9 @@
 
           <div></div>
       </div>
+
     </section>
+
 
   </main>
   <!--!--------------------------------------------- Footer ----------------------------------------------->
@@ -1022,6 +1030,11 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+function resume(){
+  window.open("Kunal_Mehra_Resume.pdf","_blank")
+}
+
   </script>
 
 </body>

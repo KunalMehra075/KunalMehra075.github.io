@@ -240,6 +240,7 @@
 }
 
 .SkillsHeads {
+  cursor: crosshair;
   background-color: rgb(24, 109, 212);
   padding: 5px;
   border-radius: 5px;

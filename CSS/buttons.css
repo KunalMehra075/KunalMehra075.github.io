@@ -1,5 +1,6 @@
 .buttonslide {
   z-index: 1;
+  color: white !important;
   position: relative;
   outline: none;
   background-color: var(--themeblue);
