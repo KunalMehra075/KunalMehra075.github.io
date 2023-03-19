@@ -44,21 +44,21 @@ window.addEventListener("scroll", () => {
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
-let resumedownload1 = document
-  .getElementById("resume-button-1")
-  .addEventListener("click", () => {
-    window.open("Kunal_Mehra_Resume.pdf", "_blank");
-  });
-let resumedownload2 = document
-  .getElementById("resume-button-2")
-  .addEventListener("click", () => {
-    window.open("Kunal_Mehra_Resume.pdf", "_blank");
-  });
-let cvdownload = document
-  .getElementById("cvdownloadlink")
-  .addEventListener("click", () => {
-    window.open("Kunal_Mehra_Resume.pdf", "_blank");
-  });
+// let resumedownload1 = document
+//   .getElementById("resume-button-1")
+//   .addEventListener("click", () => {
+//     window.open("Kunal_Mehra_Resume.pdf", "_blank");
+//   });
+// let resumedownload2 = document
+//   .getElementById("resume-button-2")
+//   .addEventListener("click", () => {
+//     window.open("Kunal_Mehra_Resume.pdf", "_blank");
+//   });
+// let cvdownload = document
+//   .getElementById("cvdownloadlink")
+//   .addEventListener("click", () => {
+//     window.open("Kunal_Mehra_Resume.pdf", "_blank");
+//   });
 //? <!----------------------------------------------- < Lets Connect form> ----------------------------------------------->
 let letsconnectform = document.getElementById("letsconnectform");
 letsconnectform.addEventListener("submit", (e) => {
