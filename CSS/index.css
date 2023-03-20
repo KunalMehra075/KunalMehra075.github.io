@@ -49,19 +49,6 @@ img {
 ::-webkit-scrollbar-thumb {
   background-color: var(--themeblue);
 }
-#preloader {
-  background: rgb(255, 255, 255) url("../Images/Icons/shotdribbblecircle.gif")
-    no-repeat center center;
-  background-size: 50%;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  color: rgb(66, 176, 255);
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 1000000000;
-}
 .progress-bar {
   z-index: 10000;
   position: fixed;
