@@ -29,59 +29,61 @@
 </head>
 
 <body>
-  <!--?--------------------------------------------- <Scripts> ----------------------------------------------->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"
-    defer></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer>
-  </script>
-  <script src="JS/index.js" defer></script>
-  <script src="JS/Navbar.js" defer></script>
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer></script>
-  <script src="https://tarptaeya.github.io/repo-card/repo-card.js" defer></script>
-  <!--!--------------------------------------------- <Essentials> ----------------------------------------------->
-  <div class="progress-bar">
-    <div class="filled"></div>
-  </div>
-  <button id="topbutton" title="Go to top">
-    <img width="70%" style="filter: invert(); rotate: 180deg;" src="Images/Icons/download.svg" alt="">
-  </button>
-  <!--!--------------------------------------------- Header ----------------------------------------------->
-  <header id="nav-menu">
-    <nav id="stickynav">
-      <div id="NavBrand"> <a id="brandbg" class="navbar-brand" href="#"> 🔵 Kunal </a></div>
-      <div id="NavlinkParent">
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link home " href="#home">Home</a></div>
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link about " href="#about">About</a></div>
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link projects" href="#projects">Projects</a></div>
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link github " href="#github">Github</a></div>
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link skills " href="#skills">Skills</a></div>
-        <div class="nav-item buttonunderline" data-navclose><a class="nav-link contact " href="#contact">Contact</a>
+<!--?--------------------------------------------- <Scripts> ----------------------------------------------->
+    <div id="scripties">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"
+      defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer>
+    </script>
+    <script src="JS/index.js" defer></script>
+    <script src="JS/Navbar.js" defer></script>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" defer></script>
+    <script src="https://tarptaeya.github.io/repo-card/repo-card.js" defer></script>
+    </div>
+    <!--?--------------------------------------------- <Essentials> ----------------------------------------------->
+    <div class="progress-bar">
+      <div class="filled"></div>
+    </div>
+    <button id="topbutton" title="Go to top">
+      <img width="70%" style="filter: invert(); rotate: 180deg;" src="Images/Icons/download.svg" alt="">
+    </button>
+<!--!--------------------------------------------- Header ----------------------------------------------->
+    <header id="nav-menu">
+      <nav id="stickynav">
+        <div id="NavBrand"> <a id="brandbg" class="navbar-brand" href="#"> 🔵 Kunal </a></div>
+        <div id="NavlinkParent">
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link home " href="#home">Home</a></div>
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link about " href="#about">About</a></div>
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link projects" href="#projects">Projects</a></div>
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link github " href="#github">Github</a></div>
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link skills " href="#skills">Skills</a></div>
+          <div class="nav-item buttonunderline" data-navclose><a class="nav-link contact " href="#contact">Contact</a>
+          </div>
         </div>
-      </div>
-      <div id="MyAccBtn" class="flex">
-        <button id="resume-button-1" class="nav-link resume buttonslide" onclick="resume()">
-          <a href="Kunal_Mehra_Resume.pdf" id="resume-link-1"style="color:white"  download="Kunal_Mehra_Resume.pdf">
-            Resume
-          </a>
-          
-         </button>
-       
-        <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
-          <img loading="lazy" width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="" /></a>
-        <button id="navclickbtn" data-navclose>
-          <svg data-navclose xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
-            <path data-navclose d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
-          </svg>
-        </button>
-      </div>
-    </nav>
-  </header>
-  <!--!--------------------------------------------- Main Body ----------------------------------------------->
-  <main>
+        <div id="MyAccBtn" class="flex">
+          <button id="resume-button-1" class="nav-link resume buttonslide" onclick="resume()">
+            <a href="Kunal_Mehra_Resume.pdf" id="resume-link-1"style="color:white"  download="Kunal_Mehra_Resume.pdf">
+              Resume
+            </a>
+            
+          </button>
+        
+          <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/">
+            <img loading="lazy" width="40px" id="firstlinks" src="Images/Icons/linkedstroke2.png" alt="" /></a>
+          <button id="navclickbtn" data-navclose>
+            <svg data-navclose xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
+              <path data-navclose d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+<!--!--------------------------------------------- Main Body ----------------------------------------------->
+   <main>
     <!--todo--------------------------------------------- <Home Section> ----------------------------------------------->
-  
+
     <section id="home" class="FirstView">
       <div class="Introbox" data-aos="fade-in">
         <h1 id="firstviewhello">Hello,</h1>
@@ -117,11 +119,11 @@
           About Me ></label></h1>
       <br />
       <div>
-        <div data-aos="fade-up">
-          <img loading="lazy" id="kunalimg" class="home-img" src="Images/ProfileImg.jpg" alt="" />
+        <div class="portfolioimage" data-aos="fade-up">
+          <img loading="lazy" id="kunalimg" class="home-img" src="Images/pfp2.png" alt="" />
         </div>
         <div class="portfolio-content" data-aos="fade-up">
-          <h1 id="user-detail-name" class="profileheading">Hi! I am <a style="color: var(--themeblue)">Kunal Mehra</a></h1>
+          <h1 id="user-detail-name" class="profileheading">Hi! I am <label id="KunalMehraName">Kunal Mehra</label></h1>
           <p id="user-detail-intro">
             <label style="color: var(--themeblue)">I</label>
             am a Web Developer who knows how to design and build Web Apps that are
@@ -220,6 +222,47 @@
             </div>
           </div>
         </div>
+         <!-- !AceLegalServices -->
+         <div class="project-card" data-aos="fade-up">
+          <div class="OneProject acelegalservice">
+            <h1 class="projectcount">03</h1>
+            <div class="OPRBGB">
+              <div class="project-title OnePRhead">Ace Legal Services</div>
+              <div class="project-tech-stack OnePRdetails">
+                <p class="project-description">
+                  An Orignal Web Services for Legal Booking Appointment System.
+                </p>
+
+                <button type="button" class="ClickModalBtn buttonslide" data-bs-toggle="modal"
+                  data-bs-target="#acelegalModal" data-acelegal>
+                  Click here to know more
+                  <img loading="lazy" class="downsee" src="Images\Icons\downsee.gif" alt="" />
+                </button>
+                <br />
+                <div class="projlinks">
+                  <a class="project-deployed-link" href="https://acelegalservices.vercel.app/" target="_blank"><button
+                      class="downseeG">
+                      <img loading="lazy" class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt="" />
+                      Site
+                    </button>
+                  </a>
+                  <a class="project-github-link" href="https://github.com/Mr-Soni532/young-zinc-6102"
+                    target="_blank"><button class="downseeG">
+                      <img loading="lazy" class="gitplay" src="Images/Icons/GitHub.png" alt="" />
+                      Github
+                    </button>
+                  </a>
+                  <a href="https://drive.google.com/file/d/16kbipuM3rlgz-ymfc7ibTMghp0BESRfE/view?usp=share_link" target="_blank"><button class="downseeG">
+                      <img loading="lazy" class="gitplay" src="Images/Icons/play.png" alt="" />
+                      Live Video
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <!-- !Orangefry -->
         <div class="project-card" data-aos="fade-up">
@@ -301,47 +344,7 @@
           </div>
         </div>
 
-        <!-- !Placeme -->
-        <div class="project-card" data-aos="fade-up">
-          <div class="OneProject placemebg">
-            <h1 class="projectcount">03</h1>
-            <div class="OPRBGB">
-              <div class="project-title OnePRhead">PlaceMe.com</div>
-              <div class="project-tech-stack OnePRdetails">
-                <p class="project-description">
-                  A Job hunting websites, for seekers as well as hirers.
-                </p>
-
-                <button type="button" class="ClickModalBtn buttonslide" data-bs-toggle="modal"
-                  data-bs-target="#PlacemeModal" data-placeme>
-                  Click here to know more
-                  <img loading="lazy" class="downsee" src="Images\Icons\downsee.gif" alt="" />
-                </button>
-                <br />
-                <div class="projlinks">
-                  <a class="project-deployed-link" href="https://placeme725.netlify.app/" target="_blank"><button
-                      class="downseeG">
-                      <img loading="lazy" class="gitplay sitebutton" src="Images/Icons/opensite.svg" alt="" />
-                      Site
-                    </button>
-                  </a>
-                  <a class="project-github-link" href="https://github.com/KunalMehra075/obscene-icicle-4134"
-                    target="_blank"><button class="downseeG">
-                      <img loading="lazy" class="gitplay" src="Images/Icons/GitHub.png" alt="" />
-                      Github
-                    </button>
-                  </a>
-                  <a href="https://youtu.be/R_kWySXK4l4" target="_blank"><button class="downseeG">
-                      <img loading="lazy" class="gitplay" src="Images/Icons/play.png" alt="" />
-                      Live Video
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+       
        
       </div>
     </section>
@@ -571,15 +574,15 @@
       </div>
     </div>
 
-    <!--*--------------------------------------------- <Placeme Modal> ----------------------------------------------->
+    <!--*--------------------------------------------- <Acelegal Modal> ----------------------------------------------->
     <div id="MODAL">
       <!-- Modal -->
-      <div class="modal fade" id="PlacemeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="acelegalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                <h1><b>Project Placeme.com</b></h1>
+                <h1><b>Project Ace Legal Services</b></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -587,7 +590,7 @@
                 <table>
                   <tr>
                     <td><b>Name</b></td>
-                    <td>PlaceMe.com</td>
+                    <td>Ace Legal Services</td>
                   </tr>
                   <tr>
                     <td><b>Category</b></td>
@@ -595,12 +598,13 @@
                   </tr>
                   <tr>
                     <td><b>Description</b></td>
-                    <td>An online job hunting website for job seekers as well as hirers, Dark mode modern-day website
-                      for young users. Helpful for filtering jobs and adding them to favorites.</td>
+                    <td>An Orignal Web Project for Legal Booking Appointment System.
+                      Is an online web services for users and lawyers for formal connects.
+                    </td>
                   </tr>
                   <tr>
                     <td><b>Type</b></td>
-                    <td>Individual Project</td>
+                    <td>Group Project consisting of 5 Members</td>
                   </tr>
                   <tr>
                     <td><b>Duration</b></td>
@@ -610,11 +614,11 @@
                     <td><b>Features</b></td>
                     <td>
                       <ul>
-                        <li>User can look for jobs filter them.</li>
-                        <li>Add to favorite functionalitity</li>
+                        <li>User can look for Lawyers filter them.</li>
+                        <li>Book the Lawyer's appointment for future date</li>
                         <li>Searching and applying for a job</li>
-                        <li>OTP verification</li>
-                        <li>Login & Signup functionalities</li>
+                        <li>Google Auth & OTP Password reset</li>
+                        <li>Admin CRUD & Login-Signup functionalities</li>
                       </ul>
 
                     </td>
@@ -622,25 +626,29 @@
                   <tr>
                     <td><b>Tech Stack Used</b></td>
                     <td id="teckstakmodal">
-                      <img loading="lazy" src="Images/Icons/html.png" alt="">
+                      <img loading="lazy" src="Images/Icons/React.png" alt="">
+                      <img loading="lazy" src="Images/Icons/ant design.svg" alt="">
                       <img loading="lazy" src="Images/Icons/css.png" alt="">
                       <img loading="lazy" src="Images/Icons/js.png" alt="">
+                      <img loading="lazy" src="Images/Icons/node.png" alt="">
+                      <img loading="lazy" src="Images/Icons/Express.png" alt="">
+                      <img loading="lazy" src="Images/Icons/mongo.png" alt="">
                     </td>
                   </tr>
                   <tr>
                     <td><b>Links</b></td>
                     <td>
                       <div class="projlinksmodal">
-                        <a href="https://placeme725.netlify.app/" target="_blank">
+                        <a href="https://acelegalservices.vercel.app/" target="_blank">
                           <button class="downseeGmodal">
                             <img loading="lazy" class="gitplaymodal sitebutton" src="Images/Icons/opensite.svg" alt="">
                             Site</button></a>
 
-                        <a href="https://github.com/KunalMehra075/obscene-icicle-4134" target="_blank">
+                        <a href="https://github.com/Mr-Soni532/young-zinc-6102" target="_blank">
                           <button class="downseeGmodal">
                             <img loading="lazy" class="gitplaymodal" src="Images/Icons/GitHub.png" alt="">
                             Github</button></a>
-                        <a href="https://youtu.be/R_kWySXK4l4" target="_blank">
+                        <a href="https://drive.google.com/file/d/16kbipuM3rlgz-ymfc7ibTMghp0BESRfE/view?usp=share_link" target="_blank">
                           <button class="downseeGmodal">
                             <img loading="lazy" class="gitplaymodal" src="Images/Icons/play.png" alt=""> Live
                             Video</button></a>
@@ -654,17 +662,20 @@
               </div>
               <!-- here is project details -->
               <div class="ImageModalsBox">
-                <label class="modalimgheads">🔷 PlaceMe.com Landing page</label>
-                <img loading="lazy" src="Images/placeme/placeme1.jpg" alt="">
-                <img loading="lazy" src="Images/placeme/placeme2.jpg" alt="">
-                <img loading="lazy" src="Images/placeme/placeme3.jpg" alt="">
-                <label class="modalimgheads">🔷 Signin Page</label>
-                <img loading="lazy" src="Images/placeme/placeme5.jpg" alt="">
-                <img loading="lazy" src="Images/placeme/placeme6.jpg" alt="">
-                <label class="modalimgheads">🔷 Jobs Page</label>
-                <img loading="lazy" src="Images/placeme/placeme7.jpg" alt="">
+                <label class="modalimgheads">🔷 acelegal.com Landing page</label>
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/home1.png" alt="">
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/home2.png" alt="">
+                <label class="modalimgheads">🔷 User Dashboard Page</label>
+                <label class="modalimgheads">🔷 Lawyers Page</label>
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/lawyers.png" alt="">
+                <label class="modalimgheads">🔷 Admin Pages</label>
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/Adminpanel.png" alt="">
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/admin2.png" alt="">
+                <label class="modalimgheads">🔷 Login-Signup Pages</label>
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/login.png" alt="">
+                <img loading="lazy" src="Images/ProjectsImgs/AceLegal/Signup.png" alt="">
 
-
+                <!-- User Dashboard image,Admin client crud img,otp page -->
 
               </div>
             </div>
@@ -830,7 +841,7 @@
     </section>
 
     <!--todo--------------------------------------------- <Tech Stack Section> ----------------------------------------------->
-<!-- MySql, React, AWS, Redis,TypeScript,System Design -->
+
     <section id="skills">
       <div>
         <h1 id="techstakhead" class="SectionHeads " data-aos="fade-up">TechStack & Skills <img loading="lazy" id="catty"
@@ -895,12 +906,12 @@
               <div><img loading="lazy" class="techhex" class="skills-card-img" src="Images/techstack/nodeB.png" alt="">
               </div>
             </div>
-            <img loading="lazy" id="pg1" class="p68" src="Images/blobs/p68.png" alt="">
-            <img loading="lazy" id="pg2" class="p68" src="Images/blobs/p68.png" alt="">
-            <img loading="lazy" id="pg3" class="p68" src="Images/blobs/p68.png" alt="">
-            <img loading="lazy" id="pg4" class="p68" src="Images/blobs/p68.png" alt="">
-            <img loading="lazy" id="pg5" class="p68" src="Images/blobs/p68.png" alt="">
-            <img loading="lazy" id="pg6" class="p68" src="Images/blobs/p68.png" alt="">
+            <img loading="lazy" id="pg1" class="p68" src="Images/techstack/p68.png" alt="">
+            <img loading="lazy" id="pg2" class="p68" src="Images/techstack/p68.png" alt="">
+            <img loading="lazy" id="pg3" class="p68" src="Images/techstack/p68.png" alt="">
+            <img loading="lazy" id="pg4" class="p68" src="Images/techstack/p68.png" alt="">
+            <img loading="lazy" id="pg5" class="p68" src="Images/techstack/p68.png" alt="">
+            <img loading="lazy" id="pg6" class="p68" src="Images/techstack/p68.png" alt="">
           </div>
           <div class="TechStack2">
 

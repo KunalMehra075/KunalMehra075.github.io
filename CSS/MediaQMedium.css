@@ -294,8 +294,14 @@
     font-size: 13px;
   }
   .profileheading {
-    font-size: 34px;
+    font-size: 48px;
   }
+  #KunalMehraName {
+    font-weight: 500;
+    font-size: 34px;
+    color: var(--themeblue);
+  }
+
   .portfolio-content p {
     font-size: 15px;
   }

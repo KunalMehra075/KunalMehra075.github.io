@@ -333,6 +333,12 @@
   .profileheading {
     font-size: 34px;
   }
+  #KunalMehraName {
+    font-weight: 500;
+    font-size: 34px;
+    color: var(--themeblue);
+  }
+
   .portfolio-content p {
     font-size: 13px;
     padding-bottom: 10px;

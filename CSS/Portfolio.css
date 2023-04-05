@@ -1,8 +1,5 @@
 /*? <!----------------------------------------------- < Portfolio Section > -----------------------------------------------> */
 
-.profileheading {
-  font-size: 48px;
-}
 #about {
   background-size: contain;
   position: relative;
@@ -31,6 +28,9 @@
 }
 #kunalimg {
   width: 450px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   transition: all 350ms ease;
   border-radius: 5px;
   box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
@@ -78,4 +78,13 @@
 }
 #logos img {
   width: 50px;
+}
+
+.profileheading {
+  font-size: 48px;
+}
+#KunalMehraName {
+  font-weight: 500;
+  font-size: 48px;
+  color: var(--themeblue);
 }

@@ -33,31 +33,30 @@
 }
 .OPRBGB:hover {
   background-color: rgba(53, 67, 109, 0.363);
+  box-shadow: rgba(240, 211, 46, 0.4) 5px 5px, rgba(240, 204, 46, 0.3) 10px 10px;
   box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
-  /* box-shadow: rgba(45, 151, 57, 0.16) 0px 1px 4px,
-    rgb(96, 166, 247) 0px 0px 0px 3px; */
 }
 .orangefrybg {
-  background: url(../Images/Icons/123.jpg);
+  background: url(../Images/ProjectsImgs/orangefry.jpg);
   background-size: cover;
 }
 
 .mycalbg {
-  background: url(../Images/MyCal/Home\ Page.jpg);
+  background: url(../Images/ProjectsImgs/mycal.jpg);
   background-size: cover;
 }
-.placemebg {
-  background: url(../Images/Icons/456.jpg);
+.acelegalservice {
+  background: url(../Images/ProjectsImgs/acelegal.png);
   background-size: cover;
 }
 
 .stylezillabg {
-  background: url(../Images/Icons/789.jpg);
+  background: url(../Images/ProjectsImgs/stylezilla.jpg);
   background-size: cover;
 }
 .orangefrybg:hover,
 .stylezillabg:hover,
-.placemebg:hover,
+.acelegalservice:hover,
 .mycalbg:hover {
   background-position: bottom;
 }
