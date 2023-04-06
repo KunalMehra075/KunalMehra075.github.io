@@ -170,18 +170,18 @@
   }
 
   #github-stats-card {
-    width: 50%;
+    width: 48%;
   }
   #github-summary {
     width: 74%;
   }
   #github-streak-stats {
-    width: 51.7%;
+    width: 49.7%;
   }
   #github-top-langs {
     width: 43.8%;
     z-index: 1;
-    margin: 0px !important;
+    margin: 18px !important;
     padding: 0px !important;
   }
 

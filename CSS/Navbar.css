@@ -11,6 +11,7 @@ nav {
   z-index: 10;
   top: 7.3px;
   background-color: rgba(255, 255, 255, 0.612);
+  /* background-color: white; */
   width: 100%;
   padding: 5px 90px !important;
   display: flex;

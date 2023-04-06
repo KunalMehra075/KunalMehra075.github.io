@@ -330,6 +330,9 @@
   #checkoutbio > a {
     font-size: 13px;
   }
+  .contrib-column {
+    border: 0 !important;
+  }
   .profileheading {
     font-size: 34px;
   }
@@ -422,5 +425,23 @@
   }
   #BestRepos > img {
     width: 100%;
+  }
+  .skills-card-name {
+    font-size: 20px;
+  }
+  .Toolset-Image {
+    width: 40px;
+  }
+  .Toolset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .Toolset > div {
+    width: fit-content;
+    padding: 8px;
+    font-size: 20px;
+    border-radius: 10px;
   }
 }
