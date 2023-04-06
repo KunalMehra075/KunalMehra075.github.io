@@ -182,14 +182,11 @@
   .section__title {
     font-size: 19px;
   }
-  .contrib-column {
-    scale: 0.7;
-    padding: 0px;
-    margin: 0px;
-  }
+
   #github-top-langs {
     width: 70%;
     z-index: 1;
+    height: 230px;
     margin: 5px !important;
     padding: 0px !important;
     transform: translateX(0px);
@@ -416,23 +413,30 @@
   }
   #BestRepoParent {
     width: 100%;
+    margin: 8px;
   }
 
   #BestRepos {
     grid-template-columns: repeat(1, 1fr);
     gap: 5px;
-    padding: 10px;
   }
   #BestRepos > img {
     width: 100%;
   }
   .skills-card-name {
-    font-size: 20px;
+    font-size: 14px;
+  }
+  .skills-card > img {
+    width: 20px;
+  }
+  .skills-card {
+    padding: 8px 5px !important;
   }
   .Toolset-Image {
     width: 40px;
   }
   .Toolset {
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -443,5 +447,27 @@
     padding: 8px;
     font-size: 20px;
     border-radius: 10px;
+  }
+  #downloadresumeport {
+    padding: 8px;
+  }
+  .OnePRhead {
+    padding: 5px;
+  }
+  .OPRBGB {
+    background-color: rgba(0, 0, 0, 0.675);
+  }
+  .contrib-column {
+    padding: 0px;
+    margin: 0px;
+  }
+  .calendar {
+    min-height: 159px !important;
+  }
+  .contrib-number {
+    font-size: 15px !important;
+  }
+  .text-muted {
+    font-size: 7px !important ;
   }
 }

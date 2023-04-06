@@ -14,7 +14,7 @@
   position: relative;
   height: 47vh;
   border-radius: 5px;
-  transition: all 1800ms ease-in;
+  transition: background-position 1800ms ease-in;
 }
 
 .OPRBGB {
