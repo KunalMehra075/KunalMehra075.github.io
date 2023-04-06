@@ -44,7 +44,7 @@ window.addEventListener("scroll", () => {
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
 
 function resume() {
-  window.open("Kunal_Mehra_Resume.pdf", "_blank")
+  window.open("Kunal-Mehra-Resume.pdf", "_blank")
 }
 //? <!----------------------------------------------- < Lets Connect form> ----------------------------------------------->
 let letsconnectform = document.getElementById("letsconnectform");
