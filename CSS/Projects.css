@@ -54,7 +54,12 @@
   background: url(../Images/ProjectsImgs/stylezilla.jpg);
   background-size: cover;
 }
+.placemebg {
+  background: url(../Images/ProjectsImgs/placeme.png);
+  background-size: cover;
+}
 .orangefrybg:hover,
+.placemebg:hover,
 .stylezillabg:hover,
 .acelegalservice:hover,
 .mycalbg:hover {
