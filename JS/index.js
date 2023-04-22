@@ -1,6 +1,9 @@
 //? <!----------------------------------------------- < Preloader & Progressbar> ----------------------------------------------->
+let loader = document.getElementById("loader")
 
 let brandbg = document.getElementById("brandbg");
+
+
 brandbg.innerHTML = `<span class="spinner-grow text-primary" role="status"></span>
 Kunal `;
 let gitloadercal = document.getElementById("gitcalendar");
@@ -48,25 +51,58 @@ function resume() {
 }
 //? <!----------------------------------------------- < Lets Connect form> ----------------------------------------------->
 let letsconnectform = document.getElementById("letsconnectform");
+
 letsconnectform.addEventListener("submit", (e) => {
+  loader.style.display = "flex"
   e.preventDefault();
   if (letsconnectform.textmessage.value == "") {
     swal("Empty text cannot be sent.", "", "info");
+    loader.style.display = "none"
     return;
   }
-  let obj = {
-    name:
+  let email = {
+    UserName:
       letsconnectform.firstname.value + " " + letsconnectform.lastname.value,
-    email: letsconnectform.email.value,
-    message: letsconnectform.textmessage.value,
+    UserEmail: letsconnectform.email.value,
+    EmailBody: letsconnectform.textmessage.value,
   };
+  setTimeout(() => {
+    SendResponse(email)
+  }, 0);
+});
 
-  swal("Message sent.", "Will reply soon!", "success");
+async function SendResponse(email) {
+  let url = "https://my-portfolio-backend-eight.vercel.app"
+  try {
+    let res = await fetch(`${url}/sendmail`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(email)
+    });
+    let response = await res.json();
+    if (response.success) {
+      loader.style.display = "none"
+      Swal.fire("Email Sent Successfully.", "Thanks for messaging, Will reply to you soon!", "success");
+    } else {
+      loader.style.display = "none"
+      Swal.fire("Unable to send Email", "There is some error from our side,\n Sorry for inconvenience!", "error");
+    }
+  } catch (error) {
+    loader.style.display = "none"
+    Swal.fire("Unable to send Email", "There is some error from our side,\n Sorry for inconvenience!", "error");
+    console.log(error)
+  }
   letsconnectform.firstname.value = "";
   letsconnectform.lastname.value = "";
   letsconnectform.email.value = "";
   letsconnectform.textmessage.value = "";
-});
+  loader.style.display = "none"
+}
+
+
+
 
 //? <!----------------------------------------------- < Repo Redirect> ----------------------------------------------->
 Repo1.addEventListener("click", () => {

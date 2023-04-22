@@ -49,6 +49,29 @@ img {
 ::-webkit-scrollbar-thumb {
   background-color: var(--themeblue);
 }
+#loader {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.418);
+}
+
+#loader > div {
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+}
+#loader > label {
+  font-weight: 600 !important;
+  font-size: 40px;
+  text-shadow: 2px 2px rgb(134, 233, 68);
+  /* -webkit-text-stroke: rgb(13, 5, 61) 1px; */
+  color: var(--themeblue) !important;
+}
 .progress-bar {
   z-index: 10000;
   position: fixed;

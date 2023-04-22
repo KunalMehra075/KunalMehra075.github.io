@@ -64,6 +64,9 @@
   margin: 1px 5px;
   padding: 10px 30px;
 }
+#submit-button:hover {
+  background-color: rgb(33, 140, 234);
+}
 #connectsubmitdiv {
   margin: 0;
   padding: 0;
