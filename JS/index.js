@@ -84,7 +84,7 @@ async function SendResponse(email) {
     let response = await res.json();
     if (response.success) {
       loader.style.display = "none"
-      Swal.fire("Email Sent Successfully.", "Thanks for messaging, Will reply to you soon!", "success");
+      Swal.fire("Email Sent Successfully.", "Thanks for messaging,\n Will reply to you soon!", "success");
     } else {
       loader.style.display = "none"
       Swal.fire("Unable to send Email", "There is some error from our side,\n Sorry for inconvenience!", "error");
