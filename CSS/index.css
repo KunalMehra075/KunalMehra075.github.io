@@ -59,7 +59,18 @@ img {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.418);
 }
-
+.swal2-container {
+  filter: saturate(3);
+}
+.swal2-container button {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  background-color: var(--themeblue) !important ;
+}
+.swal2-title {
+  color: black !important;
+  text-shadow: 1px 1px rgb(221, 226, 227);
+}
 #loader > div {
   width: 60px;
   height: 60px;
