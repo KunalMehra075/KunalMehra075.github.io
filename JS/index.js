@@ -1,7 +1,5 @@
 //? <!----------------------------------------------- < Preloader & Progressbar> ----------------------------------------------->
 let loader = document.getElementById("loader")
-Swal.fire("Email Sent Successfully.", "Thanks for messaging,\n Will reply to you soon!", "error");
-
 let brandbg = document.getElementById("brandbg");
 
 
