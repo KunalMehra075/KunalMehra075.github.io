@@ -4,7 +4,8 @@
   height: 600px;
   margin: auto 0px;
   width: 700px;
-  scale: 0.9;
+  scale: 0.86;
+  transform: translateX(22px);
 }
 :root {
   --hextop: 70px;

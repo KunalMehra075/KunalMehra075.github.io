@@ -1,5 +1,6 @@
 let stickynav = document.getElementById("stickynav");
 const sticky = stickynav.offsetTop;
+
 window.onscroll = function () {
   if (window.pageYOffset >= sticky) {
     stickynav.classList.add("sticky");

@@ -395,3 +395,48 @@
     flex-direction: column;
   }
 }
+
+/*todo ----------------------------Medium Screen Sizes -------------------------------- */
+@media all and (min-width: 1179px) and (max-width: 1400px) {
+  #Aboutroll,
+  #projectHead {
+    font-size: 7rem;
+    /* transform: translateX(-350px); */
+  }
+  .ImageModalsBox > img {
+    width: 95%;
+  }
+  .HexagonBox {
+    scale: 0.82;
+    transform: translate(34px);
+  }
+  .skills-card > a {
+    font-size: 14px;
+  }
+  .Toolset {
+    margin: 8px 33px;
+  }
+  .connectsection textarea {
+    width: 90%;
+  }
+  #kunalimg {
+    height: 85%;
+  }
+  .portfolio-content p,
+  .portfolio-content a {
+    font-size: 15px;
+  }
+  #downloadresumeport {
+    padding: 7px;
+    font-size: 18px;
+  }
+  #user-detail-name {
+    margin: 5px auto;
+  }
+  .skills-card > img {
+    width: 20px;
+  }
+  #NavlinkParent > div {
+    font-weight: 500;
+  }
+}

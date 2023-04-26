@@ -34,12 +34,19 @@ function update() {
 
 update();
 //? <!----------------------------------------------- < Scroll slide animations> ----------------------------------------------->
+let ScreenSize = window.innerWidth
+window.onresize = () => {
+  ScreenSize = window.innerWidth
+  console.log(ScreenSize);
+}
+
 let aboutroll = document.getElementById("Aboutroll");
 let projectroll = document.getElementById("projectHead");
 window.addEventListener("scroll", () => {
   TopButtonFunction();
   let value = window.scrollY;
-  aboutroll.style.transform = `translateX(${(value - 2400) / 3}px)`;
+  if (ScreenSize <= 1400) value += 300
+  aboutroll.style.transform = `translateX(${(value - 2350) / 3}px)`;
   projectroll.style.transform = `translateX(${(-value + 2700) / 3}px)`;
 });
 
