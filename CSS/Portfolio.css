@@ -5,45 +5,79 @@
   position: relative;
   margin-top: 0px !important;
   width: 90%;
+  padding: 100px 50px 10px 50px !important;
 }
 
 #about > div {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  /* flex-direction: row-reverse; */
   margin-top: 100px !important;
 }
 #about > div > div:nth-child(1) {
   display: grid;
   place-items: center;
-  width: 38%;
+  width: 48%;
 }
 .portfolio-content {
-  margin-left: 100px;
   padding: 15px;
   width: 50%;
 }
 #user-detail-name {
+  width: 100%;
   /* text-shadow: 3px 3px #010101; */
-  margin: 30px auto;
+  margin: 22px 0px;
+  text-align: left;
 }
+
 #kunalimg {
   width: 450px;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   transition: all 350ms ease;
   border-radius: 5px;
-  box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
+  /* border: 1px solid #9f9999; */
+  /* box-shadow: rgba(46, 95, 240, 0.4) 0px 5px, rgba(46, 95, 240, 0.3) 0px 10px; */
+
+  /* box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px; */
 }
+
 #kunalimg:hover {
-  box-shadow: rgba(46, 111, 240, 0.4) 8px 8px, rgba(46, 137, 240, 0.3) 15px 15px;
+  filter: drop-shadow(0 0 0.15rem rgb(84, 84, 89));
+  /* box-shadow: rgba(46, 111, 240, 0.4) 8px 8px, rgba(46, 137, 240, 0.3) 15px 15px; */
 }
+/* .portfolioimage { 
+ margin-left: 100px; 
+ } */
+.feverlinks {
+  background: rgb(0, 0, 0);
+  padding: 1px 20px 1px 0px;
+  border-radius: 35px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 100ms ease-in-out !important;
+  align-items: flex-start;
+  border: 1px solid transparent;
+  transition: all 300ms ease-in-out;
+}
+.feverlinks span {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 600;
+}
+.feverlinks a {
+  transition: all 300ms ease-in-out !important;
+}
+
 .portfolio-content label {
   font-size: 25px;
+  margin: 0;
   font-weight: bold;
   color: var(--themeblueDark);
 }
 .portfolio-content p {
+  text-align: justify;
   font-size: 18px;
 }
 #checkoutbio > a {
@@ -73,7 +107,7 @@
 }
 #logos div:hover,
 .footerimgs div:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: rgba(209, 206, 206, 0.24) 0px 3px 8px;
 }
 #logos img {
