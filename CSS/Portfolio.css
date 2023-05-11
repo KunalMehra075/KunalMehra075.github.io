@@ -51,7 +51,7 @@
  margin-left: 100px; 
  } */
 .feverlinks {
-  background: rgb(0, 0, 0);
+  background: #231f20;
   padding: 1px 20px 1px 0px;
   border-radius: 35px;
   display: flex;
@@ -67,6 +67,9 @@
   font-weight: 600;
 }
 .feverlinks a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: all 300ms ease-in-out !important;
 }
 

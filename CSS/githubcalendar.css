@@ -39,7 +39,10 @@ rect.ContributionCalendar-day[data-level="4"] {
   min-height: 243px;
   text-align: center;
   border: 1.2px solid #e3e9e3 !important;
-  box-shadow: rgba(0, 255, 4, 0.225) 0px 0px 0px 3px;
+
+  /* box-shadow: rgba(0, 255, 4, 0.225) 0px 0px 0px 3px; */
+  box-shadow: rgb(34 236 15 / 16%) 0px 1px 2px, rgb(0, 0, 0) 0px 0px 0px 1px;
+
   margin: 0 auto;
 }
 #gitloadercal > div.position-relative > div {

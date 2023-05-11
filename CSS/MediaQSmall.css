@@ -481,3 +481,16 @@
     font-size: 7px !important ;
   }
 }
+
+/*todo ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 650px) and (max-width: 809px) {
+  #kunalimg {
+    height: 800px;
+  }
+}
+/*todo ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 500px) and (max-width: 650px) {
+  #kunalimg {
+    height: 600px;
+  }
+}
