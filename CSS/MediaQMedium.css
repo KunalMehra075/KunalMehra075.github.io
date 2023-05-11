@@ -114,7 +114,9 @@
   }
   #kunalimg {
     width: 90%;
+    height: 100%;
   }
+
   #user-detail-name {
     font-size: 35px;
     margin: 5px;
@@ -419,9 +421,7 @@
   .connectsection textarea {
     width: 90%;
   }
-  #kunalimg {
-    height: 100%;
-  }
+
   .portfolio-content p,
   .portfolio-content a {
     font-size: 15px;
