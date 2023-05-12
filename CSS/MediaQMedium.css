@@ -191,13 +191,13 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "one three"
-      "two two";
+      "two two"
+      "one three";
     place-items: center;
   }
   .HexagonBox {
     scale: 1;
-    transform: none;
+    transform: translateY(-20px);
   }
   #logos img {
     width: 40px;
@@ -413,10 +413,7 @@
   .ImageModalsBox > img {
     width: 95%;
   }
-  .HexagonBox {
-    scale: 1.1;
-    transform: translate(34px) translateY(17px);
-  }
+
   .skills-card > a {
     font-size: 14px;
   }
@@ -447,11 +444,15 @@
   #TechStackBigParent {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "one three"
-      "two two";
+      "two two"
+      "one three";
     place-items: center;
     align-items: center;
     justify-content: center;
+  }
+  .HexagonBox {
+    scale: 1.1;
+    transform: translate(34px) translateY(-17px);
   }
   .TechStackBox {
     width: 377px;
