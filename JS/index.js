@@ -20,15 +20,11 @@ function TopButtonFunction() {
   }
 }
 let topbutton = document.getElementById("topbutton");
-topbutton.addEventListener(
-  "click",
-  () => (document.documentElement.scrollTop = 0)
-);
+topbutton.addEventListener("click", () => (document.documentElement.scrollTop = 0));
 
 const filled = document.querySelector(".filled");
 function update() {
-  filled.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-    }%`;
+  filled.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`;
   requestAnimationFrame(update);
 }
 

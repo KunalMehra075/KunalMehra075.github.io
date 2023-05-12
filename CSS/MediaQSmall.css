@@ -56,6 +56,30 @@
     height: auto;
     padding: 100px 20px 0px 20px !important;
   }
+  .Introbox {
+    align-items: flex-start;
+    padding: 5px;
+  }
+  .Introbox p {
+    text-align: start !important;
+  }
+  #netball1 {
+    width: 100%;
+    right: -50%;
+    top: 0;
+  }
+  #netball2 {
+    width: 40%;
+  }
+  #home {
+    overflow: visible;
+  }
+  #firstviewhello {
+    font-size: 3rem;
+  }
+  #firstviewkunal {
+    font-size: 4em;
+  }
   .navbar-collapse {
     width: 100%;
   }
