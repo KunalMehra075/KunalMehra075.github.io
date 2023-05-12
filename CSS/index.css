@@ -209,6 +209,9 @@ section {
   left: -5%;
   animation: movingbg2 infinite ease-in-out 25s;
 }
+#scorlldowngif {
+  display: none;
+}
 .FirstView {
   width: 100%;
   height: 100vh;

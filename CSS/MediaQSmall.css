@@ -55,6 +55,7 @@
     flex-direction: column;
     height: auto;
     padding: 100px 20px 0px 20px !important;
+    margin-bottom: 40px !important;
   }
   .Introbox {
     align-items: flex-start;
@@ -69,16 +70,30 @@
     top: 0;
   }
   #netball2 {
-    width: 40%;
+    bottom: -27%;
+    left: -1%;
+    width: 44%;
   }
   #home {
     overflow: visible;
   }
   #firstviewhello {
     font-size: 3rem;
+    text-shadow: 1px 2px #010101;
   }
   #firstviewkunal {
-    font-size: 4em;
+    font-size: 4.8em;
+    text-shadow: 3px 3px #cad0d8;
+  }
+  #scorlldowngif {
+    display: block;
+    filter: invert();
+    opacity: 0.3;
+    position: absolute;
+    width: 20%;
+    top: -1%;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .navbar-collapse {
     width: 100%;
