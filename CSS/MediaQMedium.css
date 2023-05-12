@@ -73,7 +73,7 @@
   #cvdownload {
     border-radius: 5px;
     font-size: 17px !important;
-    padding: 5px 22px !important;
+    padding: 12px 22px !important;
   }
   .OneProject {
     height: 50vh;
@@ -188,27 +188,32 @@
   }
 
   #TechStackBigParent {
-    flex-direction: column;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "one three"
+      "two two";
+    place-items: center;
   }
   .HexagonBox {
     scale: 1;
-    transform: translateX(-60px);
+    transform: none;
   }
   #logos img {
     width: 40px;
   }
-  .TechStack2 {
-    width: 70%;
+  .TechStackBox {
+    width: 374px;
   }
   .SkillsHeads {
     width: 100%;
   }
   .Techskillshead {
-    width: 70% !important;
+    width: 100% !important;
   }
-  .Stack2firstParent,
-  .Stack2secondParent {
-    width: 70%;
+  .Tech-StackBoxParent,
+  .Stk-box-parent {
+    width: 100%;
     margin: auto;
   }
 
@@ -409,8 +414,8 @@
     width: 95%;
   }
   .HexagonBox {
-    scale: 0.82;
-    transform: translate(34px);
+    scale: 1.1;
+    transform: translate(34px) translateY(17px);
   }
   .skills-card > a {
     font-size: 14px;
@@ -438,5 +443,26 @@
   }
   #NavlinkParent > div {
     font-weight: 500;
+  }
+  #TechStackBigParent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "one three"
+      "two two";
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .TechStackBox {
+    width: 377px;
+  }
+  .Toolset > div {
+    width: 55px;
+  }
+  .SkillBox1 {
+    text-align: left !important;
+  }
+  .SkillBox3 {
+    text-align: left !important;
   }
 }

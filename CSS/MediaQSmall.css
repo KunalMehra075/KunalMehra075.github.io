@@ -241,27 +241,30 @@
     transform: translateX(0px);
   }
   #TechStackBigParent {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .HexagonBox {
-    scale: 0.6;
+    scale: 0.52;
     margin: 0px;
     height: 450px;
-    transform: translateX(-45px);
+    transform: none;
   }
 
   #logos img {
     width: 30px;
   }
-  .TechStack2 {
-    width: 92% !important;
+  .TechStackBox {
+    width: 374px !important;
     margin: 0px !important;
   }
   .Techskillshead {
     width: 100% !important;
   }
-  .Stack2firstParent,
-  .Stack2secondParent {
+  .Tech-StackBoxParent,
+  .Stk-box-parent {
     width: 100%;
     margin: auto;
   }
