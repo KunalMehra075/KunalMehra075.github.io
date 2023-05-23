@@ -206,19 +206,21 @@
 }
 
 .Toolset > div {
-  width: 70px;
-  padding: 6px;
+  width: 48px;
+  padding: 0;
   font-weight: 500;
   filter: saturate(2);
   font-size: 20px;
-  border: 1px solid rgb(182, 186, 192);
   border-radius: 10px;
   transition: all 200ms ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .Toolset > div:hover {
   cursor: pointer;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  scale: 1.1;
 }
 .SoftSkillBox > div:nth-child(4),
 .SoftSkillBox > div:nth-child(5),
