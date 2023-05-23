@@ -1,5 +1,5 @@
 # Welcome to my Portfolio Website,
 🔵 Link here :  <a href="https://kunalmehra075.github.io/">KunalMehra075.github.io </a>
 ---
-![portfolio (1)](https://user-images.githubusercontent.com/112753481/221473437-ff140334-e013-44f7-91d0-6f4a9ee30ebc.jpg)
-![portfolio (2)](https://user-images.githubusercontent.com/112753481/221473441-a786c7ee-e00e-42fb-8f93-a81ef09f04bd.jpg)
+![landing1](https://github.com/KunalMehra075/KunalMehra075.github.io/assets/112753481/82c19b3d-5b3e-4ba1-bff5-621c160b1798)
+![landing2](https://github.com/KunalMehra075/KunalMehra075.github.io/assets/112753481/4276d0cd-6f1c-4d30-8fdd-4442ab1c43ee)
