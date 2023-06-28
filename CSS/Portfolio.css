@@ -31,25 +31,23 @@
 }
 
 #kunalimg {
-  width: 450px;
+  width: 500px;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   transition: all 350ms ease;
   border-radius: 5px;
-  /* border: 1px solid #9f9999; */
+  border: 1px solid #9f9999;
   /* box-shadow: rgba(46, 95, 240, 0.4) 0px 5px, rgba(46, 95, 240, 0.3) 0px 10px; */
 
-  /* box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px; */
+  box-shadow: rgba(46, 111, 240, 0.4) 5px 5px, rgba(46, 137, 240, 0.3) 10px 10px;
 }
 
 #kunalimg:hover {
-  filter: drop-shadow(0 0 0.15rem rgb(84, 84, 89));
-  /* box-shadow: rgba(46, 111, 240, 0.4) 8px 8px, rgba(46, 137, 240, 0.3) 15px 15px; */
+  /* filter: drop-shadow(0 0 0.15rem rgb(84, 84, 89)); */
+  box-shadow: rgba(46, 111, 240, 0.4) 8px 8px, rgba(46, 137, 240, 0.3) 15px 15px;
 }
-/* .portfolioimage { 
- margin-left: 100px; 
- } */
+
 .feverlinks {
   background: #231f20;
   padding: 1px 20px 1px 0px;
