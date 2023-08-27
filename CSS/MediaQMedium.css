@@ -3,6 +3,12 @@
   * {
     font-size: 15px;
   }
+  #firstviewkunal {
+    font-size: 4rem !important;
+  }
+  .HeadLetter {
+    font-size: 4rem;
+  }
   section {
     margin: 15px !important;
     padding-top: 20px !important;
