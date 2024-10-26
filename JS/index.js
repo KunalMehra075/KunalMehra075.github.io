@@ -84,6 +84,7 @@ async function SendResponse(email) {
       body: JSON.stringify(email)
     });
     let response = await res.json();
+
     if (response.success) {
       loader.style.display = "none"
       Swal.fire("Email Sent Successfully.", "Thanks for messaging,\n Will reply to you soon!", "success");
@@ -114,7 +115,7 @@ Repo2.addEventListener("click", () => {
   window.open("https://github.com/KunalMehra075/MyCal.com-Frontend");
 });
 Repo3.addEventListener("click", () => {
-  window.open("https://github.com/Tanishka-22/KK-Kushwah");
+  window.open("https://github.com/KunalMehra075/Project-Astry");
 });
 Repo4.addEventListener("click", () => {
   window.open("https://github.com/KunalMehra075/obscene-icicle-4134 ");
