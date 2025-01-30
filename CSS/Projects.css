@@ -7,8 +7,13 @@
   padding-top: 40px;
   margin-top: 110px !important;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+.project-card:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 50%;
 }
 .OneProject {
   position: relative;
@@ -67,7 +72,7 @@
 }
 
 .OnePRhead {
-  font-size: 4rem;
+  font-size: 3rem;
   -webkit-text-stroke: 1px #fcf7f7;
   text-shadow: 3px 4px #010101;
   font-weight: 600;
@@ -77,7 +82,7 @@
   text-align: center;
 }
 .OnePRdetails {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   text-align: center;
   border-radius: 5px;

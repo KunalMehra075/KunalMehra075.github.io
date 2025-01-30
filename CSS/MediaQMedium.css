@@ -23,7 +23,11 @@
     margin: 0px !important;
   }
   .AllProjects {
+    grid-template-columns: repeat(1, 1fr);
     margin-top: 0px !important;
+  }
+  .project-card:nth-last-child(1):nth-child(odd) {
+    width: 100%;
   }
   #Aboutrolldim {
     display: none;
@@ -144,7 +148,11 @@
     font-size: 14px;
   }
   .AllProjects {
+    grid-template-columns: repeat(1, 1fr);
     padding: 5px;
+  }
+  .project-card:nth-last-child(1):nth-child(odd) {
+    width: 100%;
   }
   .OneProject {
     height: 300px;
