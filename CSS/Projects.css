@@ -30,11 +30,10 @@
   justify-content: center;
   cursor: pointer;
   height: 100%;
-  box-shadow: rgba(13, 255, 0, 0.16) 0px 1px 2px;
+  box-shadow: rgba(65, 71, 65, 0.16) 0px 1px 2px;
   padding: 10px;
   border-radius: var(--borderRadius);
   transition: all 300ms ease-in;
-  background-position: top;
 }
 .OPRBGB:hover {
   background-color: rgba(53, 67, 109, 0.363);
@@ -43,32 +42,32 @@
 }
 .orangefrybg {
   background: url(../Images/ProjectsImgs/orangefry.jpg);
-  background-size: cover;
+  background-size: contain;
 }
 
 .mycalbg {
   background: url(../Images/ProjectsImgs/mycal.jpg);
-  background-size: cover;
+  background-size: contain;
 }
 .acelegalservice {
   background: url(../Images/ProjectsImgs/acelegal.png);
-  background-size: cover;
+  background-size: contain;
 }
 
 .stylezillabg {
   background: url(../Images/ProjectsImgs/stylezilla.jpg);
-  background-size: cover;
+  background-size: contain;
 }
 .placemebg {
   background: url(../Images/ProjectsImgs/placeme.png);
-  background-size: cover;
+  background-size: contain;
 }
 .orangefrybg:hover,
 .placemebg:hover,
 .stylezillabg:hover,
 .acelegalservice:hover,
 .mycalbg:hover {
-  background-position: bottom;
+  background-position: top;
 }
 
 .OnePRhead {
@@ -170,18 +169,16 @@
 .ImageModalsBox > img {
   width: 97%;
   margin: 10px;
-  border: 1px solid grey;
+  border: 1px solid rgb(125, 233, 252);
 }
 .DetailsModalBox {
   padding: 00px;
 }
 table {
   width: 100%;
-  border: 1px solid rgb(255, 255, 255);
 }
 td {
   padding: 6px 10px;
-  border: 1px solid rgb(236, 233, 233) !important;
 }
 td:nth-child(2n-1) {
   width: 25%;

@@ -58,10 +58,20 @@ letsconnectform.addEventListener("submit", (e) => {
   loader.style.display = "flex"
   e.preventDefault();
   if (letsconnectform.textmessage.value == "") {
-    swal("Empty text cannot be sent.", "", "info");
+    Swal.fire("Empty text cannot be sent.", "There is some error from our side,\n Sorry for inconvenience!", "info");
     loader.style.display = "none"
     return;
   }
+  const regex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  if (regex.test(letsconnectform.email.value) == false) {
+    Swal.fire("Please Enter Valid Email", "The email you entered is invalid", "error");
+
+    loader.style.display = "none"
+    return;
+  }
+
+
+
   let email = {
     UserName:
       letsconnectform.firstname.value + " " + letsconnectform.lastname.value,
@@ -125,3 +135,17 @@ brandbg.addEventListener("click", (e) => {
   console.log(e);
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const calendlyBtn = document.getElementById("calendly-button");
+
+  if (calendlyBtn) {
+    calendlyBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/kunalmehra240304/30min'
+      });
+    });
+  }
+});

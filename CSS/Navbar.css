@@ -63,7 +63,22 @@ nav {
   border: none;
   padding: 10px 15px !important;
 }
+
+#calendly-button {
+  z-index: 999 !important;
+  cursor: pointer;
+  background: rgb(24, 109, 212);
+  border-radius: var(--borderRadius);
+  color: white;
+  text-decoration: none !important;
+  font-size: 20px !important;
+  border: none;
+  white-space: pre;
+  padding: 10px 15px;
+  margin: 0px 15px;
+}
 #resume-button-1::before,
+#calendly-button::before,
 #resume-button-2::before {
   border-radius: var(--borderRadius);
 }
@@ -111,6 +126,9 @@ nav {
   }
   #firstlinks {
     margin: 2px !important;
+  }
+  #calendly-button {
+    font-size: 15px !important;
   }
 }
 
@@ -172,5 +190,8 @@ nav {
   #resume-button-2 img {
     margin: 0;
     height: 100%;
+  }
+  #calendly-button {
+    font-size: 18px !important;
   }
 }
