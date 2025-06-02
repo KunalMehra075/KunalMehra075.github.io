@@ -135,7 +135,7 @@ brandbg.addEventListener("click", (e) => {
   console.log(e);
 });
 
-
+console.log(window.innerHeight, window.innerWidth)
 
 document.addEventListener("DOMContentLoaded", function () {
   const calendlyBtn = document.getElementById("calendly-button");

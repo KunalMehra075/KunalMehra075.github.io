@@ -553,3 +553,29 @@
     height: 600px;
   }
 }
+
+/*todo ----------------------------LARGE Screen Sizes -------------------------------- */
+@media all and (min-width: 1920px) {
+  .FirstView {
+    padding-top: 240px;
+  }
+  .TechStackBox {
+    padding: 0px 50px;
+  }
+  .HexagonBox {
+    scale: 1;
+  }
+  #gitcontri {
+    width: 89%;
+    padding: 0;
+  }
+  .gitstreak {
+    width: 89%;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 100% !important;
+  }
+}
