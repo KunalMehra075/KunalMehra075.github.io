@@ -192,6 +192,7 @@ nav {
     height: 100%;
   }
   #calendly-button {
+    display: none;
     font-size: 18px !important;
   }
 }

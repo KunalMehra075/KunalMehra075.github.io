@@ -254,10 +254,10 @@
     align-items: center;
   }
   .HexagonBox {
-    scale: 0.52;
+    scale: 0.58;
     margin: 0px;
     height: 450px;
-    transform: none;
+    transform: translate(13px, 10px);
   }
 
   #logos img {
@@ -531,7 +531,13 @@
     font-size: 7px !important ;
   }
   #cv2 {
+    padding: 0;
     grid-template-columns: repeat(1, 1fr);
+  }
+  .react-activity-calendar,
+  #octopus,
+  #catty {
+    display: none;
   }
 }
 
