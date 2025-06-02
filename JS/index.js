@@ -149,3 +149,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function cv2redirect(repo) {
+  console.log(repo)
+  switch (repo) {
+    case "1":
+      window.open("https://github.com/KunalMehra075/Drawing-Board-OpenCV");
+    case "2":
+      window.open("https://github.com/KunalMehra075/Virtual-Mouse-OpenCV");
+    case "3":
+      window.open("https://github.com/KunalMehra075/Finger-Counter-OpenCV");
+    case "4":
+      window.open("https://github.com/KunalMehra075/AI-Gym-Trainer-OpenCV");
+    case "5":
+      window.open("https://github.com/KunalMehra075/Volume-Control-OpenCV");
+    case "6":
+      window.open("https://github.com/KunalMehra075/Drawing-Board-OpenCV");
+    default:
+      window.open("https://github.com/KunalMehra075/Python-Flappybird-Game");
+
+  }
+}

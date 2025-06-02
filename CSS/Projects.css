@@ -81,7 +81,7 @@
   text-align: center;
 }
 .OnePRdetails {
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   text-align: center;
   border-radius: 5px;
@@ -89,26 +89,25 @@
 }
 .ClickModalBtn {
   text-align: center;
-  background-color: transparent;
-  padding: 10px 16px;
+  background-color: black;
+  padding: 10px;
+  margin: 10px;
   border-radius: 5px;
   font-size: 17px;
   border: 2px solid white;
   color: white;
 }
+
 .ClickModalBtn::before {
   border-radius: 5px !important;
 }
+
 .downsee {
-  width: 70px;
-  padding: 0;
-  margin: 0;
+  width: 50px;
+  transform: rotate(270deg);
   filter: invert();
 }
 
-.OneProject:hover .ClickModalBtn {
-  background-color: rgba(0, 0, 0, 0.237);
-}
 .ClickModalBtn:hover {
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
@@ -169,7 +168,7 @@
 .ImageModalsBox > img {
   width: 97%;
   margin: 10px;
-  border: 1px solid rgb(125, 233, 252);
+  border: 1px solid rgb(207, 207, 207);
 }
 .DetailsModalBox {
   padding: 00px;
@@ -239,4 +238,26 @@ table p {
   top: 10px;
   text-shadow: 1px 1px #010101;
   right: 10px;
+}
+
+#cv2projects {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+#cv2 {
+  width: 100%;
+  padding: 70px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cv2gifs {
+  width: 100%;
+  border-radius: 10px;
+  transition: all 200ms ease;
+}
+.cv2gifs:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(182, 182, 182, 0.5);
 }

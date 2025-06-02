@@ -415,6 +415,9 @@
   .gitstreak {
     flex-direction: column;
   }
+  #cv2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /*todo ----------------------------Medium Screen Sizes -------------------------------- */

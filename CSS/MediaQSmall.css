@@ -530,6 +530,9 @@
   .text-muted {
     font-size: 7px !important ;
   }
+  #cv2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*todo ----------------------------Small Screen Sizes -------------------------------- */

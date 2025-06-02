@@ -96,7 +96,7 @@
 }
 
 #octopus {
-  width: 20%;
+  width: 15%;
   transition: all 300ms ease-in-out;
   filter: saturate(1.3) brightness(1.01);
 }
@@ -106,4 +106,13 @@
 .contrib-number {
   font-weight: 500 !important;
   color: rgb(21, 211, 21) !important;
+}
+
+#opencvlogo {
+  width: 8%;
+  transition: all 300ms ease-in-out;
+  filter: saturate(1.3) brightness(1.01);
+}
+#opencvlogo:hover {
+  scale: 1.02;
 }
