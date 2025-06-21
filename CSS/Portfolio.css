@@ -11,8 +11,6 @@
 #about > div {
   display: flex;
   justify-content: space-between;
-  /* flex-direction: row-reverse; */
-  margin-top: 100px !important;
 }
 #about > div > div:nth-child(1) {
   display: grid;

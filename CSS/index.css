@@ -140,25 +140,21 @@ section {
   font-weight: 600;
   font-size: 5.2rem;
   text-align: center;
+  margin-bottom: 20px;
 }
-#Aboutroll {
+#aboutRoll {
   font-size: 8.5rem;
-  position: absolute;
-  top: 50px;
-  left: 0px;
   width: 200%;
 }
-#Aboutrolldim {
+#aboutRolldim {
   color: transparent !important;
   -webkit-text-stroke: silver;
   -webkit-text-stroke-width: 1px;
 }
-#projectHead {
-  position: absolute;
+#projectRoll {
   font-size: 8.5rem;
-  top: 80px;
+
   width: 200%;
-  right: -400px;
 }
 
 /*? <!----------------------------------------------- < FirstView > -----------------------------------------------> */

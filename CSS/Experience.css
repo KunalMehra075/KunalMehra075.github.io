@@ -1,0 +1,119 @@
+.CV-page {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 2em;
+  color: #222222;
+  font-size: 1em;
+  font-family: "Lato", sans-serif;
+}
+#experienceRoll {
+  font-size: 8.5rem;
+
+  width: 200%;
+}
+#experienceRollDim {
+  color: transparent !important;
+  -webkit-text-stroke: silver;
+  -webkit-text-stroke-width: 1px;
+}
+
+/* if IE<=7 */
+
+.CV-page\ {
+  width: 1100px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.CV-secondaryHeading {
+  position: relative;
+
+  text-transform: uppercase;
+}
+/* Grid
+****************************************************/
+
+.CV-grid {
+  display: table;
+}
+
+.CV-grid-column {
+  display: table-cell;
+}
+
+.CV-timeline {
+  position: relative;
+  margin: 0 0 0 0.5em;
+  padding-left: 1.5em;
+  border-left: dotted 1px #222222;
+}
+
+.CV-timeline:first-of-type {
+  margin-top: 1em;
+}
+
+.CV-timeline:last-of-type {
+  border-left-color: transparent;
+}
+
+.CV-timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.5em;
+  display: block;
+  width: 1em;
+  height: 1em;
+  border: dotted 1px #222222;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.CV-timeline-heading {
+  margin: 0;
+  padding-bottom: 0.5em;
+  line-height: 1em;
+  font-weight: normal;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+}
+
+.CV-timeline-heading-title {
+  line-height: 1;
+  color: var(--themeblue);
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 300ms ease;
+}
+.CV-timeline-heading-title:hover {
+  color: rgb(2 28 87);
+  cursor: pointer;
+}
+
+.CV-timeline-heading-location {
+  font-size: 0.9em;
+}
+
+.CV-timeline-heading-duration {
+  display: block;
+  font-size: 0.8em;
+  color: #6f6f6f;
+}
+.CV-timeline-heading-years {
+  color: var(--themeblue);
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.CV-timeline-details {
+  display: block;
+  margin: 0;
+  padding-bottom: 2em;
+  padding: 0 0 2em 1em;
+  list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGElEQVQIW2NkYGD4D8TIgJERTQDMpVAQAGaUAQbko3DsAAAAAElFTkSuQmCC");
+}
+
+.CV-timeline-details-item {
+  margin-bottom: 0.5em;
+}

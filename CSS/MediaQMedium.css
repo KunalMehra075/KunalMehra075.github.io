@@ -29,22 +29,27 @@
   .project-card:nth-last-child(1):nth-child(odd) {
     width: 100%;
   }
-  #Aboutrolldim {
+  #aboutRolldim {
     display: none;
   }
-  #Aboutroll {
+  #aboutRoll {
     width: 100% !important;
     font-size: 5.2rem !important;
     position: static !important;
     transform: none !important;
   }
-  #projectHead {
+  #projectRoll {
     width: 100% !important;
     font-size: 5.2rem !important;
     position: static !important;
     transform: none !important;
   }
-
+  #experienceRoll {
+    width: 100% !important;
+    font-size: 5.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
   :root {
     --hextop: 70px;
     --hexrig: -388px;
@@ -422,8 +427,8 @@
 
 /*todo ----------------------------Medium Screen Sizes -------------------------------- */
 @media all and (min-width: 1179px) and (max-width: 1400px) {
-  #Aboutroll,
-  #projectHead {
+  #aboutRoll,
+  #projectRoll {
     font-size: 7rem;
     /* transform: translateX(-350px); */
   }
@@ -482,5 +487,11 @@
   }
   .SkillBox3 {
     text-align: left !important;
+  }
+  .CV-page {
+    padding: 0 1em;
+  }
+  .CV-timeline-heading-title {
+    font-size: 2em;
   }
 }

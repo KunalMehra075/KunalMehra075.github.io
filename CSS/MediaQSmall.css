@@ -14,16 +14,22 @@
     margin: 0px !important;
     width: 100%;
   }
-  #Aboutrolldim {
+  #aboutRolldim {
     display: none;
   }
-  #Aboutroll {
+  #aboutRoll {
     width: 100% !important;
     font-size: 4.2rem !important;
     position: static !important;
     transform: none !important;
   }
-  #projectHead {
+  #experienceRoll {
+    width: 100% !important;
+    font-size: 4.2rem !important;
+    position: static !important;
+    transform: none !important;
+  }
+  #projectRoll {
     width: 100% !important;
     font-size: 4.2rem !important;
     position: static !important;
@@ -538,6 +544,12 @@
   #octopus,
   #catty {
     display: none;
+  }
+  .CV-page {
+    padding: 0em !important;
+  }
+  .CV-timeline-heading-title {
+    font-size: 1em;
   }
 }
 

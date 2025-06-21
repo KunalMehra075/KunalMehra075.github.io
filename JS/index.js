@@ -36,14 +36,25 @@ window.onresize = () => {
   console.log(ScreenSize);
 }
 
-let aboutroll = document.getElementById("Aboutroll");
-let projectroll = document.getElementById("projectHead");
+let aboutRoll = document.getElementById("aboutRoll");
+let projectroll = document.getElementById("projectRoll");
+let experienceroll = document.getElementById("experienceRoll");
 window.addEventListener("scroll", () => {
   TopButtonFunction();
   let value = window.scrollY;
-  if (ScreenSize <= 1400) value += 300
-  aboutroll.style.transform = `translateX(${(value - 2350) / 3}px)`;
-  projectroll.style.transform = `translateX(${(-value + 2700) / 3}px)`;
+
+  if (ScreenSize <= 1536) {
+    aboutRoll.style.transform = `translateX(${(value - 2300) / 3}px)`;
+    experienceroll.style.transform = `translateX(${(-value + 300) / 3}px)`;
+    projectroll.style.transform = `translateX(${(value - 5100) / 3}px)`;
+  } else if (ScreenSize > 1536) {
+    aboutRoll.style.transform = `translateX(${(value - 3500) / 3}px)`;
+    experienceroll.style.transform = `translateX(${(-value - 500) / 3}px)`;
+    projectroll.style.transform = `translateX(${(value - 6100) / 3}px)`;
+  }
+
+
+
 });
 
 //? <!----------------------------------------------- < Resume> ----------------------------------------------->
