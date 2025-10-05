@@ -181,3 +181,10 @@ function cv2redirect(repo) {
 
   }
 }
+// Setting current experience dynamically
+const currentExperience = document.getElementById("current-experience");
+const joiningDate = new Date("2025-06-01");
+const currentDate = new Date();
+const timeDifference = currentDate - joiningDate;
+const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30));
+currentExperience.textContent = `(${months} months)`;
