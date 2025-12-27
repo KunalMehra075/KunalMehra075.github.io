@@ -1,0 +1,54 @@
+   <section id="github">
+      <h1 id="Githead" class="SectionHeads" data-aos="fade-up">Github Stats <img loading="lazy" id="octopus"
+          src="Images/Icons/githubocto.png" alt="">
+      </h1>
+
+      <div id="Github_Section">
+        <!--??--------------------------------------------- <git 1> ----------------------------------------------->
+        <div class="Git1">
+          <div class="about section container react-activity-calendar" id="github" data-aos="fade-up">
+            <h2 class="section__title">Github contributions in the last year</h2>
+            <div id="gitloadercal" class="calendar">
+              <!-- Loading stuff -->
+              <div id="waitingforgit">
+                <div class="spinner-grow text-success" role="status" style="filter: saturate(4);">
+                </div>
+                <div> Waiting for Github Calendar</div>
+              </div>
+
+            </div>
+          </div>
+          <br>
+          <div id="gitcontri">
+            <img loading="lazy" id="github-streak-stats"
+              src="https://github-readme-streak-stats.herokuapp.com?user=KunalMehra075&theme=vue&hide_border=true&date_format=j%20M%5B%20Y%5D"
+              alt="streak" />
+            <img loading="lazy" id="github-stats-card"
+              src="https://github-readme-stats.vercel.app/api?username=KunalMehra075&show_icons=true&locale=en&&theme=vue&hide_border=true"
+              alt="ovi" />
+          </div>
+          <br>
+          <div class="gitstreak">
+            <div id="BestRepoParent">
+              <div id="BestRepos">
+                <img id="Repo1"
+                  src="https://github-readme-stats.vercel.app/api/pin/?username=KunalMehra075&repo=OrangeFryFrontend"
+                  alt="">
+                <img id="Repo2"
+                  src="https://github-readme-stats.vercel.app/api/pin/?username=KunalMehra075&repo=Ace-Legal-Services-Backend"
+                  alt="">
+                <img id="Repo3"
+                  src="https://github-readme-stats.vercel.app/api/pin/?username=KunalMehra075&repo=Project-Astry" alt="">
+                <img id="Repo4"
+                  src="https://github-readme-stats.vercel.app/api/pin/?username=KunalMehra075&repo=obscene-icicle-4134"
+                  alt="">
+              </div>
+            </div>
+            <img loading="lazy" id="github-top-langs"
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=KunalMehra075&theme=vue&show_icons=true&locale=en&hide_border=true"
+              alt="ovi" />
+          </div>
+
+        </div>
+      </div>
+    </section>
