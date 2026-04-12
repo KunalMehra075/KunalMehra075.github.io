@@ -421,3 +421,393 @@ document.querySelectorAll(".threecard").forEach((main) => {
     innerY(0);
   });
 });
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SKILLS SECTION  —  skills.js
+   Requires: GSAP 3 (loaded before this file)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Skill definitions ───────────────────────────────────────── */
+/*
+   icon: URL to SVG/PNG. Using devicons CDN for accuracy.
+         Replace any icon with your own local path e.g. "Images/techstack/Smolicons/react-svgrepo-com.svg"
+   color: one of sk-c-blue | sk-c-green | sk-c-amber | sk-c-red |
+          sk-c-orange | sk-c-purple | sk-c-teal | sk-c-pink |
+          sk-c-indigo | sk-c-cyan
+*/
+
+const SKILLS = {
+
+  frontend: [
+    {
+      name: 'React.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'Next.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+      color: 'sk-c-teal',
+    },
+    {
+      name: 'TypeScript',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'JavaScript',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      color: 'sk-c-amber',
+    },
+    {
+      name: 'HTML5',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+      color: 'sk-c-red',
+    },
+    {
+      name: 'CSS3',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+      color: 'sk-c-cyan',
+    },
+    {
+      name: 'React Native',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      color: 'sk-c-purple',
+    },
+    {
+      name: 'Redux',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
+      color: 'sk-c-purple',
+    },
+    // {
+    //   name: 'Electron',
+    //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg',
+    //   color: 'sk-c-teal',
+    // },
+    // {
+    //   name: 'ShadCN',
+    //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    //   color: 'sk-c-indigo',
+    // },
+  ],
+
+  backend: [
+    {
+      name: 'Node.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      color: 'sk-c-green',
+    },
+    {
+      name: 'NestJS',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+      color: 'sk-c-red',
+    },
+    {
+      name: 'Express',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+      color: 'sk-c-teal',
+    },
+    {
+      name: 'Python',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      color: 'sk-c-amber',
+    },
+    {
+      name: 'Django',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
+      color: 'sk-c-green',
+    },
+    {
+      name: 'GraphQL',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+      color: 'sk-c-pink',
+    },
+    {
+      name: 'Spring Boot',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
+      color: 'sk-c-green',
+    },
+    {
+      name: 'Java',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+      color: 'sk-c-orange',
+    }
+  ],
+
+  data: [
+    {
+      name: 'MongoDB',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      color: 'sk-c-green',
+    },
+    {
+      name: 'MySQL',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'CassandraDB',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg',
+      color: 'sk-c-indigo',
+    },
+    {
+      name: 'Redis',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+      color: 'sk-c-red',
+    },
+    {
+      name: 'AWS',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+      color: 'sk-c-orange',
+    },
+    {
+      name: 'Firebase',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+      color: 'sk-c-amber',
+    },
+    {
+      name: 'Docker',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'Jenkins',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
+      color: 'sk-c-red',
+    },
+    {
+      name: 'Serverless',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+      color: 'sk-c-cyan',
+    },
+  ],
+
+  soft: [
+    {
+      name: 'Remote Collaboration',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg',
+      color: 'sk-c-purple',
+    },
+    {
+      name: 'Teamwork',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+      color: 'sk-c-teal',
+    },
+    {
+      name: 'Leadership',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg',
+      color: 'sk-c-amber',
+    },
+    {
+      name: 'Problem Solving',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stackoverflow/stackoverflow-original.svg',
+      color: 'sk-c-orange',
+    },
+    {
+      name: 'Time Management',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg',
+      color: 'sk-c-blue',
+    },
+  ],
+
+ tools: [
+    {
+      name: 'GitHub',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+      color: 'sk-c-teal',
+    },
+    {
+      name: 'VS Code',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'Figma',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+      color: 'sk-c-pink',
+    },
+    {
+      name: 'Firebase',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+      color: 'sk-c-amber',
+    },
+    {
+      name: 'Netlify',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg',
+      color: 'sk-c-teal',
+    },
+    {
+      name: 'ChatGPT',
+       icon:"Images/toolset/chatgpt logo.webp",
+      color: 'sk-c-green',
+    },
+    {
+      name: 'Claude',
+      icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/anthropic.svg',
+      color: 'sk-c-orange',
+    },
+    {
+      name: 'Gemini',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg',
+      color: 'sk-c-blue',
+    },
+    {
+      name: 'IntelliJ',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg',
+      color: 'sk-c-purple',
+    },
+    {
+      name: 'Cursor',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+      color: 'sk-c-indigo',
+    },
+    {
+      name: 'Android Studio',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg',
+      color: 'sk-c-green',
+    },
+    {
+      name: 'Draw.io',
+       icon:"Images/toolset/draw-io.webp",
+      color: 'sk-c-amber',
+    },
+  ],
+};
+
+/* ── Card factory ────────────────────────────────────────────── */
+function makeCard(skill) {
+  const card = document.createElement('div');
+  card.className = `sk-card ${skill.color}`;
+
+  card.innerHTML = `
+    <div class="sk-card-inner">
+      <div class="sk-card-face">
+        <img class="sk-icon" src="${skill.icon}" alt="${skill.name}" loading="lazy" />
+        <span class="sk-name">${skill.name}</span>
+      </div>
+    </div>
+  `;
+
+  return card;
+}
+
+/* ── Populate a grid element with skill cards ────────────────── */
+function populateGrid(elementId, skills) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  skills.forEach(skill => el.appendChild(makeCard(skill)));
+}
+
+/* ── Build all grids ─────────────────────────────────────────── */
+function buildGrids() {
+  // "All" panel — one grid per category
+  populateGrid('grid-all-fe',    SKILLS.frontend);
+  populateGrid('grid-all-be',    SKILLS.backend);
+  populateGrid('grid-all-db',    SKILLS.data);
+  populateGrid('grid-all-soft',  SKILLS.soft);
+  populateGrid('grid-all-tools', SKILLS.tools);
+
+  // Individual panels
+  populateGrid('grid-fe',    SKILLS.frontend);
+  populateGrid('grid-be',    SKILLS.backend);
+  populateGrid('grid-db',    SKILLS.data);
+  populateGrid('grid-soft',  SKILLS.soft);
+  populateGrid('grid-tools', SKILLS.tools);
+}
+
+/* ── GSAP 3D tilt ────────────────────────────────────────────── */
+function attachTilt(card) {
+  const inner = card.querySelector('.sk-card-inner');
+  const icon  = card.querySelector('.sk-icon');
+
+  // Quick-to tweens for smooth tracking
+  const rx = gsap.quickTo(inner, 'rotationX', { duration: 0.35, ease: 'power2.out' });
+  const ry = gsap.quickTo(inner, 'rotationY', { duration: 0.35, ease: 'power2.out' });
+  const ix = gsap.quickTo(icon,  'x',         { duration: 0.35, ease: 'power2.out' });
+  const iy = gsap.quickTo(icon,  'y',         { duration: 0.35, ease: 'power2.out' });
+
+  gsap.set(inner, { transformPerspective: 700 });
+
+  card.addEventListener('pointermove', e => {
+    const rect = card.getBoundingClientRect();
+    const nx   = (e.clientX - rect.left)  / rect.width  - 0.5; // -0.5 → +0.5
+    const ny   = (e.clientY - rect.top)   / rect.height - 0.5;
+
+    rx(-ny * 26);   // tilt up/down
+    ry( nx * 26);   // tilt left/right
+    ix( nx * 9);    // icon parallax x
+    iy( ny * 9);    // icon parallax y
+  });
+
+  card.addEventListener('pointerenter', () => {
+    gsap.to(inner, { scale: 1.06, duration: 0.22, ease: 'power2.out' });
+  });
+
+  card.addEventListener('pointerleave', () => {
+    // Elastic snap-back
+    gsap.to(inner, {
+      rotationX: 0, rotationY: 0, scale: 1,
+      duration: 0.55, ease: 'elastic.out(1, 0.65)',
+    });
+    ix(0);
+    iy(0);
+  });
+}
+
+/* ── Tab switching ───────────────────────────────────────────── */
+function initTabs() {
+  const tabs = document.querySelectorAll('.sk-tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Deactivate all
+      tabs.forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.sk-panel').forEach(p => p.classList.remove('active'));
+
+      // Activate selected
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.panel);
+      if (!panel) return;
+      panel.classList.add('active');
+
+      // Entrance animation for newly visible cards
+      const cards = panel.querySelectorAll('.sk-card');
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 18, scale: 0.88 },
+        { opacity: 1, y: 0,  scale: 1, stagger: 0.028, duration: 0.38, ease: 'power3.out' }
+      );
+    });
+  });
+}
+
+/* ── Entry animation (runs once on load / AOS substitute) ────── */
+function runEntrance() {
+  const activePanel = document.querySelector('.sk-panel.active');
+  if (!activePanel) return;
+
+  const cards = activePanel.querySelectorAll('.sk-card');
+  gsap.fromTo(
+    cards,
+    { opacity: 0, y: 22, scale: 0.86 },
+    { opacity: 1, y: 0,  scale: 1, stagger: 0.03, duration: 0.42, ease: 'power3.out', delay: 0.15 }
+  );
+}
+
+/* ── Init ─────────────────────────────────────────────────────── */
+(function init() {
+  buildGrids();
+
+  // Attach tilt to every card (including those in hidden panels — they'll
+  // be tilt-ready when their panel is revealed)
+  document.querySelectorAll('.sk-card').forEach(attachTilt);
+
+  initTabs();
+  runEntrance();
+})();
