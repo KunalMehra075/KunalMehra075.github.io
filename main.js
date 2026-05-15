@@ -1,3 +1,18 @@
+// ─── LENIS SMOOTH SCROLL ────────────────────────────────────────────────
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true,
+});
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
 // ─── AOS ───────────────────────────────────────────────────────────────
 AOS.init({ duration: 700, easing: "ease-out-cubic", once: true, offset: 60 });
 
@@ -235,11 +250,13 @@ function openProject(idx) {
   pd.classList.add("open");
   pd.scrollTop = 0;
   document.body.style.overflow = "hidden";
+  lenis.stop();
 }
 
 function closeProject() {
   document.getElementById("project-detail").classList.remove("open");
   document.body.style.overflow = "";
+  lenis.start();
 }
 
 document.addEventListener("keydown", (e) => {
@@ -537,7 +554,12 @@ const SKILLS = {
       name: 'Java',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       color: 'sk-c-orange',
-    }
+    },
+    {
+      name: 'Golang',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+      color: 'sk-c-cyan',
+    },
   ],
 
   data: [
@@ -648,7 +670,7 @@ const SKILLS = {
       color: 'sk-c-green',
     },
     {
-      name: 'Claude',
+      name: 'Claude.ai',
       icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/anthropic.svg',
       color: 'sk-c-orange',
     },

@@ -9,7 +9,7 @@
   --shadow-lg:0 8px 40px rgba(13,66,242,.12);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px;}
