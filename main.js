@@ -196,24 +196,37 @@ const projectData = [
   // so the pin has room to scroll through all cards
   // WRAPPER.style.paddingBottom = PAN_RANGE + "px";
 
-  ScrollTrigger.create({
-    trigger: "#web-projects-sticky",
-    start: "top top",
-    end: `+=${PAN_RANGE}`,
-    pin: true, // GSAP pins the sticky panel and adds spacer automatically
-    pinSpacing: true,
-    scrub: 1, // smooth 1s lag behind scroll — feels natural
-    onUpdate(self) {
-      const pannable =
-        TRACK.scrollWidth - TRACK.parentElement.offsetWidth + 160;
-      gsap.set(TRACK, { x: -(self.progress * pannable) });
+  // On mobile we skip the scroll-hijack entirely — cards stack vertically
+  // (see the max-width:768px rules in style.css). The pin/pan only runs on
+  // larger screens, and rebuilds itself on resize via gsap.matchMedia.
+  const mm = gsap.matchMedia();
+  mm.add("(min-width: 769px)", () => {
+    const st = ScrollTrigger.create({
+      trigger: "#web-projects-sticky",
+      start: "top top",
+      end: `+=${PAN_RANGE}`,
+      pin: true, // GSAP pins the sticky panel and adds spacer automatically
+      pinSpacing: true,
+      scrub: 1, // smooth 1s lag behind scroll — feels natural
+      onUpdate(self) {
+        const pannable =
+          TRACK.scrollWidth - TRACK.parentElement.offsetWidth + 160;
+        gsap.set(TRACK, { x: -(self.progress * pannable) });
 
-      const activeIdx = Math.min(
-        TOTAL - 1,
-        Math.round(self.progress * (TOTAL - 1)),
-      );
-      setDot(activeIdx);
-    },
+        const activeIdx = Math.min(
+          TOTAL - 1,
+          Math.round(self.progress * (TOTAL - 1)),
+        );
+        setDot(activeIdx);
+      },
+    });
+
+    // cleanup when leaving the desktop breakpoint: kill the trigger and
+    // clear the inline transform so the vertical stack lays out cleanly
+    return () => {
+      st.kill();
+      gsap.set(TRACK, { clearProps: "transform" });
+    };
   });
 })();
 // ─── PROJECT DETAIL ────────────────────────────────────────────────────

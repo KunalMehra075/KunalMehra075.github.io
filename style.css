@@ -44,6 +44,7 @@ p{color:var(--text2);}
 .nav-links a:hover{color:var(--blue);background:rgba(13,66,242,.06);}
 .nav-cta{background:var(--grad)!important;color:#fff!important;padding:8px 18px!important;border-radius:100px!important;font-size:13px!important;font-weight:600!important;}
 .nav-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px;}
+.nav-cta-mobile{display:none;}
 
 /* ── HERO ── */
 #hero{
@@ -397,18 +398,39 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:32px 0;
   .timeline-wrap{grid-template-columns:1fr 32px 1fr;}
 }
 @media(max-width:768px){
+  .hero-main{padding:120px 0 0px;}
   .container{padding:0 20px;}
-  #navbar{width:calc(100% - 32px);top:10px;padding:10px 16px;}
-  .nav-links{display:none;}
-  .nav-toggle{display:block;}
-  .nav-links.open{
+  /* drop the centering transform AND backdrop-filter so the fixed menu
+     overlay covers the viewport — both create a containing block that
+     would otherwise trap position:fixed inside the navbar pill */
+  #navbar{left:16px;right:16px;width:auto;max-width:none;transform:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff;
+    top:10px;padding:10px 16px;}
+  /* keep brand + hamburger above the overlay so the menu stays closeable */
+  .nav-brand{position:relative;z-index:1001;}
+  .nav-toggle{display:block;position:relative;z-index:1001;}
+  .nav-cta-mobile{display:inline-flex;margin-left:auto;margin-right:12px;padding:7px 16px!important;font-size:12px!important;}
+
+  /* full-screen menu — always rendered, faded out until .open so it can
+     animate smoothly instead of snapping open */
+  .nav-links{
     display:flex;flex-direction:column;
-    position:fixed;inset:0;background:rgba(255,255,255,.97);
+    position:fixed;inset:0;background:#fff;
     z-index:999;justify-content:center;align-items:center;gap:24px;
+    opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-10px);
+    transition:opacity .3s ease,transform .3s ease,visibility .3s ease;
   }
-  .nav-links.open a{font-size:22px;font-family:'Raleway',sans-serif;font-weight:700;}
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}
+  .nav-links a{font-size:22px;font-family:'Raleway',sans-serif;font-weight:700;}
+  .nav-links .nav-cta{font-size:18px!important;padding:10px 28px!important;}
   .hero-content{grid-template-columns:1fr;}
-  .hero-right{display:none;}
+  /* Show the avatar + orbit rings on mobile, scaled to never overflow */
+  .hero-right{display:flex;height:auto;min-height:min(360px,88vw);margin-top:28px;}
+  .orbit-1{width:min(200px,52vw);height:min(200px,52vw);}
+  .orbit-2{width:min(280px,72vw);height:min(280px,72vw);}
+  .orbit-3{width:min(340px,86vw);height:min(340px,86vw);}
+  .hero-avatar{width:min(150px,38vw);height:min(150px,38vw);}
+  .chip{font-size:11px;padding:6px 11px;}
   .about-grid{grid-template-columns:1fr;gap:48px;}
   .about-right{min-height:360px;}
   .timeline-wrap{grid-template-columns:1fr;}
@@ -431,7 +453,39 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:32px 0;
   .pd-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   .testi-card{width:280px;}
-  #web-projects-track{padding:0 20px;}
+
+  /* ── Career timeline → single rail on the left ── */
+  .tl-vertical{margin:40px 0 0;max-width:100%;}
+  .tl-v-line{left:16px;transform:none;}
+  .tl-v-item{display:block;margin-bottom:22px;}
+  .tl-v-item:last-child{margin-bottom:0;}
+  .tl-v-dot{left:16px;top:18px;}
+  .tl-left,.tl-right{display:block;}
+  .tl-left .tl-v-card,.tl-right .tl-v-card{
+    width:auto;margin:0 0 0 42px;padding:18px;
+  }
+  .tl-left .tl-v-card::after,.tl-right .tl-v-card::after{
+    left:-7px;right:auto;top:20px;
+    border:none;border-left:1px solid var(--border);border-bottom:1px solid var(--border);
+    transform:rotate(45deg);
+  }
+
+  /* ── About / Venn diagram → fluid, scales to viewport ── */
+  .venn-wrap{width:min(460px,90vw);height:auto;aspect-ratio:460/430;margin:0 auto;}
+  .vc{width:54.5%;height:auto;aspect-ratio:1;padding:6%;}
+  .vc-label{font-size:clamp(14px,4.4vw,20px);margin:4px;}
+  .ft{font-size:clamp(8px,2.4vw,10px);padding:2px 7px;}
+  /* "i'm here" arrow → positioned as % so it tracks the scaled intersection */
+  .imhereline{width:65%;height:auto;left:28.5%;bottom:10.2%;}
+  .imheretext{right:6%;bottom:23%;font-size:clamp(11px,3vw,14px);}
+
+  /* ── Web Projects → no scroll-hijack; stack cards vertically ── */
+  #web-projects-sticky{position:static;height:auto;display:block;overflow:visible;padding-bottom:48px;}
+  .web-projects-track-container{overflow:visible;}
+  #web-projects-track{flex-direction:column;gap:20px;padding:20px 0;transform:none!important;}
+  .proj-card{width:100%;max-width:none;height:auto;}
+  .proj-thumb{height:200px;max-height:none;}
+  .proj-dots{display:none;}
   .proj-progress{padding:12px 20px;}
   .scroll-hint-bar{padding:0 20px 16px;}
   .section{padding:70px 0;}
@@ -441,6 +495,15 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:32px 0;
   .hero-name{font-size:2.6rem;}
   .section-title{font-size:2rem;}
   .about-title{font-size:1.8rem;}
+
+  /* Career timeline */
+  .tl-v-card-top{gap:10px;}
+  .tl-v-logo{width:42px;height:42px;border-radius:14px;}
+  .tl-v-badge-current{width:100%;margin-left:0;text-align:left;}
+
+  /* Web Projects (stacked) tweaks on small phones */
+  .proj-thumb{height:170px;}
+  .proj-body{padding:16px;}
 }
 
 
