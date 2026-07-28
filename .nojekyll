@@ -1,0 +1,8 @@
+# Serve this repo as-is. GitHub Pages otherwise runs Jekyll, which parses every
+# .md file through Liquid — and the JSX `style={{ ... }}` snippets in
+# docs/progressive-blur.md read as unterminated Liquid variables, failing the
+# build. This site is plain HTML/CSS/JS with no Jekyll config, layouts or
+# Gemfile, so the build step has nothing to contribute.
+#
+# Side benefit: files and folders starting with an underscore are no longer
+# skipped by Jekyll.
