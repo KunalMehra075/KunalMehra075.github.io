@@ -361,6 +361,7 @@ updatePhone();
 // ─── TESTIMONIALS ──────────────────────────────────────────────────────
 (function () {
   const inner = document.getElementById("testiInner");
+  if (!inner) return; // section commented out / not present
   let idx = 0;
 
   function getCards() {
