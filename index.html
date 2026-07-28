@@ -6,7 +6,7 @@
 <title>Kunal Mehra — Full Stack Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -17,7 +17,9 @@
 
 <!-- ══ NAVBAR ══════════════════════════════════════════════════════════ -->
 <nav id="navbar">
-  <a href="#" class="nav-brand">KM</a>
+  <a href="#" class="nav-brand" aria-label="Kunal Mehra — home">
+    <img src="Images/wordmark-dark.png" alt="Kunal Mehra"/>
+  </a>
   <div class="nav-links" id="navLinks">
     <a href="#" onclick="closeNav()">Home</a>
     <a href="#about" onclick="closeNav()">About</a>
@@ -37,51 +39,128 @@
   </button>
 </nav>
 
-<!-- ══ HERO ════════════════════════════════════════════════════════════ -->
-<section id="hero">
-  <div class="blob hero-blob1"></div>
-  <div class="blob hero-blob2"></div>
-  <div class="hero-main">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-left">
-          <h1 class="hero-name">Kunal<br/><span>Mehra</span></h1>
+<!-- ══ HERO — morphing glass solid ══════════════════════════════════════
+     The headline is drawn into a texture and refracted by the shader, so it
+     cannot be DOM text; the visually-hidden copy below carries it for
+     screen readers and search. See JS/shape-morph.js. -->
+<section id="shape-hero" aria-label="Build. Scale. Inspire. Innovate.">
+  <canvas id="shape-canvas"></canvas>
+  <p class="sr-only">Build. Scale. Inspire. Innovate.</p>
+  <div class="shape-hint" aria-hidden="true">drag to steer</div>
+</section>
 
-          <p class="hero-role"><strong>Full Stack Developer</strong> — 3 years building production-grade apps</p>
-                              <div class="hero-eyebrow"><span class="hero-dot"></span>Available for Opportunities</div>
+<!-- ══ ABOUT — the old hero and about sections, merged ═══════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left" data-aos="fade-right">
+        <div class="hero-avatar about-avatar">
+          <img src="Images/Profiles/MainProfile.png" alt="Kunal Mehra"
+            onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#4a4a4a,#0a0a0a)'"/>
+        </div>
+        <h1 class="hero-name">Kunal <span>Mehra</span></h1>
+        <div class="hero-eyebrow"><span class="hero-dot"></span>Available for Opportunities</div>
+        <p class="about-desc">I'm a full-stack developer who cares deeply about clean architecture and delivering on time, without compromising quality. From REST APIs to frontend polish, I work across the entire stack and love building things that actually ship.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Projects Shipped</div></div>
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">CV Projects</div></div>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects-section" class="btn-primary">
+            View Work
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline">Let's Talk</a>
+        </div>
+      </div>
+      <div class="about-right threecard" data-aos="fade-left" data-aos-delay="100" >
+        <div class="venn-wrap threecard-outer">
+          <div class="vc vc1 threecard-inner">
+                                    <div class="vc-label ">Web Dev</div>
 
-          <p class="hero-desc">I craft scalable web applications end-to-end — from API architecture to pixel-perfect UI. React, Node.js, TypeScript and cloud are my tools of choice.</p>
-         
-          <div class="hero-actions">
-            <a href="#projects-section" class="btn-primary">
-              View Work
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
-            </a>
-            <a href="#contact" class="btn-outline">Let's Talk</a>
-            
+            <div class="vc-tags ">
+              <span class="ft ft-blue" style="--dur:3s;--del:0s">React</span>
+              <span class="ft ft-blue" style="--dur:4s;--del:.3s">Node.js</span>
+              <span class="ft ft-blue" style="--dur:3.5s;--del:.6s">Next.js</span>
+              <span class="ft ft-blue" style="--dur:4.5s;--del:.2s">NestJS</span>
+              <span class="ft ft-blue" style="--dur:3.2s;--del:.8s">MongoDB</span>
+            </div>
+
           </div>
-          
-        </div>
-        <div class="hero-right">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
-          <div class="orbit orbit-3"></div>
-          <div class="hero-avatar">
-            <img src="Images/Profiles/MainProfile.png" alt="Kunal Mehra"
-              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0d42f2,#4b0df2)'"/>
+          <div class="vc vc2 threecard-inner">
+                                    <div class="vc-label">DevOps</div>
+
+            <div class="vc-tags">
+              <span class="ft ft-purple" style="--dur:4s;--del:.4s">Docker</span>
+              <span class="ft ft-purple" style="--dur:3.5s;--del:.1s">AWS</span>
+              <span class="ft ft-purple" style="--dur:3.8s;--del:.7s">Jenkins</span>
+              <span class="ft ft-purple" style="--dur:4.2s;--del:.5s">CI/CD</span>
+              <span class="ft ft-purple" style="--dur:3.3s;--del:.9s">Linux</span>
+            </div>
+
           </div>
-          <div class="chip chip-react"  style="--dur:4s;--del:0s">  <span class="chip-dot cd-blue"></span>React.js</div>
-          <div class="chip chip-node"   style="--dur:3.5s;--del:.5s"><span class="chip-dot cd-green"></span>Node.js</div>
-          <div class="chip chip-ts"     style="--dur:5s;--del:1s">   <span class="chip-dot cd-blue"></span>TypeScript</div>
-          <div class="chip chip-next"   style="--dur:4s;--del:.3s">  <span class="chip-dot cd-purple"></span>Next.js</div>
-          <div class="chip chip-nest"   style="--dur:3.8s;--del:.8s"><span class="chip-dot cd-pink"></span>NestJS</div>
-          <div class="chip chip-mongo"  style="--dur:4.5s;--del:.2s"><span class="chip-dot cd-green"></span>MongoDB</div>
-          <div class="chip chip-aws"    style="--dur:3.6s;--del:.6s"><span class="chip-dot cd-orange"></span>AWS</div>
-          <div class="chip chip-docker" style="--dur:4.2s;--del:.4s"><span class="chip-dot cd-blue"></span>Docker</div>
+          <div class="vc vc3 threecard-inner">
+            <div class="vc-label">Gen AI</div>
+            <div class="vc-tags">
+              <span class="ft ft-cyan" style="--dur:3.7s;--del:.2s">LLMs</span>
+              <span class="ft ft-cyan" style="--dur:4.3s;--del:.6s">RAG</span>
+              <span class="ft ft-cyan" style="--dur:3.4s;--del:.4s">Langchain</span>
+              <span class="ft ft-cyan" style="--dur:4.8s;--del:.1s">OpenCV</span>
+              <span class="ft ft-cyan" style="--dur:3.6s;--del:.8s">Python</span>
+            </div>
+          </div>
+        <svg width="300" height="300" viewBox="0 0 300 300" class="imhereline threecard-inner">
+        {/* Center dot */}
+        <circle
+          cx="100"
+          cy="100"
+          r="4"
+          fill="#333"
+        />
+
+        {/* Arrow shaft with curve */}
+        <path
+          d="M 100 100 Q 180 140, 240 220"
+          stroke="#333"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          fill="none"
+        />
+
+        {/* Arrow head - left line */}
+        <line
+          x1="240"
+          y1="220"
+          x2="230"
+          y2="220"
+          stroke="#333"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Arrow head - right line */}
+        <line
+          x1="240"
+          y1="220"
+          x2="240"
+          y2="210"
+          stroke="#333"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span class="imheretext">i'm here</span>
         </div>
+        <div class="venn-hint">hover on me.</div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ══ CLIENT MARQUEE ═══════════════════════════════════════════════════ -->
 <div id="marquee">
   <div class="marquee-track">
     <div class="marquee-item">
@@ -257,108 +336,6 @@
     </div>
   </div>
 </div>
-
-</section>
-
-<!-- ══ ABOUT ════════════════════════════════════════════════════════════ -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-left" data-aos="fade-right">
-        <span class="sec-label">About Me</span>
-        <h2 class="about-title">Building the web,<br/><span class="highlight">one commit at a time.</span></h2>
-        <p class="about-desc">I'm a full-stack developer who cares deeply about clean architecture and delivering on time — without compromising quality. From REST APIs to frontend polish, I work across the entire stack and love building things that actually ship.</p>
-        <div class="stats-row">
-          <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
-          <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Projects Shipped</div></div>
-          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">CV Projects</div></div>
-        </div>
-      </div>
-      <div class="about-right threecard" data-aos="fade-left" data-aos-delay="100" >
-        <div class="venn-wrap threecard-outer">
-          <div class="vc vc1 threecard-inner">
-                                    <div class="vc-label ">Web Dev</div>
-
-            <div class="vc-tags ">
-              <span class="ft ft-blue" style="--dur:3s;--del:0s">React</span>
-              <span class="ft ft-blue" style="--dur:4s;--del:.3s">Node.js</span>
-              <span class="ft ft-blue" style="--dur:3.5s;--del:.6s">Next.js</span>
-              <span class="ft ft-blue" style="--dur:4.5s;--del:.2s">NestJS</span>
-              <span class="ft ft-blue" style="--dur:3.2s;--del:.8s">MongoDB</span>
-            </div>
-
-          </div>
-          <div class="vc vc2 threecard-inner">
-                                    <div class="vc-label">DevOps</div>
-
-            <div class="vc-tags">
-              <span class="ft ft-purple" style="--dur:4s;--del:.4s">Docker</span>
-              <span class="ft ft-purple" style="--dur:3.5s;--del:.1s">AWS</span>
-              <span class="ft ft-purple" style="--dur:3.8s;--del:.7s">Jenkins</span>
-              <span class="ft ft-purple" style="--dur:4.2s;--del:.5s">CI/CD</span>
-              <span class="ft ft-purple" style="--dur:3.3s;--del:.9s">Linux</span>
-            </div>
-
-          </div>
-          <div class="vc vc3 threecard-inner">
-            <div class="vc-label">Gen AI</div>
-            <div class="vc-tags">
-              <span class="ft ft-cyan" style="--dur:3.7s;--del:.2s">LLMs</span>
-              <span class="ft ft-cyan" style="--dur:4.3s;--del:.6s">RAG</span>
-              <span class="ft ft-cyan" style="--dur:3.4s;--del:.4s">Langchain</span>
-              <span class="ft ft-cyan" style="--dur:4.8s;--del:.1s">OpenCV</span>
-              <span class="ft ft-cyan" style="--dur:3.6s;--del:.8s">Python</span>
-            </div>
-          </div>
-        <svg width="300" height="300" viewBox="0 0 300 300" class="imhereline threecard-inner">
-        {/* Center dot */}
-        <circle
-          cx="100"
-          cy="100"
-          r="4"
-          fill="#333"
-        />
-
-        {/* Arrow shaft with curve */}
-        <path
-          d="M 100 100 Q 180 140, 240 220"
-          stroke="#333"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          fill="none"
-        />
-
-        {/* Arrow head - left line */}
-        <line
-          x1="240"
-          y1="220"
-          x2="230"
-          y2="220"
-          stroke="#333"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Arrow head - right line */}
-        <line
-          x1="240"
-          y1="220"
-          x2="240"
-          y2="210"
-          stroke="#333"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <span class="imheretext">i'm here</span>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="experience">
   <div class="container">
@@ -592,21 +569,17 @@
         <div class="proj-card" onclick="openProject(0)">
           <div class="proj-thumb">
             <img src="Images/ProjectsImgs/orangefry.jpg" alt="OrangeFry"
-              onerror="this.src='https://placehold.co/360x200/eef1f8/0d42f2?text=OrangeFry.com'"/>
+              onerror="this.src='https://placehold.co/360x200/f4f4f5/0a0a0a?text=OrangeFry.com'"/>
             <span class="proj-num">01</span>
             <span class="proj-category">E-Commerce</span>
           </div>
           <div class="proj-body">
             <div class="proj-title">OrangeFry.com</div>
-            <p class="proj-desc">Indian online marketplace for furniture and home decor — full CRUD, Google Auth, admin panel, user reviews.</p>
-            <div class="proj-stack">
-              <span class="tag tag-blue">React</span>
-              <span class="tag tag-cyan">Node.js</span>
-              <span class="tag tag-purple">MongoDB</span>
-            </div>
+            <p class="proj-desc">Indian online marketplace for furniture and home decor. Full CRUD, Google Auth, admin panel and user reviews.</p>
+            <div class="proj-stack"></div>
             <div class="proj-actions">
-              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://orangefry.netlify.app/')">Live Site</button>
-              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(0)">Details</button>
+              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://orangefry.netlify.app/')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Site</button>
+              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(0)"><svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>Details</button>
             </div>
           </div>
         </div>
@@ -614,21 +587,17 @@
         <div class="proj-card" onclick="openProject(1)" >
           <div class="proj-thumb" >
             <img src="Images/ProjectsImgs/acelegal.png" alt="AceLegal"
-              onerror="this.src='https://placehold.co/360x200/eef1f8/4b0df2?text=Ace+Legal'"/>
+              onerror="this.src='https://placehold.co/360x200/f4f4f5/3a3a3a?text=Ace+Legal'"/>
             <span class="proj-num">02</span>
             <span class="proj-category">Booking System</span>
           </div>
           <div class="proj-body">
             <div class="proj-title">Ace Legal Services</div>
-            <p class="proj-desc">Legal appointment booking system — lawyer search, scheduling, OTP auth, Google login, admin dashboard.</p>
-            <div class="proj-stack">
-              <span class="tag tag-blue">React</span>
-              <span class="tag tag-cyan">Express</span>
-              <span class="tag tag-purple">MongoDB</span>
-            </div>
+            <p class="proj-desc">Legal appointment booking system with lawyer search, scheduling, OTP auth, Google login and an admin dashboard.</p>
+            <div class="proj-stack"></div>
             <div class="proj-actions">
-              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://acelegalservices.vercel.app/')">Live Site</button>
-              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(1)">Details</button>
+              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://acelegalservices.vercel.app/')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Site</button>
+              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(1)"><svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>Details</button>
             </div>
           </div>
         </div>
@@ -636,21 +605,17 @@
         <div class="proj-card" onclick="openProject(2)">
           <div class="proj-thumb">
             <img src="Images/ProjectsImgs/mycal.jpg" alt="MyCal"
-              onerror="this.src='https://placehold.co/360x200/eef1f8/0db4f2?text=MyCal.com'"/>
+              onerror="this.src='https://placehold.co/360x200/f4f4f5/6b6b6b?text=MyCal.com'"/>
             <span class="proj-num">03</span>
             <span class="proj-category">Scheduling</span>
           </div>
           <div class="proj-body">
             <div class="proj-title">MyCal.com</div>
-            <p class="proj-desc">Calendly clone — event scheduling, calendar views, workflow reminders, Google Auth, email notifications.</p>
-            <div class="proj-stack">
-              <span class="tag tag-blue">JS</span>
-              <span class="tag tag-cyan">Node.js</span>
-              <span class="tag tag-purple">MongoDB</span>
-            </div>
+            <p class="proj-desc">Calendly clone with event scheduling, calendar views, workflow reminders, Google Auth and email notifications.</p>
+            <div class="proj-stack"></div>
             <div class="proj-actions">
-              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://mycal-704.netlify.app/')">Live Site</button>
-              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(2)">Details</button>
+              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://mycal-704.netlify.app/')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Site</button>
+              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(2)"><svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>Details</button>
             </div>
           </div>
         </div>
@@ -658,41 +623,35 @@
         <div class="proj-card" onclick="openProject(3)">
           <div class="proj-thumb">
             <img src="Images/ProjectsImgs/stylezilla.jpg" alt="StyleZilla"
-              onerror="this.src='https://placehold.co/360x200/eef1f8/0d42f2?text=StyleZilla.com'"/>
+              onerror="this.src='https://placehold.co/360x200/f4f4f5/0a0a0a?text=StyleZilla.com'"/>
             <span class="proj-num">04</span>
             <span class="proj-category">E-Commerce</span>
           </div>
           <div class="proj-body">
             <div class="proj-title">StyleZilla.com</div>
             <p class="proj-desc">Fashion e-commerce with 800+ brands, megamenu, cart, admin panel. 5-member group project built in 6 days.</p>
-            <div class="proj-stack">
-              <span class="tag tag-blue">HTML/CSS</span>
-              <span class="tag tag-cyan">JavaScript</span>
-            </div>
+            <div class="proj-stack"></div>
             <div class="proj-actions">
-              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://stylezillajs201.netlify.app/')">Live Site</button>
-              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(3)">Details</button>
+              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://stylezillajs201.netlify.app/')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Site</button>
+              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(3)"><svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>Details</button>
             </div>
           </div>
         </div>
 
         <div class="proj-card" onclick="openProject(4)">
           <div class="proj-thumb">
-            <img src="Images/ProjectsImgs/placeme.png" alt="PlaceMe"
-              onerror="this.src='https://placehold.co/360x200/eef1f8/4b0df2?text=PlaceMe.com'"/>
+            <img src="Images/ProjectsImgs/TokensPoker/hero.png" alt="FreeTokensPoker"
+              onerror="this.src='https://placehold.co/360x200/f4f4f5/0a0a0a?text=FreeTokensPoker'"/>
             <span class="proj-num">05</span>
-            <span class="proj-category">Job Portal</span>
+            <span class="proj-category">Realtime</span>
           </div>
           <div class="proj-body">
-            <div class="proj-title">PlaceMe.com</div>
-            <p class="proj-desc">Naukri.com clone — job hunting platform with search, filters, favorites, apply flow and login system.</p>
-            <div class="proj-stack">
-              <span class="tag tag-blue">HTML/CSS</span>
-              <span class="tag tag-cyan">JavaScript</span>
-            </div>
+            <div class="proj-title">FreeTokensPoker</div>
+            <p class="proj-desc">Planning poker for the AI era. Estimate in tokens, cost, days or model, vote privately, then reveal together over WebSockets.</p>
+            <div class="proj-stack"></div>
             <div class="proj-actions">
-              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://placeme750.netlify.app/')">Live Site</button>
-              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(4)">Details</button>
+              <button class="btn-sm btn-sm-primary" onclick="event.stopPropagation();window.open('https://github.com/KunalMehra075/TokensPoker')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</button>
+              <button class="btn-sm btn-sm-outline" onclick="event.stopPropagation();openProject(4)"><svg width="12" height="12" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>Details</button>
             </div>
           </div>
         </div>
@@ -710,14 +669,13 @@
     <span class="sec-label" data-aos="fade-up">Mobile </span>
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">Mobile Apps </h2>
     <div class="accent-line" data-aos="fade-up" data-aos-delay="100"></div>
-        <span>(development in progress)</span>
 
     <div class="mobile-grid">
 
       <div class="mobile-app-list" id="appsLeft">
         <div class="app-item active" onclick="selectApp(0)">
-          <div class="app-item-title">Video Call App</div>
-          <div class="app-item-desc">Real-time video calling with chat, events, and WebSocket messaging.</div>
+          <div class="app-item-title">Bucketick App</div>
+          <div class="app-item-desc">A positive social platform with chat, events, and WebSocket messaging.</div>
           <div class="app-item-stack"><span class="tag tag-blue">React Native</span><span class="tag tag-cyan">WebSocket</span></div>
         </div>
         <div class="app-item" onclick="selectApp(1)">
@@ -859,7 +817,7 @@
       <div class="skill-cat" data-aos="fade-up" data-aos-delay="50">
         <div class="skill-cat-title">
           <div class="ski" style="background:rgba(13,66,242,.1)">
-            <svg width="14" height="14" fill="none" stroke="var(--blue)" stroke-width="1.5" viewBox="0 0 16 16">
+            <svg width="14" height="14" fill="none" stroke="var(--ink)" stroke-width="1.5" viewBox="0 0 16 16">
               <polyline points="4 7 1 4 4 1"/><path d="M1 4h9a5 5 0 0 1 0 10H8"/>
             </svg>
           </div>Frontend
@@ -876,7 +834,7 @@
       <div class="skill-cat" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-cat-title">
           <div class="ski" style="background:rgba(75,13,242,.1)">
-            <svg width="14" height="14" fill="none" stroke="var(--blue2)" stroke-width="1.5" viewBox="0 0 16 16">
+            <svg width="14" height="14" fill="none" stroke="var(--ink2)" stroke-width="1.5" viewBox="0 0 16 16">
               <rect x="1" y="1" width="14" height="14" rx="2"/><path d="M1 6h14M6 6v9"/>
             </svg>
           </div>Backend
@@ -892,7 +850,7 @@
       <div class="skill-cat" data-aos="fade-up" data-aos-delay="150">
         <div class="skill-cat-title">
           <div class="ski" style="background:rgba(13,180,242,.1)">
-            <svg width="14" height="14" fill="none" stroke="#0098cc" stroke-width="1.5" viewBox="0 0 16 16">
+            <svg width="14" height="14" fill="none" stroke="var(--ink3)" stroke-width="1.5" viewBox="0 0 16 16">
               <ellipse cx="8" cy="5" rx="7" ry="3"/>
               <path d="M1 5v6a7 3 0 0 0 14 0V5"/><path d="M1 8a7 3 0 0 0 14 0"/>
             </svg>
@@ -1204,7 +1162,7 @@
           <div class="testi-quote">"</div>
           <p class="testi-text">Kunal delivered the wallet integration feature in half the estimated time. His code quality was exceptional and he communicated clearly throughout.</p>
           <div class="testi-person">
-            <div class="testi-avatar"><img src="https://placehold.co/40x40/0d42f2/fff?text=A" alt="Alex"/></div>
+            <div class="testi-avatar"><img src="https://placehold.co/40x40/0a0a0a/fff?text=A" alt="Alex"/></div>
             <div><div class="testi-name">Alex Mercer</div><div class="testi-role-t">CTO, 86 Agency</div></div>
           </div>
         </div>
@@ -1212,7 +1170,7 @@
           <div class="testi-quote">"</div>
           <p class="testi-text">Working with Kunal on the Hospital Management System was a great experience. He led the team with clarity and built a robust backend architecture.</p>
           <div class="testi-person">
-            <div class="testi-avatar"><img src="https://placehold.co/40x40/4b0df2/fff?text=S" alt="Sara"/></div>
+            <div class="testi-avatar"><img src="https://placehold.co/40x40/3a3a3a/fff?text=S" alt="Sara"/></div>
             <div><div class="testi-name">Sara Johnson</div><div class="testi-role-t">Program Lead, Pesto Tech</div></div>
           </div>
         </div>
@@ -1220,7 +1178,7 @@
           <div class="testi-quote">"</div>
           <p class="testi-text">Kunal has a rare ability to understand complex requirements quickly and turn them into clean, production-ready solutions. A true professional.</p>
           <div class="testi-person">
-            <div class="testi-avatar"><img src="https://placehold.co/40x40/0db4f2/fff?text=R" alt="Raj"/></div>
+            <div class="testi-avatar"><img src="https://placehold.co/40x40/6b6b6b/fff?text=R" alt="Raj"/></div>
             <div><div class="testi-name">Raj Patel</div><div class="testi-role-t">Product Manager</div></div>
           </div>
         </div>
@@ -1256,19 +1214,19 @@
         <p>Open to full-time roles, freelance projects, and interesting collaborations. I typically reply within 24 hours.</p>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/" target="_blank" class="contact-link">
-            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--blue)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--ink)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
             <div><div class="cl-label">LinkedIn (Preferred)</div><div class="cl-val">kunal-mehra-thelifeofcoder</div></div>
           </a>
           <a href="mailto:kunalmehra240304@gmail.com" class="contact-link">
-            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div><div class="cl-label">Email</div><div class="cl-val">kunalmehra240304@gmail.com</div></div>
           </a>
           <a href="https://github.com/KunalMehra075" target="_blank" class="contact-link">
-            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--blue)"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--ink)"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
             <div><div class="cl-label">GitHub</div><div class="cl-val">KunalMehra075</div></div>
           </a>
           <div class="contact-link">
-            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16l.42.92z"/></svg></div>
+            <div class="cl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16l.42.92z"/></svg></div>
             <div><div class="cl-label">Phone</div><div class="cl-val">+91 9329037858</div></div>
           </div>
         </div>
@@ -1293,7 +1251,6 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">Kunal Mehra</div>
       <div class="footer-text">Ranjhi, Jabalpur, M.P. &mdash; kunalmehra240304@gmail.com</div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/kunal-mehra-thelifeofcoder/" target="_blank">LinkedIn</a>
@@ -1301,6 +1258,11 @@
         <a href="Kunal-Mehra-Resume.pdf" download>Resume</a>
       </div>
     </div>
+  </div>
+
+  <!-- oversized wordmark: bleeds off the bottom edge, decorative only -->
+  <div class="footer-wordmark" aria-hidden="true">
+    <img src="Images/wordmark-light.png" alt=""/>
   </div>
 </footer>
 
@@ -1315,7 +1277,20 @@
     <h1 class="pd-title" id="pdTitle"></h1>
   </div>
   <div class="pd-body">
-    <img class="pd-hero-img" id="pdHeroImg" src="" alt="Project Screenshot"/>
+    <!-- screenshot carousel; slides are injected by openProject() -->
+    <div class="pd-carousel" id="pdCarousel">
+      <div class="pd-viewport">
+        <div class="pd-track" id="pdTrack"></div>
+      </div>
+      <button class="pd-nav pd-prev" onclick="pdSlideDir(-1)" aria-label="Previous screenshot">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      </button>
+      <button class="pd-nav pd-next" onclick="pdSlideDir(1)" aria-label="Next screenshot">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </button>
+      <span class="pd-count" id="pdCount"></span>
+      <div class="pd-dots" id="pdDots"></div>
+    </div>
     <div class="pd-grid">
       <div>
         <div class="pd-section-title">Overview</div>
@@ -1333,7 +1308,19 @@
   </div>
 </div>
 
+<!-- ══ PROGRESSIVE BLUR ═══════════════════════════════════════════════════
+     Five stacked backdrop-filter layers per strip; each <span> is masked to
+     a band so the blur ramps from strong at the edge to zero inward. Sits
+     at z-900 — above page content, below the navbar (1000) and overlays. -->
+<div class="pblur pblur-top" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="pblur pblur-bottom" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="main.js"></script>
+<script src="JS/shape-morph.js"></script>
 </body>
 </html>

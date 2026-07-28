@@ -3,6 +3,12 @@ const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
+  /* Lenis preventDefault()s wheel events on the whole document, and stop()
+     does not release that — so the fixed project overlay could never scroll
+     natively. `prevent` makes Lenis ignore events originating inside it. */
+  prevent: (node) =>
+    node.id === "project-detail" ||
+    (node.closest && !!node.closest("#project-detail")),
 });
 
 lenis.on("scroll", ScrollTrigger.update);
@@ -16,30 +22,94 @@ gsap.ticker.lagSmoothing(0);
 // ─── AOS ───────────────────────────────────────────────────────────────
 AOS.init({ duration: 700, easing: "ease-out-cubic", once: true, offset: 60 });
 
-const primaryColor = getComputedStyle(document.documentElement)
-  .getPropertyValue("--blue")
-  .trim();
+// NOTE: this used to read --blue, which was renamed to --ink during the
+// monochrome pass — it had been resolving to "" ever since. The dots sit on
+// the dark projects band, so they take the lifted violet.
+const primaryColor =
+  getComputedStyle(document.documentElement)
+    .getPropertyValue("--violet-lift")
+    .trim() || "#8f83e4";
+const dotIdleColor = "rgba(255,255,255,.22)";
 
 // ─── NAVBAR ────────────────────────────────────────────────────────────
 document.getElementById("navToggle").addEventListener("click", () => {
-  document.getElementById("navLinks").classList.toggle("open");
+  const open = document.getElementById("navLinks").classList.toggle("open");
+  // The drawer overlay is white. While it is open the bar has to drop its
+  // hero treatment (white brand + white hamburger) or both vanish into it.
+  document.getElementById("navbar").classList.toggle("menu-open", open);
 });
 function closeNav() {
   document.getElementById("navLinks").classList.remove("open");
+  document.getElementById("navbar").classList.remove("menu-open");
 }
-window.addEventListener(
-  "scroll",
-  () => {
-    document.getElementById("navbar").style.boxShadow =
-      window.scrollY > 60
-        ? "0 6px 32px rgba(13,66,242,.12)"
-        : "0 4px 24px rgba(13,66,242,.08)";
-  },
-  { passive: true },
-);
+// ─── NAVBAR: flush ⇄ floating bar ──────────────────────────────────────
+// At rest the header is transparent and full-width so it reads as part of
+// the black hero; past the trip point it condenses into a glass pill. The
+// styling all lives in CSS — this only owns the boolean. Shares its
+// threshold with the top progressive blur so both arrive together.
+const NAV_STICK_AT = 64;
+(function () {
+  const nav = document.getElementById("navbar");
+  if (!nav) return;
+  const onScroll = () =>
+    nav.classList.toggle("is-stuck", window.scrollY > NAV_STICK_AT);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
 
 
 // ─── PROJECT DATA ──────────────────────────────────────────────────────
+/* Tech icons, same devicon source the skills grid uses. Anything not listed
+   falls back to a text pill, so an unknown stack entry degrades instead of
+   rendering a broken image. */
+const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
+const TECH_ICONS = {
+  "React": DEVICON + "/react/react-original.svg",
+  "React Native": DEVICON + "/react/react-original.svg",
+  "Node.js": DEVICON + "/nodejs/nodejs-original.svg",
+  "Express": DEVICON + "/express/express-original.svg",
+  "MongoDB": DEVICON + "/mongodb/mongodb-original.svg",
+  "Bootstrap": DEVICON + "/bootstrap/bootstrap-original.svg",
+  "HTML": DEVICON + "/html5/html5-original.svg",
+  "CSS": DEVICON + "/css3/css3-original.svg",
+  "JavaScript": DEVICON + "/javascript/javascript-original.svg",
+  "TypeScript": DEVICON + "/typescript/typescript-original.svg",
+  "Tailwind CSS": DEVICON + "/tailwindcss/tailwindcss-original.svg",
+  "Go": DEVICON + "/go/go-original-wordmark.svg",
+  "Vite": DEVICON + "/vitejs/vitejs-original.svg",
+  "WebSocket": DEVICON + "/socketio/socketio-original.svg",
+  "Redux": DEVICON + "/redux/redux-original.svg",
+  "Firebase": DEVICON + "/firebase/firebase-plain.svg",
+  "Ant Design": DEVICON + "/antdesign/antdesign-original.svg",
+};
+
+const ICON_EXTERNAL =
+  '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+const ICON_ARROW =
+  '<svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>';
+const ICON_GITHUB =
+  '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>';
+
+/* withLabel=false gives an icon-only chip. Cards use that: a six-item stack
+   would otherwise wrap to two rows and overflow their fixed height. The
+   detail view has the room, so it shows icon + name. */
+/* Devicon ships a few marks as solid black artwork. Both chip surfaces are
+   dark, so these get inverted to white or they disappear entirely. */
+const DARK_GLYPH_ICONS = new Set(["Express", "WebSocket"]);
+
+function techChip(name, withLabel) {
+  const icon = TECH_ICONS[name];
+  if (!icon) return '<span class="tag tech-chip-text">' + name + "</span>";
+  return (
+    '<span class="tech-chip' + (withLabel ? "" : " tech-chip-icon") +
+    '" title="' + name + '">' +
+    '<img class="' + (DARK_GLYPH_ICONS.has(name) ? "tech-icon-invert" : "") +
+    '" src="' + icon + '" alt="' + name + '" loading="lazy"/>' +
+    (withLabel ? '<span class="tech-chip-name">' + name + "</span>" : "") +
+    "</span>"
+  );
+}
+
 const projectData = [
   {
     title: "OrangeFry.com",
@@ -61,6 +131,19 @@ const projectData = [
     site: "https://orangefry.netlify.app/",
     github: "https://github.com/KunalMehra075/tame-ink-7589",
     img: "Images/ProjectsImgs/orangefry.jpg",
+    gallery: [
+      "Images/ProjectsImgs/Orangefry/home1.jpg",
+      "Images/ProjectsImgs/Orangefry/home2.jpg",
+      "Images/ProjectsImgs/Orangefry/home3.jpg",
+      "Images/ProjectsImgs/Orangefry/Allproducts2.jpg",
+      "Images/ProjectsImgs/Orangefry/Oneproduct2.jpg",
+      "Images/ProjectsImgs/Orangefry/Review and feedback.jpg",
+      "Images/ProjectsImgs/Orangefry/adress.jpg",
+      "Images/ProjectsImgs/Orangefry/checkout.jpg",
+      "Images/ProjectsImgs/Orangefry/order summary.jpg",
+      "Images/ProjectsImgs/Orangefry/Admin Page.jpg",
+      "Images/ProjectsImgs/Orangefry/Edit product.jpg",
+    ],
   },
   {
     title: "Ace Legal Services",
@@ -81,6 +164,15 @@ const projectData = [
     site: "https://acelegalservices.vercel.app/",
     github: "https://github.com/Mr-Soni532/young-zinc-6102",
     img: "Images/ProjectsImgs/acelegal.png",
+    gallery: [
+      "Images/ProjectsImgs/AceLegal/home1.png",
+      "Images/ProjectsImgs/AceLegal/home2.png",
+      "Images/ProjectsImgs/AceLegal/lawyers.png",
+      "Images/ProjectsImgs/AceLegal/login.png",
+      "Images/ProjectsImgs/AceLegal/signup.png",
+      "Images/ProjectsImgs/AceLegal/Adminpanel.png",
+      "Images/ProjectsImgs/AceLegal/admin2.png",
+    ],
   },
   {
     title: "MyCal.com",
@@ -108,6 +200,18 @@ const projectData = [
     site: "https://mycal-704.netlify.app/",
     github: "https://github.com/KunalMehra075/MyCal.com-Frontend",
     img: "Images/ProjectsImgs/mycal.jpg",
+    gallery: [
+      "Images/ProjectsImgs/MyCal/Home Page.jpg",
+      "Images/ProjectsImgs/MyCal/Home Page2.jpg",
+      "Images/ProjectsImgs/MyCal/Dashboard.png",
+      "Images/ProjectsImgs/MyCal/Calendar.png",
+      "Images/ProjectsImgs/MyCal/calendarweekview.png",
+      "Images/ProjectsImgs/MyCal/fullcalendar.png",
+      "Images/ProjectsImgs/MyCal/createevent1.png",
+      "Images/ProjectsImgs/MyCal/createevent2.png",
+      "Images/ProjectsImgs/MyCal/workfflow.png",
+      "Images/ProjectsImgs/MyCal/Googleauth.png",
+    ],
   },
   {
     title: "StyleZilla.com",
@@ -128,28 +232,57 @@ const projectData = [
     site: "https://stylezillajs201.netlify.app/",
     github: "https://github.com/SagarN21/urbane-look-6820",
     img: "Images/ProjectsImgs/stylezilla.jpg",
+    gallery: [
+      "Images/ProjectsImgs/StyleZilla/stz1.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz2.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz3.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz4.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz5.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz6.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz7.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz8.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz9.jpg",
+      "Images/ProjectsImgs/StyleZilla/stz10.jpg",
+    ],
   },
   {
-    title: "PlaceMe.com",
-    desc: "Naukri.com clone — online job hunting platform for applicants and hirers. Individual project built in 5 days.",
+    title: "FreeTokensPoker",
+    desc: "Planning poker built for the AI era. Teams estimate a task in tokens, cost, days or model choice, vote privately, then reveal together over WebSockets.",
     features: [
-      "Job search and filter by category",
-      "Favorite/bookmark jobs",
-      "Apply for job flow",
-      "Login and signup with localStorage",
-      "Responsive design with animations",
+      "Four estimation modes: AI tokens, AI cost, engineering days, best model",
+      "Private voting with a simultaneous owner-triggered reveal",
+      "Rooms with a short shareable code and invite links",
+      "Frictionless identity, no password and no OTP",
+      "Live presence, votes and decisions pushed over WebSockets",
+      "Final decision per task, archived to a per-room history",
     ],
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Go", "MongoDB", "WebSocket"],
     meta: {
       Type: "Individual Project",
-      Duration: "5 Days",
-      Category: "Job Portal",
+      Category: "Realtime Team Tool",
+      Status: "V1 MVP complete",
     },
-    site: "https://placeme750.netlify.app/",
-    github: "https://github.com/KunalMehra075/obscene-icicle-4134",
-    img: "Images/ProjectsImgs/placeme.png",
+    // not deployed yet, so the card and detail view fall back to the repo
+    site: null,
+    github: "https://github.com/KunalMehra075/TokensPoker",
+    img: "Images/ProjectsImgs/TokensPoker/hero.png",
+    gallery: [
+      "Images/ProjectsImgs/TokensPoker/hero.png",
+      "Images/ProjectsImgs/TokensPoker/2.png",
+    ],
   },
 ];
+
+
+// Card tech rows are rendered from projectData so the icons and the detail
+// view can never drift apart. Cards are in DOM order, matching the array.
+(function () {
+  document.querySelectorAll("#web-projects-track .proj-card").forEach((card, i) => {
+    const slot = card.querySelector(".proj-stack");
+    const p = projectData[i];
+    if (slot && p) slot.innerHTML = p.stack.map((t) => techChip(t, false)).join("");
+  });
+})();
 
 (function () {
   gsap.registerPlugin(ScrollTrigger);
@@ -172,7 +305,7 @@ const projectData = [
     if (i === lastDot) return;
     gsap.to(dots[lastDot], {
       width: 6,
-      backgroundColor: "#888",
+      backgroundColor: dotIdleColor,
       duration: 0.35,
       ease: "power2.out",
     });
@@ -230,34 +363,81 @@ const projectData = [
   });
 })();
 // ─── PROJECT DETAIL ────────────────────────────────────────────────────
+/* ── PROJECT DETAIL ──────────────────────────────────────────────────── */
+let pdGallery = [];
+let pdSlide = 0;
+
+function pdRender() {
+  const track = document.getElementById("pdTrack");
+  const dots = document.getElementById("pdDots");
+  if (!track) return;
+  /* The track's own box is one slide wide (slides are flex:0 0 100% and
+     overflow it), so a percentage translate steps by exactly one slide.
+     Dividing by the slide count would move a fraction of one image. */
+  track.style.transform = "translateX(-" + pdSlide * 100 + "%)";
+  dots.innerHTML = pdGallery
+    .map(
+      (_, i) =>
+        '<button class="pd-dot' + (i === pdSlide ? " active" : "") +
+        '" onclick="pdGoTo(' + i + ')" aria-label="Screenshot ' + (i + 1) + '"></button>',
+    )
+    .join("");
+  document.getElementById("pdCount").textContent =
+    pdSlide + 1 + " / " + pdGallery.length;
+}
+
+function pdGoTo(i) {
+  if (!pdGallery.length) return;
+  pdSlide = (i + pdGallery.length) % pdGallery.length;
+  pdRender();
+}
+function pdSlideDir(d) { pdGoTo(pdSlide + d); }
+
 function openProject(idx) {
   const p = projectData[idx];
   document.getElementById("pdTitle").textContent = p.title;
   document.getElementById("pdDesc").textContent = p.desc;
 
-  const img = document.getElementById("pdHeroImg");
-  img.src = p.img;
-  img.onerror = function () {
-    this.src =
-      "https://placehold.co/1100x360/eef1f8/0d42f2?text=" +
-      encodeURIComponent(p.title);
-  };
+  // carousel: fall back to the single hero image when a project has no gallery
+  pdGallery = p.gallery && p.gallery.length ? p.gallery : [p.img];
+  pdSlide = 0;
+  document.getElementById("pdTrack").innerHTML = pdGallery
+    .map(
+      (src) =>
+        '<div class="pd-slide"><img src="' + src + '" alt="' + p.title +
+        ' screenshot" loading="lazy" onerror="this.closest(\'.pd-slide\').classList.add(\'is-missing\')"/></div>',
+    )
+    .join("");
+  // a single-shot gallery has nothing to page through
+  document.getElementById("pdCarousel").classList.toggle("is-single", pdGallery.length < 2);
+  pdRender();
 
   document.getElementById("pdFeatures").innerHTML = p.features
-    .map((f) => `<li>${f}</li>`)
+    .map((f) => "<li>" + f + "</li>")
     .join("");
   document.getElementById("pdStack").innerHTML = p.stack
-    .map((s) => `<span class="tag tag-blue">${s}</span>`)
+    .map((t) => techChip(t, true))
     .join("");
   document.getElementById("pdMeta").innerHTML = Object.entries(p.meta)
     .map(
       ([k, v]) =>
-        `<div class="pd-meta-row"><span class="pd-meta-key">${k}</span><span class="pd-meta-val">${v}</span></div>`,
+        '<div class="pd-meta-row"><span class="pd-meta-key">' + k +
+        '</span><span class="pd-meta-val">' + v + "</span></div>",
     )
     .join("");
+
+  /* The primary action always carries the violet gradient. With no live site
+     (TokensPoker) GitHub is promoted into that slot rather than leaving the
+     page with only a secondary button. */
+  const live = p.site
+    ? '<a href="' + p.site + '" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center;">' +
+      ICON_EXTERNAL + "Live Site</a>"
+    : "";
   document.getElementById("pdLinks").innerHTML =
-    `<a href="${p.site}" target="_blank" class="btn-primary" style="justify-content:center;">Live Site <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg></a>` +
-    `<a href="${p.github}" target="_blank" class="btn-outline" style="justify-content:center;">GitHub <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg></a>`;
+    live +
+    '<a href="' + p.github + '" target="_blank" rel="noopener" class="' +
+    (p.site ? "btn-outline" : "btn-primary") +
+    '" style="justify-content:center;">' + ICON_GITHUB + "GitHub</a>";
 
   const pd = document.getElementById("project-detail");
   pd.classList.add("open");
@@ -265,6 +445,7 @@ function openProject(idx) {
   document.body.style.overflow = "hidden";
   lenis.stop();
 }
+
 
 function closeProject() {
   document.getElementById("project-detail").classList.remove("open");
@@ -277,36 +458,41 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ─── MOBILE APPS ───────────────────────────────────────────────────────
+// Full Android robot, drawn from primitives. The eyes are subpaths on the
+// head with fill-rule:evenodd so they punch through as holes — a solid fill
+// would only work against one specific background.
+const ANDROID_SVG = `
+<svg class="phone-wip-icon" viewBox="0 0 1200 1200" aria-hidden="true" focusable="false">
+  <path d="M395 20 L465 116" stroke="currentColor" stroke-width="44" stroke-linecap="round" fill="none"/>
+  <path d="M805 20 L735 116" stroke="currentColor" stroke-width="44" stroke-linecap="round" fill="none"/>
+  <path fill-rule="evenodd" d="M270 312 a330 330 0 0 1 660 0 z
+    M429 222 a36 36 0 1 0 72 0 a36 36 0 1 0 -72 0
+    M699 222 a36 36 0 1 0 72 0 a36 36 0 1 0 -72 0"/>
+  <path d="M265 358 h670 v545 a58 58 0 0 1 -58 58 h-554 a58 58 0 0 1 -58 -58 z"/>
+  <rect x="120" y="358" width="96" height="480" rx="48"/>
+  <rect x="984" y="358" width="96" height="480" rx="48"/>
+  <path d="M360 1000 h195 v105 a97 97 0 0 1 -195 0 z"/>
+  <path d="M645 1000 h195 v105 a97 97 0 0 1 -195 0 z"/>
+</svg>`;
+
 const appData = [
   {
     screens: [
-      "https://placehold.co/244x500/0d42f2/ffffff?text=Video+1",
-      "https://placehold.co/244x500/4b0df2/ffffff?text=Video+2",
-      "https://placehold.co/244x500/0db4f2/0c0c1e?text=Video+3",
+      "Images/mobile-apps/bucketick/1.png",
+      "Images/mobile-apps/bucketick/2.png",
+      "Images/mobile-apps/bucketick/3.png",
+      "Images/mobile-apps/bucketick/4.png",
+      "Images/mobile-apps/bucketick/5.png",
+      "Images/mobile-apps/bucketick/6.png",
+      "Images/mobile-apps/bucketick/7.png",
     ],
   },
-  {
-    screens: [
-      "https://placehold.co/244x500/0d42f2/ffffff?text=Hospital+1",
-      "https://placehold.co/244x500/4b0df2/ffffff?text=Hospital+2",
-      "https://placehold.co/244x500/0db4f2/0c0c1e?text=Hospital+3",
-    ],
-  },
-  {
-    screens: [
-      "https://placehold.co/244x500/0d42f2/ffffff?text=IoT+1",
-      "https://placehold.co/244x500/4b0df2/ffffff?text=IoT+2",
-      "https://placehold.co/244x500/0db4f2/0c0c1e?text=IoT+3",
-    ],
-  },
-  {
-    screens: [
-      "https://placehold.co/244x500/0d42f2/ffffff?text=Event+1",
-      "https://placehold.co/244x500/4b0df2/ffffff?text=Event+2",
-      "https://placehold.co/244x500/0db4f2/0c0c1e?text=Event+3",
-    ],
-  },
+  // no screens to show yet — these render the Android placeholder instead
+  { wip: true },
+  { wip: true },
+  { wip: true },
 ];
+
 
 let currentApp = 0;
 let currentSlide = 0;
@@ -327,7 +513,9 @@ function goToSlide(idx) {
 }
 
 function phoneSlideDir(dir) {
-  const total = appData[currentApp].screens.length;
+  const screens = appData[currentApp].screens;
+  if (!screens || !screens.length) return;   // placeholder app: nothing to page
+  const total = screens.length;
   currentSlide = (currentSlide + dir + total) % total;
   updatePhone();
 }
@@ -335,7 +523,22 @@ function phoneSlideDir(dir) {
 function updatePhone() {
   const pt = document.getElementById("phoneTrack");
   const pd = document.getElementById("phoneDots");
-  const screens = appData[currentApp].screens;
+  const app = appData[currentApp];
+
+  // apps without screenshots yet show the Android mark + a status line, and
+  // lose their dots/autoplay since there is nothing to page through
+  if (app.wip) {
+    pt.innerHTML =
+      '<div class="phone-screen-slide phone-wip">' +
+      ANDROID_SVG +
+      '<span class="phone-wip-text">development in progress</span></div>';
+    pt.style.transform = "translateX(0)";
+    pd.innerHTML = "";
+    clearInterval(slideTimer);
+    return;
+  }
+
+  const screens = app.screens;
 
   pt.innerHTML = screens
     .map(
@@ -846,4 +1049,32 @@ function runEntrance() {
 
   initTabs();
   runEntrance();
+})();
+// ─── PROGRESSIVE BLUR ──────────────────────────────────────────────────
+// Arms the top/bottom blur strips once the browser is idle, so the
+// backdrop-filter paint cost lands after first paint rather than during it.
+// The top strip fades in only past ACTIVATE_AFTER px of scroll, so it never
+// sits over the hero at rest. See docs/progressive-blur.md.
+(function () {
+  const topStrip = document.querySelector(".pblur-top");
+  if (!topStrip) return;
+
+  // same trip point as the navbar, so the bar and the wash arrive together
+  const ACTIVATE_AFTER = NAV_STICK_AT;
+
+  function arm() {
+    document.documentElement.classList.add("pb-ready");
+
+    const onScroll = () =>
+      topStrip.classList.toggle("is-on", window.scrollY > ACTIVATE_AFTER);
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(arm, { timeout: 1500 });
+  } else {
+    setTimeout(arm, 800);
+  }
 })();
