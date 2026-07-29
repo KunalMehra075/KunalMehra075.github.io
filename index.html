@@ -40,6 +40,47 @@
   </button>
 </nav>
 
+<!-- ══ NAV GLASS ════════════════════════════════════════════════════════
+     The refraction filter for the stuck navbar, ported from reactbits'
+     Glass Surface. The backdrop is displaced three times, once per colour
+     channel at slightly different strengths, so the bend splits light the
+     way a real lens does. JS/glass-surface.js paints the displacement map
+     (an feImage) to match the bar's size — see that file for the whole
+     mechanism. Only Chromium accepts url() inside backdrop-filter, so the
+     bar keeps a plain blur everywhere else. -->
+<svg class="glass-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="nav-glass" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+      <feImage id="navGlassMap" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map"/>
+
+      <feDisplacementMap id="navGlassR" in="SourceGraphic" in2="map" result="dispRed"/>
+      <feColorMatrix in="dispRed" type="matrix" result="red"
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0"/>
+
+      <feDisplacementMap id="navGlassG" in="SourceGraphic" in2="map" result="dispGreen"/>
+      <feColorMatrix in="dispGreen" type="matrix" result="green"
+        values="0 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0"/>
+
+      <feDisplacementMap id="navGlassB" in="SourceGraphic" in2="map" result="dispBlue"/>
+      <feColorMatrix in="dispBlue" type="matrix" result="blue"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0"/>
+
+      <feBlend in="red" in2="green" mode="screen" result="rg"/>
+      <feBlend in="rg" in2="blue" mode="screen" result="output"/>
+      <feGaussianBlur id="navGlassSoften" in="output" stdDeviation="0.7"/>
+    </filter>
+  </defs>
+</svg>
+
 <!-- ══ HERO — morphing glass solid ══════════════════════════════════════
      The nameplate is drawn into a texture and refracted by the shader, so it
      cannot be DOM text; the visually-hidden copy below carries it for screen
@@ -73,7 +114,7 @@
 
     <p class="hero-said">I build things that <em>ship</em>. APIs, interfaces,
       and the unglamorous parts in between.</p>
-    <div class="hero-aside">drag it. it's the only thing here that listens.</div>
+    <div class="hero-aside">drag it. it listens.</div>
   </div>
 </section>
 
@@ -1206,6 +1247,7 @@
 <script src="main.js"></script>
 <script src="JS/journey.js"></script>
 <script src="JS/contact.js"></script>
+<script src="JS/glass-surface.js"></script>
 <script src="JS/hero-shader.js"></script>
 <script src="JS/hero.js"></script>
 </body>

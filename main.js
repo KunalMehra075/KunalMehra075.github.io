@@ -51,12 +51,35 @@ const NAV_STICK_AT = 64;
 (function () {
   const nav = document.getElementById("navbar");
   if (!nav) return;
+
+  /* The glass takes its colour from whatever it is over. Above the black
+     sections it settles to a mid grey, and the links — grey by default —
+     lose their contrast against it. Over those stretches only, the links
+     go to ink. Listed by element rather than by scroll offset so the trip
+     points survive any section growing or being reordered. */
+  const darkEls = ["#shape-hero", "#web-projects-wrapper", "footer"]
+    .map((sel) => document.querySelector(sel))
+    .filter(Boolean);
+
   const onScroll = () => {
     const past = window.scrollY > NAV_STICK_AT;
     nav.classList.toggle("is-stuck", past);
     // .scrolled also un-hides the scrollbar, which is sunk into the black
     // hero at rest — see the ::-webkit-scrollbar rules in style.css
     document.documentElement.classList.toggle("scrolled", past);
+
+    // test the bar's own midline, so the swap lands when the bar is half
+    // onto the dark block rather than when its first pixel touches
+    let overDark = false;
+    if (past) {
+      const band = nav.getBoundingClientRect();
+      const mid = band.top + band.height / 2;
+      overDark = darkEls.some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= mid && r.bottom >= mid;
+      });
+    }
+    nav.classList.toggle("over-dark", overDark);
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });

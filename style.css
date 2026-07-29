@@ -83,6 +83,48 @@ p{color:var(--text2);}
   box-shadow:0 10px 34px rgba(0,0,0,.12);
 }
 
+/* ── the glass itself ──
+   The filter lives in index.html and is driven by JS/glass-surface.js,
+   which also adds .glass-ok once it knows the browser will honour a
+   filter reference inside backdrop-filter. Everywhere else the plain
+   blur above stands, so this is strictly an upgrade.
+
+   The frost comes down from .80 to .60 here: refraction you cannot see
+   through is just an expensive blur. Legibility is held up instead by
+   the rim — the inset shadows below — and by the small blur that runs
+   after the displacement in the same chain.
+
+   Held to desktop on purpose. Below 768px the navbar drops backdrop-filter
+   altogether so the fixed menu overlay is not trapped inside it (see the
+   responsive block), and a per-pixel displacement of the backdrop is the
+   last thing a phone needs to composite on every scroll frame. */
+.glass-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;}
+@media(min-width:769px){
+  html.glass-ok #navbar.is-stuck{
+    background:rgba(255,255,255,.60);
+    backdrop-filter:url(#nav-glass) saturate(175%) blur(3px);
+    -webkit-backdrop-filter:url(#nav-glass) saturate(175%) blur(3px);
+    border-color:rgba(255,255,255,.30);
+    /* two tight inset rings read as the thickness of the glass, then the
+       usual cast shadow lifts it off the page */
+    box-shadow:
+      inset 0 0 2px 1px rgba(0,0,0,.15),
+      inset 0 0 10px 4px rgba(0,0,0,.10),
+      inset 0 1px 0 0 rgba(255,255,255,.55),
+      0 4px 16px rgba(17,17,26,.05),
+      0 8px 24px rgba(17,17,26,.05),
+      0 10px 34px rgba(0,0,0,.10);
+  }
+
+  /* Over the black sections the glass settles to a mid grey and the default
+     grey links wash out against it. .over-dark (main.js) takes them to ink
+     for exactly those stretches. Scoped alongside the glass: the mobile bar
+     is solid white, so its links never lose contrast. */
+  #navbar.is-stuck.over-dark .nav-links a{color:#0a0a0a;}
+  #navbar.is-stuck.over-dark .nav-links a:hover{color:#000;background:rgba(255,255,255,.45);}
+  #navbar.is-stuck.over-dark .nav-toggle{color:#0a0a0a;}
+}
+
 /* At rest the bar sits on the black hero, so its contents invert. The
    .menu-open guard reverts them while the white drawer is open. */
 #navbar:not(.is-stuck):not(.menu-open) .nav-brand img{filter:brightness(0) invert(1);}
@@ -869,6 +911,27 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
 #project-detail .pd-links .btn-outline:hover{background:var(--violet-lift);border-color:var(--violet-lift);color:#0a0a0a;}
 
 /* ── RESPONSIVE ── */
+/* AOS parks a fade-left element 100px to the right of where it belongs and
+   only takes that offset away once the element scrolls into view. On a phone
+   there is no room to spare: a block already reaching the right gutter ends
+   up past the edge, the document grows wider than the viewport, and the page
+   can be dragged sideways. Scrolling to the bottom "fixes" it because every
+   element has animated in by then and given its 100px back — until reload.
+
+   So on narrow screens the horizontal fades come in vertically instead. Same
+   family of motion, none of the sideways room. This sits before the width
+   queries below because it applies to both mobile breakpoints. */
+@media(max-width:768px){
+  [data-aos][data-aos="fade-left"],
+  [data-aos][data-aos="fade-right"]{transform:translate3d(0,40px,0);}
+}
+/* Belt and braces: if any other element ever reaches past the right edge, clip
+   it rather than letting the page scroll sideways. overflow-x:clip, not hidden
+   — hidden would turn the root into a scroll container and break the sticky
+   pinning the projects carousel and the journey line rely on. */
+@media(max-width:768px){
+  html{overflow-x:clip;}
+}
 @media(max-width:1024px){
   .contact-grid{grid-template-columns:1fr;gap:48px;}
   .skills-grid{grid-template-columns:1fr;}
