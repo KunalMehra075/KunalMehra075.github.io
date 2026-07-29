@@ -52,19 +52,51 @@
     bx.fillStyle = LIGHT ? '#ffffff' : '#000000';
     bx.fillRect(0, 0, w, h);
 
-    const unit = Math.min(w, h);
-    const size = Math.max(unit * 0.115, 20);
+    const FACE = '"Google Sans Flex","Manrope",system-ui,sans-serif';
     bx.fillStyle = LIGHT ? '#000000' : '#ffffff';
     bx.textBaseline = 'middle';
-    bx.font = '700 ' + size + 'px "Google Sans Flex","Manrope",system-ui,sans-serif';
 
     /* Inset by the same gutter .container uses (40px, 20px under 768) rather
        than a percentage, so the headline's left edge lines up with every
        other section title. w is in device pixels, the gutter is in CSS px. */
     const cssW   = canvas.clientWidth || w;
     const scale  = w / Math.max(cssW, 1);
-    const gutter = (cssW <= 768 ? 20 : 40) * scale;
+    const isNarrow = cssW <= 768;
+    const gutter = (isNarrow ? 20 : 40) * scale;
 
+    if (isNarrow) {
+      /* Portrait: one word per line, sized to fill the measure. Set at the
+         desktop size the phrases would run nearly edge to edge and read small;
+         broken up, each word can be far larger. */
+      const top = LINE_1.split(/\s+/);
+      const bottom = LINE_2.split(/\s+/);
+      const maxW = w - gutter * 2;
+
+      // measure once at a reference size — glyph width scales linearly with it
+      const REF = 100;
+      bx.font = '700 ' + REF + 'px ' + FACE;
+      const widest = Math.max.apply(
+        null,
+        top.concat(bottom).map((t) => bx.measureText(t).width),
+      );
+      // cap against height too, so a short wide viewport can't collide with the solid
+      const size = Math.min((REF * maxW) / widest, h * 0.115);
+      bx.font = '700 ' + size + 'px ' + FACE;
+
+      const lh = size * 1.04;
+      bx.textAlign = 'left';
+      top.forEach((t, i) => bx.fillText(t, gutter, h * 0.13 + i * lh));
+      // the lower block is anchored to the bottom and grows upward
+      bx.textAlign = 'right';
+      const lastY = h * 0.87;
+      bottom.forEach((t, i) =>
+        bx.fillText(t, w - gutter, lastY - (bottom.length - 1 - i) * lh),
+      );
+      return;
+    }
+
+    const size = Math.max(Math.min(w, h) * 0.115, 20);
+    bx.font = '700 ' + size + 'px ' + FACE;
     // offset the two lines so the solid sits between them
     bx.textAlign = 'left';
     bx.fillText(LINE_1, gutter, h * 0.30);
@@ -339,21 +371,29 @@
     uploadBackground();
   }
 
-  /* ── interaction ────────────────────────────────────────────────────── */
+  /* ── interaction ──────────────────────────────────────────────────────
+     Steering is pointer-fine only. On a touchscreen the hero fills the
+     viewport, so a drag on the canvas is almost always someone trying to
+     scroll the page — capturing it spins the solid instead of moving on.
+     The matching CSS also drops pointer-events on coarse pointers so the
+     gesture reaches the document. */
   const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+  const canSteer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let dragging = false;
 
-  function setPointerFromEvent(e) {
-    const r = canvas.getBoundingClientRect();
-    pointer.tx = ((e.clientX - r.left) / r.width  - 0.5) * 2.0;
-    pointer.ty = ((e.clientY - r.top)  / r.height - 0.5) * 2.0;
+  if (canSteer) {
+    const setPointerFromEvent = (e) => {
+      const r = canvas.getBoundingClientRect();
+      pointer.tx = ((e.clientX - r.left) / r.width  - 0.5) * 2.0;
+      pointer.ty = ((e.clientY - r.top)  / r.height - 0.5) * 2.0;
+    };
+    canvas.addEventListener('pointerdown', (e) => {
+      dragging = true; canvas.setPointerCapture(e.pointerId); setPointerFromEvent(e);
+    });
+    canvas.addEventListener('pointermove', (e) => { if (dragging) setPointerFromEvent(e); });
+    canvas.addEventListener('pointerup',     () => { dragging = false; });
+    canvas.addEventListener('pointercancel', () => { dragging = false; });
   }
-  canvas.addEventListener('pointerdown', (e) => {
-    dragging = true; canvas.setPointerCapture(e.pointerId); setPointerFromEvent(e);
-  });
-  canvas.addEventListener('pointermove', (e) => { if (dragging) setPointerFromEvent(e); });
-  canvas.addEventListener('pointerup',     () => { dragging = false; });
-  canvas.addEventListener('pointercancel', () => { dragging = false; });
 
   /* ── clock ──────────────────────────────────────────────────────────── */
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

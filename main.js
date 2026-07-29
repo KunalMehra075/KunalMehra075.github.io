@@ -51,8 +51,13 @@ const NAV_STICK_AT = 64;
 (function () {
   const nav = document.getElementById("navbar");
   if (!nav) return;
-  const onScroll = () =>
-    nav.classList.toggle("is-stuck", window.scrollY > NAV_STICK_AT);
+  const onScroll = () => {
+    const past = window.scrollY > NAV_STICK_AT;
+    nav.classList.toggle("is-stuck", past);
+    // .scrolled also un-hides the scrollbar, which is sunk into the black
+    // hero at rest — see the ::-webkit-scrollbar rules in style.css
+    document.documentElement.classList.toggle("scrolled", past);
+  };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
@@ -112,66 +117,40 @@ function techChip(name, withLabel) {
 
 const projectData = [
   {
-    title: "OrangeFry.com",
-    desc: "An Indian online marketplace for furniture and home decor. Full CRUD, Google Auth, admin panel, user reviews and complete checkout flow.",
+    title: "Alpha Shorts",
+    desc: "A dashboard that takes a short video from an idea all the way to a published YouTube upload. It helps write the script, make the voice over, time the captions, pick the clips, edit on a timeline, render the video and post it.",
     features: [
-      "Full CRUD for products, users and comments",
-      "Google Auth & email/password signup",
-      "Admin panel for product and order management",
-      "User reviews and star ratings",
-      "Responsive design with Bootstrap",
-      "Order summary and checkout flow",
+      "Writes a script from a topic, or you can paste your own",
+      "Turns the script into a voice over and lets you tune the voice",
+      "Times captions to every spoken word, then renders them as a styled overlay",
+      "Search stock photos and clips, or generate an image for a scene",
+      "Timeline editor for clips, images, sound effects and background music",
+      "Uploads to YouTube with a title, description and tags",
+      "Shows views, watch time, subscribers and retention after posting",
     ],
-    stack: ["React", "Node.js", "Express", "MongoDB", "Bootstrap"],
+    stack: ["React", "Node.js", "Express", "Tailwind CSS", "Remotion", "FFmpeg"],
     meta: {
       Type: "Individual Project",
-      Duration: "6 Days",
-      Category: "E-Commerce Clone",
+      Duration: "5 Days",
+      Category: "Video Automation",
     },
-    site: "https://orangefry.netlify.app/",
-    github: "https://github.com/KunalMehra075/tame-ink-7589",
-    img: "Images/ProjectsImgs/orangefry.jpg",
+    // runs locally against your own API keys, so there is no hosted demo
+    site: null,
+    github: "https://github.com/KunalMehra075/Alpha-shorts",
+    img: "Images/alpha-shorts/1.png",
     gallery: [
-      "Images/ProjectsImgs/Orangefry/home1.jpg",
-      "Images/ProjectsImgs/Orangefry/home2.jpg",
-      "Images/ProjectsImgs/Orangefry/home3.jpg",
-      "Images/ProjectsImgs/Orangefry/Allproducts2.jpg",
-      "Images/ProjectsImgs/Orangefry/Oneproduct2.jpg",
-      "Images/ProjectsImgs/Orangefry/Review and feedback.jpg",
-      "Images/ProjectsImgs/Orangefry/adress.jpg",
-      "Images/ProjectsImgs/Orangefry/checkout.jpg",
-      "Images/ProjectsImgs/Orangefry/order summary.jpg",
-      "Images/ProjectsImgs/Orangefry/Admin Page.jpg",
-      "Images/ProjectsImgs/Orangefry/Edit product.jpg",
-    ],
-  },
-  {
-    title: "Ace Legal Services",
-    desc: "Legal appointment booking system connecting users with lawyers. Original project built in 6 days as a group of 5.",
-    features: [
-      "Lawyer search and filter by specialization",
-      "Appointment booking for future dates",
-      "Google Auth and OTP-based password reset",
-      "Admin CRUD dashboard",
-      "User and lawyer dashboards",
-    ],
-    stack: ["React", "Node.js", "Express", "MongoDB", "Ant Design"],
-    meta: {
-      Type: "Group Project (5)",
-      Duration: "6 Days",
-      Category: "Booking System",
-    },
-    site: "https://acelegalservices.vercel.app/",
-    github: "https://github.com/Mr-Soni532/young-zinc-6102",
-    img: "Images/ProjectsImgs/acelegal.png",
-    gallery: [
-      "Images/ProjectsImgs/AceLegal/home1.png",
-      "Images/ProjectsImgs/AceLegal/home2.png",
-      "Images/ProjectsImgs/AceLegal/lawyers.png",
-      "Images/ProjectsImgs/AceLegal/login.png",
-      "Images/ProjectsImgs/AceLegal/signup.png",
-      "Images/ProjectsImgs/AceLegal/Adminpanel.png",
-      "Images/ProjectsImgs/AceLegal/admin2.png",
+      "Images/alpha-shorts/1.png",
+      "Images/alpha-shorts/2.png",
+      "Images/alpha-shorts/3.png",
+      "Images/alpha-shorts/4.png",
+      "Images/alpha-shorts/5.png",
+      "Images/alpha-shorts/6.png",
+      "Images/alpha-shorts/7.png",
+      "Images/alpha-shorts/8.png",
+      "Images/alpha-shorts/9.png",
+      "Images/alpha-shorts/10.png",
+      "Images/alpha-shorts/11.png",
+      "Images/alpha-shorts/12.png",
     ],
   },
   {
@@ -214,39 +193,7 @@ const projectData = [
     ],
   },
   {
-    title: "StyleZilla.com",
-    desc: "E-commerce fashion store clone of LifestyleStores.com. 800+ brands, megamenu navigation and admin dashboard. Built in 6 days by a group of 5.",
-    features: [
-      "800+ brands across categories",
-      "Complete checkout experience",
-      "Admin product and order management",
-      "Megamenu navigation and carousels",
-      "Login and signup",
-    ],
-    stack: ["HTML", "CSS", "JavaScript"],
-    meta: {
-      Type: "Group Project (5)",
-      Duration: "6 Days",
-      Category: "E-Commerce",
-    },
-    site: "https://stylezillajs201.netlify.app/",
-    github: "https://github.com/SagarN21/urbane-look-6820",
-    img: "Images/ProjectsImgs/stylezilla.jpg",
-    gallery: [
-      "Images/ProjectsImgs/StyleZilla/stz1.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz2.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz3.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz4.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz5.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz6.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz7.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz8.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz9.jpg",
-      "Images/ProjectsImgs/StyleZilla/stz10.jpg",
-    ],
-  },
-  {
-    title: "FreeTokensPoker",
+    title: "TokensPoker",
     desc: "Planning poker built for the AI era. Teams estimate a task in tokens, cost, days or model choice, vote privately, then reveal together over WebSockets.",
     features: [
       "Four estimation modes: AI tokens, AI cost, engineering days, best model",
@@ -269,6 +216,69 @@ const projectData = [
     gallery: [
       "Images/ProjectsImgs/TokensPoker/hero.png",
       "Images/ProjectsImgs/TokensPoker/2.png",
+    ],
+  },
+  {
+    title: "Ace Legal Services",
+    desc: "Legal appointment booking system connecting users with lawyers. Original project built in 6 days as a group of 5.",
+    features: [
+      "Lawyer search and filter by specialization",
+      "Appointment booking for future dates",
+      "Google Auth and OTP-based password reset",
+      "Admin CRUD dashboard",
+      "User and lawyer dashboards",
+    ],
+    stack: ["React", "Node.js", "Express", "MongoDB", "Ant Design"],
+    meta: {
+      Type: "Group Project (5)",
+      Duration: "6 Days",
+      Category: "Booking System",
+    },
+    site: "https://acelegalservices.vercel.app/",
+    github: "https://github.com/Mr-Soni532/young-zinc-6102",
+    img: "Images/ProjectsImgs/acelegal.png",
+    gallery: [
+      "Images/ProjectsImgs/AceLegal/home1.png",
+      "Images/ProjectsImgs/AceLegal/home2.png",
+      "Images/ProjectsImgs/AceLegal/lawyers.png",
+      "Images/ProjectsImgs/AceLegal/login.png",
+      "Images/ProjectsImgs/AceLegal/signup.png",
+      "Images/ProjectsImgs/AceLegal/Adminpanel.png",
+      "Images/ProjectsImgs/AceLegal/admin2.png",
+    ],
+  },
+  {
+    title: "OrangeFry.com",
+    desc: "An Indian online marketplace for furniture and home decor. Full CRUD, Google Auth, admin panel, user reviews and complete checkout flow.",
+    features: [
+      "Full CRUD for products, users and comments",
+      "Google Auth & email/password signup",
+      "Admin panel for product and order management",
+      "User reviews and star ratings",
+      "Responsive design with Bootstrap",
+      "Order summary and checkout flow",
+    ],
+    stack: ["React", "Node.js", "Express", "MongoDB", "Bootstrap"],
+    meta: {
+      Type: "Individual Project",
+      Duration: "6 Days",
+      Category: "E-Commerce Clone",
+    },
+    site: "https://orangefry.netlify.app/",
+    github: "https://github.com/KunalMehra075/tame-ink-7589",
+    img: "Images/ProjectsImgs/orangefry.jpg",
+    gallery: [
+      "Images/ProjectsImgs/Orangefry/home1.jpg",
+      "Images/ProjectsImgs/Orangefry/home2.jpg",
+      "Images/ProjectsImgs/Orangefry/home3.jpg",
+      "Images/ProjectsImgs/Orangefry/Allproducts2.jpg",
+      "Images/ProjectsImgs/Orangefry/Oneproduct2.jpg",
+      "Images/ProjectsImgs/Orangefry/Review and feedback.jpg",
+      "Images/ProjectsImgs/Orangefry/adress.jpg",
+      "Images/ProjectsImgs/Orangefry/checkout.jpg",
+      "Images/ProjectsImgs/Orangefry/order summary.jpg",
+      "Images/ProjectsImgs/Orangefry/Admin Page.jpg",
+      "Images/ProjectsImgs/Orangefry/Edit product.jpg",
     ],
   },
 ];
@@ -477,6 +487,8 @@ const ANDROID_SVG = `
 
 const appData = [
   {
+    stack: ["React Native", "WebSocket"],
+    live: "https://bucketick.com",
     screens: [
       "Images/mobile-apps/bucketick/1.png",
       "Images/mobile-apps/bucketick/2.png",
@@ -488,11 +500,37 @@ const appData = [
     ],
   },
   // no screens to show yet — these render the Android placeholder instead
-  { wip: true },
-  { wip: true },
-  { wip: true },
+  { wip: true, stack: ["React Native", "MongoDB"] },
+  { wip: true, stack: ["React Native", "REST API"] },
+  { wip: true, stack: ["React Native", "Firebase"] },
 ];
 
+
+/* Tech rows are rendered from appData so they cannot drift from it. Apps with
+   a shipped site also get a live link, which must stopPropagation or clicking
+   it would just select the card underneath. */
+(function () {
+  const ICON_OPEN =
+    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+  document.querySelectorAll(".app-item").forEach((card, i) => {
+    const app = appData[i];
+    if (!app) return;
+    const slot = card.querySelector(".app-item-stack");
+    if (slot && app.stack) {
+      slot.innerHTML = app.stack.map((t) => techChip(t, false)).join("");
+    }
+    if (app.live) {
+      const a = document.createElement("a");
+      a.className = "app-live";
+      a.href = app.live;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.innerHTML = ICON_OPEN + "Live";
+      a.addEventListener("click", (e) => e.stopPropagation());
+      card.appendChild(a);
+    }
+  });
+})();
 
 let currentApp = 0;
 let currentSlide = 0;
@@ -861,11 +899,7 @@ const SKILLS = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
       color: 'sk-c-teal',
     },
-    {
-      name: 'VS Code',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
-      color: 'sk-c-blue',
-    },
+ 
     {
       name: 'Figma',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
@@ -876,11 +910,7 @@ const SKILLS = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
       color: 'sk-c-amber',
     },
-    {
-      name: 'Netlify',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg',
-      color: 'sk-c-teal',
-    },
+ 
     {
       name: 'ChatGPT',
        icon:"Images/toolset/chatgpt logo.webp",
@@ -888,14 +918,10 @@ const SKILLS = {
     },
     {
       name: 'Claude.ai',
-      icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/anthropic.svg',
+      icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/claude.svg',
       color: 'sk-c-orange',
     },
-    {
-      name: 'Gemini',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg',
-      color: 'sk-c-blue',
-    },
+
     {
       name: 'IntelliJ',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg',

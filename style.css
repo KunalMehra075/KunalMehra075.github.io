@@ -22,10 +22,25 @@
   --shadow-lg:0 8px 40px rgba(0,0,0,.10);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{}
+/* Text selection: ink block, white type. The dark bands invert it, or the
+   selection would be black-on-black and effectively invisible. */
+::selection{background:var(--ink);color:#fff}
+::-moz-selection{background:var(--ink);color:#fff}
+#shape-hero ::selection,#web-projects-wrapper ::selection,
+footer ::selection,#project-detail ::selection{background:#fff;color:var(--ink)}
+#shape-hero ::-moz-selection,#web-projects-wrapper ::-moz-selection,
+footer ::-moz-selection,#project-detail ::-moz-selection{background:#fff;color:var(--ink)}
+html{scrollbar-width:thin;scrollbar-color:var(--ink) var(--bg);}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--ink);border-radius:4px;}
+/* At rest the page is parked on the black hero, where the white TRACK reads
+   as a bright stripe down the edge. Sink the whole bar into the hero until
+   the user scrolls; main.js sets .scrolled at the same point the navbar
+   condenses, so the two changes land together. */
+html:not(.scrolled){scrollbar-color:#000 #000;}
+html:not(.scrolled)::-webkit-scrollbar-track{background:#000;}
+html:not(.scrolled)::-webkit-scrollbar-thumb{background:#000;}
 body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden;line-height:1.7;}
 h1,h2,h3{font-family:var(--font);}
 a{color:inherit;text-decoration:none;}
@@ -81,8 +96,22 @@ p{color:var(--text2);}
   box-shadow:0 4px 20px rgba(102,85,210,.50);
 }
 
+/* Two lockups that trade places. While the bar is attached, the hero behind
+   it is already showing the full name, so the brand is just the monogram;
+   once the bar detaches it expands to the wordmark. Animating max-width
+   (rather than swapping) makes it read as the mark growing into the name.
+   The max-widths sit just above each image's natural width at these heights
+   — 24px x 972/556 ~= 42, and 19px x 1649/281 ~= 112 — so the motion finishes
+   with the glyphs rather than running on against an arbitrary number. */
 .nav-brand{display:flex;align-items:center;flex-shrink:0;}
-.nav-brand img{display:block;height:19px;width:auto;transition:filter .4s ease;}
+.nav-mark,.nav-word{display:block;overflow:hidden;
+  transition:max-width .55s cubic-bezier(.4,0,.2,1),opacity .3s ease;}
+.nav-mark img{display:block;height:24px;width:auto;transition:filter .4s ease;}
+.nav-word img{display:block;height:19px;width:auto;transition:filter .4s ease;}
+.nav-mark{max-width:46px;opacity:1;}
+.nav-word{max-width:0;opacity:0;}
+#navbar.is-stuck .nav-mark{max-width:0;opacity:0;}
+#navbar.is-stuck .nav-word{max-width:118px;opacity:1;}
 .nav-links{display:flex;align-items:center;gap:2px;}
 .nav-links a{font-size:13px;font-weight:500;padding:6px 13px;border-radius:100px;color:var(--text2);transition:all .2s;}
 .nav-links a:hover{color:var(--violet);background:rgba(102,85,210,.07);}
@@ -90,24 +119,62 @@ p{color:var(--text2);}
 .nav-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px;transition:color .4s ease;}
 .nav-cta-mobile{display:none;}
 
-/* ── HERO — morphing glass solid (WebGL) ── */
-/* The black plate stays full-bleed so the band still reads edge to edge, but
-   the canvas is capped at the same 1200px as .container — otherwise the
-   headline keeps stretching on wide screens while every other section stops. */
+/* ── HERO — morphing glass solid (WebGL) ─────────────────────────────
+   The black plate stays full-bleed so the band reads edge to edge, but the
+   canvas is capped at the same 1200px as .container — otherwise the
+   nameplate keeps stretching on wide screens while every other section
+   stops. See JS/hero.js. */
 #shape-hero{
-  position:relative;height:100svh;min-height:520px;
+  position:relative;height:100svh;min-height:560px;
   background:#000;overflow:hidden;
   display:flex;justify-content:center;
 }
-#shape-canvas{display:block;width:100%;max-width:1200px;height:100%;touch-action:none;cursor:grab}
-#shape-canvas:active{cursor:grabbing}
+#hero-canvas{display:block;width:100%;max-width:1200px;height:100%;touch-action:none;cursor:grab}
+#hero-canvas:active{cursor:grabbing}
+/* the WebGL pass paints an opaque plate, so the drifting geometry cannot sit
+   behind it — it rides just above at low opacity instead */
+#hero-geo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 /* no WebGL2: collapse rather than leave a black void above the fold */
 #shape-hero.is-unsupported{display:none}
-.shape-hint{
-  position:absolute;left:0;right:0;bottom:26px;text-align:center;
-  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.30);pointer-events:none
-}
+
+/* inset:0 together with left:50% would leave right:0 in force and collapse
+   this to half width — size it explicitly */
+/* z sits above the fixed progressive-blur strips (z-900) so the rails stay
+   sharp while the canvas behind them still gets washed at the edges */
+.hero-overlay{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:1200px;z-index:901;pointer-events:none;
+  padding:0 40px;display:flex;flex-direction:column;justify-content:space-between}
+
+/* meta rail: facts, not decoration */
+/* padding-top clears the navbar; the variant files had no nav above them */
+.hero-rail{display:flex;justify-content:space-between;align-items:flex-start;
+  padding-top:96px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.42);line-height:1.9}
+.hero-rail-b{align-items:flex-end;padding:0 0 34px}
+.hero-rail b{display:block;color:rgba(255,255,255,.72);font-weight:600}
+.hr-right{text-align:right}
+.hero-live{display:inline-flex;align-items:center;gap:7px}
+.hero-live i{width:6px;height:6px;border-radius:50%;background:var(--violet-lift);
+  box-shadow:0 0 0 3px rgba(102,85,210,.22);animation:heroBlip 2s infinite}
+@keyframes heroBlip{0%,100%{opacity:1}50%{opacity:.45}}
+
+/* portrait, sitting in the gap between the solid and the right gutter */
+.hero-me{position:absolute;right:40px;top:52%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:12px}
+.hero-me-ring{width:104px;height:104px;border-radius:50%;padding:3px;flex-shrink:0;
+  background:conic-gradient(from 210deg,#6655d2,#8f83e4,#34dbeb,#6655d2);
+  box-shadow:0 0 0 7px rgba(102,85,210,.10),0 16px 46px rgba(0,0,0,.6)}
+.hero-me-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#141414}
+.hero-me-tag{font-size:11.5px;font-style:italic;color:rgba(255,255,255,.34)}
+
+.hero-said{position:absolute;left:40px;top:68%;
+  font-size:clamp(15px,1.5vw,19px);font-weight:400;line-height:1.6;
+  color:rgba(255,255,255,.78);max-width:26ch}
+.hero-said em{font-style:normal;color:#fff;font-weight:600}
+/* the lowercase aside voice already used by "i'm here" on the venn */
+.hero-aside{position:absolute;left:50%;transform:translateX(-50%);bottom:76px;
+  font-size:12.5px;font-style:italic;color:rgba(255,255,255,.30);pointer-events:none}
+
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;
   overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0
@@ -116,8 +183,8 @@ p{color:var(--text2);}
 .hero-blob1{width:580px;height:580px;background:rgba(0,0,0,.046);top:-150px;right:-150px;}
 .hero-blob2{width:400px;height:400px;background:rgba(0,0,0,.033);bottom:-100px;left:-100px;}
 .hero-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.22);border-radius:100px;font-size:11px;font-weight:700;color:#16a34a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(102,85,210,.10);border:1px solid rgba(102,85,210,.30);border-radius:100px;font-size:11px;font-weight:700;color:var(--violet);letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--violet);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.5);}}
 .hero-name{font-size:clamp(3rem,6vw,5.2rem);font-weight:900;line-height:1;margin-bottom:14px;letter-spacing:-.02em;color:var(--text);}
 .hero-name span{background:var(--grad-mute);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -148,7 +215,23 @@ p{color:var(--text2);}
 .chip-react{top:18%;left:3%;}.chip-node{top:5%;right:18%;}.chip-ts{top:40%;right:2%;}.chip-next{bottom:25%;right:8%;}.chip-nest{bottom:18%;left:13%;}.chip-mongo{bottom:5%;left:33%;}.chip-aws{top:25%;left:16%;}.chip-docker{bottom:35%;right:23%;}
 
 /* Marquee */
-#marquee{background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.052);padding:18px 0;overflow:hidden;margin-top:auto;}
+#marquee{position:relative;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.052);padding:18px 0;overflow:hidden;margin-top:auto;}
+/* The strip is full-bleed while every other section stops at .container, so
+   the overspill on each side ramps into a blur and only the logos inside the
+   page's measure read sharp. Reuses the .pblur layer stack (see
+   docs/progressive-blur.md) re-pointed horizontally.
+   1120px = the 1200px container minus its 2x40px gutters, so the sharp band
+   lines up with the section titles above. max() collapses it to nothing once
+   the viewport is narrower than that.
+   Scoped under #marquee deliberately: .pblur is declared ~1100 lines later,
+   so at equal specificity its position:fixed/left/right would win. */
+#marquee .mq-fade{
+  position:absolute;top:0;bottom:0;height:auto;
+  width:max(0px, calc((100% - 1120px) / 2));
+  z-index:3;--pb-max:9px;
+}
+#marquee .mq-fade-l{left:0;right:auto;--pb-dir:to right}
+#marquee .mq-fade-r{right:0;left:auto;--pb-dir:to left}
 .marquee-track{display:flex;gap:86px;animation:marqueeScroll 28s linear infinite;width:max-content;}
 .marquee-item{display:flex;align-items:center;gap:10px;color:var(--text2);font-size:12px;font-weight:600;white-space:nowrap;opacity:0.7;transition:opacity .3s;}
 .marquee-item:hover{opacity:1;}
@@ -165,9 +248,19 @@ p{color:var(--text2);}
 .stats-row{display:flex;gap:40px;flex-wrap:wrap;margin-bottom:38px;}
 /* the portrait moves here from the old hero, at a supporting size — the
    morphing solid above is the section's visual now */
-/* id-scoped so the mobile .hero-avatar rule further down can't win it back */
-#about .about-avatar{width:92px;height:92px;border-width:2px;margin-bottom:24px;box-shadow:0 0 0 6px rgba(0,0,0,.035),0 12px 34px rgba(0,0,0,.10);}
-#about .hero-name{font-size:clamp(2.6rem,5vw,4.2rem);margin-bottom:18px;}
+/* the name and portrait now live in the hero, so this column opens on a
+   pull-quote instead — a violet rule rather than quote marks, to stay with
+   the accent system */
+.about-quote{
+  position:relative;margin:6px 0 26px;padding-left:22px;
+  font-size:clamp(1.35rem,2.4vw,1.95rem);font-weight:600;line-height:1.35;
+  letter-spacing:-.015em;color:var(--text);
+}
+.about-quote::before{
+  content:'';position:absolute;left:0;top:.22em;bottom:.18em;width:3px;
+  border-radius:3px;background:linear-gradient(180deg,var(--violet),var(--violet-deep));
+}
+.about-quote em{font-style:italic;font-weight:600;color:var(--violet);}
 #about .hero-eyebrow{margin-bottom:26px;}
 .stat-num{font-family:var(--font);font-size:2.4rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
 .stat-label{font-size:12px;color:var(--text2);font-weight:500;margin-top:2px;}
@@ -340,7 +433,27 @@ p{color:var(--text2);}
 .app-item.active{border-color:rgba(0,0,0,.163);background:rgba(0,0,0,.03);}
 .app-item-title{font-family:var(--font);font-weight:700;font-size:.95rem;margin-bottom:3px;color:var(--text);}
 .app-item-desc{font-size:11px;color:var(--text2);line-height:1.5;}
-.app-item-stack{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap;}
+.app-item-stack{display:flex;gap:6px;margin-top:11px;flex-wrap:wrap;align-items:center;}
+/* the chips render dark-on-light here, unlike the dark project band */
+.app-item-stack .tech-chip{background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.10);color:var(--text2);}
+.app-item-stack .tech-chip-icon{padding:5px;}
+.app-item-stack .tech-chip img{width:16px;height:16px;}
+.app-item-stack .tech-chip-text{font-size:10px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.10);color:var(--text2);}
+/* these devicon marks are solid black artwork, which is correct on this light
+   surface — the invert that the dark band applies must not follow them here */
+.app-item-stack .tech-icon-invert{filter:none;opacity:1;}
+
+/* live link on a shipped app */
+.app-live{
+  display:inline-flex;align-items:center;gap:6px;margin-top:11px;
+  padding:6px 13px;border-radius:100px;
+  background:linear-gradient(135deg,var(--violet),var(--violet-deep));
+  color:#fff;font-size:11px;font-weight:600;letter-spacing:.02em;
+  box-shadow:0 4px 14px rgba(102,85,210,.34);
+  transition:box-shadow .2s,transform .2s;
+}
+.app-live:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(102,85,210,.48);}
+.app-live svg{flex-shrink:0;}
 
 /* Phone mockup — bigger, black border */
 .phone-mockup{position:relative;width:280px;margin:0 auto;}
@@ -392,20 +505,22 @@ p{color:var(--text2);}
 /* ── CV PROJECTS ── */
 #cv-projects{padding:100px 0;background:var(--card);border-top:1px solid var(--border);}
 .cv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+/* the thumbnail is inset rather than bleeding to the card edge, so the card
+   reads as a padded panel: hairline grey border, soft low shadow */
 .cv-card{
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--r);overflow:hidden;transition:all .3s;
-  cursor:pointer;box-shadow:var(--shadow);
+  background:#fff;border:1px solid rgba(0,0,0,.09);
+  border-radius:18px;padding:10px;transition:all .3s;
+  cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
 }
 .cv-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 40px rgba(0,0,0,.078),0 0 0 1px rgba(0,0,0,.065);
+  transform:translateY(-4px);border-color:rgba(0,0,0,.14);
+  box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 44px rgba(0,0,0,.10);
 }
-.cv-thumb{height:165px;background:var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.cv-thumb{height:165px;background:var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:11px;}
 .cv-thumb img{width:100%;height:100%;object-fit:cover;}
 .cv-thumb-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text2);font-size:12px;}
 .cv-thumb-ph svg{opacity:.35;}
-.cv-card-body{padding:18px;}
+.cv-card-body{padding:16px 10px 8px;}
 .cv-card-title{font-family:var(--font);font-weight:700;font-size:.95rem;margin-bottom:5px;color:var(--text);}
 .cv-card-desc{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px;}
 .cv-card-link{font-size:12px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:5px;transition:gap .2s;}
@@ -621,7 +736,10 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
     top:10px;padding:10px 16px;}
   /* keep brand + hamburger above the overlay so the menu stays closeable */
   .nav-brand{position:relative;z-index:1001;}
-  .nav-brand img{height:15px;}
+  .nav-mark img{height:20px;}
+  .nav-word img{height:15px;}
+  .nav-mark{max-width:38px;}
+  #navbar.is-stuck .nav-word{max-width:94px;}
   .nav-toggle{display:block;position:relative;z-index:1001;}
   .nav-cta-mobile{display:inline-flex;margin-left:auto;margin-right:12px;padding:7px 16px!important;font-size:12px!important;}
 
@@ -662,9 +780,36 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
   .mobile-grid{grid-template-columns:1fr;}
   .mobile-app-list{grid-template-columns:repeat(2,1fr);}
   .cv-cards{grid-template-columns:1fr;}
-  .pd-header{padding:80px 20px 28px;}
-  .pd-body{padding:32px 20px;}
-  .pd-grid{grid-template-columns:1fr;}
+  /* the centred title collided with the absolutely-placed Back button at
+     this width, so the header becomes a normal column instead */
+  .pd-header{flex-direction:column;align-items:stretch;gap:16px;padding:76px 20px 22px;}
+  .pd-header .pd-back{position:static;transform:none;align-self:flex-start;}
+  .pd-title{font-size:1.68rem;text-align:center;}
+  .pd-body{padding:28px 20px;}
+  .pd-grid{grid-template-columns:1fr;gap:34px;}
+
+  /* a fixed 58vh box left huge dead bands around a contained desktop
+     screenshot; matching the box to the shot's shape removes them */
+  .pd-slide{height:auto;aspect-ratio:16/10;}
+  .pd-nav{width:34px;height:34px;}
+  .pd-prev{left:8px}
+  .pd-next{right:8px}
+  .pd-nav svg{width:13px;height:13px}
+  .pd-count{top:10px;right:10px;padding:3px 9px;font-size:10px;}
+  .pd-dots{margin-top:14px;gap:6px;}
+  .pd-links{margin-top:18px;}
+
+  /* ── hero ── */
+  .hero-overlay{padding:0 20px}
+  .hero-rail{font-size:9px;letter-spacing:.12em;padding-top:74px}
+  .hero-rail-b{padding-bottom:26px}
+  /* the nameplate owns the upper band at this width, so the portrait drops
+     to the lower right, opposite the first-person line */
+  .hero-me{right:20px;left:auto;top:auto;bottom:146px;transform:none}
+  .hero-me-ring{width:64px;height:64px}
+  .hero-me-tag{display:none}
+  .hero-said{left:20px;right:20px;top:auto;bottom:150px;font-size:15px;max-width:22ch}
+  .hero-aside{bottom:96px;font-size:11.5px}
   .form-row{grid-template-columns:1fr;}
   .testi-card{width:280px;}
 

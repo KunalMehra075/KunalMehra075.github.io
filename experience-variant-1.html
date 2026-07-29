@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Experience variant 1 — the journey line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --violet:#6655d2;--violet-deep:#3b2a7a;--violet-lift:#8f83e4;
+    --ink:#0a0a0a;--text:#0a0a0a;--text2:#6b6b6b;--muted:#a3a3a3;
+    --bg:#fff;--card:#fff;--border:rgba(0,0,0,.10);
+    --font:'Google Sans Flex','Manrope',ui-sans-serif,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;
+    -webkit-font-smoothing:antialiased}
+  .container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+  .sec-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--violet);margin-bottom:12px;display:block}
+  .section-title{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;
+    margin-bottom:14px;letter-spacing:-.02em}
+  .accent-line{width:48px;height:3px;border-radius:4px;margin-bottom:20px;
+    background:linear-gradient(90deg,var(--violet),var(--violet-deep))}
+  .lede{font-size:15px;color:var(--text2);max-width:52ch}
+
+  #journey{padding:110px 0 40px}
+  /* the line and the cards share one coordinate space; JS sizes this and
+     positions everything inside it from the same measurements */
+  .jr-wrap{position:relative;margin-top:70px}
+  .jr-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+
+  .jr-track{fill:none;stroke:rgba(0,0,0,.13);stroke-width:2.5;stroke-linecap:round}
+  .jr-glow{fill:none;stroke:var(--violet);stroke-width:9;stroke-linecap:round;
+    filter:url(#jrBlur);opacity:.5}
+  .jr-fill{fill:none;stroke:url(#jrGrad);stroke-width:3.2;stroke-linecap:round}
+  .jr-lead{stroke:rgba(0,0,0,.16);stroke-width:1;fill:none;
+    opacity:0;transition:opacity .5s ease}
+  .jr-item.is-in .jr-lead{opacity:1}
+
+  /* node marker */
+  .jr-node{position:absolute;width:17px;height:17px;border-radius:50%;
+    background:var(--bg);border:2.5px solid rgba(0,0,0,.18);
+    transform:translate(-50%,-50%);z-index:3;
+    transition:border-color .45s ease,box-shadow .45s ease,transform .45s ease}
+  .jr-item.is-in .jr-node{border-color:var(--violet);
+    box-shadow:0 0 0 5px rgba(102,85,210,.16),0 0 18px rgba(102,85,210,.5);
+    transform:translate(-50%,-50%) scale(1.12)}
+  .jr-year{position:absolute;z-index:3;font-size:13px;font-weight:700;letter-spacing:.04em;
+    color:var(--muted);transform:translateY(-50%);white-space:nowrap;
+    transition:color .45s ease}
+  .jr-item.is-in .jr-year{color:var(--violet)}
+
+  /* card */
+  .jr-card{position:absolute;z-index:2;
+    background:var(--card);border:1px solid var(--border);border-radius:18px;
+    padding:20px 22px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);
+    opacity:0;transition:opacity .6s cubic-bezier(.4,0,.2,1),
+      transform .6s cubic-bezier(.4,0,.2,1),border-color .5s ease,box-shadow .5s ease}
+  /* slides in from its own side, so the pair reads as hanging off the line */
+  .jr-item.side-r .jr-card{transform:translateX(26px)}
+  .jr-item.side-l .jr-card{transform:translateX(-26px)}
+  .jr-item.is-in .jr-card{opacity:1;transform:translateX(0)}
+  .jr-item.is-in .jr-card{border-color:rgba(102,85,210,.30);
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 14px 38px rgba(102,85,210,.14)}
+
+  .jr-top{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+  .jr-logo{width:42px;height:42px;border-radius:13px;flex-shrink:0;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;background:#fafafa;
+    border:1px solid var(--border)}
+  .jr-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
+  .jr-role{font-weight:700;font-size:1rem;line-height:1.25}
+  .jr-co{font-size:12px;font-weight:600;color:var(--violet)}
+  .jr-badge{margin-left:auto;font-size:9.5px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;
+    background:rgba(102,85,210,.09);color:var(--violet);border:1px solid rgba(102,85,210,.22)}
+  .jr-badge.now{background:rgba(34,197,94,.10);color:#16a34a;border-color:rgba(34,197,94,.28)}
+  .jr-date{font-size:11.5px;color:var(--text2);font-weight:500;margin-bottom:10px}
+  .jr-list{list-style:none;display:grid;gap:5px}
+  .jr-list li{font-size:12px;color:var(--text2);line-height:1.55;padding-left:14px;position:relative}
+  .jr-list li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;
+    border-radius:50%;background:var(--violet)}
+
+  .after{height:60vh;display:grid;place-items:center;color:var(--muted);font-size:13px}
+
+  @media(prefers-reduced-motion:reduce){
+    .jr-card,.jr-node,.jr-year,.jr-lead{transition:none}
+    .jr-item .jr-card{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<section id="journey">
+  <div class="container">
+    <span class="sec-label">Career</span>
+    <h2 class="section-title">Journey &amp; Graduation</h2>
+    <div class="accent-line"></div>
+    <p class="lede">Scroll to follow the line. Every stop is a place I shipped something.</p>
+
+    <div class="jr-wrap" id="jrWrap">
+      <svg class="jr-svg" id="jrSvg" aria-hidden="true">
+        <defs>
+          <linearGradient id="jrGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%"   stop-color="#3b2a7a"/>
+            <stop offset="55%"  stop-color="#6655d2"/>
+            <stop offset="100%" stop-color="#8f83e4"/>
+          </linearGradient>
+          <filter id="jrBlur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6"/>
+          </filter>
+        </defs>
+        <path class="jr-track" id="jrTrack"/>
+        <path class="jr-glow"  id="jrGlow"/>
+        <path class="jr-fill"  id="jrFill"/>
+        <g id="jrLeads"></g>
+        <circle id="jrHead" r="5" fill="#fff" stroke="url(#jrGrad)" stroke-width="3" opacity="0"/>
+      </svg>
+      <!-- nodes, years and cards are injected here -->
+    </div>
+  </div>
+</section>
+
+<div class="after">that's the line, so far.</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════
+   The journey line.
+
+   One serpentine path is generated from the data rather than hardcoded, so
+   the curve adapts to the number of stops and to the viewport. Three copies
+   of that path are stacked: a grey track, a blurred violet glow, and the
+   gradient stroke that draws in. The draw is a dashoffset tied to scroll,
+   and each stop lights up as the line reaches its node.
+════════════════════════════════════════════════════════════════════════ */
+const STOPS = [
+  {
+    year: '2026', role: 'Software Engineer', co: 'The Factual Holding Co.',
+    date: 'Jan 2026 - Present', badge: 'Current', now: true,
+    logo: 'Images/companies/factual_logo.png',
+    points: [
+      'Built telehealth infrastructure connecting a doctor network to B2B brands.',
+      'Owned a project end to end on Redis, Kafka and Postgres.',
+      'Designed an AI image and video platform with multi-provider fallbacks.',
+    ],
+  },
+  {
+    year: '2025', role: 'Software Engineer', co: 'OneIOT, Hyderabad',
+    date: 'Jun 2025 - Jan 2026', badge: 'Work',
+    logo: 'Images/companies/oneiot_logo.jpeg',
+    points: [
+      'Led full stack feature work across web and mobile portals.',
+      'Delivered 4 to 5 proof of concepts in 1 to 2 days each.',
+      'Led the MongoDB to CassandraDB migration for high volume data.',
+    ],
+  },
+  {
+    year: '2023', role: 'Software Developer', co: '86 Agency, Gurugram',
+    date: 'Jun 2023 - Jun 2025', badge: 'Work',
+    logo: 'Images/companies/86agency_logo.jpeg',
+    points: [
+      'Built 20+ web apps with React, Node.js, Python and Django.',
+      'Shipped Apple and Google Passes for 3 international clients.',
+      'Managed 15+ AWS deployments with Docker and Jenkins.',
+    ],
+  },
+  {
+    year: '2023', role: 'Engineering Fellow', co: 'Pesto Tech, Remote',
+    date: 'Jul 2023 - Sept 2024', badge: 'Fellowship',
+    logo: 'Images/companies/PestoTech_Logo.jpeg',
+    points: [
+      '10 month intensive MERN stack program.',
+      'Led a team of 5 building a Hospital Management System.',
+    ],
+  },
+  {
+    year: '2022', role: 'Full Stack Trainee', co: 'Masai School, Bengaluru',
+    date: 'Aug 2022 - May 2023', badge: 'Education',
+    logo: 'Images/companies/masai_logo.jpeg',
+    points: [
+      '1200+ hours of hands on coding and 800+ DSA problems solved.',
+      'Mastered the MERN stack, TypeScript and UI frameworks.',
+    ],
+  },
+  {
+    year: '2025', role: 'B.C.A, Computer Applications', co: 'KL University, A.P.',
+    date: '2025 - 2028', badge: 'Education',
+    logo: 'Images/companies/kluniversity_logo.jpeg',
+    points: ['Bachelor of Computer Applications, alongside full time work.'],
+  },
+];
+
+const wrap  = document.getElementById('jrWrap');
+const svg   = document.getElementById('jrSvg');
+const track = document.getElementById('jrTrack');
+const glow  = document.getElementById('jrGlow');
+const fill  = document.getElementById('jrFill');
+const leads = document.getElementById('jrLeads');
+const head  = document.getElementById('jrHead');
+
+/* ── build the DOM once ── */
+const items = STOPS.map((s, i) => {
+  const el = document.createElement('div');
+  el.className = 'jr-item';
+  el.innerHTML =
+    '<span class="jr-node"></span>' +
+    '<span class="jr-year">' + s.year + '</span>' +
+    '<div class="jr-card">' +
+      '<div class="jr-top">' +
+        '<div class="jr-logo"><img src="' + s.logo + '" alt="" ' +
+          'onerror="this.style.display=\'none\'"/></div>' +
+        '<div><div class="jr-role">' + s.role + '</div>' +
+        '<div class="jr-co">' + s.co + '</div></div>' +
+        '<span class="jr-badge' + (s.now ? ' now' : '') + '">' + s.badge + '</span>' +
+      '</div>' +
+      '<div class="jr-date">' + s.date + '</div>' +
+      '<ul class="jr-list">' + s.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' +
+    '</div>';
+  wrap.appendChild(el);
+  return {
+    root: el,
+    node: el.querySelector('.jr-node'),
+    year: el.querySelector('.jr-year'),
+    card: el.querySelector('.jr-card'),
+    lead: null,
+    t: 0,
+  };
+});
+
+// one wedge of two leader lines per stop, node to card edge
+items.forEach((it) => {
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.setAttribute('class', 'jr-lead-g');
+  g.innerHTML = '<path class="jr-lead"/><path class="jr-lead"/>';
+  leads.appendChild(g);
+  it.lead = g;
+});
+
+let pathLen = 0;
+
+function layout() {
+  const W = wrap.clientWidth;
+  const narrow = W < 760;
+
+  const segH   = narrow ? 292 : 300;
+  const padTop = narrow ? 40 : 70;
+  const padBot = narrow ? 60 : 110;
+  const total  = padTop + segH * (STOPS.length - 1) + padBot;
+
+  wrap.style.height = total + 'px';
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + total);
+
+  /* Node x alternates to make the snake. On a narrow screen the curve
+     straightens against the left edge and every card sits to its right,
+     because there is no room to swing a serpentine across. */
+  const pts = items.map((it, i) => ({
+    x: narrow ? 26 : (i % 2 === 0 ? W * 0.36 : W * 0.64),
+    y: padTop + i * segH,
+  }));
+
+  // lead-in above the first stop and a tail past the last, so the line runs
+  // off both ends rather than starting and stopping on a node
+  const first = pts[0], last = pts[pts.length - 1];
+  const all = [
+    { x: narrow ? first.x : first.x + (first.x < W / 2 ? 70 : -70), y: first.y - 105 },
+    ...pts,
+    { x: narrow ? last.x : last.x + (last.x < W / 2 ? 70 : -70), y: last.y + 120 },
+  ];
+
+  // smooth cubic through every point, control handles pulled vertically so
+  // the curve arrives at each node travelling straight up
+  let d = 'M ' + all[0].x + ' ' + all[0].y;
+  for (let i = 1; i < all.length; i++) {
+    const p0 = all[i - 1], p1 = all[i];
+    const k = (p1.y - p0.y) * 0.5;
+    d += ' C ' + p0.x + ' ' + (p0.y + k) + ', ' + p1.x + ' ' + (p1.y - k) +
+         ', ' + p1.x + ' ' + p1.y;
+  }
+  [track, glow, fill].forEach((p) => p.setAttribute('d', d));
+
+  pathLen = track.getTotalLength();
+  [glow, fill].forEach((p) => {
+    p.style.strokeDasharray = pathLen;
+    p.style.strokeDashoffset = pathLen;
+  });
+
+  /* Where each node falls along the path, as a 0..1 fraction of its length.
+     The path is monotonic in y, so a binary search on getPointAtLength is
+     exact enough and avoids hand-maintaining offsets. */
+  items.forEach((it, i) => {
+    let lo = 0, hi = pathLen;
+    for (let n = 0; n < 22; n++) {
+      const mid = (lo + hi) / 2;
+      if (track.getPointAtLength(mid).y < pts[i].y) lo = mid; else hi = mid;
+    }
+    it.t = ((lo + hi) / 2) / pathLen;
+  });
+
+  const cardW = narrow ? Math.min(W - 58, 460) : Math.min(W * 0.44, 470);
+
+  items.forEach((it, i) => {
+    const p = pts[i];
+    const right = narrow ? true : i % 2 === 0;   // node on the left -> card right
+    it.root.className = 'jr-item ' + (right ? 'side-r' : 'side-l') +
+      (it.root.classList.contains('is-in') ? ' is-in' : '');
+
+    it.node.style.left = p.x + 'px';
+    it.node.style.top  = p.y + 'px';
+
+    // year label hugs the outside of the curve
+    it.year.style.top = p.y + 'px';
+    if (right) { it.year.style.left = 'auto'; it.year.style.right = (W - p.x + 22) + 'px'; }
+    else       { it.year.style.right = 'auto'; it.year.style.left = (p.x + 22) + 'px'; }
+
+    const card = it.card;
+    card.style.width = cardW + 'px';
+    const gap = narrow ? 30 : 52;
+    if (right) { card.style.left = (p.x + gap) + 'px'; card.style.right = 'auto'; }
+    else       { card.style.right = (W - p.x + gap) + 'px'; card.style.left = 'auto'; }
+
+    // vertical centring needs the rendered height, which is only known now
+    const h = card.offsetHeight;
+    card.style.top = (p.y - h / 2) + 'px';
+
+    // wedge: node out to the card's near edge, top and bottom
+    const edgeX = right ? p.x + gap : p.x - gap;
+    const y1 = p.y - h / 2 + 26, y2 = p.y + h / 2 - 26;
+    const [l1, l2] = it.lead.querySelectorAll('.jr-lead');
+    l1.setAttribute('d', 'M ' + p.x + ' ' + p.y + ' L ' + edgeX + ' ' + y1);
+    l2.setAttribute('d', 'M ' + p.x + ' ' + p.y + ' L ' + edgeX + ' ' + y2);
+  });
+}
+
+/* ── scroll draw ── */
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+function onScroll() {
+  const r = wrap.getBoundingClientRect();
+  const vh = window.innerHeight;
+  // start filling when the block is ~70% up the viewport, finish near the top
+  const startAt = vh * 0.72, endAt = vh * 0.22;
+  const p = clamp((startAt - r.top) / (r.height + startAt - endAt), 0, 1);
+
+  const drawn = pathLen * p;
+  glow.style.strokeDashoffset = pathLen - drawn;
+  fill.style.strokeDashoffset = pathLen - drawn;
+
+  if (p > 0.001 && p < 0.999) {
+    const pt = track.getPointAtLength(drawn);
+    head.setAttribute('cx', pt.x);
+    head.setAttribute('cy', pt.y);
+    head.style.opacity = 1;
+  } else {
+    head.style.opacity = 0;
+  }
+
+  // a stop lights up just before the line physically reaches it
+  items.forEach((it) => it.root.classList.toggle('is-in', p >= it.t - 0.015));
+}
+
+let ticking = false;
+function requestTick() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { onScroll(); ticking = false; });
+}
+
+window.addEventListener('scroll', requestTick, { passive: true });
+window.addEventListener('resize', () => { layout(); onScroll(); });
+
+layout();
+onScroll();
+// card heights shift once the webfont lands, so measure again after it does
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => { layout(); onScroll(); });
+}
+</script>
+</body>
+</html>
