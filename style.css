@@ -131,6 +131,18 @@ p{color:var(--text2);}
 }
 #hero-canvas{display:block;width:100%;max-width:1200px;height:100%;touch-action:none;cursor:grab}
 #hero-canvas:active{cursor:grabbing}
+/* Touch devices get a non-interactive hero. The canvas fills the whole first
+   screen, and touch-action:none tells the browser not to pan from touches on
+   it — so a thumb drag anywhere over the hero did nothing at all, while the
+   navbar above it still scrolled. Hand the gesture back: pointer-events:none
+   takes the canvas out of hit-testing entirely so the swipe reaches the
+   document. JS/hero-shader.js separately gates drag-steering to fine
+   pointers, but that alone is not enough — the element still swallows the
+   gesture unless these two properties are relaxed. */
+@media (hover:none),(pointer:coarse){
+  #hero-canvas{touch-action:auto;cursor:default;pointer-events:none}
+  .hero-aside{display:none}
+}
 /* the WebGL pass paints an opaque plate, so the drifting geometry cannot sit
    behind it — it rides just above at low opacity instead */
 #hero-geo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
