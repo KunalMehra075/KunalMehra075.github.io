@@ -641,23 +641,105 @@ p{color:var(--text2);}
 /* ── CONTACT ── */
 #contact{padding:100px 0;background:var(--bg);border-top:1px solid var(--border);}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.contact-left h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:14px;color:var(--text);}
+.contact-left h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.08;margin-bottom:14px;color:var(--text);letter-spacing:-.02em;}
+/* the pay-off half of the line carries the accent */
+.ct-turn{background:linear-gradient(135deg,var(--violet),var(--violet-deep));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .contact-left>p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:28px;}
-.contact-links{display:flex;flex-direction:column;gap:12px;}
+/* ── email, promoted ──
+   It is the channel that actually matters, so it is lifted out of the link
+   list and given weight plus a one-tap copy. */
+.email-card{
+  position:relative;margin-bottom:22px;padding:18px 20px;border-radius:var(--r2);
+  background:linear-gradient(135deg,rgba(102,85,210,.07),rgba(102,85,210,.02));
+  border:1px solid rgba(102,85,210,.24);
+}
+.email-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--violet);margin-bottom:9px;}
+.email-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.email-addr{
+  font-size:clamp(15px,1.7vw,19px);font-weight:700;letter-spacing:-.01em;color:var(--text);
+  text-decoration:none;border-bottom:1.5px solid rgba(102,85,210,.35);
+  padding-bottom:2px;transition:border-color .2s,color .2s;word-break:break-all;
+}
+.email-addr:hover{color:var(--violet);border-bottom-color:var(--violet);}
+.email-copy{
+  margin-left:auto;display:inline-flex;align-items:center;gap:7px;flex-shrink:0;
+  padding:8px 14px;border-radius:100px;cursor:pointer;font-family:var(--font);
+  font-size:12px;font-weight:600;color:#fff;border:none;
+  background:linear-gradient(135deg,var(--violet),var(--violet-deep));
+  box-shadow:0 4px 14px rgba(102,85,210,.32);
+  transition:transform .2s,box-shadow .2s,background .3s;
+}
+.email-copy:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(102,85,210,.45);}
+.email-copy .ec-done{display:none}
+/* .is-copied swaps the icon and label without changing the button's width
+   enough to make the row jump */
+.email-copy.is-copied{background:linear-gradient(135deg,#16a34a,#0f7a37);
+  box-shadow:0 4px 14px rgba(22,163,74,.32);}
+.email-copy.is-copied .ec-copy{display:none}
+.email-copy.is-copied .ec-done{display:block}
+
+/* Three secondary channels sit side by side, so each card stacks its icon
+   above the text instead of running them in a row — a horizontal card cannot
+   hold a 26-character handle at a third of the column's width. */
+.contact-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .contact-link{
-  display:flex;align-items:center;gap:14px;padding:14px 18px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:16px 14px;
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--r);transition:all .2s;box-shadow:var(--shadow);
 }
 .contact-link:hover{border-color:rgba(0,0,0,.163);box-shadow:0 4px 20px rgba(0,0,0,.065);}
 .cl-icon{
-  width:38px;height:38px;border-radius:10px;
+  width:34px;height:34px;border-radius:10px;
   background:rgba(0,0,0,.046);border:1px solid rgba(0,0,0,.078);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.cl-label{font-size:11px;color:var(--text2);font-weight:500;}
-.cl-val{font-size:13px;font-weight:600;color:var(--text);}
-.contact-form{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px;box-shadow:var(--shadow);}
+.cl-label{font-size:11px;color:var(--text2);font-weight:500;margin-bottom:2px;}
+/* handles have no spaces to break on, so wrap anywhere rather than overflow */
+.cl-val{font-size:12px;font-weight:600;color:var(--text);line-height:1.35;overflow-wrap:anywhere;}
+/* At phone widths a third of the column is about 100px, so the type comes
+   down far enough that the longest handle still sets on one line instead of
+   breaking a character off the end. */
+@media(max-width:480px){
+  .contact-links{gap:6px;}
+  .contact-link{padding:12px 8px;gap:8px;}
+  .cl-icon{width:30px;height:30px;border-radius:8px;}
+  .cl-label{font-size:10px;}
+  .cl-val{font-size:10.5px;letter-spacing:-.015em;}
+}
+/* ── contact form + border glow ──
+   Ported from reactbits' Border Glow. That component is built for a dark
+   card and layers seven mesh gradients; on this white form the mechanics are
+   what matter, not the palette. Kept from the original: the ring is lit at
+   the cursor, brightens as the cursor nears an edge, and uses their timings
+   (0.25s ease-out arriving, 0.75s ease-in-out leaving). JS/contact.js feeds
+   --gx/--gy/--glow. */
+.contact-form{position:relative;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r2);padding:32px;box-shadow:var(--shadow);isolation:isolate;}
+/* the ring: a gradient clipped to the border by masking out the content box */
+.glow-card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.6px;
+  background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),
+    rgba(102,85,210,.95), rgba(143,131,228,.42) 38%, rgba(102,85,210,0) 72%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  opacity:var(--glow,0);pointer-events:none;
+  transition:opacity .75s ease-in-out;
+}
+/* a soft aura outside the ring, so the edge is not a hard hairline */
+.glow-card::after{
+  content:'';position:absolute;inset:-2px;border-radius:inherit;z-index:-1;
+  background:radial-gradient(320px circle at var(--gx,50%) var(--gy,50%),
+    rgba(102,85,210,.30), rgba(102,85,210,0) 68%);
+  filter:blur(14px);opacity:var(--glow,0);pointer-events:none;
+  transition:opacity .75s ease-in-out;
+}
+.glow-card:hover::before,.glow-card:hover::after{transition:opacity .25s ease-out}
+@media(prefers-reduced-motion:reduce){
+  .glow-card::before,.glow-card::after{transition:none}
+}
 .form-group{margin-bottom:18px;}
 .form-label{display:block;font-size:11px;font-weight:700;color:var(--text2);margin-bottom:7px;letter-spacing:.04em;text-transform:uppercase;}
 .form-input,.form-textarea{
