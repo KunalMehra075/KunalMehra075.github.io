@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Experience variant 0 — the original vertical timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!--
+  Archive of the vertical timeline that shipped before the journey line
+  replaced it. Self-contained: the tokens, the section rules and the markup
+  are all inlined here, so this renders standalone and nothing in the live
+  site needs to keep those styles alive.
+-->
+<style>
+:root{
+  --ink:#0a0a0a;--ink2:#3a3a3a;--ink3:#8a8a8a;
+  --violet:#6655d2;--violet-deep:#3b2a7a;--violet-lift:#8f83e4;
+  --bg:#ffffff;--bg2:#f4f4f5;--card:#ffffff;
+  --border:rgba(0,0,0,0.10);--text:#0a0a0a;--text2:#6b6b6b;--muted:#a3a3a3;
+  --r:14px;--r2:20px;
+  --font:'Google Sans Flex','Manrope',ui-sans-serif,system-ui,sans-serif;
+  --grad:linear-gradient(135deg,#4a4a4a 0%,#1c1c1c 55%,#000000 100%);
+  --shadow:0 2px 16px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:12px;display:block}
+.section-title{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:14px}
+.accent-line{width:48px;height:3px;border-radius:4px;margin-bottom:36px;
+  background:linear-gradient(90deg,var(--violet),var(--violet-deep))}
+
+#experience{padding:100px 0;background:var(--bg);border-top:1px solid var(--border)}
+.tl-vertical{position:relative;margin:64px auto 0;max-width:960px}
+.tl-v-line{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--violet),var(--violet-deep),var(--ink3,#8a8a8a));border-radius:2px;z-index:0}
+.tl-v-item{position:relative;width:100%;margin-bottom:-50px;display:flex}
+.tl-v-date-left{position:absolute;top:2%;left:42%;transform:translateX(-50%);font-size:11px;color:var(--text2);font-weight:500}
+.tl-v-item:last-child{margin-bottom:0}
+.tl-v-dot{position:absolute;left:50%;top:20px;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--violet);box-shadow:0 0 0 5px rgba(102,85,210,.14);display:flex;align-items:center;justify-content:center;z-index:2;flex-shrink:0}
+.tl-v-dot-inner{width:7px;height:7px;border-radius:50%;background:var(--violet)}
+.tl-v-card{width:47%;background:var(--card);border:1px solid var(--border);border-radius:var(--r2,16px);padding:22px 24px;box-shadow:var(--shadow);transition:box-shadow .3s,transform .3s;position:relative;z-index:1}
+.tl-v-card:hover{transform:translateY(-3px);box-shadow:0 14px 44px #00000012,0 0 0 1px #0000000d}
+.tl-left{justify-content:flex-start}
+.tl-left .tl-v-card{margin-right:auto;margin-left:0}
+.tl-left .tl-v-card::after{content:'';position:absolute;top:24px;right:-8px;width:14px;height:14px;background:var(--card);border-top:1px solid var(--border);border-right:1px solid var(--border);transform:rotate(45deg)}
+.tl-right{justify-content:flex-end}
+.tl-right .tl-v-card{margin-left:auto;margin-right:0}
+.tl-right .tl-v-card::after{content:'';position:absolute;top:24px;left:-8px;width:14px;height:14px;background:var(--card);border-bottom:1px solid var(--border);border-left:1px solid var(--border);transform:rotate(45deg)}
+.tl-v-card-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.tl-v-logo{width:50px;height:50px;border-radius:18px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.tl-v-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
+.tl-v-role{font-family:var(--font);font-weight:700;font-size:.98rem;color:var(--text);margin-bottom:2px}
+.tl-v-company{font-size:12px;font-weight:600;color:var(--violet)}
+.tl-v-badge-current{margin-left:auto;padding:3px 10px;background:#22c55e1a;color:#16a34a;border:1px solid #22c55e40;border-radius:100px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.tl-v-date{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:12px}
+.tl-v-date svg{width:13px;height:13px;flex-shrink:0}
+.tl-v-bullets{list-style:none;display:grid;gap:5px;margin-bottom:14px}
+.tl-v-bullets li{font-size:12px;color:var(--text2);padding-left:14px;position:relative;line-height:1.55}
+.tl-v-bullets li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--violet)}
+.tl-v-type{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:rgba(102,85,210,.09);color:var(--violet);border:1px solid rgba(102,85,210,.22)}
+.tl-v-type svg{width:11px;height:11px}
+.tl-v-type-edu{background:transparent;color:var(--text2);border-color:#00000026}
+
+@media(max-width:768px){
+  .tl-item-left,.tl-item-right{text-align:left;padding-left:20px;padding-right:0;}
+  .tl-item-left .tl-bullets li::after{display:none;}
+  .tl-item-left .tl-bullets li{padding-left:14px;padding-right:0;}
+  .tl-logo-wrap-left{justify-content:flex-start;}
+  .tl-date-left{justify-content:flex-start;}
+  .tl-dot-left,.tl-dot-right{left:-20px;right:auto;}
+  .tl-vertical{margin:40px 0 0;max-width:100%;}
+  .tl-v-line{left:16px;transform:none;}
+  .tl-v-item{display:block;margin-bottom:22px;}
+  .tl-v-item:last-child{margin-bottom:0;}
+  .tl-v-dot{left:16px;top:18px;}
+  .tl-left,.tl-right{display:block;}
+  .tl-v-card-top{gap:10px;}
+  .tl-v-logo{width:42px;height:42px;border-radius:14px;}
+  .tl-v-badge-current{width:100%;margin-left:0;text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<section id="experience">
+  <div class="container">
+    <span class="sec-label" data-aos="fade-up">Career</span>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">Journey & Graduation</h2>
+    <div class="accent-line" data-aos="fade-up" data-aos-delay="100"></div>
+
+    <div class="tl-vertical">
+      <div class="tl-v-line"></div>
+
+      <!-- The Factual — RIGHT -->
+      <div class="tl-v-item tl-right" data-aos="fade-left">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+              <img src="Images/companies/factual_logo.png" alt="The Factual"/>
+            </div>
+            <div>
+              <div class="tl-v-role">Software Engineer</div>
+              <div class="tl-v-company">The Factual Holding Co.</div>
+            </div>
+            <span class="tl-v-badge-current">Current</span>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            Jan 2026 – Present
+          </div>
+          <ul class="tl-v-bullets">
+            <li>Built telehealth infrastructure connecting a doctor network to B2B telehealth brands.</li>
+            <li>Owned a project end-to-end — designed the backend on Redis, Kafka and Postgres.</li>
+            <li>Developed a cross-platform affiliate system for brand sponsorships and influencer videos.</li>
+            <li>Designed an AI image/video generation platform with multi-provider strategy and fallbacks.</li>
+            <li>Implemented Grafana, Meta Pixel and PostHog with cross-domain tracking scripts.</li>
+          </ul>
+          <div class="tl-v-type">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="4" width="11" height="8" rx="1"/><path d="M4 4V3a2 2 0 0 1 5 0v1"/>
+            </svg>Work
+          </div>
+        </div>
+      </div>
+
+      <!-- OneIOT — LEFT -->
+      <div class="tl-v-item tl-left" data-aos="fade-right">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+              <img src="Images/companies/oneiot_logo.jpeg" alt="OneIOT"/>
+            </div>
+            <div>
+              <div class="tl-v-role">Software Engineer</div>
+              <div class="tl-v-company">OneIOT — Hyderabad, TS</div>
+            </div>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            Jun 2025 – Jan 2026
+          </div>
+          <ul class="tl-v-bullets">
+            <li>Led full-stack feature development across web and mobile portals.</li>
+            <li>Delivered 4–5 PoC projects in 1–2 days each for client demos.</li>
+            <li>Integrated Custom Reporting Dashboard in React Web & React Native.</li>
+            <li>Led MongoDB to CassandraDB migration for high-volume data.</li>
+            <li>Migrated frontend to ShadCN/recharts, integrated 3D Digital Twin.</li>
+          </ul>
+          <div class="tl-v-type">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="4" width="11" height="8" rx="1"/><path d="M4 4V3a2 2 0 0 1 5 0v1"/>
+            </svg>Work
+          </div>
+        </div>
+      </div>
+
+      <!-- 86 Agency — RIGHT -->
+      <div class="tl-v-item tl-right" data-aos="fade-left">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+              <img src="Images/companies/86agency_logo.jpeg" alt="86 Agency"/>
+            </div>
+            <div>
+              <div class="tl-v-role">Software Developer</div>
+              <div class="tl-v-company">86 Agency — Gurugram, HR</div>
+            </div>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            Jun 2023 – Jun 2025
+          </div>
+          <ul class="tl-v-bullets">
+            <li>Built 20+ web apps with React, Node.js, Python and Django.</li>
+            <li>Integrated Apple & Google Passes for 3 international clients.</li>
+            <li>Completed wallet integration in 2 months vs. planned 4.</li>
+            <li>Built React Native video call app with WebSocket messaging.</li>
+            <li>Managed 15+ AWS deployments with Docker and Jenkins CI/CD.</li>
+          </ul>
+          <div class="tl-v-type">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="4" width="11" height="8" rx="1"/><path d="M4 4V3a2 2 0 0 1 5 0v1"/>
+            </svg>Work
+          </div>
+        </div>
+      </div>
+
+      <!-- Pesto — LEFT -->
+      <div class="tl-v-item tl-left" data-aos="fade-right">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+              <img src="Images/companies/PestoTech_Logo.jpeg" alt="Pesto"/>
+            </div>
+            <div>
+              <div class="tl-v-role">Engineering Fellow</div>
+              <div class="tl-v-company">Pesto Tech — Remote, San Francisco</div>
+            </div>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            Jul 2023 – Sept 2024
+          </div>
+          <ul class="tl-v-bullets">
+            <li>10-month intensive MERN stack program.</li>
+            <li>Led a team of 5 building a Hospital Management System.</li>
+          </ul>
+          <div class="tl-v-type tl-v-type-edu">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6.5 1l6 3.5-6 3.5L.5 4.5 6.5 1z"/><path d="M3 7v3a3.5 3.5 0 0 0 7 0V7"/>
+            </svg>Fellowship
+          </div>
+        </div>
+      </div>
+
+      <!-- Masai — RIGHT -->
+      <div class="tl-v-item tl-right" data-aos="fade-left">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+              <img src="Images/companies/masai_logo.jpeg" alt="Masai"/>
+            </div>
+            <div>
+              <div class="tl-v-role">Full Stack Trainee</div>
+              <div class="tl-v-company">Masai School — Bengaluru, KA</div>
+            </div>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            Aug 2022 – May 2023
+          </div>
+          <ul class="tl-v-bullets">
+            <li>1200+ hours hands-on coding, 800+ DSA problems solved.</li>
+            <li>Mastered MERN stack, TypeScript, and UI frameworks.</li>
+          </ul>
+          <div class="tl-v-type tl-v-type-edu">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6.5 1l6 3.5-6 3.5L.5 4.5 6.5 1z"/><path d="M3 7v3a3.5 3.5 0 0 0 7 0V7"/>
+            </svg>Education
+          </div>
+        </div>
+      </div>
+
+      <!-- B.C.A — LEFT -->
+      <div class="tl-v-item tl-left" data-aos="fade-right">
+        <div class="tl-v-dot"><div class="tl-v-dot-inner"></div></div>
+        <div class="tl-v-card">
+          <div class="tl-v-card-top">
+            <div class="tl-v-logo">
+             <img src="Images/companies/kluniversity_logo.jpeg" alt="University"/>
+            </div>
+            <div>
+              <div class="tl-v-role">B.C.A — Computer Applications</div>
+              <div class="tl-v-company">KL University A.P.</div>
+            </div>
+          </div>
+          <div class="tl-v-date">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="2" width="11" height="10" rx="1"/><path d="M1 5h11M4 1v2M9 1v2"/>
+            </svg>
+            2025 – 2028
+          </div>
+          <div class="tl-v-type tl-v-type-edu">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6.5 1l6 3.5-6 3.5L.5 4.5 6.5 1z"/><path d="M3 7v3a3.5 3.5 0 0 0 7 0V7"/>
+            </svg>Education
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

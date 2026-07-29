@@ -9,7 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{
-    --violet:#6655d2;--violet-deep:#3b2a7a;--violet-lift:#8f83e4;
+    /* the line is ink now, not violet. Three steps so the drawn stroke still
+       has some shine rather than reading as a flat black rule. */
+    --line:#0a0a0a;--line-mid:#3a3a3a;--line-soft:#6b6b6b;
     --ink:#0a0a0a;--text:#0a0a0a;--text2:#6b6b6b;--muted:#a3a3a3;
     --bg:#fff;--card:#fff;--border:rgba(0,0,0,.10);
     --font:'Google Sans Flex','Manrope',ui-sans-serif,system-ui,sans-serif;
@@ -20,22 +22,25 @@
   .container{max-width:1200px;margin:0 auto;padding:0 40px}
 
   .sec-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--violet);margin-bottom:12px;display:block}
+    color:var(--line);margin-bottom:12px;display:block}
   .section-title{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;
     margin-bottom:14px;letter-spacing:-.02em}
   .accent-line{width:48px;height:3px;border-radius:4px;margin-bottom:20px;
-    background:linear-gradient(90deg,var(--violet),var(--violet-deep))}
+    background:linear-gradient(90deg,var(--line),var(--line-soft))}
   .lede{font-size:15px;color:var(--text2);max-width:52ch}
 
-  #journey{padding:110px 0 40px}
+  #journey{padding:110px 0 40px;position:relative;overflow:hidden}
+  /* ambient outlines, same idea as the hero but dark on white */
+  #jrGeo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  #journey .container{position:relative;z-index:1}
   /* the line and the cards share one coordinate space; JS sizes this and
      positions everything inside it from the same measurements */
   .jr-wrap{position:relative;margin-top:70px}
   .jr-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 
   .jr-track{fill:none;stroke:rgba(0,0,0,.13);stroke-width:2.5;stroke-linecap:round}
-  .jr-glow{fill:none;stroke:var(--violet);stroke-width:9;stroke-linecap:round;
-    filter:url(#jrBlur);opacity:.5}
+  .jr-glow{fill:none;stroke:var(--line);stroke-width:9;stroke-linecap:round;
+    filter:url(#jrBlur);opacity:.22}
   .jr-fill{fill:none;stroke:url(#jrGrad);stroke-width:3.2;stroke-linecap:round}
   .jr-lead{stroke:rgba(0,0,0,.16);stroke-width:1;fill:none;
     opacity:0;transition:opacity .5s ease}
@@ -46,43 +51,54 @@
     background:var(--bg);border:2.5px solid rgba(0,0,0,.18);
     transform:translate(-50%,-50%);z-index:3;
     transition:border-color .45s ease,box-shadow .45s ease,transform .45s ease}
-  .jr-item.is-in .jr-node{border-color:var(--violet);
-    box-shadow:0 0 0 5px rgba(102,85,210,.16),0 0 18px rgba(102,85,210,.5);
+  .jr-item.is-in .jr-node{border-color:var(--line);
+    box-shadow:0 0 0 5px rgba(0,0,0,.10),0 0 16px rgba(0,0,0,.30);
     transform:translate(-50%,-50%) scale(1.12)}
   .jr-year{position:absolute;z-index:3;font-size:13px;font-weight:700;letter-spacing:.04em;
     color:var(--muted);transform:translateY(-50%);white-space:nowrap;
     transition:color .45s ease}
-  .jr-item.is-in .jr-year{color:var(--violet)}
+  .jr-item.is-in .jr-year{color:var(--line)}
 
   /* card */
+  /* Capsule rather than a true ellipse: an ellipse clips the corners of a
+     bullet list badly, while a stadium radius reads as oval and keeps every
+     line readable. The wide horizontal padding is what stops text running
+     into the curved ends. */
   .jr-card{position:absolute;z-index:2;
-    background:var(--card);border:1px solid var(--border);border-radius:18px;
-    padding:20px 22px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);
+    background:var(--card);border:1px solid var(--border);border-radius:999px;
+    padding:26px 54px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);
+    display:flex;align-items:center;gap:22px;
     opacity:0;transition:opacity .6s cubic-bezier(.4,0,.2,1),
       transform .6s cubic-bezier(.4,0,.2,1),border-color .5s ease,box-shadow .5s ease}
   /* slides in from its own side, so the pair reads as hanging off the line */
   .jr-item.side-r .jr-card{transform:translateX(26px)}
   .jr-item.side-l .jr-card{transform:translateX(-26px)}
   .jr-item.is-in .jr-card{opacity:1;transform:translateX(0)}
-  .jr-item.is-in .jr-card{border-color:rgba(102,85,210,.30);
-    box-shadow:0 1px 2px rgba(0,0,0,.04),0 14px 38px rgba(102,85,210,.14)}
+  .jr-item.is-in .jr-card{border-color:rgba(0,0,0,.20);
+    box-shadow:0 1px 2px rgba(0,0,0,.05),0 16px 40px rgba(0,0,0,.13)}
 
-  .jr-top{display:flex;align-items:center;gap:12px;margin-bottom:9px}
-  .jr-logo{width:42px;height:42px;border-radius:13px;flex-shrink:0;overflow:hidden;
+  /* the mark gets its own column at the left of the capsule, centred against
+     the full height of the card rather than the first line of text */
+  .jr-logo{width:78px;height:78px;border-radius:16px;flex-shrink:0;overflow:hidden;
     display:flex;align-items:center;justify-content:center;background:#fafafa;
     border:1px solid var(--border)}
-  .jr-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
-  .jr-role{font-weight:700;font-size:1rem;line-height:1.25}
-  .jr-co{font-size:12px;font-weight:600;color:var(--violet)}
-  .jr-badge{margin-left:auto;font-size:9.5px;font-weight:700;letter-spacing:.06em;
-    text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap;
-    background:rgba(102,85,210,.09);color:var(--violet);border:1px solid rgba(102,85,210,.22)}
+  .jr-logo img{width:100%;height:100%;object-fit:cover;padding:5px;border-radius:16px}
+  /* mark and badge share the left column. The badge used to sit at the far
+     right of the row, where the capsule's curve leaves almost no clearance. */
+  .jr-aside{display:flex;flex-direction:column;align-items:center;gap:11px;flex-shrink:0}
+  .jr-body{min-width:0;flex:1}
+  .jr-top{margin-bottom:7px}
+  .jr-role{font-weight:700;font-size:1.14rem;line-height:1.24;letter-spacing:-.01em}
+  .jr-co{font-size:13px;font-weight:600;color:var(--line-soft)}
+  .jr-badge{font-size:9.5px;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;padding:4px 10px;border-radius:100px;white-space:nowrap;
+    background:rgba(0,0,0,.05);color:var(--line);border:1px solid rgba(0,0,0,.12)}
   .jr-badge.now{background:rgba(34,197,94,.10);color:#16a34a;border-color:rgba(34,197,94,.28)}
-  .jr-date{font-size:11.5px;color:var(--text2);font-weight:500;margin-bottom:10px}
-  .jr-list{list-style:none;display:grid;gap:5px}
-  .jr-list li{font-size:12px;color:var(--text2);line-height:1.55;padding-left:14px;position:relative}
-  .jr-list li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;
-    border-radius:50%;background:var(--violet)}
+  .jr-date{font-size:12.5px;color:var(--text2);font-weight:500;margin-bottom:11px}
+  .jr-list{list-style:none;display:grid;gap:6px}
+  .jr-list li{font-size:13px;color:var(--text2);line-height:1.5;padding-left:15px;position:relative}
+  .jr-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;
+    border-radius:50%;background:var(--line)}
 
   .after{height:60vh;display:grid;place-items:center;color:var(--muted);font-size:13px}
 
@@ -95,19 +111,20 @@
 <body>
 
 <section id="journey">
+  <canvas id="jrGeo"></canvas>
   <div class="container">
     <span class="sec-label">Career</span>
     <h2 class="section-title">Journey &amp; Graduation</h2>
     <div class="accent-line"></div>
-    <p class="lede">Scroll to follow the line. Every stop is a place I shipped something.</p>
+    <p class="lede">Scroll to follow the line, from the first thing I built to what I am building now.</p>
 
     <div class="jr-wrap" id="jrWrap">
       <svg class="jr-svg" id="jrSvg" aria-hidden="true">
         <defs>
           <linearGradient id="jrGrad" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%"   stop-color="#3b2a7a"/>
-            <stop offset="55%"  stop-color="#6655d2"/>
-            <stop offset="100%" stop-color="#8f83e4"/>
+            <stop offset="0%"   stop-color="#000000"/>
+            <stop offset="52%"  stop-color="#1c1c1c"/>
+            <stop offset="100%" stop-color="#4a4a4a"/>
           </linearGradient>
           <filter id="jrBlur" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="6"/>
@@ -117,7 +134,7 @@
         <path class="jr-glow"  id="jrGlow"/>
         <path class="jr-fill"  id="jrFill"/>
         <g id="jrLeads"></g>
-        <circle id="jrHead" r="5" fill="#fff" stroke="url(#jrGrad)" stroke-width="3" opacity="0"/>
+        <circle id="jrHead" r="5" fill="#fff" stroke="#0a0a0a" stroke-width="3" opacity="0"/>
       </svg>
       <!-- nodes, years and cards are injected here -->
     </div>
@@ -132,29 +149,27 @@
 
    One serpentine path is generated from the data rather than hardcoded, so
    the curve adapts to the number of stops and to the viewport. Three copies
-   of that path are stacked: a grey track, a blurred violet glow, and the
+   of that path are stacked: a grey track, a blurred ink glow, and the
    gradient stroke that draws in. The draw is a dashoffset tied to scroll,
    and each stop lights up as the line reaches its node.
 ════════════════════════════════════════════════════════════════════════ */
 const STOPS = [
   {
-    year: '2026', role: 'Software Engineer', co: 'The Factual Holding Co.',
-    date: 'Jan 2026 - Present', badge: 'Current', now: true,
-    logo: 'Images/companies/factual_logo.png',
+    year: '2022', role: 'Full Stack Trainee', co: 'Masai School, Bengaluru',
+    date: 'Aug 2022 - May 2023', badge: 'Education',
+    logo: 'Images/companies/masai_logo.jpeg',
     points: [
-      'Built telehealth infrastructure connecting a doctor network to B2B brands.',
-      'Owned a project end to end on Redis, Kafka and Postgres.',
-      'Designed an AI image and video platform with multi-provider fallbacks.',
+      '1200+ hours of hands on coding and 800+ DSA problems solved.',
+      'Mastered the MERN stack, TypeScript and UI frameworks.',
     ],
   },
   {
-    year: '2025', role: 'Software Engineer', co: 'OneIOT, Hyderabad',
-    date: 'Jun 2025 - Jan 2026', badge: 'Work',
-    logo: 'Images/companies/oneiot_logo.jpeg',
+    year: '2023', role: 'Engineering Fellow', co: 'Pesto Tech, Remote',
+    date: 'Jul 2023 - Sept 2024', badge: 'Fellowship',
+    logo: 'Images/companies/PestoTech_Logo.jpeg',
     points: [
-      'Led full stack feature work across web and mobile portals.',
-      'Delivered 4 to 5 proof of concepts in 1 to 2 days each.',
-      'Led the MongoDB to CassandraDB migration for high volume data.',
+      '10 month intensive MERN stack program.',
+      'Led a team of 5 building a Hospital Management System.',
     ],
   },
   {
@@ -168,28 +183,30 @@ const STOPS = [
     ],
   },
   {
-    year: '2023', role: 'Engineering Fellow', co: 'Pesto Tech, Remote',
-    date: 'Jul 2023 - Sept 2024', badge: 'Fellowship',
-    logo: 'Images/companies/PestoTech_Logo.jpeg',
-    points: [
-      '10 month intensive MERN stack program.',
-      'Led a team of 5 building a Hospital Management System.',
-    ],
-  },
-  {
-    year: '2022', role: 'Full Stack Trainee', co: 'Masai School, Bengaluru',
-    date: 'Aug 2022 - May 2023', badge: 'Education',
-    logo: 'Images/companies/masai_logo.jpeg',
-    points: [
-      '1200+ hours of hands on coding and 800+ DSA problems solved.',
-      'Mastered the MERN stack, TypeScript and UI frameworks.',
-    ],
-  },
-  {
     year: '2025', role: 'B.C.A, Computer Applications', co: 'KL University, A.P.',
     date: '2025 - 2028', badge: 'Education',
     logo: 'Images/companies/kluniversity_logo.jpeg',
     points: ['Bachelor of Computer Applications, alongside full time work.'],
+  },
+  {
+    year: '2025', role: 'Software Engineer', co: 'OneIOT, Hyderabad',
+    date: 'Jun 2025 - Jan 2026', badge: 'Work',
+    logo: 'Images/companies/oneiot_logo.jpeg',
+    points: [
+      'Led full stack feature work across web and mobile portals.',
+      'Delivered 4 to 5 proof of concepts in 1 to 2 days each.',
+      'Led the MongoDB to CassandraDB migration for high volume data.',
+    ],
+  },
+  {
+    year: '2026', role: 'Software Engineer', co: 'The Factual Holding Co.',
+    date: 'Jan 2026 - Present', badge: 'Current', now: true,
+    logo: 'Images/companies/factual_logo.png',
+    points: [
+      'Built telehealth infrastructure connecting a doctor network to B2B brands.',
+      'Owned a project end to end on Redis, Kafka and Postgres.',
+      'Designed an AI image and video platform with multi-provider fallbacks.',
+    ],
   },
 ];
 
@@ -209,15 +226,19 @@ const items = STOPS.map((s, i) => {
     '<span class="jr-node"></span>' +
     '<span class="jr-year">' + s.year + '</span>' +
     '<div class="jr-card">' +
-      '<div class="jr-top">' +
+      '<div class="jr-aside">' +
         '<div class="jr-logo"><img src="' + s.logo + '" alt="" ' +
           'onerror="this.style.display=\'none\'"/></div>' +
-        '<div><div class="jr-role">' + s.role + '</div>' +
-        '<div class="jr-co">' + s.co + '</div></div>' +
         '<span class="jr-badge' + (s.now ? ' now' : '') + '">' + s.badge + '</span>' +
       '</div>' +
-      '<div class="jr-date">' + s.date + '</div>' +
-      '<ul class="jr-list">' + s.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' +
+      '<div class="jr-body">' +
+        '<div class="jr-top">' +
+          '<div class="jr-role">' + s.role + '</div>' +
+          '<div class="jr-co">' + s.co + '</div>' +
+        '</div>' +
+        '<div class="jr-date">' + s.date + '</div>' +
+        '<ul class="jr-list">' + s.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' +
+      '</div>' +
     '</div>';
   wrap.appendChild(el);
   return {
@@ -299,7 +320,7 @@ function layout() {
     it.t = ((lo + hi) / 2) / pathLen;
   });
 
-  const cardW = narrow ? Math.min(W - 58, 460) : Math.min(W * 0.44, 470);
+  const cardW = narrow ? Math.min(W - 52, 500) : Math.min(W * 0.50, 580);
 
   items.forEach((it, i) => {
     const p = pts[i];
@@ -369,13 +390,91 @@ function requestTick() {
 }
 
 window.addEventListener('scroll', requestTick, { passive: true });
-window.addEventListener('resize', () => { layout(); onScroll(); });
+window.addEventListener('resize', () => { layout(); onScroll(); if (window.__jrGeoResize) window.__jrGeoResize(); });
+
+/* ══ drifting geometry ══════════════════════════════════════════════════
+   Outlined shapes wandering slowly behind the line, so the white field is
+   not just empty. Dark strokes at low opacity here, the inverse of the hero.
+   Stroke only, no fills, so the cost is negligible. */
+(function () {
+  const cv = document.getElementById('jrGeo');
+  const ctx = cv.getContext('2d');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const host = document.getElementById('journey');
+  let W = 0, H = 0, items = [], running = true, rafId = 0;
+
+  function build() {
+    const KINDS = ['circle', 'square', 'triangle', 'line', 'ring'];
+    const n = W < 700 ? 9 : 15;
+    items = Array.from({ length: n }, (_, i) => ({
+      kind: KINDS[i % KINDS.length],
+      x: Math.random() * W, y: Math.random() * H,
+      r: 22 + Math.random() * 78,
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.0014,
+      vx: (Math.random() - 0.5) * 0.14,
+      vy: -0.04 - Math.random() * 0.13,
+      a: 0.05 + Math.random() * 0.07,
+    }));
+  }
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const r = host.getBoundingClientRect();
+    W = r.width; H = host.offsetHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    build();
+  }
+  function shape(o) {
+    ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot);
+    ctx.strokeStyle = 'rgba(0,0,0,' + o.a + ')';
+    ctx.lineWidth = 1.6; ctx.beginPath();
+    if (o.kind === 'circle' || o.kind === 'ring') {
+      ctx.arc(0, 0, o.r, 0, Math.PI * 2);
+      if (o.kind === 'ring') { ctx.moveTo(o.r * 0.55, 0); ctx.arc(0, 0, o.r * 0.55, 0, Math.PI * 2); }
+    } else if (o.kind === 'square') {
+      ctx.rect(-o.r * 0.7, -o.r * 0.7, o.r * 1.4, o.r * 1.4);
+    } else if (o.kind === 'triangle') {
+      ctx.moveTo(0, -o.r); ctx.lineTo(o.r * 0.87, o.r * 0.5);
+      ctx.lineTo(-o.r * 0.87, o.r * 0.5); ctx.closePath();
+    } else { ctx.moveTo(-o.r * 1.6, 0); ctx.lineTo(o.r * 1.6, 0); }
+    ctx.stroke(); ctx.restore();
+  }
+  function frame() {
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    for (const o of items) {
+      if (!reduced) {
+        o.x += o.vx; o.y += o.vy; o.rot += o.vr;
+        const m = o.r * 2;
+        if (o.y < -m) { o.y = H + m; o.x = Math.random() * W; }
+        if (o.x < -m) o.x = W + m;
+        if (o.x > W + m) o.x = -m;
+      }
+      shape(o);
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((es) => {
+      const vis = es[0].isIntersecting;
+      if (vis === running) return;
+      running = vis;
+      if (running) rafId = requestAnimationFrame(frame); else cancelAnimationFrame(rafId);
+    }, { rootMargin: '120px' }).observe(host);
+  }
+  window.addEventListener('resize', resize);
+  window.__jrGeoResize = resize;
+  resize();
+  rafId = requestAnimationFrame(frame);
+})();
 
 layout();
 onScroll();
+if (window.__jrGeoResize) window.__jrGeoResize();
 // card heights shift once the webfont lands, so measure again after it does
 if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => { layout(); onScroll(); });
+  document.fonts.ready.then(() => { layout(); onScroll(); if (window.__jrGeoResize) window.__jrGeoResize(); });
 }
 </script>
 </body>

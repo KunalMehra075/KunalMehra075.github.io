@@ -297,39 +297,100 @@ p{color:var(--text2);}
   font-size:12px;font-style:italic;color:var(--muted);
   pointer-events:none;user-select:none;
 }
-/* ── EXPERIENCE ──────────────────────────────────────────────── */
-#experience{padding:100px 0;background:var(--bg);border-top:1px solid var(--border)}
-.tl-vertical{position:relative;margin:64px auto 0;max-width:960px}
-.tl-v-line{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--violet),var(--violet-deep),var(--ink3,#8a8a8a));border-radius:2px;z-index:0}
-.tl-v-item{position:relative;width:100%;margin-bottom:-50px;display:flex}
-.tl-v-date-left{position:absolute;top:2%;left:42%;transform:translateX(-50%);font-size:11px;color:var(--text2);font-weight:500}
-.tl-v-item:last-child{margin-bottom:0}
-.tl-v-dot{position:absolute;left:50%;top:20px;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--violet);box-shadow:0 0 0 5px rgba(102,85,210,.14);display:flex;align-items:center;justify-content:center;z-index:2;flex-shrink:0}
-.tl-v-dot-inner{width:7px;height:7px;border-radius:50%;background:var(--violet)}
-.tl-v-card{width:47%;background:var(--card);border:1px solid var(--border);border-radius:var(--r2,16px);padding:22px 24px;box-shadow:var(--shadow);transition:box-shadow .3s,transform .3s;position:relative;z-index:1}
-.tl-v-card:hover{transform:translateY(-3px);box-shadow:0 14px 44px #00000012,0 0 0 1px #0000000d}
-.tl-left{justify-content:flex-start}
-.tl-left .tl-v-card{margin-right:auto;margin-left:0}
-.tl-left .tl-v-card::after{content:'';position:absolute;top:24px;right:-8px;width:14px;height:14px;background:var(--card);border-top:1px solid var(--border);border-right:1px solid var(--border);transform:rotate(45deg)}
-.tl-right{justify-content:flex-end}
-.tl-right .tl-v-card{margin-left:auto;margin-right:0}
-.tl-right .tl-v-card::after{content:'';position:absolute;top:24px;left:-8px;width:14px;height:14px;background:var(--card);border-bottom:1px solid var(--border);border-left:1px solid var(--border);transform:rotate(45deg)}
-.tl-v-card-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
-.tl-v-logo{width:50px;height:50px;border-radius:18px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.tl-v-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
-.tl-v-role{font-family:var(--font);font-weight:700;font-size:.98rem;color:var(--text);margin-bottom:2px}
-.tl-v-company{font-size:12px;font-weight:600;color:var(--violet)}
-.tl-v-badge-current{margin-left:auto;padding:3px 10px;background:#22c55e1a;color:#16a34a;border:1px solid #22c55e40;border-radius:100px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0}
-.tl-v-date{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:12px}
-.tl-v-date svg{width:13px;height:13px;flex-shrink:0}
-.tl-v-bullets{list-style:none;display:grid;gap:5px;margin-bottom:14px}
-.tl-v-bullets li{font-size:12px;color:var(--text2);padding-left:14px;position:relative;line-height:1.55}
-.tl-v-bullets li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--violet)}
-.tl-v-type{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:rgba(102,85,210,.09);color:var(--violet);border:1px solid rgba(102,85,210,.22)}
-.tl-v-type svg{width:11px;height:11px}
-/* education/fellowship reads as an outlined pill against work's filled one — the
-   work/study distinction survives without needing a second hue */
-.tl-v-type-edu{background:transparent;color:var(--text2);border-color:#00000026}
+/* ── EXPERIENCE — the journey line ────────────────────────────────────
+   A serpentine path that fills as you scroll, with each stop lighting up as
+   the line reaches it. Below 768px the curve has nowhere to go, so a
+   straight-rail build takes over and this one is hidden. See JS/journey.js. */
+#experience{padding:110px 0 60px;background:var(--bg);border-top:1px solid var(--border);position:relative;overflow:hidden}
+/* ambient outlines drifting behind the line: the same idea as the hero, but
+   dark strokes on white rather than the inverse */
+#jrGeo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#experience .container{position:relative;z-index:1}
+.jr-lede{font-size:15px;color:var(--text2);max-width:52ch;margin-top:-18px}
+
+.jr-wrap{position:relative;margin-top:64px}
+.jr-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.jr-track{fill:none;stroke:rgba(0,0,0,.12);stroke-width:3;stroke-linecap:round}
+.jr-glow{fill:none;stroke:var(--ink);stroke-width:10;stroke-linecap:round;filter:url(#jrBlur);opacity:.20}
+.jr-fill{fill:none;stroke:url(#jrGrad);stroke-width:4;stroke-linecap:round}
+.jr-lead{stroke:rgba(0,0,0,.16);stroke-width:1;fill:none;opacity:0;transition:opacity .5s ease}
+.jr-item.is-in .jr-lead{opacity:1}
+
+.jr-node{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--bg);
+  border:2.5px solid rgba(0,0,0,.18);transform:translate(-50%,-50%);z-index:3;
+  transition:border-color .45s ease,box-shadow .45s ease,transform .45s ease}
+.jr-item.is-in .jr-node{border-color:var(--ink);
+  box-shadow:0 0 0 5px rgba(0,0,0,.10),0 0 16px rgba(0,0,0,.30);
+  transform:translate(-50%,-50%) scale(1.12)}
+.jr-year{position:absolute;z-index:3;font-size:13px;font-weight:700;letter-spacing:.04em;
+  color:var(--muted);transform:translateY(-50%);white-space:nowrap;transition:color .45s ease}
+.jr-item.is-in .jr-year{color:var(--ink)}
+
+/* capsule, not a true ellipse: an ellipse clips the corners of a bullet list,
+   while a stadium radius reads as oval and keeps every line readable */
+.jr-card{position:absolute;z-index:2;background:var(--card);border:1px solid var(--border);
+  border-radius:999px;padding:26px 54px;display:flex;align-items:center;gap:22px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);opacity:0;
+  transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1),
+    border-color .5s ease,box-shadow .5s ease}
+.jr-item.side-r .jr-card{transform:translateX(26px)}
+.jr-item.side-l .jr-card{transform:translateX(-26px)}
+.jr-item.is-in .jr-card{opacity:1;transform:translateX(0);border-color:rgba(0,0,0,.20);
+  box-shadow:0 1px 2px rgba(0,0,0,.05),0 16px 40px rgba(0,0,0,.13)}
+
+/* mark and badge share the left column; the badge at the far right of the row
+   had almost no clearance against the capsule's curve */
+.jr-aside{display:flex;flex-direction:column;align-items:center;gap:11px;flex-shrink:0}
+.jr-logo{width:78px;height:78px;border-radius:16px;flex-shrink:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:#fafafa;border:1px solid var(--border)}
+.jr-logo img{width:100%;height:100%;object-fit:contain;padding:5px}
+.jr-body{min-width:0;flex:1}
+.jr-top{margin-bottom:7px}
+.jr-role{font-weight:700;font-size:1.14rem;line-height:1.24;letter-spacing:-.01em;color:var(--text)}
+.jr-co{font-size:13px;font-weight:600;color:var(--text2)}
+.jr-badge{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;white-space:nowrap;
+  background:rgba(0,0,0,.05);color:var(--ink);border:1px solid rgba(0,0,0,.12)}
+.jr-badge.now{background:rgba(34,197,94,.10);color:#16a34a;border-color:rgba(34,197,94,.28)}
+.jr-date{font-size:12.5px;color:var(--text2);font-weight:500;margin-bottom:11px}
+.jr-list{list-style:none;display:grid;gap:6px}
+.jr-list li{font-size:13px;color:var(--text2);line-height:1.5;padding-left:15px;position:relative}
+.jr-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;
+  border-radius:50%;background:var(--ink)}
+
+/* ── phones: straight rail, square cards, all to one side ── */
+.jr-mobile{display:none;position:relative;margin-top:44px;padding-left:34px}
+.jm-rail{position:absolute;left:7px;top:6px;bottom:6px;width:3px;border-radius:3px;
+  background:rgba(0,0,0,.11);overflow:hidden}
+.jm-fill{position:absolute;left:0;top:0;width:100%;height:0;border-radius:3px;
+  background:linear-gradient(180deg,#4a4a4a,#0a0a0a)}
+.jm-item{position:relative;margin-bottom:20px}
+.jm-item:last-child{margin-bottom:0}
+.jm-dot{position:absolute;left:-32px;top:26px;width:15px;height:15px;border-radius:50%;
+  background:var(--bg);border:2.5px solid rgba(0,0,0,.18);transition:border-color .4s ease,box-shadow .4s ease}
+.jm-item.is-in .jm-dot{border-color:var(--ink);box-shadow:0 0 0 4px rgba(0,0,0,.09)}
+/* square cards here: the capsule wastes most of a phone's width on its ends */
+.jm-card{background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:18px;display:flex;align-items:flex-start;gap:14px;position:relative;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 22px rgba(0,0,0,.05);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .5s ease,transform .5s ease,border-color .4s ease}
+.jm-item.is-in .jm-card{opacity:1;transform:none;border-color:rgba(0,0,0,.16)}
+.jm-year{position:absolute;top:-9px;left:16px;font-size:10px;font-weight:700;letter-spacing:.08em;
+  background:var(--bg);padding:0 7px;color:var(--muted)}
+.jm-item.is-in .jm-year{color:var(--ink)}
+.jm-card .jr-logo{width:54px;height:54px;border-radius:13px}
+.jm-card .jr-role{font-size:1rem}
+.jm-card .jr-co{font-size:12px}
+.jm-card .jr-date{font-size:11.5px;margin-bottom:9px}
+.jm-card .jr-list li{font-size:12px}
+.jm-card .jr-aside{gap:9px}
+.jm-card .jr-badge{font-size:9px;padding:3px 8px}
+
+/* closes the section off and, more practically, buys the last stop room to
+   arrive before the next section pushes into view */
+.jr-outro{text-align:center;font-size:13px;font-style:italic;color:var(--muted);
+  margin-top:26px;padding-bottom:40px}
 
 /* ── WEB PROJECTS — inverted band ─────────────────────────────────────
    The one dark section in the body, echoing the hero. Everything inside is
@@ -767,16 +828,6 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
   .about-right{min-height:360px;}
   .timeline-wrap{grid-template-columns:1fr;}
   .timeline-center{display:none;}
-  .tl-item-left,.tl-item-right{text-align:left;padding-left:20px;padding-right:0;}
-  .tl-item-left .tl-bullets li::after{display:none;}
-  .tl-item-left .tl-bullets li{padding-left:14px;padding-right:0;}
-  .tl-item-left .tl-bullets li::before{
-    content:'';position:absolute;left:0;top:8px;
-    width:4px;height:4px;border-radius:50%;background:var(--ink3);display:block;
-  }
-  .tl-logo-wrap-left{justify-content:flex-start;}
-  .tl-date-left{justify-content:flex-start;}
-  .tl-dot-left,.tl-dot-right{left:-20px;right:auto;}
   .mobile-grid{grid-template-columns:1fr;}
   .mobile-app-list{grid-template-columns:repeat(2,1fr);}
   .cv-cards{grid-template-columns:1fr;}
@@ -799,6 +850,12 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
   .pd-dots{margin-top:14px;gap:6px;}
   .pd-links{margin-top:18px;}
 
+  /* ── experience ── */
+  #experience{padding:80px 0 40px}
+  .jr-wrap{display:none}
+  .jr-mobile{display:block}
+  .jr-lede{font-size:14px;margin-top:-10px}
+
   /* ── hero ── */
   .hero-overlay{padding:0 20px}
   .hero-rail{font-size:9px;letter-spacing:.12em;padding-top:74px}
@@ -812,22 +869,6 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
   .hero-aside{bottom:96px;font-size:11.5px}
   .form-row{grid-template-columns:1fr;}
   .testi-card{width:280px;}
-
-  /* ── Career timeline → single rail on the left ── */
-  .tl-vertical{margin:40px 0 0;max-width:100%;}
-  .tl-v-line{left:16px;transform:none;}
-  .tl-v-item{display:block;margin-bottom:22px;}
-  .tl-v-item:last-child{margin-bottom:0;}
-  .tl-v-dot{left:16px;top:18px;}
-  .tl-left,.tl-right{display:block;}
-  .tl-left .tl-v-card,.tl-right .tl-v-card{
-    width:auto;margin:0 0 0 42px;padding:18px;
-  }
-  .tl-left .tl-v-card::after,.tl-right .tl-v-card::after{
-    left:-7px;right:auto;top:20px;
-    border:none;border-left:1px solid var(--border);border-bottom:1px solid var(--border);
-    transform:rotate(45deg);
-  }
 
   /* ── About / Venn diagram → fluid, scales to viewport ── */
   .venn-wrap{width:min(460px,90vw);height:auto;aspect-ratio:460/430;margin:0 auto;}
@@ -856,9 +897,6 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
   .about-title{font-size:1.8rem;}
 
   /* Career timeline */
-  .tl-v-card-top{gap:10px;}
-  .tl-v-logo{width:42px;height:42px;border-radius:14px;}
-  .tl-v-badge-current{width:100%;margin-left:0;text-align:left;}
 
   /* Web Projects (stacked) tweaks on small phones */
   .proj-thumb{height:170px;}
@@ -1394,7 +1432,10 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.08);padding:56p
 
 .pblur-top{top:0;height:110px;--pb-max:10px;--pb-dir:to bottom;opacity:0;transition:opacity .45s ease}
 .pblur-top.is-on{opacity:1}
-.pblur-bottom{bottom:0;height:140px;--pb-max:12px;--pb-dir:to top}
+.pblur-bottom{bottom:0;height:140px;--pb-max:12px;--pb-dir:to top;
+  opacity:1;transition:opacity .35s ease}
+/* the pinned projects panel puts its dots and buttons right in this band */
+.projects-pinned .pblur-bottom{opacity:0}
 
 /* masks: same band maths for both strips, direction comes from --pb-dir */
 .pblur span:nth-child(1){-webkit-mask-image:linear-gradient(var(--pb-dir),#000 80%,transparent 100%);mask-image:linear-gradient(var(--pb-dir),#000 80%,transparent 100%)}

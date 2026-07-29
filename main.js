@@ -1088,14 +1088,32 @@ function runEntrance() {
   // same trip point as the navbar, so the bar and the wash arrive together
   const ACTIVATE_AFTER = NAV_STICK_AT;
 
-  function arm() {
-    document.documentElement.classList.add("pb-ready");
+  /* While the projects section is pinned for its horizontal scroll it fills
+     the viewport, and the bottom wash lands directly on the carousel dots and
+     the card actions. Drop the bottom strip for exactly that stretch, then
+     bring it back once the section has been scrolled past. */
+  const projects = document.getElementById("web-projects-wrapper");
+  const root = document.documentElement;
 
-    const onScroll = () =>
+  function syncProjectsPin() {
+    if (!projects) return;
+    const r = projects.getBoundingClientRect();
+    // pinned == the sticky panel currently occupies the whole viewport
+    const pinned = r.top <= 1 && r.bottom >= window.innerHeight - 1;
+    root.classList.toggle("projects-pinned", pinned);
+  }
+
+  function arm() {
+    root.classList.add("pb-ready");
+
+    const onScroll = () => {
       topStrip.classList.toggle("is-on", window.scrollY > ACTIVATE_AFTER);
+      syncProjectsPin();
+    };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", syncProjectsPin);
   }
 
   if ("requestIdleCallback" in window) {
