@@ -11,7 +11,7 @@
   const XP = [
     {
       cat: 'edu', name: 'Masai School', role: 'Full Stack Trainee',
-      loc: 'Bengaluru, KA', logo: 'Images/companies/masai_logo.jpeg',
+      loc: 'Bengaluru, KA', logo: 'Images/journey/masai-logo.webp',
       start: 2022.62, end: 2023.42, label: 'Aug 2022 – May 2023',
       dur: '9 mos', type: 'Education',
       bullets: [
@@ -21,7 +21,7 @@
     },
     {
       cat: 'work', name: '86 Agency', role: 'Software Developer',
-      loc: 'Gurugram, HR', logo: 'Images/companies/86agency_logo.jpeg',
+      loc: 'Gurugram, HR', logo: 'Images/journey/86agency-logo.webp',
       start: 2023.42, end: 2025.42, label: 'Jun 2023 – Jun 2025',
       dur: '2 yrs', type: 'Work',
       bullets: [
@@ -34,7 +34,7 @@
     },
     {
       cat: 'edu', name: 'Pesto Tech', role: 'Engineering Fellow',
-      loc: 'Remote, San Francisco', logo: 'Images/companies/PestoTech_Logo.jpeg',
+      loc: 'Remote, San Francisco', logo: 'Images/journey/pestotech-logo.webp',
       start: 2023.50, end: 2024.75, label: 'Jul 2023 – Sept 2024',
       dur: '1 yr 2 mos', type: 'Fellowship',
       bullets: [
@@ -44,7 +44,7 @@
     },
     {
       cat: 'work', name: 'OneIOT', role: 'Software Engineer',
-      loc: 'Hyderabad, TS', logo: 'Images/companies/oneiot_logo.jpeg',
+      loc: 'Hyderabad, TS', logo: 'Images/journey/oneiot-logo.webp',
       start: 2025.42, end: 2026.00, label: 'Jun 2025 – Jan 2026',
       dur: '8 mos', type: 'Work',
       bullets: [
@@ -57,14 +57,14 @@
     },
     {
       cat: 'work', name: 'Bizmorphic Research', role: 'Software Engineer',
-      loc: 'Bizmorphic Research', logo: 'Images/companies/bizmorphic_research_logo.jpeg',
+      loc: 'Bizmorphic Research', logo: 'Images/archive/companies/bizmorphic_research_logo.jpeg',
       start: 2026.00, end: 2026.42, label: 'Jan 2026 – May 2026',
       dur: '5 mos', type: 'Work',
       bullets: ['Role details coming soon.']
     },
     {
       cat: 'work', name: 'Chapter', role: 'Software Engineer',
-      logo: 'Images/companies/chapter_logo.png',
+      logo: 'Images/archive/companies/chapter_logo.png',
       loc: 'Co-founded startup', start: 2026.08, end: 2026.42,
       label: 'Feb 2026 – Jun 2026', dur: '5 mos', type: 'Work',
       bullets: [
@@ -74,14 +74,14 @@
     },
     {
       cat: 'work', name: 'The Factual', role: 'Software Engineer',
-      logo: 'Images/companies/factual_logo.png',
+      logo: 'Images/journey/factual-logo.webp',
       loc: 'The Factual Holding Co.', start: 2026.42, end: 2026.46,
       label: 'Jun 2026 – Present', dur: 'New', type: 'Work', current: true,
       bullets: ['Role details coming soon.']
     },
     {
       cat: 'edu', name: 'KL University', role: 'B.C.A — Computer Applications',
-      loc: 'Andhra Pradesh', logo: 'Images/companies/kluniversity_logo.jpeg',
+      loc: 'Andhra Pradesh', logo: 'Images/journey/kluniversity-logo.webp',
       start: 2025.00, end: 2028.95, label: '2025 – 2028',
       dur: '3 yrs', type: 'Education',
       bullets: [

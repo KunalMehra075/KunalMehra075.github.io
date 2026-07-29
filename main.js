@@ -160,20 +160,20 @@ const projectData = [
     // runs locally against your own API keys, so there is no hosted demo
     site: null,
     github: "https://github.com/KunalMehra075/Alpha-shorts",
-    img: "Images/alpha-shorts/1.png",
+    img: "Images/projects/web/alpha-shorts/1.webp",
     gallery: [
-      "Images/alpha-shorts/1.png",
-      "Images/alpha-shorts/2.png",
-      "Images/alpha-shorts/3.png",
-      "Images/alpha-shorts/4.png",
-      "Images/alpha-shorts/5.png",
-      "Images/alpha-shorts/6.png",
-      "Images/alpha-shorts/7.png",
-      "Images/alpha-shorts/8.png",
-      "Images/alpha-shorts/9.png",
-      "Images/alpha-shorts/10.png",
-      "Images/alpha-shorts/11.png",
-      "Images/alpha-shorts/12.png",
+      "Images/projects/web/alpha-shorts/1.webp",
+      "Images/projects/web/alpha-shorts/2.webp",
+      "Images/projects/web/alpha-shorts/3.webp",
+      "Images/projects/web/alpha-shorts/4.webp",
+      "Images/projects/web/alpha-shorts/5.webp",
+      "Images/projects/web/alpha-shorts/6.webp",
+      "Images/projects/web/alpha-shorts/7.webp",
+      "Images/projects/web/alpha-shorts/8.webp",
+      "Images/projects/web/alpha-shorts/9.webp",
+      "Images/projects/web/alpha-shorts/10.webp",
+      "Images/projects/web/alpha-shorts/11.webp",
+      "Images/projects/web/alpha-shorts/12.webp",
     ],
   },
   {
@@ -201,18 +201,18 @@ const projectData = [
     },
     site: "https://mycal-704.netlify.app/",
     github: "https://github.com/KunalMehra075/MyCal.com-Frontend",
-    img: "Images/ProjectsImgs/mycal.jpg",
+    img: "Images/projects/web/mycal/cover.webp",
     gallery: [
-      "Images/ProjectsImgs/MyCal/Home Page.jpg",
-      "Images/ProjectsImgs/MyCal/Home Page2.jpg",
-      "Images/ProjectsImgs/MyCal/Dashboard.png",
-      "Images/ProjectsImgs/MyCal/Calendar.png",
-      "Images/ProjectsImgs/MyCal/calendarweekview.png",
-      "Images/ProjectsImgs/MyCal/fullcalendar.png",
-      "Images/ProjectsImgs/MyCal/createevent1.png",
-      "Images/ProjectsImgs/MyCal/createevent2.png",
-      "Images/ProjectsImgs/MyCal/workfflow.png",
-      "Images/ProjectsImgs/MyCal/Googleauth.png",
+      "Images/projects/web/mycal/home-page.webp",
+      "Images/projects/web/mycal/home-page2.webp",
+      "Images/projects/web/mycal/dashboard.webp",
+      "Images/projects/web/mycal/calendar.webp",
+      "Images/projects/web/mycal/calendarweekview.webp",
+      "Images/projects/web/mycal/fullcalendar.webp",
+      "Images/projects/web/mycal/createevent1.webp",
+      "Images/projects/web/mycal/createevent2.webp",
+      "Images/projects/web/mycal/workfflow.webp",
+      "Images/projects/web/mycal/googleauth.webp",
     ],
   },
   {
@@ -235,10 +235,10 @@ const projectData = [
     // not deployed yet, so the card and detail view fall back to the repo
     site: null,
     github: "https://github.com/KunalMehra075/TokensPoker",
-    img: "Images/ProjectsImgs/TokensPoker/hero.png",
+    img: "Images/projects/web/tokenspoker/hero.webp",
     gallery: [
-      "Images/ProjectsImgs/TokensPoker/hero.png",
-      "Images/ProjectsImgs/TokensPoker/2.png",
+      "Images/projects/web/tokenspoker/hero.webp",
+      "Images/projects/web/tokenspoker/2.webp",
     ],
   },
   {
@@ -259,15 +259,15 @@ const projectData = [
     },
     site: "https://acelegalservices.vercel.app/",
     github: "https://github.com/Mr-Soni532/young-zinc-6102",
-    img: "Images/ProjectsImgs/acelegal.png",
+    img: "Images/projects/web/acelegal/cover.webp",
     gallery: [
-      "Images/ProjectsImgs/AceLegal/home1.png",
-      "Images/ProjectsImgs/AceLegal/home2.png",
-      "Images/ProjectsImgs/AceLegal/lawyers.png",
-      "Images/ProjectsImgs/AceLegal/login.png",
-      "Images/ProjectsImgs/AceLegal/signup.png",
-      "Images/ProjectsImgs/AceLegal/Adminpanel.png",
-      "Images/ProjectsImgs/AceLegal/admin2.png",
+      "Images/projects/web/acelegal/home1.webp",
+      "Images/projects/web/acelegal/home2.webp",
+      "Images/projects/web/acelegal/lawyers.webp",
+      "Images/projects/web/acelegal/login.webp",
+      "Images/projects/web/acelegal/signup.webp",
+      "Images/projects/web/acelegal/adminpanel.webp",
+      "Images/projects/web/acelegal/admin2.webp",
     ],
   },
   {
@@ -289,19 +289,19 @@ const projectData = [
     },
     site: "https://orangefry.netlify.app/",
     github: "https://github.com/KunalMehra075/tame-ink-7589",
-    img: "Images/ProjectsImgs/orangefry.jpg",
+    img: "Images/projects/web/orangefry/cover.webp",
     gallery: [
-      "Images/ProjectsImgs/Orangefry/home1.jpg",
-      "Images/ProjectsImgs/Orangefry/home2.jpg",
-      "Images/ProjectsImgs/Orangefry/home3.jpg",
-      "Images/ProjectsImgs/Orangefry/Allproducts2.jpg",
-      "Images/ProjectsImgs/Orangefry/Oneproduct2.jpg",
-      "Images/ProjectsImgs/Orangefry/Review and feedback.jpg",
-      "Images/ProjectsImgs/Orangefry/adress.jpg",
-      "Images/ProjectsImgs/Orangefry/checkout.jpg",
-      "Images/ProjectsImgs/Orangefry/order summary.jpg",
-      "Images/ProjectsImgs/Orangefry/Admin Page.jpg",
-      "Images/ProjectsImgs/Orangefry/Edit product.jpg",
+      "Images/projects/web/orangefry/home1.webp",
+      "Images/projects/web/orangefry/home2.webp",
+      "Images/projects/web/orangefry/home3.webp",
+      "Images/projects/web/orangefry/allproducts2.webp",
+      "Images/projects/web/orangefry/oneproduct2.webp",
+      "Images/projects/web/orangefry/review-and-feedback.webp",
+      "Images/projects/web/orangefry/adress.webp",
+      "Images/projects/web/orangefry/checkout.webp",
+      "Images/projects/web/orangefry/order-summary.webp",
+      "Images/projects/web/orangefry/admin-page.webp",
+      "Images/projects/web/orangefry/edit-product.webp",
     ],
   },
 ];
@@ -513,13 +513,13 @@ const appData = [
     stack: ["React Native", "WebSocket"],
     live: "https://bucketick.com",
     screens: [
-      "Images/mobile-apps/bucketick/1.png",
-      "Images/mobile-apps/bucketick/2.png",
-      "Images/mobile-apps/bucketick/3.png",
-      "Images/mobile-apps/bucketick/4.png",
-      "Images/mobile-apps/bucketick/5.png",
-      "Images/mobile-apps/bucketick/6.png",
-      "Images/mobile-apps/bucketick/7.png",
+      "Images/projects/mobile/bucketick/1.webp",
+      "Images/projects/mobile/bucketick/2.webp",
+      "Images/projects/mobile/bucketick/3.webp",
+      "Images/projects/mobile/bucketick/4.webp",
+      "Images/projects/mobile/bucketick/5.webp",
+      "Images/projects/mobile/bucketick/6.webp",
+      "Images/projects/mobile/bucketick/7.webp",
     ],
   },
   // no screens to show yet — these render the Android placeholder instead
@@ -726,7 +726,7 @@ document.querySelectorAll(".threecard").forEach((main) => {
 /* ── Skill definitions ───────────────────────────────────────── */
 /*
    icon: URL to SVG/PNG. Using devicons CDN for accuracy.
-         Replace any icon with your own local path e.g. "Images/techstack/Smolicons/react-svgrepo-com.svg"
+         Replace any icon with your own local path e.g. "Images/skills/stack/icons/react-svgrepo-com.svg"
    color: one of sk-c-blue | sk-c-green | sk-c-amber | sk-c-red |
           sk-c-orange | sk-c-purple | sk-c-teal | sk-c-pink |
           sk-c-indigo | sk-c-cyan
@@ -936,7 +936,7 @@ const SKILLS = {
  
     {
       name: 'ChatGPT',
-       icon:"Images/toolset/chatgpt logo.webp",
+       icon:"Images/skills/tools/chatgpt-logo.webp",
       color: 'sk-c-green',
     },
     {
@@ -962,7 +962,7 @@ const SKILLS = {
     },
     {
       name: 'Draw.io',
-       icon:"Images/toolset/draw-io.webp",
+       icon:"Images/skills/tools/draw-io.webp",
       color: 'sk-c-amber',
     },
   ],
@@ -1144,4 +1144,32 @@ function runEntrance() {
   } else {
     setTimeout(arm, 800);
   }
+})();
+
+// ─── CV demo clips: pause while off screen ────────────────────────────
+// These were 93 MB of GIF, which the browser downloaded in full whether or not
+// anyone scrolled that far. As video they are 6 MB, and preload="none" holds
+// even that back until the card is near the viewport — the poster frame stands
+// in meanwhile.
+//
+// autoplay stays on the elements so the baseline matches the old GIFs: they
+// play on their own, with no script involved. This observer is only an
+// optimisation on top — it stops six clips decoding behind the rest of the
+// page — so if it never runs, nothing breaks.
+(function () {
+  const vids = document.querySelectorAll(".cv-video");
+  if (!vids.length || !("IntersectionObserver" in window)) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        const v = e.target;
+        // play() rejects when autoplay is blocked; the poster stays up
+        if (e.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      });
+    },
+    { rootMargin: "200px" },
+  );
+  vids.forEach((v) => io.observe(v));
 })();

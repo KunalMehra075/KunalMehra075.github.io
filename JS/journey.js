@@ -21,7 +21,7 @@
     {
       year: '2022', role: 'Full Stack Trainee', co: 'Masai School, Bengaluru',
       date: 'Aug 2022 - May 2023', badge: 'Education',
-      logo: 'Images/companies/masai_logo.jpeg',
+      logo: 'Images/journey/masai-logo.webp',
       points: [
         '1200+ hours of hands on coding and 800+ DSA problems solved.',
         'Mastered the MERN stack, TypeScript and UI frameworks.',
@@ -30,7 +30,7 @@
     {
       year: '2023', role: 'Engineering Fellow', co: 'Pesto Tech, Remote',
       date: 'Jul 2023 - Sept 2024', badge: 'Fellowship',
-      logo: 'Images/companies/PestoTech_Logo.jpeg',
+      logo: 'Images/journey/pestotech-logo.webp',
       points: [
         '10 month intensive MERN stack program.',
         'Led a team of 5 building a Hospital Management System.',
@@ -39,7 +39,7 @@
     {
       year: '2023', role: 'Software Developer', co: '86 Agency, Gurugram',
       date: 'Jun 2023 - Jun 2025', badge: 'Work',
-      logo: 'Images/companies/86agency_logo.jpeg',
+      logo: 'Images/journey/86agency-logo.webp',
       points: [
         'Built 20+ web apps with React, Node.js, Python and Django.',
         'Shipped Apple and Google Passes for 3 international clients.',
@@ -49,13 +49,13 @@
     {
       year: '2025', role: 'B.C.A, Computer Applications', co: 'KL University, A.P.',
       date: '2025 - 2028', badge: 'Education',
-      logo: 'Images/companies/kluniversity_logo.jpeg',
+      logo: 'Images/journey/kluniversity-logo.webp',
       points: ['Bachelor of Computer Applications, alongside full time work.'],
     },
     {
       year: '2025', role: 'Software Engineer', co: 'OneIOT, Hyderabad',
       date: 'Jun 2025 - Jan 2026', badge: 'Work',
-      logo: 'Images/companies/oneiot_logo.jpeg',
+      logo: 'Images/journey/oneiot-logo.webp',
       points: [
         'Led full stack feature work across web and mobile portals.',
         'Delivered 4 to 5 proof of concepts in 1 to 2 days each.',
@@ -65,7 +65,7 @@
     {
       year: '2026', role: 'Software Engineer', co: 'The Factual Holding Co.',
       date: 'Jan 2026 - Present', badge: 'Current', now: true,
-      logo: 'Images/companies/factual_logo.png',
+      logo: 'Images/journey/factual-logo.webp',
       points: [
         'Built telehealth infrastructure connecting a doctor network to B2B brands.',
         'Owned a project end to end on Redis, Kafka and Postgres.',
