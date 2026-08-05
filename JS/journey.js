@@ -229,17 +229,20 @@
     });
   }
 
-  function onScroll() {
+  /* Where the fill should be for the current scroll position. endAt is where
+     the block's BOTTOM sits when the fill completes. At 0.22vh the wrap was
+     almost scrolled past before the last stop lit up, so it landed with the
+     next section already on screen. Finishing while the bottom is still near
+     the fold reveals everything earlier. */
+  function measure() {
     const host = isNarrow ? mob : wrap;
     const r = host.getBoundingClientRect();
     const vh = window.innerHeight;
-    /* endAt is where the block's BOTTOM sits when the fill completes. At
-       0.22vh the wrap was almost scrolled past before the last stop lit up,
-       so it landed with the next section already on screen. Finishing while
-       the bottom is still near the fold reveals everything earlier. */
     const startAt = vh * 0.74, endAt = vh * 0.90;
-    const p = clamp((startAt - r.top) / (r.height + startAt - endAt), 0, 1);
+    return clamp((startAt - r.top) / (r.height + startAt - endAt), 0, 1);
+  }
 
+  function paint(p) {
     if (isNarrow) {
       if (mFill) mFill.style.height = (p * 100).toFixed(2) + '%';
       mItems.forEach((it) => it.root.classList.toggle('is-in', p >= it.t - 0.02));
@@ -261,16 +264,57 @@
     items.forEach((it) => it.root.classList.toggle('is-in', p >= it.t - 0.015));
   }
 
-  let ticking = false;
+  /* ── trailing ease ────────────────────────────────────────────────────
+     The fill used to be a direct function of scroll position, which made it
+     feel welded to the scrollbar — you were dragging the line rather than
+     watching it draw. Now scroll only moves a target, and the drawn value
+     chases it, closing a fixed fraction of the remaining gap each frame.
+     That gives the line a little weight: it lags a touch on the way in and
+     keeps moving for a moment after the wheel stops, which is what reads as
+     smooth. The cards key off the eased value too, so they still light up in
+     step with the head rather than running ahead of it.
+
+     EASE is per 60fps frame and normalised by the real delta below, so a
+     120Hz display eases at the same rate rather than twice as fast. */
+  const EASE = 0.11;     // ~90ms to halve the gap, ~400ms to settle
+  const SNAP = 0.0004;   // close enough to stop the loop and idle
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let target = 0, shown = 0, raf = 0, last = 0;
+
+  function frame(now) {
+    const dt = last ? Math.min(now - last, 64) : 16.67;
+    last = now;
+    const k = 1 - Math.pow(1 - EASE, dt / 16.67);
+    shown += (target - shown) * k;
+    if (Math.abs(target - shown) < SNAP) {
+      shown = target;
+      paint(shown);
+      raf = 0; last = 0;
+      return;
+    }
+    paint(shown);
+    raf = requestAnimationFrame(frame);
+  }
+
   function tick() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => { onScroll(); ticking = false; });
+    target = measure();
+    if (reduced) { shown = target; paint(shown); return; }
+    if (!raf) { last = 0; raf = requestAnimationFrame(frame); }
+  }
+
+  /* Layout changes are not scroll: jump straight to where the line belongs
+     rather than animating from wherever it happened to be. */
+  function settle() {
+    target = measure();
+    shown = target;
+    if (raf) { cancelAnimationFrame(raf); raf = 0; last = 0; }
+    paint(shown);
   }
 
   window.addEventListener('scroll', tick, { passive: true });
   window.addEventListener('resize', () => {
-    layout(); onScroll();
+    layout(); settle();
     if (window.__jrSizeGeo) window.__jrSizeGeo();
   });
 
@@ -369,13 +413,13 @@
   })();
 
   layout();
-  onScroll();
+  settle();
   if (window.__jrSizeGeo) window.__jrSizeGeo();
   // card heights move once the webfont swaps in, and every position is
   // measured from them
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
-      layout(); onScroll();
+      layout(); settle();
       if (window.__jrSizeGeo) window.__jrSizeGeo();
     });
   }
