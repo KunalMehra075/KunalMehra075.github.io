@@ -32,7 +32,7 @@
       date: 'Jul 2023 - Sept 2024', badge: 'Fellowship',
       logo: 'Images/journey/pestotech-logo.webp',
       points: [
-        '10 month intensive MERN stack program.',
+        '10 month intensive MEAN stack program.',
         'Led a team of 5 building a Hospital Management System.',
       ],
     },
